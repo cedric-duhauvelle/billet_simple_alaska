@@ -1,33 +1,33 @@
+<?php
 
-<?php 
 $title = "Inscription";
 include("header.php");
 ?>
 <div id="form_inscription_content">
-    <form method="POST" action="../controller/index.php" id="form_inscription">
+    <form method="POST" action="profil" id="form_inscription">
         <div>
             <p>
-                <label for="pseudo_inscription">
+                <label for="pseudoInscription">
                     Pseudo :
-                    <input type="text" name="pseudo_inscription" id="inscription_pseudo" placeholder="Pseudo" />
+                    <input type="text" name="profil" id="inscription_pseudo" placeholder="Pseudo" />
                 </label>
             </p>
             <p>
-                <label for="email_inscription">
+                <label for="emailInscription">
                     Email :
-                    <input type="email" name="email_inscription" id="inscription_email" placeholder="Email" />
+                    <input type="email" name="emailInscription" id="inscription_email" placeholder="Email" />
                 </label>
             </p>
             <p>
-                <label for="password_inscription">
+                <label for="passwordInscription">
                     Mot de passe :
-                    <input type="password" name="password_inscription" id="inscription_password" minlength="5" placeholder="Mot de passe" />
+                    <input type="password" name="passwordInscription" id="inscription_password" minlength="5" placeholder="Mot de passe" />
                 </label>
             </p>
             <p>
-                <label for="confirmation_password_inscription">
+                <label for="confirmationPasswordInscription">
                     Retapez mot de passe :
-                    <input type="password" name="confirmation_password_inscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" />
+                    <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" />
                 </label>
             </p>
             

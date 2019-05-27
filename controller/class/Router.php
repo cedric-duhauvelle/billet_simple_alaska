@@ -38,9 +38,12 @@ class Router{
                 require_once '../template/commentaires.php';
                 break;
 
-
             case 'contact':
                 require_once '../template/contact.php';
+                break;
+
+            case 'profil':
+                require_once '../template/profil.php';
                 break;
 
             default:
