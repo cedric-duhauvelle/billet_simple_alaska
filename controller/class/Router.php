@@ -1,6 +1,5 @@
 <?php
 
-
 class Router{
     
     private $url;
@@ -15,44 +14,39 @@ class Router{
         }
     }
     public function road($page){
-        try {
-            switch ($page) {
-
-                case 'connexion':
-                    require_once '../template/connexion.php';
-                    break;
-
-                case 'inscription':
-                    require_once '../template/inscription.php';
-                    break;
-
-                case 'biographie':
-                    require_once '../template/biographie.php';
-                    break;
-
-                case 'chapitres':
-                    require_once '../template/chapitres.php';
-                    break;
-
-
-                case 'commentaires':
-                    require_once '../template/commentaires.php';
-                    break;
-
-
-                case 'contact':
-                    require_once '../template/contact.php';
-                    break;
-
-                default:
-                    require_once '../template/accueil.php';
-                    break;
-            } 
-        }
-        catch(Exception $e) {
-            echo $e->getMessage('La page n\'a pas été trouvé'), "\n";
-        }
         
+        switch ($page) {
+
+            case 'connexion':
+                require_once '../template/connexion.php';
+                break;
+
+            case 'inscription':
+                require_once '../template/inscription.php';
+                break;
+
+            case 'biographie':
+                require_once '../template/biographie.php';
+                break;
+
+            case 'chapitres':
+                require_once '../template/chapitres.php';
+                break;
+
+
+            case 'commentaires':
+                require_once '../template/commentaires.php';
+                break;
+
+
+            case 'contact':
+                require_once '../template/contact.php';
+                break;
+
+            default:
+                require_once '../template/accueil.php';
+                break;
+        } 
     }
 
 }
