@@ -1,0 +1,174 @@
+/* ---------------------------------------- */
+/* ==       SOMMAIRE           */
+/*---------------------------------------- */
+/*L-   -1- Colors code*/
+/*L-   -2- body*/
+/*L-   -3- Header*/
+/*L-   -4- accueil.php*/
+/*L-   -5- connexion.php*/
+/* ---------------------------------------- */
+/* ==       COLORS CODE          */
+/*---------------------------------------- */
+/*
+  
+*/
+/* ---------------------------------------- */
+/* ==       BODY        */
+/*---------------------------------------- */
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #800;
+}
+/* ---------------------------------------- */
+/* ==      HEADER       */
+/*---------------------------------------- */
+header{
+    position: relative;
+    height: 500px;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+#titre{
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 75px;
+    z-index: 150;
+}
+#image_header{
+    position: absolute;
+    top: 0px;
+    width: auto;
+    height: 100%;
+    z-index: 50;
+}
+#connexion{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 100;
+}
+#connexion p{
+    color: #f0f0f0;
+}
+.header_connexion{
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 25px;
+}
+#menu{
+    position: absolute;
+    bottom: 15px;
+    right: 20%;
+    left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.nav_items{
+    margin: 1%;
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 25px
+}
+/* ---------------------------------------- */
+/* ==      DIV CONTENT     */
+/*---------------------------------------- */
+#content{
+    height: 950px;
+    width: 100%;
+    background-color: #999;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#content_book{
+    width: 60%;
+    height: 850px;
+    background-color: #1df1d3;
+}
+/* ---------------------------------------- */
+/* ==      FOOTER       */
+/*---------------------------------------- */
+footer{
+    width: auto;
+    height: 150px;
+    background-color: #090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ---------------------------------------- */
+/* ==      CONNEXION.PHP      */
+/*---------------------------------------- */
+#form_connexion_content{
+    width: auto;
+    height: 200px;
+    background-color: #857;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+#form_connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: blue;
+    width: 40%;
+    height: 100%; 
+}
+#form_connexion div{
+    display: flex;
+
+    flex-direction: column;
+    width: 260px;
+}
+#form_connexion p{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+}
+#button_connexion{
+
+}
+/* ---------------------------------------- */
+/* ==      INSCRIPTION.PHP      */
+/*---------------------------------------- */
+#form_inscription_content{
+    width: auto;
+    height: 400px;
+    background-color: #857;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+#form_inscription{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: blue;
+    width: 40%;
+    height: 100%; 
+}
+#form_inscription div{
+    display: flex;
+
+    flex-direction: column;
+    width: 75%;
+    margin-right: 25%;
+}
+#form_inscription p{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+}
