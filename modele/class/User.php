@@ -1,6 +1,6 @@
 <?php
-require 'Data.php';
-require '../modele/private/adressDataBase.php';
+require_once 'DataInsert.php';
+
 
 class User {
 
@@ -8,12 +8,6 @@ class User {
 	private $_pseudo;
 	private $_email;
 	private $_password;
-
-	public function __construct($pseudo, $email, $password, $passwordConfirm) {
-		$this->setPseudo($pseudo);
-		$this->setEmail($email);
-		$this->setPassword($password, $passwordConfirm);
-	}
 
 	public function setPseudo($pseudo) {
         if (is_string($pseudo)) {
@@ -31,14 +25,15 @@ class User {
 
     public function setPassword($password, $passwordConfirm) {
         if ($password == $passwordConfirm) {
-            $this->_password = $password;
+            $this->_password = htmlspecialchars(password_hash($password, PASSWORD_DEFAULT));
             return $this->_password;
         }
     }
 
-    public function addDb() {
-    	$newMembre = new Data($db);
-    	$newMembre->add($this->_pseudo, $this->_email, $this->_password);
+    public function addDb($db) {
+    	$data = new DataInsert($db);
+    	$data->add($this->_pseudo, $this->_email, $this->_password);
     }
+
     
 }

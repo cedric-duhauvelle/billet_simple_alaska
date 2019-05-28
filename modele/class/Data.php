@@ -1,10 +1,11 @@
 <?php
-require 'modele/private/adressDataBase.php';
+
+
 class Data{
 
-    private $_db;
+    protected $_db;
 
-    public function __construct($db) {
+    public function __construct(PDO $db) {
 
         $this->setDb($db);
     }
@@ -12,13 +13,6 @@ class Data{
     public function setDb(PDO $db) {
         $this->_db = $db;
     }
-    public function add($pseudo, $email, $password) {
-        $req = $this->_db->prepare('INSERT INTO membres(pseudo, password, email, date_inscription) VALUES(:pseudo, :password, :email, CURDATE())');
-        $req->execute(array(
-            'pseudo' => $pseudo,
-            'password' => $password,
-            'email' => $email));
 
-    }
-
+    
 }

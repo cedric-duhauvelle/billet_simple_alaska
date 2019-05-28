@@ -4,12 +4,12 @@ $title = "Inscription";
 include("header.php");
 ?>
 <div id="form_inscription_content">
-    <form method="POST" action="profil" id="form_inscription">
+    <form method="POST" action="../controller/inscriptionController.php" id="form_inscription">
         <div>
             <p>
                 <label for="pseudoInscription">
                     Pseudo :
-                    <input type="text" name="profil" id="inscription_pseudo" placeholder="Pseudo" />
+                    <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" />
                 </label>
             </p>
             <p>

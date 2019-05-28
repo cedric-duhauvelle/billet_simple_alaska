@@ -1,18 +1,17 @@
 <?php 
-require '../controller/inscriptionController.php';
 $title = "Profil";
 include("header.php");
 
-$pseudo = $_POST['pseudoInscription'];
-$email = $_POST['emailInscription'];
-$password = $_POST['passwordInscription'];
-$passwordConfirm = $_POST['confirmationPasswordInscription'];
+
 ?>
-<div>
-    <p><?php echo $pseudo; ?></p>
-    <p><?php echo $email; ?></p>
-    <p><?php echo $password; ?></p>
-    <p><?php echo $passwordConfirm; ?></p>
+<div id="content">
+	<div id="content_book">
+		<p><?php echo $_POST['pseudoInscription']; ?></p>
+	    <p><?php echo $_POST['emailInscription']; ?></p>
+	    <p><?php echo $_POST['passwordInscription']; ?></p>
+	    <p><?php echo $_POST['confirmationPasswordInscription']; ?></p>
+	</div>
+    
 </div>
 
 <?php include("footer.php"); ?>
