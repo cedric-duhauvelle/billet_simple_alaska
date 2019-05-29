@@ -1,7 +1,7 @@
 <?php
 
 
-class Data{
+class Data {
 
     protected $_db;
 

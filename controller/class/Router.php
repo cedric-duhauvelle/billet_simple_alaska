@@ -46,6 +46,10 @@ class Router{
                 require_once '../template/profil.php';
                 break;
 
+            case 'inscriptionProfil':
+                require_once '../controller/inscriptionController.php';
+                break;
+
             default:
                 require_once '../template/accueil.php';
                 break;

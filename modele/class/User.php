@@ -32,7 +32,7 @@ class User {
 
     public function addDb($db) {
     	$data = new DataInsert($db);
-    	$data->add($this->_pseudo, $this->_email, $this->_password);
+    	$data->DataCheck($this->_pseudo, $this->_email, $this->_password);
     }
 
     

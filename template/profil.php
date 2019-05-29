@@ -1,15 +1,20 @@
 <?php 
 $title = "Profil";
+require_once '../modele/class/DataRecover.php';
+require_once '../modele/private/adressDataBase.php';
 include("header.php");
-
+$data = new DataRecover($db);
 
 ?>
 <div id="content">
 	<div id="content_book">
-		<p><?php echo $_POST['pseudoInscription']; ?></p>
-	    <p><?php echo $_POST['emailInscription']; ?></p>
-	    <p><?php echo $_POST['passwordInscription']; ?></p>
-	    <p><?php echo $_POST['confirmationPasswordInscription']; ?></p>
+		<p>
+			<?php  
+
+			$data->recoverDataPseudo();
+
+			?>
+		</p>
 	</div>
     
 </div>

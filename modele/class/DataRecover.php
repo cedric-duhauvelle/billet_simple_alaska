@@ -25,7 +25,6 @@ class DataRecover extends Data{
         //recherche dans la base de donnees
         foreach ($responses as $response) {
         	echo $response['name_user'] . '</br>';
-        	echo $response['email_user'] . '</br>';
         	echo $response['id-user'] . '</br>';
         }
     }
