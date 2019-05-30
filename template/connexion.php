@@ -1,11 +1,10 @@
-
 <?php
 
 $title = "Connexion";
 include("header.php"); 
 ?>
 <div id="form_connexion_content">
-    <form action="accueil.php" method="POST" id="form_connexion">
+    <form action="connexionValidation" method="POST" id="form_connexion">
         <div>
             <p>
                 <label for="pseudo">

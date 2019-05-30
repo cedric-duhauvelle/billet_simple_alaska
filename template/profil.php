@@ -9,11 +9,10 @@ $data = new DataRecover($db);
 <div id="content">
 	<div id="content_book">
 		<p>
-			<?php  
-
-			$data->recoverDataPseudo();
-
-			?>
+			<?= $_SESSION['name']; ?>
+		</p>
+		<p>
+			<?= $_SESSION['id_user']; ?>
 		</p>
 	</div>
     

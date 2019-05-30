@@ -50,6 +50,10 @@ class Router{
                 require_once '../controller/inscriptionController.php';
                 break;
 
+            case 'connexionValidation':
+                require_once '../controller/connexionController.php';
+                break;
+
             default:
                 require_once '../template/accueil.php';
                 break;

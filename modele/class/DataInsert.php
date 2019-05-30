@@ -29,7 +29,9 @@ class DataInsert extends Data {
         }
         if ($req == false) {
             $this->add($pseudo, $email, $password);
-        } 
+        } else {
+            $erreur = 'Les informations que vous essayez d\'utilisées sont déjà enregister';
+        }
     }
 
     private function add($pseudo, $email, $password) {

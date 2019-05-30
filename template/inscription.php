@@ -4,7 +4,7 @@ $title = "Inscription";
 include("header.php");
 ?>
 <div id="form_inscription_content">
-    <form method="POST" action="profil" id="form_inscription">
+    <form method="POST" action="inscriptionProfil" id="form_inscription">
         <div>
             <p>
                 <label for="pseudoInscription">

@@ -1,7 +1,6 @@
 <?php
 require_once 'DataInsert.php';
 
-
 class User {
 
 	private $_id;
@@ -35,5 +34,4 @@ class User {
     	$data->DataCheck($this->_pseudo, $this->_email, $this->_password);
     }
 
-    
 }
