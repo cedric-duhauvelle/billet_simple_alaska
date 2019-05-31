@@ -1,5 +1,5 @@
 <?php
-
+require_once '../modele/class/Session.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,18 @@
             <img src="images/image_header.jpg" id="image_header" alt="image header" />
             <nav id="connexion">
                 <p>
-                    <a class="header_connexion" href="connexion">Connexion</a> | <a class="header_connexion" href="inscription">Inscription</a>
+                    <?php 
+                    if (empty($_SESSION)) {
+                    ?>
+                        <a class="header_connexion" href="connexion">Connexion</a> | <a class="header_connexion" href="inscription">Inscription</a>
+                    <?php
+                    }else{
+                    ?>
+                        <a class="header_connexion" href="profil"><?= $_SESSION['name']; ?></a>
+                    <?php
+                    }
+                    ?>
+                    
                 </p>
             </nav>
             <nav id="menu">
