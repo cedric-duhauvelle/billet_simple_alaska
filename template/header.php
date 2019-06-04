@@ -7,17 +7,17 @@ require_once '../modele/class/Session.php';
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-        <title><?php echo $title; ?></title>
+        <title><?= $title; ?></title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
     <body>
         <header>
-            <h1 id="titre">Billet pour l'Alaska</h1>
+            <h1 id="titre">Billet simple pour l'Alaska</h1>
             <img src="images/image_header.jpg" id="image_header" alt="image header" />
             <nav id="connexion">
                 <p>
                     <?php 
-                    if (empty($_SESSION)) {
+                    if (empty($_SESSION['name'])) {
                     ?>
                         <a class="header_connexion" href="connexion">Connexion</a> | <a class="header_connexion" href="inscription">Inscription</a>
                     <?php

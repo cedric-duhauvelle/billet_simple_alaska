@@ -7,9 +7,25 @@ include("header.php");
     <form method="POST" action="inscriptionProfil" id="form_inscription">
         <div>
             <p>
+                <?php 
+                if (array_key_exists('errorName', $_SESSION)){
+                    echo $_SESSION['errorName'] . '</br>';
+                    unset($_SESSION['errorName']);
+                }
+                if (array_key_exists('errorEmail', $_SESSION)){
+                    echo $_SESSION['errorEmail'] . '</br>';
+                    unset($_SESSION['errorEmail']);
+                }
+                if (array_key_exists('errorPassword', $_SESSION)){
+                    echo $_SESSION['errorPassword'] . '</br>';
+                    unset($_SESSION['errorPassword']);
+                }
+                ?> 
+            </p>
+            <p>
                 <label for="pseudoInscription">
                     Pseudo :
-                    <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" required />
+                    <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" required />    
                 </label>
             </p>
             <p>

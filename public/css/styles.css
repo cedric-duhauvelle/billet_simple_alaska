@@ -18,7 +18,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: #800;
+    background-color: #a0cdf9;
 }
 /* ---------------------------------------- */
 /* ==      HEADER       */
@@ -53,11 +53,11 @@ header{
     z-index: 100;
 }
 #connexion p{
-    color: #f0f0f0;
+    color: #000;
 }
 .header_connexion{
     text-decoration: none;
-    color: #f0f0f0;
+    color: #f5f5f5;
     font-size: 25px;
 }
 #menu{
@@ -82,7 +82,7 @@ header{
 #content{
     height: 950px;
     width: 100%;
-    background-color: #999;
+    background-color: #a0cdf9;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -91,7 +91,7 @@ header{
 #content_book{
     width: 60%;
     height: 850px;
-    background-color: #1df1d3;
+    background-color: #a0cdf9;
 }
 /* ---------------------------------------- */
 /* ==      FOOTER       */
@@ -99,18 +99,19 @@ header{
 footer{
     width: auto;
     height: 150px;
-    background-color: #090;
+    background-color: #a0cdf9;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 2px solid #000;
 }
 /* ---------------------------------------- */
 /* ==      CONNEXION.PHP      */
 /*---------------------------------------- */
 #form_connexion_content{
     width: auto;
-    height: 200px;
-    background-color: #857;
+    height: 400px;
+    background-color: #a0cdf9;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -120,13 +121,11 @@ footer{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: blue;
     width: 40%;
     height: 100%; 
 }
 #form_connexion div{
     display: flex;
-
     flex-direction: column;
     width: 260px;
 }
@@ -134,7 +133,6 @@ footer{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: white;
 }
 #button_connexion{
 
@@ -145,7 +143,7 @@ footer{
 #form_inscription_content{
     width: auto;
     height: 400px;
-    background-color: #857;
+    background-color: #a0cdf9;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -155,13 +153,11 @@ footer{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: blue;
     width: 40%;
     height: 100%; 
 }
 #form_inscription div{
     display: flex;
-
     flex-direction: column;
     width: 75%;
     margin-right: 25%;
@@ -170,5 +166,4 @@ footer{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: white;
 }

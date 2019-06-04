@@ -14,9 +14,4 @@ class DataCheckInscription extends Data {
 		echo $this->_db;
 	}
 
-	
-
-	public function CheckNameInscription($pseudo) {
-		if 
-	}
 }

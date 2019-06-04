@@ -10,5 +10,3 @@ $dataCall->dataCheck(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST
 
 
 
-header('Location: ../public/profil');
-exit();

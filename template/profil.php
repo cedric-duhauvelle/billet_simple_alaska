@@ -9,10 +9,18 @@ $data = new DataRecover($db);
 <div id="content">
 	<div id="content_book">
 		<p>
-			<?= $_SESSION['name']; ?>
+			<?php
+			if (array_key_exists('name', $_SESSION)) {
+			 	echo $_SESSION['name']; 
+			}
+			?>
 		</p>
 		<p>
-			<?= $_SESSION['id_user']; ?>
+			<?php
+			if (isset($_SESSION['id_user'])) {
+			 	echo $_SESSION['id_user']; 
+			}
+			?>
 		</p>
 	</div>
     
