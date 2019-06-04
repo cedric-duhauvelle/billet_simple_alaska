@@ -5,4 +5,4 @@ if(isset($_GET['url'])) {
     $url = $_GET['url'];
 }
 $router = new Router();
-$router->road(htmlspecialchars($url));
+$router->recoveredUrl(htmlspecialchars($url));

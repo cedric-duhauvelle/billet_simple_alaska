@@ -1,12 +1,14 @@
 <?php
 class Router{
     
-    private function recoveredUrl($url){
+    public function recoveredUrl($url){
         if(isset($_GET['url'])){
             $url = explode('/', $_GET['url']);
+            $this->route($url);
         }
     }
-    public function road($page){
+
+    private function route($page){
         
         switch ($page) {
             case 'connexion':
