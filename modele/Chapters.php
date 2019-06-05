@@ -38,5 +38,21 @@ class Chapters{
 		$req->execute();
 	}
 
-	 
+	public function searchChapters() {
+		$resp = $this->_db->prepare('SELECT * FROM chapitre');
+
+		$resp->execute();
+
+		$responses = $resp->fetchAll();
+
+		foreach ($responses as $response) {
+			if ($response['id_chapitre']) {
+				echo '<a id="titre_chapitre" href="connexion ' . $response['id_chapitre'] . '">' . $response['titre_chapitre'] . '</a></br>';
+				echo '<p id="content_chapitre">' . $response['content_chapitre'] . '</p>';
+			}
+			
+		}
+
+
+	}
 }
