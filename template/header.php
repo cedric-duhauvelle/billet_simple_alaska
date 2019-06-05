@@ -1,5 +1,5 @@
 <?php
-require_once '../modele/class/Session.php';
+require_once '../modele/Session.php';
 ?>
 
 <!DOCTYPE html>

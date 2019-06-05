@@ -1,8 +1,12 @@
 <?php 
+require_once '../modele/Chapters.php';
 $title = "Chapitres";
-include("header.php"); 
+include("header.php");
 ?>
 <div id="content">
-    <div id="content_book"></div>
+    <div id="content_book">
+    	
+
+    </div>
 </div>
 <?php include("footer.php"); ?>

@@ -28,7 +28,7 @@ class DataRecover extends Data{
 
     public function dataCheck($pseudo, $password) {
 
-        $responseName = false;
+        $responseName = 0;
         $responsePassword = false;
 
         $this->recoverData();
@@ -37,25 +37,32 @@ class DataRecover extends Data{
             
             if ($pseudo === $response['name_user']) {
                 $this->_id = $response['id-user'];
-                $responseName = true;
+                $responseName = 1;
             } 
+            if ('admin' === $response['name_user']) {
+                $responseName = 2;
+            }
             if ($this->_id === $response['id-user']) {
                 $this->_passwordHash = $response['password_user'];
-
             } 
             if (password_verify($password, $this->_passwordHash)) {
                 $responsePassword = true;
                 break;
-            }
+            }    
+        }
+        if ($responseName === 2 AND $responsePassword === true){
+            $sessionStock = new Session();
+            $sessionStock->addSession('name', $pseudo);
+            $sessionStock->addSession('id_user', $this->_id);
+            header('location: ../public/administrateur');
             
-        } 
-        if ($responseName === true AND $responsePassword === true) {
+        } elseif ($responseName === 1 AND $responsePassword === true) {
             $sessionStock = new Session();
             $sessionStock->addSession('name', $pseudo);
             $sessionStock->addSession('id_user', $this->_id);
             header('location: ../public/profil');
 
-        } elseif ($responseName === false) {            
+        } elseif ($responseName === 0) {            
             $session = new Session();
             $session->addSession('errorName', 'Le nom que vous avez tentez d\'utilser n\'est pas validé.');
             header('location: ../public/connexion');
@@ -64,6 +71,8 @@ class DataRecover extends Data{
             $session = new Session();
             $session->addSession('errorPassword', 'Mot de passe incorrect.');
             header('location: ../public/connexion');
-        }  
+        } 
+
+
     }
 }

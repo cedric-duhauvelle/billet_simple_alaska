@@ -1,6 +1,6 @@
 <?php 
 $title = "Profil";
-require_once '../modele/class/DataRecover.php';
+require_once '../modele/DataRecover.php';
 require_once '../modele/private/adressDataBase.php';
 include("header.php");
 $data = new DataRecover($db);

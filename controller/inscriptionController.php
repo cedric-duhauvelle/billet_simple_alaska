@@ -1,7 +1,7 @@
 <?php
 
-include_once '../modele/class/DataRecover.php';
-require_once '../modele/class/User.php';
+include_once '../modele/DataRecover.php';
+require_once '../modele/User.php';
 require_once '../modele/private/adressDataBase.php';
 
 $user = new User();
