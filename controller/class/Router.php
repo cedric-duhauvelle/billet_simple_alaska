@@ -36,12 +36,12 @@ class Router{
                 require_once '../template/profil.php';
                 break;
 
-            case 'administrateur':
-                require_once '../template/administrator.php';
-                break;
-
             case 'inscriptionProfil':
                 require_once '../controller/inscriptionController.php';
+                break;
+
+            case 'administrateur':
+                require_once '../template/administrator.php';
                 break;
 
             case 'adminController':
@@ -51,6 +51,7 @@ class Router{
             case 'connexionValidation':
                 require_once '../controller/connexionController.php';
                 break;
+
 
             default:
                 require_once '../template/accueil.php';

@@ -1,7 +1,7 @@
 <?php
 require '../controller/class/Router.php';
 $url = '';
-if(isset($_GET['url'])) {
+if(array_key_exists('url', $_GET)) {
     $url = $_GET['url'];
 }
 $router = new Router();

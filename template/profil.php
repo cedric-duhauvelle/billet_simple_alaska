@@ -13,6 +13,7 @@ $data = new DataRecover($db);
 			if (array_key_exists('name', $_SESSION)) {
 			 	echo $_SESSION['name']; 
 			}
+			var_dump($_SESSION);
 			?>
 		</p>
 		<p>

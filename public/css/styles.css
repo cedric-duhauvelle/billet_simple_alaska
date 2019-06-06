@@ -216,3 +216,22 @@ textarea {
     margin: 3% 40%;
     border-radius: 20%;
 }
+/* ---------------------------------------- */
+/* ==      CHAPITRES    */
+/*---------------------------------------- */
+#title_Chapters{
+    text-align: center;
+    font-size: 40px;
+}
+.chapitre{
+    border: 2px solid black;
+    border-radius: 5%;
+    padding: 1%;
+    margin-bottom: 2%;
+    background-color: #1ecaba;
+}
+.titre_chapitre{
+    text-decoration: none;
+    font-size: 35px;
+
+}

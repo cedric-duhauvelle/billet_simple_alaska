@@ -6,4 +6,3 @@ var_dump($_POST);
 $chapters = new Chapters($db);
 $chapters->addChapter(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapter']));
 $chapters->addChapterDb();
-$chapters->searchChapters();

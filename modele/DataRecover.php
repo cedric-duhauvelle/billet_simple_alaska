@@ -54,6 +54,7 @@ class DataRecover extends Data{
             $sessionStock = new Session();
             $sessionStock->addSession('name', $pseudo);
             $sessionStock->addSession('id_user', $this->_id);
+            $sessionStock->addSession('admin', 2);
             header('location: ../public/administrateur');
             
         } elseif ($responseName === 1 AND $responsePassword === true) {

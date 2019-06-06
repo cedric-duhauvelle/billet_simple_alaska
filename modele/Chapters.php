@@ -5,6 +5,7 @@ class Chapters{
 	private $_title;
 	private $_chapter;
 	private $_db;
+	private $_responses;
 
 	public function __construct($db) {
 		$this->setDb($db);
@@ -27,30 +28,32 @@ class Chapters{
 		$this->setChapter($chapter);
 	}
 
-	public function changeTitle($text) {
-		return $this->_title = '<h2>' . $text . '</h2>';
-	}
-
 	public function addChapterDb() {
-		$req = $this->_db->prepare('INSERT INTO chapitre(titre_chapitre, content_chapitre, date_chapitre) VALUES (:titre, :chapitre, CURDATE())');
-		$req->bindValue(':titre', $this->_title);
-		$req->bindValue(':chapitre', $this->_chapter);
+		$req = $this->_db->prepare('INSERT INTO chapters(title_chapter, content_chapter, date_chapter) VALUES (:title, :chapter, CURDATE())');
+		$req->bindValue(':title', $this->_title);
+		$req->bindValue(':chapter', $this->_chapter);
 		$req->execute();
 	}
 
-	public function searchChapters() {
-		$resp = $this->_db->prepare('SELECT * FROM chapitre');
+	private function searchData(){
+		$resp = $this->_db->prepare('SELECT * FROM chapters');
 
 		$resp->execute();
 
-		$responses = $resp->fetchAll();
+		$this->_responses = $resp->fetchAll();
 
-		foreach ($responses as $response) {
-			if ($response['id_chapitre']) {
-				echo '<a id="titre_chapitre" href="connexion ' . $response['id_chapitre'] . '">' . $response['titre_chapitre'] . '</a></br>';
-				echo '<p id="content_chapitre">' . $response['content_chapitre'] . '</p>';
-			}
-			
+		return $this->_responses;
+	}
+
+	public function displayChapters() {
+		$this->searchData();
+		foreach ($this->_responses as $response) {
+			if ($response['id_chapter']) {
+				echo '<div class="chapter">';
+				echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2>';
+				echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
+				echo '</div>';
+			}	
 		}
 
 

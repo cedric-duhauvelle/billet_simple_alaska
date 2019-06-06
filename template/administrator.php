@@ -2,6 +2,10 @@
 $title = "Administrateur";
 require_once '../modele/DataRecover.php';
 require_once '../modele/private/adressDataBase.php';
+
+if(!$_SESSION['admin']) {
+	header('location: ../public/acceuil');
+}
 include("header.php");
 ?>
 <div id="content_admin">

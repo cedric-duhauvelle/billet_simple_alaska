@@ -32,9 +32,15 @@ require_once '../modele/Session.php';
             </nav>
             <nav id="menu">
                 <a class="nav_items" href="accueil">Accueil</a>
-                <a class="nav_items" href="biographie">Biographie</a>
                 <a class="nav_items" href="chapitres">Chapitres</a>
                 <a class="nav_items" href="commentaires">Commentaires</a>
                 <a class="nav_items" href="contact">Contact</a>
+                <?php
+                if (array_key_exists('admin', $_SESSION)) {
+                ?>
+                    <a class="nav_items" href="administrateur">Administrateur</a>
+                <?php
+                }
+                ?>
             </nav>
         </header>
