@@ -1,5 +1,4 @@
 <?php
-
 $title = "Inscription";
 include("header.php");
 ?>
@@ -46,11 +45,8 @@ include("header.php");
                     <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" required/>
                 </label>
             </p>
-            
-            
             <input type="submit" id="button_connexion" name="button_connexion" value="Inscription" />
         </div>
     </form>
 </div>
-
 <?php include("footer.php"); ?>

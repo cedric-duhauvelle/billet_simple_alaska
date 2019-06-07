@@ -21,7 +21,6 @@ include("header.php");
 					
 				</textarea>
 			</label>
-
 			<input type="submit" name="buttonSave" value="Enregistrer" id="save_chapitre_admin" />
 		</form>
 	</div>

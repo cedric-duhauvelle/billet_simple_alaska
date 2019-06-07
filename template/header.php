@@ -16,18 +16,17 @@ require_once '../modele/Session.php';
             <img src="images/image_header.jpg" id="image_header" alt="image header" />
             <nav id="connexion">
                 <p>
-                    <?php 
-                    if (empty($_SESSION['name'])) {
-                    ?>
-                        <a class="header_connexion" href="connexion">Connexion</a> | <a class="header_connexion" href="inscription">Inscription</a>
-                    <?php
-                    }else{
-                    ?>
-                        <a class="header_connexion" href="profil"><?= $_SESSION['name']; ?></a>
-                    <?php
-                    }
-                    ?>
-                    
+                <?php 
+                if (empty($_SESSION['name'])) {
+                ?>
+                    <a class="header_connexion" href="connexion">Connexion</a> | <a class="header_connexion" href="inscription">Inscription</a>
+                <?php
+                }else{
+                ?>
+                    <a class="header_connexion" href="profil"><?= $_SESSION['name']; ?></a>
+                <?php
+                }
+                ?>    
                 </p>
             </nav>
             <nav id="menu">

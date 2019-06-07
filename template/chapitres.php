@@ -11,7 +11,6 @@ include("header.php");
     	$chapters = new Chapters($db);
     	$chapters->displayChapters();
     	?>
-
     </div>
 </div>
 <?php include("footer.php"); ?>

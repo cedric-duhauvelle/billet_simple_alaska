@@ -55,7 +55,5 @@ class Chapters{
 				echo '</div>';
 			}	
 		}
-
-
 	}
 }

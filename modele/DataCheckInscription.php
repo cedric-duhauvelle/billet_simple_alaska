@@ -13,5 +13,4 @@ class DataCheckInscription extends Data {
 	public function test() {
 		echo $this->_db;
 	}
-
 }

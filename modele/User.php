@@ -14,12 +14,14 @@ class User {
             return $this->_pseudo;
         }
     }
+    
     public function setEmail($email) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->_email = $email;
             return $this->_email;
         }
     }
+
     public function setPassword($password, $passwordConfirm) {
         if ($password === $passwordConfirm) {
             $this->_password = htmlspecialchars(password_hash($password, PASSWORD_DEFAULT));
@@ -28,8 +30,6 @@ class User {
             $sessionStock = new Session();
             $sessionStock->addSession('errorPassword', 'Les mots de passes ne sont pas identiques.');
             header('location: ../public/inscription');
-
         }
-    }
-    
+    }    
 }
