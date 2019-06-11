@@ -73,7 +73,5 @@ class DataRecover extends Data{
             $session->addSession('errorPassword', 'Mot de passe incorrect.');
             header('location: ../public/connexion');
         } 
-
-
     }
 }
