@@ -1,7 +1,7 @@
 <?php
 require_once 'Data.php';
 require_once 'Session.php';
-class DataRecover extends Data{
+class DataRecover extends Data {
     
     protected $_db;
     private $_responses;
@@ -27,7 +27,6 @@ class DataRecover extends Data{
     }
 
     public function dataCheck($pseudo, $password) {
-
         $responseName = 0;
         $responsePassword = false;
 
@@ -50,24 +49,21 @@ class DataRecover extends Data{
                 break;
             }    
         }
-        if ($responseName === 2 AND $responsePassword === true){
+        if ($responseName === 2 AND $responsePassword === true) {
             $sessionStock = new Session();
             $sessionStock->addSession('name', $pseudo);
             $sessionStock->addSession('id_user', $this->_id);
             $sessionStock->addSession('admin', 2);
-            header('location: ../public/administrateur');
-            
+            header('location: ../public/administrateur');   
         } elseif ($responseName === 1 AND $responsePassword === true) {
             $sessionStock = new Session();
             $sessionStock->addSession('name', $pseudo);
             $sessionStock->addSession('id_user', $this->_id);
             header('location: ../public/profil');
-
         } elseif ($responseName === 0) {            
             $session = new Session();
             $session->addSession('errorName', 'Le nom que vous avez tentez d\'utilser n\'est pas validé.');
             header('location: ../public/connexion');
-
         } elseif ($responsePassword === false) {
             $session = new Session();
             $session->addSession('errorPassword', 'Mot de passe incorrect.');

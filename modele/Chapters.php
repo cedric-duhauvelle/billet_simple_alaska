@@ -1,6 +1,6 @@
 <?php
 
-class Chapters{
+class Chapters {
 
 	private $_title;
 	private $_chapter;
@@ -35,13 +35,10 @@ class Chapters{
 		$req->execute();
 	}
 
-	private function searchData(){
+	private function searchData() {
 		$resp = $this->_db->prepare('SELECT * FROM chapters');
-
 		$resp->execute();
-
 		$this->_responses = $resp->fetchAll();
-
 		return $this->_responses;
 	}
 

@@ -6,6 +6,7 @@ require_once '../modele/private/adressDataBase.php';
 if(!$_SESSION['admin']) {
 	header('location: ../public/acceuil');
 }
+
 include("header.php");
 ?>
 <div id="content_admin">
@@ -23,8 +24,7 @@ include("header.php");
 			</label>
 			<input type="submit" name="buttonSave" value="Enregistrer" id="save_chapitre_admin" />
 		</form>
-	</div>
-    
+	</div>    
 </div>
 
 <?php include("footer.php"); ?>

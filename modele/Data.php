@@ -1,12 +1,10 @@
 <?php
 
-
 class Data {
 
     protected $_db;
 
     public function __construct(PDO $db) {
-
         $this->setDb($db);
     }
     

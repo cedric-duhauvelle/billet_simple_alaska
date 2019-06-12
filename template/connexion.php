@@ -22,7 +22,7 @@ include("header.php");
             </p>
             <p>
                 <?php
-                if (array_key_exists('errorPassword', $_SESSION)){
+                if (array_key_exists('errorPassword', $_SESSION)) {
                     echo $_SESSION['errorPassword'] . '</br>';
                     unset($_SESSION['errorPassword']);
                 }

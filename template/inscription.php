@@ -7,15 +7,15 @@ include("header.php");
         <div>
             <p>
                 <?php 
-                if (array_key_exists('errorName', $_SESSION)){
+                if (array_key_exists('errorName', $_SESSION)) {
                     echo $_SESSION['errorName'] . '</br>';
                     unset($_SESSION['errorName']);
                 }
-                if (array_key_exists('errorEmail', $_SESSION)){
+                if (array_key_exists('errorEmail', $_SESSION)) {
                     echo $_SESSION['errorEmail'] . '</br>';
                     unset($_SESSION['errorEmail']);
                 }
-                if (array_key_exists('errorPassword', $_SESSION)){
+                if (array_key_exists('errorPassword', $_SESSION)) {
                     echo $_SESSION['errorPassword'] . '</br>';
                     unset($_SESSION['errorPassword']);
                 }

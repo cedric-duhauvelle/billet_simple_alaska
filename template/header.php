@@ -1,7 +1,6 @@
 <?php
 require_once '../modele/Session.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
