@@ -1,12 +1,11 @@
 <?php
-require_once 'Data.php';
+require_once 'DataInsert.php';
 
 class User {
     private $_id;
     private $_pseudo;
     private $_email;
     private $_password;
-    private $_db;
 
     public function setPseudo($pseudo) {
         if (is_string($pseudo)) {
@@ -31,5 +30,11 @@ class User {
             $sessionStock->addSession('errorPassword', 'Les mots de passes ne sont pas identiques.');
             header('location: ../public/inscription');
         }
-    }    
+    } 
+
+    public function addDb($db) {
+        $dataInsert = new DataInsert($db);
+        $dataInsert->add($this->_pseudo, $this->_email, $this->_password);
+        header('location: profil');
+    }  
 }
