@@ -3,18 +3,9 @@ require_once 'Data.php';
 require_once 'Session.php';
 class DataRecover extends Data {
     
-    protected $_db;
     private $_responses;
     private $_id;
     private $_passwordHash;
-
-    public function __construct($db) {
-        return $this->_db = $db;
-    }
-
-    public function test() {
-        echo $this->_db;
-    }
 
     private function recoverData() {
         //preparation de la requete
