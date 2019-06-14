@@ -16,6 +16,10 @@ class Router{
                 require_once '../template/inscription.php';
                 break;
 
+            case 'deconnexion':
+                require_once '../controller/deconnexionController.php';
+                break;
+
             case 'biographie':
                 require_once '../template/biographie.php';
                 break;

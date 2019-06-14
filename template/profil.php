@@ -23,6 +23,8 @@ $data = new DataRecover($db);
 			?>
 		</p>
 	</div>
-    
+    <div>
+    	<a class="button_deconnexion" href="deconnexion">Deconnexion</a>
+    </div>
 </div>
 <?php include("footer.php"); ?>
