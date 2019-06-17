@@ -1,2 +1,3 @@
-modele/private
-public/.htaccess
+modele/private 
+
+*.htaccess
