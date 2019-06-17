@@ -10,3 +10,5 @@ $user->setPassword(htmlspecialchars($_POST['passwordInscription']), htmlspecialc
 $user->addDb($db);
 
 var_dump($user);
+
+
