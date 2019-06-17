@@ -9,4 +9,4 @@ $user->setEmail(htmlspecialchars($_POST['emailInscription']));
 $user->setPassword(htmlspecialchars($_POST['passwordInscription']), htmlspecialchars($_POST['confirmationPasswordInscription']));
 $user->addDb($db);
 
-var_dump($user);
+var_dump($user);    
