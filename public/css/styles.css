@@ -124,18 +124,27 @@ footer{
     width: 40%;
     height: 100%; 
 }
-#form_connexion div{
+#connexion_content{
     display: flex;
     flex-direction: column;
-    width: 260px;
-}
-#form_connexion p{
-    display: flex;
-    justify-content: flex-end;
+    width: 80%;
+    height: auto;
+    justify-content: center;
     align-items: center;
+    border: 2px solid #000;
+    border-radius: 20%;
+}
+#connexion_content p{
+    text-align: center;    
 }
 #button_connexion{
-
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 2%;
+}
+#lien_inscription_connexion{
+    margin-bottom: 5%;
 }
 /* ---------------------------------------- */
 /* ==      INSCRIPTION.PHP      */
@@ -156,16 +165,26 @@ footer{
     width: 40%;
     height: 100%; 
 }
-#form_inscription div{
+#inscription_content{
     display: flex;
     flex-direction: column;
-    width: 75%;
-    margin-right: 25%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 20%;
 }
 #form_inscription p{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    text-align: center;
+}
+#button_inscription{
+    margin-bottom: 5%;
+}
+/* ---------------------------------------- */
+/* ==      ERROR_MESSAGE    */
+/*---------------------------------------- */
+.error_message{
+    color: #f30800;
 }
 /* ---------------------------------------- */
 /* ==      ADMINISTRATOR    */

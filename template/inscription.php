@@ -4,7 +4,7 @@ include("header.php");
 ?>
 <div id="form_inscription_content">
     <form method="POST" action="inscriptionProfil" id="form_inscription">
-        <div>
+        <div id="inscription_content">
             <p>
                 <?php 
                 if (array_key_exists('errorName', $_SESSION)) {
@@ -23,29 +23,29 @@ include("header.php");
             </p>
             <p>
                 <label for="pseudoInscription">
-                    Pseudo :
+                    Pseudo : </br>
                     <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" required />    
                 </label>
             </p>
             <p>
                 <label for="emailInscription">
-                    Email :
+                    Email : </br>
                     <input type="email" name="emailInscription" id="inscription_email" placeholder="Email" required />
                 </label>
             </p>
             <p>
                 <label for="passwordInscription">
-                    Mot de passe :
+                    Mot de passe : </br>
                     <input type="password" name="passwordInscription" id="inscription_password" minlength="5" placeholder="Mot de passe" required />
                 </label>
             </p>
             <p>
                 <label for="confirmationPasswordInscription">
-                    Retapez mot de passe :
+                    Retapez mot de passe : </br>
                     <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" required/>
                 </label>
             </p>
-            <input type="submit" id="button_connexion" name="button_connexion" value="Inscription" />
+            <input type="submit" id="button_inscription" name="button_inscription" value="Inscription" />
         </div>
     </form>
 </div>
