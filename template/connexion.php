@@ -13,7 +13,6 @@ include("header.php");
             <?php
                 echo $_SESSION['errorName'] . '</br>';
                 unset($_SESSION['errorName']);
-
             ?>
             </p>
             <?php
@@ -45,7 +44,7 @@ include("header.php");
                 </label>
             </p>
             
-            <input type="submit" id="button_connexion" placeholder="Connexion" />
+            <input type="submit" id="button_connexion" value="Connexion" />
 
             <a href="inscription" id="lien_inscription_connexion">Inscrivez-vous</a>
         </div>
