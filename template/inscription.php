@@ -5,7 +5,7 @@ include("header.php");
 <div id="form_inscription_content">
     <form method="POST" action="inscriptionProfil" id="form_inscription">
         <div id="inscription_content">
-            <p>
+            <p class="error_message">
                 <?php 
                 if (array_key_exists('errorName', $_SESSION)) {
                     echo $_SESSION['errorName'] . '</br>';

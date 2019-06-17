@@ -53,4 +53,18 @@ class Chapters {
 			}	
 		}
 	}
+
+	public function displayChaptersLast() {
+		$resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id_chapter DESC LIMIT 0,3');
+		$resp->execute();
+		$responses = $resp->fetchAll();
+		foreach ($responses as $response) {
+			if ($response['id_chapter']) {
+				echo '<div class="chapter">';
+				echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2>';
+				echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
+				echo '</div>';
+			}	
+		}
+	}
 }

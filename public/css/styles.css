@@ -26,7 +26,7 @@ body{
 header{
     position: relative;
     height: 500px;
-    width: 100%;
+    width: auto;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -80,18 +80,28 @@ header{
 /* ==      DIV CONTENT     */
 /*---------------------------------------- */
 #content{
-    height: 950px;
     width: 100%;
     background-color: #a0cdf9;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 #content_book{
+    margin-left: 20%;
+    margin-right: 20%;
     width: 60%;
-    height: 850px;
     background-color: #a0cdf9;
+}
+.title_section{
+    text-align: center;
+    font-size: 40px;
+    width: 40%;
+    border: thick double #000;
+    border-radius: 20%;
+    padding: 2%;
+    background-color: #3983cc;
 }
 /* ---------------------------------------- */
 /* ==      FOOTER       */
@@ -103,8 +113,12 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 2px solid #000;
+    border-top: thick double #000;
 }
+/* ---------------------------------------- */
+/* ==      ACCUEIL.PHP      */
+/*---------------------------------------- */
+
 /* ---------------------------------------- */
 /* ==      CONNEXION.PHP      */
 /*---------------------------------------- */
@@ -131,11 +145,15 @@ footer{
     height: auto;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000;
+    border: thick double #000;
     border-radius: 20%;
+    background-color: #3983cc;
 }
 #connexion_content p{
     text-align: center;    
+}
+#connexion_content input{
+    border: 1.5px solid #000;
 }
 #button_connexion{
     width: 40%;
@@ -169,16 +187,20 @@ footer{
     height: 100%; 
 }
 #inscription_content{
+    background-color: #3983cc;
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000;
+    border: thick double #000;
     border-radius: 20%;
 }
 #form_inscription p{
     text-align: center;
+}
+#form_inscription input{
+    border: 1.5px solid  #000;
 }
 #button_inscription{
     width: 40%;
@@ -207,7 +229,7 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000;
+    border: thick double #000;
     border-radius: 5%;
     background-color: #1ecaba;
 }
@@ -222,14 +244,14 @@ textarea {
   resize: none;
 }
 #chapitre_titre{
-    border: 1px solid #000;
+    border: thick double #000;
     text-align: center;
     width: 75vw;
     margin-left: 2%;
     margin-right: 2%;
 }
 #chapitre_content{
-    border: 1px solid #000;
+    border: thick double #000;
     height: 300px;
     width: 75vw;
     margin-left: 2%;
@@ -247,19 +269,16 @@ textarea {
 /* ---------------------------------------- */
 /* ==      CHAPITRES    */
 /*---------------------------------------- */
-#title_Chapters{
-    text-align: center;
-    font-size: 40px;
-}
-.chapitre{
-    border: 2px solid black;
+.chapter{
+    width: 100%;
+    border: thick double #000;
     border-radius: 5%;
     padding: 1%;
     margin-bottom: 2%;
-    background-color: #1ecaba;
+    background-color: #3983cc;
+    color: #c8d6f3;
 }
-.titre_chapitre{
-    text-decoration: none;
-    font-size: 35px;
-
+.title_chapter{
+    font-size: 30px;
+    color: #000;
 }
