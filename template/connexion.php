@@ -31,7 +31,6 @@ include("header.php");
             <?php
                 echo $_SESSION['errorPassword'] . '</br>';
                 unset($_SESSION['errorPassword']);
-
             ?>
             </p>
             <?php

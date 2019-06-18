@@ -45,20 +45,20 @@ class DataRecover extends Data {
             $sessionStock->addSession('name', $pseudo);
             $sessionStock->addSession('id_user', $this->_id);
             $sessionStock->addSession('admin', 2);
-            header('location: ../public/administrateur');   
+            header('location: administrateur');   
         } elseif ($responseName === 1 AND $responsePassword === true) {
             $sessionStock = new Session();
             $sessionStock->addSession('name', $pseudo);
             $sessionStock->addSession('id_user', $this->_id);
-            header('location: ../public/profil');
+            header('location: profil');
         } elseif ($responseName === 0) {            
             $session = new Session();
             $session->addSession('errorName', 'Le nom que vous avez tentez d\'utilser n\'est pas validé.');
-            header('location: ../public/connexion');
+            header('location: connexion');
         } elseif ($responsePassword === false) {
             $session = new Session();
             $session->addSession('errorPassword', 'Mot de passe incorrect.');
-            header('location: ../public/connexion');
+            header('location: connexion');
         } 
     }
 }
