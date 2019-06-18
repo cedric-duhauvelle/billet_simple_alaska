@@ -61,7 +61,7 @@ class Chapters {
 		foreach ($responses as $response) {
 			if ($response['id_chapter']) {
 				echo '<div class="chapter">';
-				echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2>';
+				echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2><p>' . $response['date_chapter'] . '</p>';
 				echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
 				echo '</div>';
 			}	
