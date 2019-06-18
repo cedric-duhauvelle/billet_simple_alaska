@@ -156,6 +156,7 @@ footer{
     border: 1.5px solid #000;
 }
 #button_connexion{
+    border: 1.5px solid #000;
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
@@ -203,6 +204,7 @@ footer{
     border: 1.5px solid  #000;
 }
 #button_inscription{
+    border: 1.5px solid #000;
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
@@ -258,7 +260,7 @@ textarea {
     margin-right: 2%;
 }
 #save_chapitre_admin{
-    border-color: white;
+    border: 1.5px solid #000;
     font-size: 15px;
     background-color: #3eda2b;
     padding: 1%;
@@ -270,15 +272,70 @@ textarea {
 /* ==      CHAPITRES    */
 /*---------------------------------------- */
 .chapter{
-    width: 100%;
+    width: 97%;
     border: thick double #000;
     border-radius: 5%;
     padding: 1%;
     margin-bottom: 2%;
     background-color: #3983cc;
     color: #c8d6f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .title_chapter{
     font-size: 30px;
     color: #000;
+}
+/* ---------------------------------------- */
+/* ==      COMMENTAIRE    */
+/*---------------------------------------- */
+#content_form_comment{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form_comment{
+    border: thick double #000;
+    border-radius: 5%;
+    background-color: #3983cc;
+    width: 50%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#comment_content{
+    width: 400px;
+    height: 100px;
+    margin-bottom: 5%;
+    border: 1.5px solid #000;
+    resize: none;
+}
+#save_comment{
+    border: 1.5px solid #000;
+    font-size: 15px;
+    background-color: #3eda2b;
+    padding: 1%;
+    width: 20%;
+    margin: 3% 40%;
+    border-radius: 20%;
+    margin-bottom: 4%;
+}
+.display_comment_content{
+   width: 97%;
+    border: thick double #000;
+    border-radius: 5%;
+    padding: 1%;
+    margin-bottom: 2%;
+    background-color: #3983cc;
+    color: #c8d6f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
 }
