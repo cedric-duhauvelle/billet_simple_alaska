@@ -2,7 +2,15 @@
 class Router{
     
     public function recoveredUrl($url){
-            $this->route($url);
+            $this->checkUrl($url);
+    }
+    public function checkUrl($url) {
+        
+        $urlTest = strpos($url, '_');
+        if ($urlTest) {
+            $url = 'chapter';
+        }
+        $this->route($url);
     }
 
     private function route($page){
@@ -26,6 +34,14 @@ class Router{
 
             case 'chapitres':
                 require_once '../template/chapitres.php';
+                break;
+
+            case 'chapitre':
+                require_once '../template/chapitre.php';
+                break;
+
+            case 'chapter':
+                require_once '../template/viewChapitre.php';
                 break;
 
             case 'commentaires':

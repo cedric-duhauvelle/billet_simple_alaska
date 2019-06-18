@@ -6,3 +6,4 @@ if(array_key_exists('url', $_GET)) {
 }
 $router = new Router();
 $router->recoveredUrl(htmlspecialchars($url));
+$router->checkUrl($url);

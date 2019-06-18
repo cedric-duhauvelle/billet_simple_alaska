@@ -48,7 +48,8 @@ class Chapters {
 			if ($response['id_chapter']) {
 				echo '<div class="chapter">';
 				echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2>';
-				echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
+				echo '<p class="content_chapter">' . substr($response['content_chapter'], 0, 400) . '</p>';
+				echo '<a class="after_chapter" href="chapter_' . $response['id_chapter'] . '">Lire la suite...</a>';
 				echo '</div>';
 			}	
 		}
@@ -62,9 +63,23 @@ class Chapters {
 			if ($response['id_chapter']) {
 				echo '<div class="chapter">';
 				echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2><p>' . $response['date_chapter'] . '</p>';
-				echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
+				echo '<p class="content_chapter">' . substr($response['content_chapter'], 0, 200) . '</p>';
+				echo '<a class="after_chapter" href="chapter_' . $response['id_chapter'] . '">Lire la suite...</a>';
 				echo '</div>';
 			}	
+		}
+	}
+
+	public function recoverChapter($title) {
+		$ContentArray = explode('_', $title['url']);
+		$this->searchData();
+		foreach ($this->_responses as $response) {
+			if ($ContentArray[1] === $response['id_chapter']) {	
+				echo '<div class="chapter">';
+				echo '<h2>' . $response['title_chapter'] . '</a></h2><p>' . $response['date_chapter'] . '</p>';
+				echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
+				echo '</div>'; 
+			}
 		}
 	}
 }

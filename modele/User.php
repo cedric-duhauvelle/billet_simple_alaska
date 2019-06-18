@@ -28,7 +28,7 @@ class User {
         } else {
             $sessionStock = new Session();
             $sessionStock->addSession('errorPassword', 'Les mots de passes ne sont pas identiques.');
-            header('location: ../public/inscription');
+            header('location: inscription');
         }
     } 
 
