@@ -9,3 +9,5 @@ $chapter = explode('/',$_SERVER['HTTP_REFERER']);
 var_dump($chapter[8]);
 $comment = new Comment($db);
 $comment->add($_SESSION['name'], htmlspecialchars($_POST['comment']), $chapter[8]);
+
+header('location: ' . $chapter[8]);

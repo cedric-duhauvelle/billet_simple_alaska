@@ -339,3 +339,6 @@ textarea {
     align-items: center;
     flex-direction: column; 
 }
+.reports_comment{
+    display: none;
+}

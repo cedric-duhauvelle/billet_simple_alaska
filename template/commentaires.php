@@ -7,9 +7,9 @@ include("header.php");
 ?>
 <div id="content">
     <div id="content_book">
-    	<?php
-    	$comment->display();
-    	?>
+        <?php
+        $comment->display();
+        ?>
     </div>
 </div>
 <?php include("footer.php"); ?>
