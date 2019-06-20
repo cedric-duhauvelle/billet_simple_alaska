@@ -1,8 +1,8 @@
 <?php
 require_once 'DataInsert.php';
-require_once 'DataRecover.php';
+require_once 'Data.php';
 
-class User extends DataRecover {
+class User extends Data {
     private $_id;
     private $_pseudo;
     private $_email;
@@ -22,6 +22,7 @@ class User extends DataRecover {
         }
     }
 
+    //Verifie les mots de passes
     public function setPassword($password, $passwordConfirm) {
         if ($password === $passwordConfirm) {
             $this->_password = htmlspecialchars(password_hash($password, PASSWORD_DEFAULT));
@@ -33,14 +34,16 @@ class User extends DataRecover {
         }
     } 
 
-    public function addDb($db) {
-        $dataInsert = new DataInsert($db);
+    //Ajoute les informations dans la base de donnees
+    public function addDb() {
+        $dataInsert = new DataInsert($this->_db);
         $dataInsert->add($this->_pseudo, $this->_email, $this->_password);
         header('location: profil');
     }
 
+    //Affiche les informations utilsateur
     public function displayUser($id) {
-        $this->recoverData();
+        $this->callDisplay('user');
         foreach ($this->_responses as $response) {
             if ($id === $response['id-user']) {
                 echo '<div class="profil_user_content">';

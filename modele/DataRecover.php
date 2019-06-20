@@ -1,26 +1,18 @@
 <?php
 require_once 'Data.php';
 require_once 'Session.php';
+
 class DataRecover extends Data {
     
     private $_id;
     private $_passwordHash;
 
-    public function recoverData() {
-        //preparation de la requete
-        $res = $this->_db->prepare('SELECT * FROM user');
-        //execution de la requete
-        $res->execute();
-        //recuperation des donnees
-        $this->_responses = $res->fetchAll();
-        return $this->_responses;
-    }
-
+    //Verifie les informations de utilsateur avant ajout a la base donnees
     public function dataCheck($pseudo, $password) {
         $responseName = 0;
         $responsePassword = false;
 
-        $this->recoverData();
+        $this->callDisplay('user');
 
         foreach ($this->_responses as $response) {
             

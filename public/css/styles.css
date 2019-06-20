@@ -2,15 +2,27 @@
 /* ==       SOMMAIRE           */
 /*---------------------------------------- */
 /*L-   -1- Colors code*/
-/*L-   -2- body*/
+/*L-   -2- Body*/
 /*L-   -3- Header*/
-/*L-   -4- accueil.php*/
-/*L-   -5- connexion.php*/
+/*L-   -4- Div content*/
+/*L-   -5- Footer*/
+/*L-   -6- Connexion*/
+/*L-   -7- Inscription*/
+/*L-   -8- Error_message*/
+/*L-   -9- Administrator*/
+/*L-   -10- Chapitres*/
+/*L-   -11- Commentaires*/
+/*L-   -12- Profil*/
 /* ---------------------------------------- */
 /* ==       COLORS CODE          */
 /*---------------------------------------- */
-/*
-  
+/*  
+-body: #a0cdf9
+-title_section/content-page: #3983cc
+-buttton connexion/inscription: #08ad2c
+-error_message: #f30800
+-button_delete_admin: #9c1200
+-color_text_chapter: #c8d6f3
 */
 /* ---------------------------------------- */
 /* ==       BODY        */
@@ -57,8 +69,8 @@ header{
 }
 .header_connexion{
     text-decoration: none;
-    color: #f5f5f5;
     font-size: 25px;
+    color: #000;
 }
 #menu{
     position: absolute;
@@ -81,7 +93,6 @@ header{
 /*---------------------------------------- */
 #content{
     width: 100%;
-    background-color: #a0cdf9;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -92,7 +103,6 @@ header{
     margin-left: 20%;
     margin-right: 20%;
     width: 60%;
-    background-color: #a0cdf9;
 }
 .title_section{
     text-align: center;
@@ -108,24 +118,20 @@ header{
 /*---------------------------------------- */
 footer{
     width: auto;
+    bottom: 0px;
     height: 150px;
-    background-color: #a0cdf9;
+    background-color: #3983cc;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: thick double #000;
 }
 /* ---------------------------------------- */
-/* ==      ACCUEIL.PHP      */
-/*---------------------------------------- */
-
-/* ---------------------------------------- */
 /* ==      CONNEXION.PHP      */
 /*---------------------------------------- */
 #form_connexion_content{
     width: auto;
     height: 400px;
-    background-color: #a0cdf9;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -296,7 +302,6 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 .content_admin_reports_comment_button form{
     display: flex;
@@ -304,7 +309,6 @@ textarea {
     height: 33%;
     margin-top: 11%;
     margin-bottom: 11%;
-
 }
 .Content_admin_reports_comment_input_delete{
     display: none;
@@ -340,7 +344,7 @@ textarea {
     color: #000;
 }
 /* ---------------------------------------- */
-/* ==      COMMENTAIRE    */
+/* ==      COMMENTAIRES    */
 /*---------------------------------------- */
 #content_form_comment{
     width: 100%;

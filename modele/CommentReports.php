@@ -7,6 +7,7 @@ class CommentReports extends Data {
     private $_id;
     private $_user;
 
+    //Recherche dans la base de donnees et retourne $id $user
     public function checkReports() {
         $this->callDisplay('comment_reporting');
         
@@ -21,6 +22,7 @@ class CommentReports extends Data {
 
     }
 
+    //Affiche les signalements et les boutons de gestion
     public function displayReports($id, $user) {
         $this->callDisplay('commentaires');
         foreach ($this->_responses as $comment) {
@@ -59,6 +61,7 @@ class CommentReports extends Data {
         }
     }
 
+    //Ajoute un report a la base de donnes
     public function reportComment($id, $name) {        
         $req = $this->_db->prepare('INSERT INTO comment_reporting(id_comment_reports, user_comment_reports, date_reporting) VALUES (:id, :user, CURDATE())');
         $req->bindValue(':id', $id);
@@ -66,6 +69,7 @@ class CommentReports extends Data {
         $req->execute();   
     }
 
+    //Efface un signalement
     public function deleteReports($id) {
         $del = $this->_db->prepare('DELETE FROM comment_reporting WHERE id_comment_reports=:id LIMIT 1');
         $del->bindValue(':id', $id);

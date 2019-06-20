@@ -28,6 +28,7 @@ class Chapters {
         $this->setChapter($chapter);
     }
 
+    //Ajoute chapitre dans la base de donnees
     public function addChapterDb() {
         $req = $this->_db->prepare('INSERT INTO chapters(title_chapter, content_chapter, date_chapter) VALUES (:title, :chapter, CURDATE())');
         $req->bindValue(':title', $this->_title);
@@ -35,6 +36,7 @@ class Chapters {
         $req->execute();
     }
 
+    //Connexion a la base de donnees pour affichage
     private function searchData() {
         $resp = $this->_db->prepare('SELECT * FROM chapters');
         $resp->execute();
@@ -42,6 +44,7 @@ class Chapters {
         return $this->_responses;
     }
 
+    //Affiche les chapitres
     public function displayChapters() {
         $this->searchData();
         foreach ($this->_responses as $response) {
@@ -55,6 +58,7 @@ class Chapters {
         }
     }
 
+    //Affiche les 3 derniers chapitres paru
     public function displayChaptersLast() {
         $resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id_chapter DESC LIMIT 0,3');
         $resp->execute();
@@ -62,6 +66,7 @@ class Chapters {
         foreach ($responses as $response) {
             if ($response['id_chapter']) {
                 echo '<div class="chapter">';
+                
                 $date = explode(' ', $response['date_chapter']);
                 $dateFr = explode('-', $date[0]);
                 echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . '</p>';
@@ -72,6 +77,7 @@ class Chapters {
         }
     }
 
+    //Recherche et affiche un chapitre
     public function recoverChapter($title) {
         $ContentArray = explode('_', $title['url']);
         $this->searchData();

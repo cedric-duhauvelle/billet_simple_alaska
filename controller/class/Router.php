@@ -1,9 +1,12 @@
 <?php
 class Router{
     
+    //Recupere url
     public function recoveredUrl($url){
             $this->checkUrl($url);
     }
+
+    //verfie url
     public function checkUrl($url) {
         
         $urlTest = strpos($url, '_');
@@ -13,6 +16,7 @@ class Router{
         $this->route($url);
     }
 
+    //Redirige vers la page souhaitee
     private function route($page){
         
         switch ($page) {
