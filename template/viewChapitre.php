@@ -41,7 +41,7 @@ include("header.php");
     ?>
     <div>
         <p>Pour laisser un commentaire</p>
-        <p><a href="connexion">Connectez-vous</a> // <a href="inscription">Inscrivez-vous</a></p>
+        <p><a href="connexion">Connectez-vous</a> ou <a href="inscription">Inscrivez-vous</a></p>
     </div>
     <?php
     }

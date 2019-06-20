@@ -36,10 +36,6 @@ class Router{
                 require_once '../template/chapitres.php';
                 break;
 
-            case 'chapitre':
-                require_once '../template/chapitre.php';
-                break;
-
             case 'chapter':
                 require_once '../template/viewChapitre.php';
                 break;
@@ -74,6 +70,10 @@ class Router{
 
             case 'commentReportsController':
                 require_once '../controller/commentReportsController.php';
+                break;
+
+            case 'deleteController':
+                require_once '../controller/deleteController.php';
                 break;
 
             case 'connexionValidation':

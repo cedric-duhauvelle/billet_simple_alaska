@@ -3,7 +3,6 @@ require_once 'Data.php';
 require_once 'Session.php';
 class DataRecover extends Data {
     
-    private $_responses;
     private $_id;
     private $_passwordHash;
 

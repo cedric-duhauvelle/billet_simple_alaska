@@ -233,7 +233,7 @@ footer{
     align-items: center;
     border: thick double #000;
     border-radius: 5%;
-    background-color: #1ecaba;
+    background-color: #3983cc;
 }
 .chapitre_admin{
     width: 100%;
@@ -266,7 +266,58 @@ textarea {
     padding: 1%;
     width: 20%;
     margin: 3% 40%;
+    border-radius: 5%;
+}
+#content_admin_comment{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    width: 80%;
+}
+.content_admin_reports_comment{
+    border: thick double #000;
+    border-radius: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    background-color: #3983cc;
+}
+.content_admin_reports_details{
+    width: 68%;
+    padding: 2%;
+}
+.content_admin_reports_comment_details{
+    border: 1.5px solid #000;
+    background-color: #f7f7f7;
+    padding: 1%;
+    margin-right: 2%;
+}
+.content_admin_reports_comment_button{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.content_admin_reports_comment_button form{
+    display: flex;
+    justify-content: center;
+    height: 33%;
+    margin-top: 11%;
+    margin-bottom: 11%;
+
+}
+.Content_admin_reports_comment_input_delete{
+    display: none;
+}
+.button_delete_comment, .button_delete_reports{
+    color: #f7f7f7;
+    margin-right: 25%;
+    margin-left: 25%;
+    width: 50%;
+    background-color: #9c120d;
+    border: 1.5px solid #000;
     border-radius: 20%;
+    padding: 5px; 
 }
 /* ---------------------------------------- */
 /* ==      CHAPITRES    */

@@ -5,4 +5,4 @@ session_start();
 $_SESSION = array();
 session_destroy();
 
-header('location: header');
+header('location: accueil');

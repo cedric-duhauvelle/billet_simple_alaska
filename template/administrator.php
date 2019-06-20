@@ -1,6 +1,7 @@
 <?php 
 $title = "Administrateur";
 require_once '../modele/DataRecover.php';
+require_once '../modele/CommentReports.php';
 require_once '../modele/private/adressDataBase.php';
 
 if(!$_SESSION['admin']) {
@@ -9,7 +10,7 @@ if(!$_SESSION['admin']) {
 
 include("header.php");
 ?>
-<div id="content_admin">
+<div id="content_admin_chapter">
     <div id="content_form_admin">
         <form action="adminController" method="POST">
             <label class="chapitre_admin" for="title">
@@ -25,6 +26,12 @@ include("header.php");
             <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapitre_admin" />
         </form>
     </div>    
+</div>
+<div id="content_admin_comment">
+    <?php
+    $reportComment = new CommentReports($db);
+    $reportComment->checkReports();
+    ?>
 </div>
 
 <?php include("footer.php"); ?>

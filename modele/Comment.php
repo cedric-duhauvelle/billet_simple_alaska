@@ -4,13 +4,7 @@ require_once 'Data.php';
 
 class Comment extends Data{
 
-    public function displayFormComment() {
-        echo '<form class="content_form_comment" method="POST" action="commentController">';
-        echo '<imput type="text" name="comment" class="content_comment" placeholder="Commentaires..." />';
-        echo '<imput type="submit" name="saveComment" class="save_comment" />';
-        echo '</form>';
-    }
-
+    //Ajoute commentaire a la base de donnes
     public function add($name, $comment, $chapter) {
         $req = $this->_db->prepare('INSERT INTO commentaires(user_commentaire, content_commentaire, chapitre_commentaire, date_commentaire) VALUES (:user, :commentaire, :chapitre, CURDATE())');
         $req->bindValue(':user', $name);
@@ -19,21 +13,18 @@ class Comment extends Data{
         $req->execute();
     }
 
+    //Affiche les commentaires
     public function display() {
-        $resp = $this->_db->prepare('SELECT * FROM commentaires');
-        $resp->execute();
-        $responses = $resp->fetchAll();
+        $this->callDisplay('commentaires');
 
-        foreach ($responses as $response) {
+        foreach ($this->_responses as $response) {
             if ($response) {
 
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['date_commentaire'] . '</p>';
                 echo '<p>Par ' . $response['user_commentaire'] . '</p>';
                 echo '<p>' . $response['content_commentaire'] . '</p>';
-                if (empty($_SESSION['name'])) {
-                    echo '<p><a href="connexion">Connectez-vous</a> // <a href="inscription">Inscrivez-vous</a></p>';
-                } else{
+                if (!empty($_SESSION['name'])) {
                     echo '<form action="commentReportsController" method="post">';
                     echo '<label for="name">';
                     echo '<input type="text" name="id" class="reports_comment" value="' . $response['id_commentaire'] . '" />';
@@ -46,31 +37,33 @@ class Comment extends Data{
         }
     }
 
+    //Affiche les commentaires associés au chapitre 
     public function displayCommentChapter() {
-        $respComment = $this->_db->prepare('SELECT * FROM commentaires');
-        $respComment->execute();
-        $responsesComment = $respComment->fetchAll();
+        $this->callDisplay('commentaires');
 
-        foreach ($responsesComment as $responseComment) {
-            if ($responseComment['chapitre_commentaire'] === $_GET['url']) {
+        foreach ($this->_responses as $response) {
+            if ($response['chapitre_commentaire'] === $_GET['url']) {
                 echo '<div class="display_comment_content">';
-                echo '<p>Publié le ' . $responseComment['date_commentaire'] . '</p>';
-                echo '<p>Par ' . $responseComment['user_commentaire'] . '</p>';
-                echo '<p>' . $responseComment['content_commentaire'] . '</p>';
-                echo '<form action="commentReportsController" method="post">';
-                echo '<label for="name">';
-                echo '<input type="text" name="id" class="reports_comment" value="' . $responseComment['id_commentaire'] . '" />';
-                echo '</label>';
-                echo '<input type="submit" class="button_report_comment" value="Signalez" />';
-                echo '</form>';
+                echo '<p>Publié le ' . $response['date_commentaire'] . '</p>';
+                echo '<p>Par ' . $response['user_commentaire'] . '</p>';
+                echo '<p>' . $response['content_commentaire'] . '</p>';
+                if (!empty($_SESSION['name'])) {
+                    echo '<form action="commentReportsController" method="post">';
+                    echo '<label for="name">';
+                    echo '<input type="text" name="id" class="reports_comment" value="' . $response['id_commentaire'] . '" />';
+                    echo '</label>';
+                    echo '<input type="submit" class="button_report_comment" value="Signalez" />';
+                    echo '</form>';
+                }
                 echo '</div>';
             }
         }
     }
 
-    public function reportComment($id) {        
-        $req = $this->_db->prepare('INSERT INTO comment_reporting(id_comment_reports, date_reporting) VALUES (:id, CURDATE())');
-        $req->bindValue(':id', $id);
-        $req->execute();   
+    //Efface un commentaire
+    public function deleteComment($id) {
+        $del = $this->_db->prepare('DELETE FROM commentaires WHERE id_commentaire=:id LIMIT 1');
+        $del->bindValue(':id', $id);
+        $delSucces = $del->execute();
     }
 }
