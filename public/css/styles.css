@@ -13,6 +13,7 @@
 /*L-   -10- Chapitres*/
 /*L-   -11- Commentaires*/
 /*L-   -12- Profil*/
+/*L-   -13- Contact*/
 /* ---------------------------------------- */
 /* ==       COLORS CODE          */
 /*---------------------------------------- */
@@ -75,12 +76,11 @@ header{
 #menu{
     position: absolute;
     bottom: 15px;
-    right: 20%;
-    left: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
+    min-width: 640px;
 }
 .nav_items{
     margin: 1%;
@@ -105,13 +105,17 @@ header{
     width: 60%;
 }
 .title_section{
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
     text-align: center;
     font-size: 40px;
-    width: 40%;
     border: thick double #000;
     border-radius: 20%;
-    padding: 2%;
+    padding: 4%;
     background-color: #3983cc;
+    font-size: 40px;
+    color: #000;
 }
 /* ---------------------------------------- */
 /* ==      FOOTER       */
@@ -127,7 +131,7 @@ footer{
     border-top: thick double #000;
 }
 /* ---------------------------------------- */
-/* ==      CONNEXION.PHP      */
+/* ==      CONNEXION      */
 /*---------------------------------------- */
 #form_connexion_content{
     width: auto;
@@ -175,7 +179,7 @@ footer{
     margin-bottom: 5%;
 }
 /* ---------------------------------------- */
-/* ==      INSCRIPTION.PHP      */
+/* ==      INSCRIPTION      */
 /*---------------------------------------- */
 #form_inscription_content{
     width: auto;
@@ -339,10 +343,6 @@ textarea {
     align-items: center;
     flex-direction: column;
 }
-.title_chapter{
-    font-size: 30px;
-    color: #000;
-}
 /* ---------------------------------------- */
 /* ==      COMMENTAIRES    */
 /*---------------------------------------- */
@@ -416,5 +416,27 @@ textarea {
     flex-direction: column; 
 }
 .user_name{
+    font-size: 25px;
+}
+/* ---------------------------------------- */
+/* ==      PROFIL       */
+/*---------------------------------------- */
+#content_contact{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: thick double #000;
+    border-radius: 5%;
+    padding: 1%;
+    margin-bottom: 2%;
+    background-color: #3983cc;
+    color: #c8d6f3;
+    text-align: center;
+}
+#contact_name{
+    font-size: 30px;
+}
+#contact_email{
     font-size: 25px;
 }
