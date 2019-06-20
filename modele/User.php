@@ -1,7 +1,8 @@
 <?php
 require_once 'DataInsert.php';
+require_once 'DataRecover.php';
 
-class User {
+class User extends DataRecover {
     private $_id;
     private $_pseudo;
     private $_email;
@@ -36,5 +37,20 @@ class User {
         $dataInsert = new DataInsert($db);
         $dataInsert->add($this->_pseudo, $this->_email, $this->_password);
         header('location: profil');
-    }  
+    }
+
+    public function displayUser($id) {
+        $this->recoverData();
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id-user']) {
+                echo '<div class="profil_user_content">';
+                echo '<p class="user_name">' . ucwords($response['name_user']) . '</p>';
+                echo '<p>' . $response['email_user'] . '</p>';
+                $date = explode(' ', $response['date_inscription']);
+                $dateFr = explode('-', $date[0]);
+                echo '<p>Inscrit depuis le ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . '</p>';
+                echo '</div>';
+            }
+        }
+    }
 }

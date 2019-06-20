@@ -6,7 +6,7 @@ class DataRecover extends Data {
     private $_id;
     private $_passwordHash;
 
-    private function recoverData() {
+    public function recoverData() {
         //preparation de la requete
         $res = $this->_db->prepare('SELECT * FROM user');
         //execution de la requete

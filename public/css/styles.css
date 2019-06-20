@@ -378,7 +378,8 @@ textarea {
     margin-bottom: 4%;
 }
 .display_comment_content{
-   width: 97%;
+    width: 97%;
+    height: auto;
     border: thick double #000;
     border-radius: 5%;
     padding: 1%;
@@ -392,4 +393,24 @@ textarea {
 }
 .reports_comment{
     display: none;
+}
+/* ---------------------------------------- */
+/* ==      PROFIL   */
+/*---------------------------------------- */
+.profil_user_content{
+    width: 97%;
+    height: auto;
+    border: thick double #000;
+    border-radius: 5%;
+    padding: 1%;
+    margin-bottom: 2%;
+    background-color: #3983cc;
+    color: #c8d6f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+.user_name{
+    font-size: 25px;
 }

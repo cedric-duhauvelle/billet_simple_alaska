@@ -22,7 +22,7 @@ require_once '../modele/Session.php';
                 <?php
                 }else{
                 ?>
-                    <a class="header_connexion" href="profil"><?= $_SESSION['name']; ?></a>
+                    <a class="header_connexion" href="profil"><?= ucwords($_SESSION['name']); ?></a>
                 <?php
                 }
                 ?>    
