@@ -1,7 +1,6 @@
 <?php
 require_once 'Data.php';
 
-
 class CommentReports extends Data {
 
     private $_id;
@@ -19,7 +18,6 @@ class CommentReports extends Data {
                $this->displayReports($this->_id, $this->_user);
             }
         }
-
     }
 
     //Affiche les signalements et les boutons de gestion

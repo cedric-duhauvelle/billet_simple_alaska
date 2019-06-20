@@ -16,10 +16,8 @@ class Comment extends Data{
     //Affiche les commentaires
     public function display() {
         $this->callDisplay('commentaires');
-
         foreach ($this->_responses as $response) {
             if ($response) {
-
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['date_commentaire'] . '</p>';
                 echo '<p>Par ' . $response['user_commentaire'] . '</p>';
@@ -40,7 +38,6 @@ class Comment extends Data{
     //Affiche les commentaires associés au chapitre 
     public function displayCommentChapter() {
         $this->callDisplay('commentaires');
-
         foreach ($this->_responses as $response) {
             if ($response['chapitre_commentaire'] === $_GET['url']) {
                 echo '<div class="display_comment_content">';

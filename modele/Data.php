@@ -1,5 +1,4 @@
 <?php
-
 class Data {
 
     protected $_db;

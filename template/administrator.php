@@ -33,5 +33,4 @@ include("header.php");
     $reportComment->checkReports();
     ?>
 </div>
-
 <?php include("footer.php"); ?>

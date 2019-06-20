@@ -66,7 +66,6 @@ class Chapters {
         foreach ($responses as $response) {
             if ($response['id_chapter']) {
                 echo '<div class="chapter">';
-                
                 $date = explode(' ', $response['date_chapter']);
                 $dateFr = explode('-', $date[0]);
                 echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . '</p>';
