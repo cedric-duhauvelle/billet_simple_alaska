@@ -364,7 +364,7 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-#comment_content{
+#comment_content_print{
     width: 400px;
     height: 100px;
     margin-bottom: 5%;
@@ -395,8 +395,27 @@ textarea {
     align-items: center;
     flex-direction: column; 
 }
+.display_comment_details{
+    width: 80%;
+    border: 1.5px solid #000;
+    background-color: #f7f7f7;
+    padding: 2%;
+    margin-right: 2%;
+    color: #000;
+}
+#comment_content{
+    width: 50%;
+}
 .reports_comment{
     display: none;
+}
+.button_report_comment{
+    color: #f7f7f7;
+    width: 100%;
+    background-color: #9c120d;
+    border: 1.5px solid #000;
+    border-radius: 20%;
+    padding: 5px; 
 }
 /* ---------------------------------------- */
 /* ==      PROFIL   */
@@ -419,7 +438,7 @@ textarea {
     font-size: 25px;
 }
 /* ---------------------------------------- */
-/* ==      PROFIL       */
+/* ==      Contact       */
 /*---------------------------------------- */
 #content_contact{
     width: 60%;

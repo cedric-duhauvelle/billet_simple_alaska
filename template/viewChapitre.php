@@ -16,7 +16,7 @@ include("header.php");
         $chapter->recoverChapter($_GET);
         ?>
     </div>
-    <div>
+    <div id="comment_content">
         <?php
         $comment->displayCommentChapter();
         ?>
@@ -28,7 +28,7 @@ include("header.php");
         <form action="commentController" method="POST" id="form_comment">
             <label class="comment_content" for="comment" placeholder="Commentaires...">
                 <p>Laisser un commentaire</p>
-                <textarea id="comment_content" name="comment">
+                <textarea id="comment_content_print" name="comment">
                     
                 </textarea>
             </label>

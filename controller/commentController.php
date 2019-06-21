@@ -5,7 +5,6 @@ require_once '../modele/private/adressDataBase.php';
 
 //Recupere la page precedente
 $chapter = explode('/',$_SERVER['HTTP_REFERER']);
-var_dump($chapter[8]);
 
 //Ajout commentaire dans la base de données
 $comment = new Comment($db);

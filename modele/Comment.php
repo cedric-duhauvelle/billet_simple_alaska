@@ -21,7 +21,7 @@ class Comment extends Data{
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['date_commentaire'] . '</p>';
                 echo '<p>Par ' . $response['user_commentaire'] . '</p>';
-                echo '<p>' . $response['content_commentaire'] . '</p>';
+                echo '<p class="display_comment_details">' . $response['content_commentaire'] . '</p>';
                 if (!empty($_SESSION['name'])) {
                     echo '<form action="commentReportsController" method="post">';
                     echo '<label for="name">';
@@ -43,7 +43,7 @@ class Comment extends Data{
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['date_commentaire'] . '</p>';
                 echo '<p>Par ' . $response['user_commentaire'] . '</p>';
-                echo '<p>' . $response['content_commentaire'] . '</p>';
+                echo '<p class="display_comment_details">' . $response['content_commentaire'] . '</p>';
                 if (!empty($_SESSION['name'])) {
                     echo '<form action="commentReportsController" method="post">';
                     echo '<label for="name">';
