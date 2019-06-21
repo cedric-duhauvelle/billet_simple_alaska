@@ -43,8 +43,10 @@ class Comment extends Data{
         $name = new User($this->_db);
         foreach ($this->_responses as $response) {
             if ($response['chapter'] === $_GET['url']) {
+                $date = explode(' ', $response['published']);
+                $dateFr = explode('-', $date[0]);
                 echo '<div class="display_comment_content">';
-                echo '<p>Publié le ' . $response['published'] . '</p>';
+                echo '<p>Publié le ' .  $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']  . '</p>';
                 echo '<p>Par ' . $name->diplayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';
                 if (!empty($_SESSION['name'])) {

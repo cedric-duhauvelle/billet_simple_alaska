@@ -25,9 +25,11 @@ class CommentReports extends Data {
         $name = new User($this->_db);
         foreach ($this->_responses as $comment) {
             if ($comment['id'] == $id) {
+                $date = explode(' ', $comment['published']);
+                $dateFr = explode('-', $date[0]);
                 echo '<div class="content_admin_reports_comment">';
                 echo '<div class="content_admin_reports_details">';
-                echo '<p>Signalé le: ' . $comment['published'] . '.</p>';
+                echo '<p>Signalé le: ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '.</p>';
                 echo '<p>Ecrit par : ' . $name->diplayName($comment['user']) . ' // Signalé par : ' . $name->diplayName($user) . '.</p>';
                 echo '<p>Sur le ' . $comment['chapter'] . '</p>';
                 echo '<p class="content_admin_reports_comment_details">' . $comment['content'] . '</p>';
