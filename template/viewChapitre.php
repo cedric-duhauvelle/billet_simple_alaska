@@ -26,12 +26,8 @@ include("header.php");
     ?>
     <div id="content_form_comment">
         <form action="commentController" method="POST" id="form_comment">
-            <label class="comment_content" for="comment" placeholder="Commentaires...">
-                <p>Laisser un commentaire</p>
-                <textarea id="comment_content_print" name="comment">
-                    
-                </textarea>
-            </label>
+            <label class="comment_content" for="comment">Laisser un commentaire</label>
+            <textarea id="comment_content_print" name="comment" placeholder="Commentaires..."></textarea>
             <input type="submit" name="buttonSave" value="Envoyez" id="save_comment" />
         </form>
     </div> 

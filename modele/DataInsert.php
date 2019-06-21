@@ -12,7 +12,7 @@ class DataInsert extends Data {
 
     //Ajoute utilisateur a la base de donnees
     public function add($pseudo, $email, $password) {
-        $req = $this->_db->prepare('INSERT INTO user(name_user, email_user, password_user, date_inscription) VALUES (:pseudo, :email, :password, CURDATE())');
+        $req = $this->_db->prepare('INSERT INTO users(name, email, password) VALUES (:pseudo, :email, :password)');
         $req->bindValue(':pseudo', $pseudo);
         $req->bindValue(':email', $email);
         $req->bindValue(':password', $password);

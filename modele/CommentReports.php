@@ -1,4 +1,5 @@
 <?php
+require_once 'User.php';
 require_once 'Data.php';
 
 class CommentReports extends Data {
@@ -8,13 +9,11 @@ class CommentReports extends Data {
 
     //Recherche dans la base de donnees et retourne $id $user
     public function checkReports() {
-        $this->callDisplay('comment_reporting');
-        
+        $this->callDisplay('reporting');
         foreach ($this->_responses as $report) {
-            if ($report['id_comment_reports']) {
-               
-               $this->_id = $report['id_comment_reports'];
-               $this->_user = $report['user_comment_reports'];
+            if ($report['id_comment']) {
+               $this->_id = $report['id_comment'];
+               $this->_user = $report['id_user'];
                $this->displayReports($this->_id, $this->_user);
             }
         }
@@ -22,15 +21,16 @@ class CommentReports extends Data {
 
     //Affiche les signalements et les boutons de gestion
     public function displayReports($id, $user) {
-        $this->callDisplay('commentaires');
+        $this->callDisplay('comments');
+        $name = new User($this->_db);
         foreach ($this->_responses as $comment) {
-            if ($comment['id_commentaire'] == $id) {
+            if ($comment['id'] == $id) {
                 echo '<div class="content_admin_reports_comment">';
                 echo '<div class="content_admin_reports_details">';
-                echo '<p>Signalé le: ' . $comment['date_commentaire'] . '.</p>';
-                echo '<p>Ecrit par : ' . $comment['user_commentaire'] . ' // Signalé par : ' . $user . '.</p>';
-                echo '<p>Sur le ' . $comment['chapitre_commentaire'] . '</p>';
-                echo '<p class="content_admin_reports_comment_details">' . $comment['content_commentaire'] . '</p>';
+                echo '<p>Signalé le: ' . $comment['published'] . '.</p>';
+                echo '<p>Ecrit par : ' . $name->diplayName($comment['user']) . ' // Signalé par : ' . $name->diplayName($user) . '.</p>';
+                echo '<p>Sur le ' . $comment['chapter'] . '</p>';
+                echo '<p class="content_admin_reports_comment_details">' . $comment['content'] . '</p>';
                 echo '</div>';
                 echo '<div class="content_admin_reports_comment_button">';
                 //formulaire pour effacer le signalement
@@ -61,7 +61,7 @@ class CommentReports extends Data {
 
     //Ajoute un report a la base de donnes
     public function reportComment($id, $name) {        
-        $req = $this->_db->prepare('INSERT INTO comment_reporting(id_comment_reports, user_comment_reports, date_reporting) VALUES (:id, :user, CURDATE())');
+        $req = $this->_db->prepare('INSERT INTO reporting(id_comment, id_user) VALUES (:id, :user)');
         $req->bindValue(':id', $id);
         $req->bindValue(':user', $name);
         $req->execute();   
@@ -69,7 +69,7 @@ class CommentReports extends Data {
 
     //Efface un signalement
     public function deleteReports($id) {
-        $del = $this->_db->prepare('DELETE FROM comment_reporting WHERE id_comment_reports=:id LIMIT 1');
+        $del = $this->_db->prepare('DELETE FROM reporting WHERE id_comment=:id LIMIT 1');
         $del->bindValue(':id', $id);
         $delSucces = $del->execute();
     }

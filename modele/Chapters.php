@@ -30,7 +30,7 @@ class Chapters {
 
     //Ajoute chapitre dans la base de donnees
     public function addChapterDb() {
-        $req = $this->_db->prepare('INSERT INTO chapters(title_chapter, content_chapter, date_chapter) VALUES (:title, :chapter, CURDATE())');
+        $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');
         $req->bindValue(':title', $this->_title);
         $req->bindValue(':chapter', $this->_chapter);
         $req->execute();
@@ -48,11 +48,11 @@ class Chapters {
     public function displayChapters() {
         $this->searchData();
         foreach ($this->_responses as $response) {
-            if ($response['id_chapter']) {
+            if ($response['id']) {
                 echo '<div class="chapter">';
-                echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2>';
-                echo '<p class="content_chapter">' . substr($response['content_chapter'], 0, 400) . '</p>';
-                echo '<a class="after_chapter" href="chapter_' . $response['id_chapter'] . '">Lire la suite...</a>';
+                echo '<h2><a class="title_chapter" href="chapter_' . $response['id'] . '">' . $response['title'] . '</a></h2>';
+                echo '<p class="content_chapter">' . substr($response['content'], 0, 400) . '</p>';
+                echo '<a class="after_chapter" href="chapter_' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
             }   
         }
@@ -60,17 +60,17 @@ class Chapters {
 
     //Affiche les 3 derniers chapitres paru
     public function displayChaptersLast() {
-        $resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id_chapter DESC LIMIT 0,3');
+        $resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id DESC LIMIT 0,3');
         $resp->execute();
         $responses = $resp->fetchAll();
         foreach ($responses as $response) {
-            if ($response['id_chapter']) {
+            if ($response['id']) {
                 echo '<div class="chapter">';
-                $date = explode(' ', $response['date_chapter']);
+                $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<h2><a class="title_chapter" href="chapter_' . $response['id_chapter'] . '">' . $response['title_chapter'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . '</p>';
-                echo '<p class="content_chapter">' . substr($response['content_chapter'], 0, 200) . '</p>';
-                echo '<a class="after_chapter" href="chapter_' . $response['id_chapter'] . '">Lire la suite...</a>';
+                echo '<h2><a class="title_chapter" href="chapter_' . $response['id'] . '">' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                echo '<p class="content_chapter">' . substr($response['content'], 0, 200) . '</p>';
+                echo '<a class="after_chapter" href="chapter_' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
             }   
         }
@@ -81,10 +81,12 @@ class Chapters {
         $ContentArray = explode('_', $title['url']);
         $this->searchData();
         foreach ($this->_responses as $response) {
-            if ($ContentArray[1] === $response['id_chapter']) { 
+            if ($ContentArray[1] === $response['id']) { 
                 echo '<div class="chapter">';
-                echo '<h2>' . $response['title_chapter'] . '</a></h2><p>' . $response['date_chapter'] . '</p>';
-                echo '<p class="content_chapter">' . $response['content_chapter'] . '</p>';
+                $date = explode(' ', $response['published']);
+                $dateFr = explode('-', $date[0]);
+                echo '<h2>' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                echo '<p class="content_chapter">' . $response['content'] . '</p>';
                 echo '</div>'; 
             }
         }

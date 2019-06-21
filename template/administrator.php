@@ -13,16 +13,10 @@ include("header.php");
 <div id="content_admin_chapter">
     <div id="content_form_admin">
         <form action="adminController" method="POST">
-            <label class="chapitre_admin" for="title">
-                <p>Titre chapitre</p>
-                <input id="chapitre_titre" type="text" name="title" />
-            </label>
-            <label class="chapitre_admin" for="chapter">
-                <p>Contenu chapitre</p>
-                <textarea id="chapitre_content" name="chapter">
-                    
-                </textarea>
-            </label>
+            <label class="chapitre_admin" for="title">Titre chapitre</label>
+            <input id="chapitre_titre" type="text" name="title" placeholder="Titre" />
+            <label class="chapitre_admin" for="chapter">Contenu chapitre</label>
+            <textarea id="chapitre_content" name="chapter" placeholder="Ecrivez ici ..."></textarea>
             <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapitre_admin" />
         </form>
     </div>    

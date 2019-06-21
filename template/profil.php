@@ -9,7 +9,7 @@ $user = new User($db);
     <div id="content_book">
         <p>
             <?php
-            $user->displayUser($_SESSION['id_user']);
+            $user->displayUser(empty($_SESSION['id_user']), $_SESSION['name']);
             ?>
         </p>
     </div>

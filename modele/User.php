@@ -42,17 +42,27 @@ class User extends Data {
     }
 
     //Affiche les informations utilsateur
-    public function displayUser($id) {
-        $this->callDisplay('user');
+    public function displayUser($id, $name) {
+        $this->callDisplay('users');
         foreach ($this->_responses as $response) {
-            if ($id === $response['id-user']) {
+            if ($id === $response['id'] || $name === $response['name']) {
                 echo '<div class="profil_user_content">';
-                echo '<p class="user_name">' . ucwords($response['name_user']) . '</p>';
-                echo '<p>' . $response['email_user'] . '</p>';
-                $date = explode(' ', $response['date_inscription']);
+                echo '<p class="user_name">' . ucwords($response['name']) . '</p>';
+                echo '<p>' . $response['email'] . '</p>';
+                $date = explode(' ', $response['inscription']);
                 $dateFr = explode('-', $date[0]);
-                echo '<p>Inscrit depuis le ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . '</p>';
+                echo '<p>Inscrit depuis le ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date[1] . '</p>';
                 echo '</div>';
+            }
+        }
+    }
+
+    //Affiche le nom utilisateur
+    public function diplayName($id) {
+        $this->callDisplay('users');
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
+                return $response['name'];
             }
         }
     }

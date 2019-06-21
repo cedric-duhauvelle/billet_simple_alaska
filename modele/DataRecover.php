@@ -12,19 +12,19 @@ class DataRecover extends Data {
         $responseName = 0;
         $responsePassword = false;
 
-        $this->callDisplay('user');
+        $this->callDisplay('users');
 
         foreach ($this->_responses as $response) {
             
-            if ($pseudo === $response['name_user']) {
-                $this->_id = $response['id-user'];
+            if ($pseudo === $response['name']) {
+                $this->_id = $response['id'];
                 $responseName = 1;
             } 
-            if ('admin' === $response['name_user']) {
+            if ('admin' === $response['name']) {
                 $responseName = 2;
             }
-            if ($this->_id === $response['id-user']) {
-                $this->_passwordHash = $response['password_user'];
+            if ($this->_id === $response['id']) {
+                $this->_passwordHash = $response['password'];
             } 
             if (password_verify($password, $this->_passwordHash)) {
                 $responsePassword = true;
@@ -44,7 +44,7 @@ class DataRecover extends Data {
             header('location: profil');
         } elseif ($responseName === 0) {            
             $session = new Session();
-            $session->addSession('errorName', 'Le nom que vous avez tentez d\'utilser n\'est pas validé.');
+            $session->addSession('errorName', 'Le nom que vous avez tentez d\'utilser n\'est pas valide.');
             header('location: connexion');
         } elseif ($responsePassword === false) {
             $session = new Session();
