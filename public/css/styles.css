@@ -14,6 +14,7 @@
 /*L-   -11- Commentaires*/
 /*L-   -12- Profil*/
 /*L-   -13- Contact*/
+/*L-   -14- UpdateProfil*/
 /* ---------------------------------------- */
 /* ==       COLORS CODE          */
 /*---------------------------------------- */
@@ -473,7 +474,7 @@ textarea {
     font-size: 25px;
 }
 /* ---------------------------------------- */
-/* ==      Contact       */
+/* ==      CONTACT       */
 /*---------------------------------------- */
 #content_contact{
     width: 60%;
@@ -493,4 +494,39 @@ textarea {
 }
 #contact_email{
     font-size: 25px;
+}
+/* ---------------------------------------- */
+/* ==      UPDATEPROFIL       */
+/*---------------------------------------- */
+#form_update_content{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form_update{
+    width: 60%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    border: thick double #000;
+    border-radius: 5%;
+    background-color: #3983cc;
+    color: #c8d6f3;
+    padding: 5%;
+    text-align: center;
+}
+.update_profil_input{
+    margin: 2%;
+    border: 1.5px solid #000;
+}
+.button_update_profil{
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    background-color: #08ad2c;
+    border: 1.5px solid #000;
+    border-radius: 20%;
+    padding: 5px;
 }

@@ -88,6 +88,14 @@ class Router{
                 require_once '../controller/connexionController.php';
                 break;
 
+            case 'updateProfilController':
+                require_once '../controller/updateProfilController.php';
+                break;
+
+            case 'updateProfil':
+                require_once '../template/updateProfil.php';
+                break;
+
             default:
                 require_once '../template/accueil.php';
                 break;
