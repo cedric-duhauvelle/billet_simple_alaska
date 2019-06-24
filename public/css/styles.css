@@ -232,11 +232,32 @@ footer{
 /* ---------------------------------------- */
 /* ==      ADMINISTRATOR    */
 /*---------------------------------------- */
+#content_admin{
+    display: flex;
+}
+#content_chapter_admin{
+    padding-top: 2%;
+    margin-left: 5%;
+    width: 15%;
+    display: flex;
+    border: 1px solid black;
+    height: all;
+    flex-direction: column;
+    align-items: center;
+    border: thick double #000;
+    border-radius: 5%;
+    background-color: #3983cc;
+}
+#content_chapter_admin a{
+    color: #f9f9f9;
+    text-decoration: none;
+    font-size: 18px;
+}
 #content_form_admin{
-    margin-right: 10%;
-    margin-left: 10%;
-    margin-bottom: 5%;
-    width: 80%;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 70%;
+    height: all;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -244,6 +265,19 @@ footer{
     border: thick double #000;
     border-radius: 5%;
     background-color: #3983cc;
+}
+#content_form_admin form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+}
+#content_form_admin label{
+    padding: 6px;
+    color: #f9f9f9;
+    font-size: 22px;
 }
 .chapitre_admin{
     width: 100%;
@@ -258,14 +292,14 @@ textarea {
 #chapitre_titre{
     border: thick double #000;
     text-align: center;
-    width: 75vw;
+    width: 75%;
     margin-left: 2%;
     margin-right: 2%;
 }
 #chapitre_content{
     border: thick double #000;
     height: 300px;
-    width: 75vw;
+    width: 75%;
     margin-left: 2%;
     margin-right: 2%;
 }

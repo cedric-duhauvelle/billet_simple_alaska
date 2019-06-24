@@ -1,15 +1,11 @@
 <?php
+require_once 'Session.php';
+require_once 'Data.php';
 
-class Chapters {
+class Chapters extends Data{
 
     private $_title;
     private $_chapter;
-    private $_db;
-    private $_responses;
-
-    public function __construct($db) {
-        $this->setDb($db);
-    }
 
     public function setDb($db) {
         return $this->_db = $db;
@@ -36,17 +32,9 @@ class Chapters {
         $req->execute();
     }
 
-    //Connexion a la base de donnees pour affichage
-    private function searchData() {
-        $resp = $this->_db->prepare('SELECT * FROM chapters');
-        $resp->execute();
-        $this->_responses = $resp->fetchAll();
-        return $this->_responses;
-    }
-
     //Affiche les chapitres
     public function displayChapters() {
-        $this->searchData();
+        $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($response['id']) {
                 echo '<div class="chapter">';
@@ -79,7 +67,7 @@ class Chapters {
     //Recherche et affiche un chapitre
     public function recoverChapter($title) {
         $ContentArray = explode('_', $title['url']);
-        $this->searchData();
+        $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($ContentArray[1] === $response['id']) { 
                 echo '<div class="chapter">';
@@ -90,5 +78,55 @@ class Chapters {
                 echo '</div>'; 
             }
         }
+    }
+
+    //Affiche les liens des chapitres pour les modifier
+    public function linkDisplayChapter() {
+        $this->callDisplay('Chapters');
+        echo '<a href="administrateur">Nouveau chapitre</a>';
+        foreach ($this->_responses as $response) {
+            if ($response['id']) {
+                echo '<p><a href="chapterUpdateController?id=' . $response['id'] . '">Chapitre ' . $response['id'] . '</a></p>';
+            }
+        }
+    }
+
+    public function returnchapter($id) {
+        $this->chapterTitle($id);
+        $this->chapterContent($id);
+        $session = new Session();
+        $session->addSession('id_chapter', $id);
+
+    }
+
+    //Retourne le titre du chapitre
+    public function chapterTitle($id) {
+        $this->callDisplay('Chapters');
+        foreach ($this->_responses as $response) {
+            if ($id == $response['id']) {
+                $title = new Session();
+                $title->addSession('title', $response['title']);
+            }
+        }
+    }
+
+     //Retourne le contenu du chapitre
+    public function chapterContent($id) {
+        $this->callDisplay('Chapters');
+        foreach ($this->_responses as $response) {
+            if ($id == $response['id']) {
+                $content = new Session();
+                $content->addSession('content', $response['content']);
+            }
+        }
+    }
+
+    //Change le chapitre selectionne
+    public function updateChapter($id, $title, $content) {
+        $update = $this->_db->prepare('UPDATE chapters SET title=:title, content=:content WHERE id=:id');
+        $update->bindValue(':title', $title);
+        $update->bindValue(':content', $content);
+        $update->bindValue(':id', $id);
+        $update->execute();
     }
 }

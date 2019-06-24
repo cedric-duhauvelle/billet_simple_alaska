@@ -68,6 +68,10 @@ class Router{
                 require_once '../controller/administratorController.php';
                 break;
 
+            case 'chapterUpdateController':
+                require_once '../controller/chapterUpdateController.php';
+                break;
+
             case 'commentController':
                 require_once '../controller/commentController.php';
                 break;
