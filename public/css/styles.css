@@ -234,6 +234,7 @@ footer{
 /*---------------------------------------- */
 #content_admin{
     display: flex;
+    margin-bottom: 5%;
 }
 #content_chapter_admin{
     padding-top: 2%;

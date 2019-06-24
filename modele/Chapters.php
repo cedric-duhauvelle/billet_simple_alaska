@@ -82,7 +82,7 @@ class Chapters extends Data{
 
     //Affiche les liens des chapitres pour les modifier
     public function linkDisplayChapter() {
-        $this->callDisplay('Chapters');
+        $this->callDisplay('chapters');
         echo '<a href="administrateur">Nouveau chapitre</a>';
         foreach ($this->_responses as $response) {
             if ($response['id']) {
@@ -101,7 +101,7 @@ class Chapters extends Data{
 
     //Retourne le titre du chapitre
     public function chapterTitle($id) {
-        $this->callDisplay('Chapters');
+        $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($id == $response['id']) {
                 $title = new Session();
@@ -112,7 +112,7 @@ class Chapters extends Data{
 
      //Retourne le contenu du chapitre
     public function chapterContent($id) {
-        $this->callDisplay('Chapters');
+        $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($id == $response['id']) {
                 $content = new Session();
