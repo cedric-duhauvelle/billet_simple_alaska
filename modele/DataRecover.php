@@ -6,50 +6,53 @@ class DataRecover extends Data {
     
     private $_id;
     private $_passwordHash;
+    private $_responseName;
+    private $_responsePassword;
 
-    //
-    public function recoverData($pseudo, $password) {
-        $this->nameCheck($pseudo);
+    //Recherche si utilissateur est enregistrer a la base de donnees
+    public function connectUser($pseudo, $password) {
+        $this->namecheck($pseudo);
         $this->passwordCheck($password);
-    }
-
-    //Verifie nom avant ajout a la base donnees
-    public function nameCheck($pseudo) {
-        $responseName = 0;
-        $this->callDisplay('users');
-        foreach ($this->_responses as $response) {
-            if ($pseudo == $response['name']) {
-                $this->_id = $response['id'];
-                $responseName = 1;
-            } elseif ('admin' == $pseudo) {
-                $responseName = 2;
-            }  
-        }
-
-        var_dump($responseName);
-
-        if ($responseName === 0) {
+        if ($this->_responseName === 0) {
             $session = new Session();
             $session->addSession('errorName', 'Nom incorrect');
             header('Location: connexion');
-        } elseif ($responseName === 1) {
+        } elseif ($this->_responseName === 1 && $this->_responsePassword === true) {
             $session = new Session();
             $session->addSession('name', $pseudo);
             $session->addSession('id_user', $this->_id);
             header('Location: profil');
-        } elseif ($responseName === 2) {
+        } elseif ($this->_responseName === 2 && $this->_responsePassword === true) {
             $session = new Session();
             $session->addSession('name', $pseudo);
             $session->addSession('id_user', $this->_id);
             $session->addSession('admin', $responseName);
             header('Location: administrateur');
-        }
+        } elseif (($this->_responseName === 1 || $this->_responseName === 2) && $this->_responsePassword === false) {
+            $session = new Session();
+            $session->addSession('errorPassword', 'Mot de pase incorrect');
+            header('Location: connexion');
+        } 
     }
 
-    //Verifie nom avant ajout a la base donnees
-    public function passwordCheck($password) {
-        $responsePassword = false;
+    //Verifie nom  
+    public function nameCheck($pseudo) {
+        $this->_responseName = 0;
+        $this->callDisplay('users');
+        foreach ($this->_responses as $response) {
+            if ($pseudo == $response['name']) {
+                $this->_id = $response['id'];
+                return $this->_responseName = 1;
+            } elseif ('admin' == $pseudo) {
+                return $this->_responseName = 2;
+            }  
+        }
+        var_dump($this->_responseName);
+    }
 
+    //Verifie mot de passe 
+    public function passwordCheck($password) {
+        
         $this->callDisplay('users');
 
         foreach ($this->_responses as $response) {
@@ -58,14 +61,11 @@ class DataRecover extends Data {
                 $this->_passwordHash = $response['password'];
             } 
             if (password_verify($password, $this->_passwordHash)) {
-                $responsePassword = true;
-                break;
-            }    
+                $this->_responsePassword = true;
+            } else {
+                $this->_responsePassword = false;
+            }
         }
-        if ($responsePassword === false) {
-            $session = new Session();
-            $session->addSession('errorPassword', 'Mot de passe incorrect.');
-            header('location: connexion');
-        } 
+        var_dump($this->_responsePassword);
     }
 }

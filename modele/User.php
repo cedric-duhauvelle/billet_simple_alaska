@@ -1,4 +1,5 @@
 <?php
+require_once 'DataRecover.php';
 require_once 'Session.php';
 require_once 'DataInsert.php';
 require_once 'Data.php';
@@ -8,6 +9,10 @@ class User extends Data {
     private $_pseudo;
     private $_email;
     private $_password;
+    private $_responsePseudo;
+    private $_responseEmail;
+    private $_responsePassword;
+
 
     public function setPseudo($pseudo) {
         if (is_string($pseudo)) {
@@ -24,59 +29,123 @@ class User extends Data {
     }
 
     //Verifie les mots de passes
-    public function setPassword($password, $passwordConfirm) {
-        if ($password === $passwordConfirm) {
+    public function setPassword($password, $passwordCheck) {
+        $this->_responsePassword = true;
+        if ($password === $passwordCheck) {
             $this->_password = htmlspecialchars(password_hash($password, PASSWORD_DEFAULT));
             return $this->_password;
         } else {
-            $sessionStock = new Session();
-            $sessionStock->addSession('errorPassword', 'Les mots de passes ne sont pas identiques.');
-            header('location: inscription');
+            $this->_responsePassword = false;
         }
+        return $this->_responsePassword;
     } 
 
     //Ajoute les informations dans la base de donnees
     public function addDb() {
         $dataInsert = new DataInsert($this->_db);
         $dataInsert->add($this->_pseudo, $this->_email, $this->_password);
-        header('location: profil');
+        $this->searchId($this->_pseudo);
     }
 
-    //Recherche verifie et modifie le nom 
-    public function checkNameUpdate($id, $name) {
-        $responseName = 0;
+    public function addUser($pseudo, $email, $password, $passwordCheck) {
+        $this->checkName($pseudo);
+        $this->checkEmail($email);
+        $this->setPassword($password, $passwordCheck);
+        var_dump($this->_responsePseudo);
+        var_dump($this->_responseEmail);
+        var_dump($this->_responsePassword);
+        if ($this->_responsePseudo === true) {
+            $session = new Session();
+            $session->addSession('errorName', 'Nom déjà utilisé');
+            header('location: inscription');
+        } elseif ($this->_responseEmail === true) {
+            $session = new Session();
+            $session->addSession('errorEmail', 'Email déjà utilisé');
+            header('Location: inscription');
+        } elseif ($this->_responsePassword === false) {
+            $session = new Session();
+            $session->addSession('errorPassword', 'Les mots de passes ne sont pas identiques');
+            header('Location: inscription');
+        } elseif ($this->_responsePseudo ===  false && $this->_responseEmail === false && $this->_responsePassword === true) {
+            $this->setPseudo($pseudo);
+            $this->setEmail($email);
+            $this->setPassword($password, $passwordCheck);
+            $this->addDb();
+            $this->searchId($this->_pseudo);
+            header('Location: profil');
+        }
+    }
+
+    //Recherche id
+    public function searchId($name) {
         $this->callDisplay('users');
         foreach ($this->_responses as $response) {
             if ($name === $response['name']) {
-                $responseName = 1;
-            } 
+                $id = new Session();
+                $id->addSession('id_user', $response['id']);
+            }
         }
-        if ($responseName === 0) {
-            $this->updateName($id, $data);
+    }
+
+    //Verifie et modifie nom 
+    public function checkUpdateName($id, $pseudo) {
+        $this->checkName($pseudo);
+        if ($this->_responsePseudo === false) {
+            $this->updateName($id, $pseudo);
             header('Location: profil');
         } else {
             $session = new Session();
-            $session->addSession('errorName', 'Nom déjà utilisé!!');
+            $session->addSession('errorName', 'Nom déjà utilisé');
             header('Location: updateProfil');
         }
     }
 
-    //Recherche verifie et modifie email
+    //Verifie et modifie email
     public function checkEmailUpdate($id, $email) {
-        $responseEmail = 0;
-        $this->callDisplay('users');
-        foreach ($this->_responses as $response) {
-            if ($email === $response['email']) {
-                $responseEmail = 1;
-            } 
-        }
-        if ($responseEmail === 0) {
+        $this->checkEmail($email);
+        if ($this->_responseEmail === false) {
             $this->updateEmail($id, $email);
             header('Location: profil');
         } else {
             $session = new Session();
-            $session->addSession('errorEmail', 'Email déjà utilisé!!');
+            $session->addSession('errorEmail', 'Email déjà utilisé');
             header('Location: updateProfil');
+        }
+    }
+
+    //Verifie et modifie mot de passe
+    public function checkPasswordUpdate($id, $password, $passwordCheck) {
+        $this->setPassword($password, $passwordCheck);
+        if ($this->_responsePassword === true) {
+            $this->updatePassword($id);
+            header('Location: profil');
+        } else {
+            $session = new Session();
+            $session->addSession('errorPassword', 'Mots de passe différents');
+            header('Location: updateProfil');
+        }
+    }
+
+    //Recherche verifie et modifie le nom 
+    public function checkName($pseudo) {
+        $this->_responsePseudo = false;
+        $this->callDisplay('users');
+        foreach ($this->_responses as $response) {
+            if ($pseudo === $response['name']) {
+                $this->_responsePseudo = true;
+            } 
+        }
+        return $this->_responsePseudo;
+    }
+
+    //Recherche verifie email
+    public function checkEmail($email) {
+        $this->_responseEmail = false;
+        $this->callDisplay('users');
+        foreach ($this->_responses as $response) {
+            if ($email === $response['email']) {
+                return $this->_responseEmail = true;
+            } 
         }
     }
 
@@ -134,8 +203,7 @@ class User extends Data {
     }
 
     //modifie le mot de passe
-    public function updatePassword($id, $password, $passwordCheck) {
-        $this->setPassword($password, $passwordCheck);
+    public function updatePassword($id) {
         $update = $this->_db->prepare('UPDATE users SET password=:password WHERE id=:id');
         $update->bindValue(':password', $this->_password);
         $update->bindValue(':id', $id);

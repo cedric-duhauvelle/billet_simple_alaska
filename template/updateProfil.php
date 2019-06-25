@@ -27,10 +27,16 @@ include("header.php");
             <input type="email" name="updateEmail" class="update_profil_input" />
             <input type="submit" name="buttonUpdateEmail" value="Modifier" class="button_update_profil" />
         </form>
+        <?php
+        if (array_key_exists('errorPassword', $_SESSION)) {
+            echo  '<p class="error_message">' .$_SESSION['errorPassword'] . '</p></br>';
+            unset($_SESSION['errorPassword']);
+        }
+        ?>
         <form method="POST" action="updateProfilController" class="form_update">
             <label for="updateName">Mot de passe : </label>
-            <input type="text" name="updatePassword" class="update_profil_input" />
-            <input type="text" name="updatePasswordCheck" class="update_profil_input" />
+            <input type="password" name="updatePassword" class="update_profil_input" />
+            <input type="password" name="updatePasswordCheck" class="update_profil_input" />
             <input type="submit" name="buttonUpdatePassword" value="Modifier" class="button_update_profil" />
         </form>
         <a href="profil">Retour au profil</a>
