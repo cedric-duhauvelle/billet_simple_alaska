@@ -6,6 +6,7 @@ class CommentReports extends Data {
 
     private $_id;
     private $_user;
+    private $_responseReport;
 
     //Recherche dans la base de donnees et retourne $id $user
     public function checkReports() {
@@ -15,6 +16,15 @@ class CommentReports extends Data {
                $this->_id = $report['id_comment'];
                $this->_user = $report['id_user'];
                $this->displayReports($this->_id, $this->_user);
+            }
+        }
+    }
+
+    public function checkReport($id) {
+        $this->callDisplay('reporting');
+        foreach ($this->_responses as $report) {
+            if($report['id_comment'] === $id) {
+                return '<p>Signalé</p>';
             }
         }
     }
@@ -30,7 +40,7 @@ class CommentReports extends Data {
                 echo '<div class="content_admin_reports_comment">';
                 echo '<div class="content_admin_reports_details">';
                 echo '<p>Signalé le: ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '.</p>';
-                echo '<p>Ecrit par : ' . $name->diplayName($comment['user']) . ' // Signalé par : ' . $name->diplayName($user) . '.</p>';
+                echo '<p>Ecrit par : ' . $name->displayName($comment['user']) . ' // Signalé par : ' . $name->displayName($user) . '.</p>';
                 echo '<p>Sur le ' . $comment['chapter'] . '</p>';
                 echo '<p class="content_admin_reports_comment_details">' . $comment['content'] . '</p>';
                 echo '</div>';

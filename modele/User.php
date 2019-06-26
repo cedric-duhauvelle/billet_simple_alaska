@@ -47,6 +47,7 @@ class User extends Data {
         $this->searchId($this->_pseudo);
     }
 
+    //Verifie les information utilsateur
     public function addUser($pseudo, $email, $password, $passwordCheck) {
         $this->checkName($pseudo);
         $this->checkEmail($email);
@@ -126,7 +127,7 @@ class User extends Data {
         }
     }
 
-    //Recherche verifie et modifie le nom 
+    //Recherche verifie nom 
     public function checkName($pseudo) {
         $this->_responsePseudo = false;
         $this->callDisplay('users');

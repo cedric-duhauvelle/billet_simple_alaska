@@ -1,4 +1,5 @@
 <?php
+require_once 'CommentReports.php';
 require_once 'Session.php';
 require_once 'Data.php';
 require_once 'User.php';
@@ -32,6 +33,8 @@ class Comment extends Data{
                     echo '<input type="submit" class="button_report_comment" value="Signalez" />';
                     echo '</form>';
                 }
+                $report = new CommentReports($this->_db);
+                echo $report->checkReport($response['id']);
                 echo '</div>';
             }
         }

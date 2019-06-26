@@ -26,7 +26,7 @@ class DataRecover extends Data {
             $session = new Session();
             $session->addSession('name', $pseudo);
             $session->addSession('id_user', $this->_id);
-            $session->addSession('admin', $responseName);
+            $session->addSession('admin', $this->_responseName);
             header('Location: administrateur');
         } elseif (($this->_responseName === 1 || $this->_responseName === 2) && $this->_responsePassword === false) {
             $session = new Session();
@@ -42,11 +42,12 @@ class DataRecover extends Data {
         foreach ($this->_responses as $response) {
             if ($pseudo == $response['name']) {
                 $this->_id = $response['id'];
-                return $this->_responseName = 1;
+                $this->_responseName = 1;
             } elseif ('admin' == $pseudo) {
-                return $this->_responseName = 2;
+                $this->_responseName = 2;
             }  
         }
+        return $this->_responseName;
         var_dump($this->_responseName);
     }
 
