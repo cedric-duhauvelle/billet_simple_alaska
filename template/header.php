@@ -11,14 +11,13 @@ require_once '../modele/Session.php';
     </head>
     <body>
         <header>
-            <h1 id="titre">Billet simple pour l'Alaska</h1>
-            <img src="images/image_header.jpg" id="image_header" alt="image header" />
+            <h1 id="title">Billet simple pour l'Alaska</h1>
+            <img src="images/glacier.jpg" id="image_header" alt="glacier" />
             <nav id="connexion">
-                <p>
                 <?php 
                 if (empty($_SESSION['name'])) {
                 ?>
-                    <a class="header_connexion" href="connexion">Connexion</a> | <a class="header_connexion" href="inscription">Inscription</a>
+                    <a class="header_connexion" href="connexion">Connexion</a>
                 <?php
                 }else{
                 ?>
@@ -26,7 +25,6 @@ require_once '../modele/Session.php';
                 <?php
                 }
                 ?>    
-                </p>
             </nav>
             <nav id="menu">
                 <a class="nav_items" href="accueil">Accueil</a>
