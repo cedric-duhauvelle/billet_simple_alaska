@@ -27,6 +27,10 @@
 -color_text_chapter: #c8d6f3
 */
 /* ---------------------------------------- */
+/* ==       POLICE "AGUAFINA"        */
+/*---------------------------------------- */
+@import url('https://fonts.googleapis.com/css?family=Aguafina+Script&display=swap');
+/* ---------------------------------------- */
 /* ==       BODY        */
 /*---------------------------------------- */
 body{
@@ -41,17 +45,18 @@ header{
     position: relative;
 }
 #title{
-    height: 75%;
+    font-family: 'Aguafina Script', cursive, sans-serif;
     position: absolute;
-    text-align: center;
-    font-size: 45px;
-    top: 5%;
+    top: 30%;
     right: 25%;
     left: 25%;
+    text-align: center;
+    font-size: 7vw;
     color: #ffffff;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
 }
 #image_header{
+    margin-top: 7%;
     width: 100%;
 }
 #connexion{
@@ -70,16 +75,26 @@ header{
     width: 100%;
     position: fixed;
     border-top: 1px solid #ffffff;
-    border-bottom: thick double #ffffff; 
+    border-bottom: 1px solid #ffffff; 
     display: flex;
-    justify-content: space-around;
+    justify-content: stretch;
     background-color: #3983cc;
     top: 0;
 }
 .nav_items{
-    padding-top: 3%;
-    padding-bottom: 3%;
+    margin: 1%;
+    width: 23%;
+    padding: 1%;
     text-decoration: none;
+    text-align: center;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 20%;
+    font-size: 3vw;
+    background-color: #a0cdf9;
+}
+.nav_items:hover{
+    background-color: #3983cc;
     color: #ffffff;
 }
 /* ---------------------------------------- */
@@ -99,23 +114,22 @@ header{
     width: 90%;
 }
 .title_section{
-    width: 60%;
-    margin-right: 20%;
-    margin-left: 20%;
+    font-family: 'Aguafina Script', cursive, sans-serif;
+    width: 100%;
     text-align: center;
-    font-size: 40px;
     text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
-    font-size: 40px;
+    font-size: 10vw;
     color: #3983cc;
 }
 /* ---------------------------------------- */
 /* ==      FOOTER       */
 /*---------------------------------------- */
 footer{
-    width: auto;
-    height: 150px;
+    width: 100%;
     background-color: #3983cc;
     border-top: thick double #ffffff;
+    display: flex;
+    justify-content: center;
 }
 footer p{
     padding-top: 2%;
@@ -369,6 +383,9 @@ textarea {
 .title_chapter{
     color: #ffffff;
 }
+.title_chapter:hover{
+    color: #000;
+}
 /* ---------------------------------------- */
 /* ==      COMMENTAIRES    */
 /*---------------------------------------- */
@@ -389,10 +406,13 @@ textarea {
     justify-content: center;
     align-items: center;
 }
+.comment_content{
+    margin: 2%;
+}
 #comment_content_print{
     width: 80%;
     height: 100%;
-    margin-bottom: 5%;
+    margin: 3%;
     border: 1.5px solid #000;
     resize: none;
 }
@@ -471,7 +491,6 @@ textarea {
     justify-content: center;
     flex-direction: column;
     border: 1px solid #ffffff;
-    border-radius: 5%;
     padding: 1%;
     margin-bottom: 2%;
     background-color: #3983cc;
@@ -526,11 +545,13 @@ textarea {
     /* ==      HEADER       */
     /*---------------------------------------- */
     #title{
-       font-size: 70px;
-       top: 25%; 
+    }
+    #image_header{
+        margin-top: 4%;
     }
     .nav_items{
-        font-size: 25px;
+        font-size: 18px;
+        padding: 1%;
     }
     .header_connexion{
         font-size: 25px;
@@ -543,20 +564,30 @@ textarea {
     /* ---------------------------------------- */
     /* ==      HEADER       */
     /*---------------------------------------- */
-    header{
-        height: 80%;
-    }
     #image_header{
-        height: 80%;
+        height: 100%;
+        margin-top: 0;
     }
     #title{
-       font-size: 90px;
-       top: 25%; 
+        top: 10%;
     }
     .nav_items{
-        font-size: 25px;
+        font-size: 20px;
+        padding: 0;
     }
     .header_connexion{
         font-size: 25px;
+    }
+    /* ---------------------------------------- */
+    /* ==      COMMENTAIRES       */
+    /*---------------------------------------- */
+    .display_comment-content{
+        width: 60%;
+    }
+     /* ---------------------------------------- */
+    /* ==       CONTENT    */
+    /*---------------------------------------- */
+    .title_section{
+        font-size: 7vw;
     }
 }
