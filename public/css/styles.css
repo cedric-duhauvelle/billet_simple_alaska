@@ -238,6 +238,7 @@ footer p{
 #content_admin{
     display: flex;
     justify-content: space-between;
+    margin-top: 5%;
     margin-bottom: 5%;
 }
 #content_chapter_admin{
@@ -282,33 +283,41 @@ footer p{
     color: #f9f9f9;
     font-size: 22px;
 }
-.chapitre_admin{
+.chapter_admin{
     width: 100%;
 }
-.chapitre_admin p{
+.chapiter_admin p{
     text-align: center;
     font-size: 25px;
 }
 textarea {
   resize: none;
 }
-#chapitre_titre{
+#chapter_titre{
     border: 1px solid #ffffff;
     text-align: center;
     width: 75%;
     margin-left: 2%;
     margin-right: 2%;
 }
-#chapitre_content{
+#chapter_content{
     border: 1px solid #ffffff;
     height: 300px;
     width: 75%;
     margin-left: 2%;
     margin-right: 2%;
 }
-#save_chapitre_admin{
+#save_chapter_admin{
     border: 1.5px solid #000;
     background-color: #3eda2b;
+    padding: 1%;
+    width: 50%;
+    margin: 3% 40%;
+    border-radius: 5%;
+}
+#delete_chapter_admin{
+    border: 1.5px solid #000;
+    background-color: #9c120d;
     padding: 1%;
     width: 50%;
     margin: 3% 40%;
@@ -501,7 +510,7 @@ textarea {
     font-size: 30px;
 }
 #contact_email{
-    font-size: 25px;
+    font-size: 4vw;
 }
 /* ---------------------------------------- */
 /* ==      UPDATEPROFIL       */

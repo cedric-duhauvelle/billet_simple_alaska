@@ -20,27 +20,33 @@ include("header.php");
     </div>
     <div id="content_form_admin">
         <form action="adminController" method="POST">
-            <label class="chapitre_admin" for="title">Titre chapitre</label>
+            <label class="chapter_admin" for="title">Titre chapitre</label>
             <?php  
             if (array_key_exists('title', $_SESSION)) {
-                echo '<input id="chapitre_titre" type="text" name="title" value="' . $_SESSION['title'] . '" placeholder="Titre" />';
+                echo '<input id="chapter_titre" type="text" name="title" value="' . $_SESSION['title'] . '" placeholder="Titre" />';
                 unset($_SESSION['title']);           
             } else {
-                echo '<input id="chapitre_titre" type="text" name="title" placeholder="Titre" />';
+                echo '<input id="chapter_titre" type="text" name="title" placeholder="Titre" />';
                 unset($_SESSION['id_chapter']); 
             } 
             ?>
-            <label class="chapitre_admin" for="chapter">Contenu chapitre</label>
+            <label class="chapter_admin" for="chapter">Contenu chapitre</label>
             <?php  
             if (array_key_exists('content', $_SESSION)) {
-                echo '<textarea id="chapitre_content" name="chapter" placeholder="Ecrivez ici ...">' . $_SESSION['content'] . '</textarea>';
+                echo '<textarea id="chapter_content" name="chapter" placeholder="Ecrivez ici ...">' . $_SESSION['content'] . '</textarea>';
                 unset($_SESSION['content']);           
             } else {
-                echo '<textarea id="chapitre_content" name="chapter" placeholder="Ecrivez ici ..."></textarea>';
+                echo '<textarea id="chapter_content" name="chapter" placeholder="Ecrivez ici ..."></textarea>';
             } 
             ?>
-            
-            <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapitre_admin" />
+            <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapter_admin" />
+            <?php 
+            if (array_key_exists('id_chapter', $_SESSION)) {
+            ?>
+            <input type="submit" name="buttonDelete" value="Effacer" id="delete_chapter_admin" />
+            <?php           
+            } 
+            ?>
         </form>
     </div>    
 </div>

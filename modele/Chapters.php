@@ -86,11 +86,12 @@ class Chapters extends Data{
         echo '<a href="administrateur">Nouveau chapitre</a>';
         foreach ($this->_responses as $response) {
             if ($response['id']) {
-                echo '<p><a href="chapterUpdateController?id=' . $response['id'] . '">Chapitre ' . $response['id'] . '</a></p>';
+                echo '<p><a href="chapterUpdateController?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
             }
         }
     }
 
+    //Retourne le chapitre
     public function returnchapter($id) {
         $this->chapterTitle($id);
         $this->chapterContent($id);
@@ -99,7 +100,7 @@ class Chapters extends Data{
 
     }
 
-    //Retourne le titre du chapitre
+    //Ajoute le titre du chapitre dans la session
     public function chapterTitle($id) {
         $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
@@ -110,7 +111,7 @@ class Chapters extends Data{
         }
     }
 
-     //Retourne le contenu du chapitre
+    //Ajoute le contenu du chapitre dans la session
     public function chapterContent($id) {
         $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
@@ -128,5 +129,11 @@ class Chapters extends Data{
         $update->bindValue(':content', $content);
         $update->bindValue(':id', $id);
         $update->execute();
+    }
+
+    public function deleteChapter($id) {
+        $delete = $this->_db->prepare('DELETE FROM chapters WHERE id=:id LIMIT 1');
+        $delete->bindValue(':id', $id);
+        $delete->execute();
     }
 }

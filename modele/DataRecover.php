@@ -48,7 +48,6 @@ class DataRecover extends Data {
             }  
         }
         return $this->_responseName;
-        var_dump($this->_responseName);
     }
 
     //Verifie mot de passe 
@@ -67,6 +66,5 @@ class DataRecover extends Data {
                 $this->_responsePassword = false;
             }
         }
-        var_dump($this->_responsePassword);
     }
 }
