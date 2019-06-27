@@ -48,7 +48,7 @@ class Comment extends Data{
             if ($response['chapter'] === $_GET['url']) {
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<div class="display_comment_content">';
+                echo '<div class="display_comment_content_chapter">';
                 echo '<p>Publié le ' .  $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']  . '</p>';
                 echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';

@@ -19,7 +19,7 @@
 /* ==       COLORS CODE          */
 /*---------------------------------------- */
 /*  
--body: #a0cdf9
+-body: #22477e
 -title_section/content-page: #3983cc
 -buttton connexion/inscription: #08ad2c
 -error_message: #f30800
@@ -36,7 +36,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: #a0cdf9;
+    background-color: #22477e;
 }
 /* ---------------------------------------- */
 /* ==      HEADER       */
@@ -307,21 +307,22 @@ textarea {
     margin-left: 2%;
     margin-right: 2%;
 }
+#Content_button_chapter_admin{
+    width: 100%;
+}
 #save_chapter_admin{
     border: 1.5px solid #000;
     background-color: #3eda2b;
-    padding: 1%;
     width: 50%;
-    margin: 3% 40%;
     border-radius: 5%;
+    margin: 2%;
 }
 #delete_chapter_admin{
     border: 1.5px solid #000;
     background-color: #9c120d;
-    padding: 1%;
     width: 50%;
-    margin: 3% 40%;
     border-radius: 5%;
+    margin: 2%;
 }
 #content_admin_comment{
     margin-right: 10%;
@@ -435,7 +436,7 @@ textarea {
     border-radius: 20%;
     margin-bottom: 4%;
 }
-.display_comment_content{
+.display_comment_content, .display_comment_content_chapter{
     width: 100%;
     height: auto;
     border: 1px solid #ffffff;
@@ -565,6 +566,14 @@ textarea {
     .header_connexion{
         font-size: 25px;
     }
+    /* ---------------------------------------- */
+    /* ==      ADMINISTRATOR       */
+    /*---------------------------------------- */
+    #Content_button_chapter_admin{
+        
+        display: flex;
+        justify-content: center;
+    }
 }
 /* ---------------------------------------- */
 /* ==       REGLAGE GRAND ECRAN    */
@@ -582,21 +591,47 @@ textarea {
     }
     .nav_items{
         font-size: 20px;
-        padding: 0;
+        padding: 5px;
     }
     .header_connexion{
         font-size: 25px;
+    }/* ---------------------------------------- */
+    /* ==      ADMINISTRATOR    */
+    /*---------------------------------------- */
+    #save_chapter_admin, #delete_chapter_admin{
+        width: 10%;
+    }
+    /* ---------------------------------------- */
+    /* ==      CHAPITRES    */
+    /*---------------------------------------- */
+    .chapter{
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
     }
     /* ---------------------------------------- */
     /* ==      COMMENTAIRES       */
     /*---------------------------------------- */
-    .display_comment-content{
-        width: 60%;
+    .display_comment_content{
+        width: 40%;
+        margin-right: 30%;
+        margin-left: 30%;
     }
-     /* ---------------------------------------- */
+    /* ---------------------------------------- */
     /* ==       CONTENT    */
     /*---------------------------------------- */
     .title_section{
         font-size: 7vw;
+    }
+    /* ---------------------------------------- */
+    /* ==       CONTACT    */
+    /*---------------------------------------- */
+    #content_contact{
+        width: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+    #contact_email{
+        font-size: 3vw;
     }
 }

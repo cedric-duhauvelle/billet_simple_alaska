@@ -39,14 +39,16 @@ include("header.php");
                 echo '<textarea id="chapter_content" name="chapter" placeholder="Ecrivez ici ..."></textarea>';
             } 
             ?>
-            <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapter_admin" />
-            <?php 
-            if (array_key_exists('id_chapter', $_SESSION)) {
-            ?>
-            <input type="submit" name="buttonDelete" value="Effacer" id="delete_chapter_admin" />
-            <?php           
-            } 
-            ?>
+            <div id="Content_button_chapter_admin">
+                <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapter_admin" />
+                <?php 
+                if (array_key_exists('id_chapter', $_SESSION)) {
+                ?>
+                <input type="submit" name="buttonDelete" value="Effacer" id="delete_chapter_admin" />
+                <?php           
+                } 
+                ?>
+            </div>
         </form>
     </div>    
 </div>
