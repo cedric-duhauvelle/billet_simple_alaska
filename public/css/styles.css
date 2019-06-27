@@ -93,8 +93,8 @@ header{
     font-size: 3vw;
     background-color: #a0cdf9;
 }
-.nav_items:hover{
-    background-color: #3983cc;
+.active, .nav_items:hover{
+    background-color: #22477e;
     color: #ffffff;
 }
 /* ---------------------------------------- */
@@ -102,6 +102,7 @@ header{
 /*---------------------------------------- */
 #content{
     width: 100%;
+    min-height: 450px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -125,11 +126,11 @@ header{
 /* ==      FOOTER       */
 /*---------------------------------------- */
 footer{
-    width: 100%;
+    height: 130px;
     background-color: #3983cc;
     border-top: thick double #ffffff;
     display: flex;
-    justify-content: center;
+    justify-content: center;a
 }
 footer p{
     padding-top: 2%;
@@ -489,8 +490,18 @@ textarea {
     align-items: center;
     flex-direction: column; 
 }
+.profil_user_content a{
+    color: #ffffff;
+    margin-bottom: 2%;
+}
 .user_name{
     font-size: 25px;
+}
+.button_deconnexion{
+    color: #ffffff;
+}
+.profil_user_content a:hover, .button_deconnexion:hover{
+    color: #000;
 }
 /* ---------------------------------------- */
 /* ==      CONTACT       */
@@ -502,7 +513,7 @@ textarea {
     flex-direction: column;
     border: 1px solid #ffffff;
     padding: 1%;
-    margin-bottom: 2%;
+    margin-bottom: 24%;
     background-color: #3983cc;
     color: #c8d6f3;
     text-align: center;
@@ -573,6 +584,12 @@ textarea {
         
         display: flex;
         justify-content: center;
+    }
+    /* ---------------------------------------- */
+    /* ==      PROFIL   */
+    /*---------------------------------------- */
+    .content_deconnexion{
+        height: 100px;
     }
 }
 /* ---------------------------------------- */

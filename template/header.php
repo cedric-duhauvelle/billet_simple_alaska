@@ -1,5 +1,17 @@
 <?php
 require_once '../modele/Session.php';
+function menuActive($page, $url) {
+    if (strtolower($page) === strtolower($url)) {
+        echo 'class="nav_items active"';
+    } else {
+        echo 'class="nav_items"';
+    }
+}
+$accueilHead = 'accueil';
+$chaptersHead = 'chapitres';
+$commentHead = 'commentaires';
+$contactHead = 'contact';
+$adminHead = 'administrateur';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,7 +29,7 @@ require_once '../modele/Session.php';
             <h1 id="title">Billet simple pour l'Alaska</h1>
             <img src="images/image_header.jpg" id="image_header" alt="glacier" />
             <nav id="connexion">
-                <?php 
+                <?php
                 if (empty($_SESSION['name'])) {
                 ?>
                 <a class="header_connexion" href="connexion">Connexion</a>
@@ -31,16 +43,17 @@ require_once '../modele/Session.php';
             </nav>
             <div id="content_menu">
                 <nav id="menu">
-                    <a class="nav_items" href="accueil">Accueil</a>
-                    <a class="nav_items" href="chapitres">Chapitres</a>
-                    <a class="nav_items" href="commentaires">Commentaires</a>
-                    <a class="nav_items" href="contact">Contact</a>
+                    <a <?php menuActive($accueilHead, $_GET['url']); ?> href="accueil">Accueil</a>
+                    <a <?php menuActive($chaptersHead, $_GET['url']); ?> href="chapitres">Chapitres</a>
+                    <a <?php menuActive($commentHead, $_GET['url']); ?> href="commentaires">Commentaires</a>
+                    <a <?php menuActive($contactHead, $_GET['url']); ?> href="contact">Contact</a>
                     <?php
                     if (array_key_exists('admin', $_SESSION)) {
                     ?>
-                    <a class="nav_items" href="administrateur">Administrateur</a>
+                    <a <?php menuActive($adminHead, $_GET['url']); ?> href="administrateur">Administrateur</a>
                     <?php
                     }
+                    
                     ?>
                 </nav>
             </div>
