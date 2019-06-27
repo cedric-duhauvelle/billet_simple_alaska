@@ -34,7 +34,7 @@ include("header.php");
     <?php
     } else {
     ?>
-    <div>
+    <div id="connexion_inscription_chapter">
         <p>Pour laisser un commentaire</p>
         <p><a href="connexion">Connectez-vous</a> ou <a href="inscription">Inscrivez-vous</a></p>
     </div>

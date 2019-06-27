@@ -408,6 +408,15 @@ textarea {
 .title_chapter:hover{
     color: #000;
 }
+#connexion_inscription_chapter{
+    color: #ffffff;
+}
+#connexion_inscription_chapter a{
+    color: #ffffff;
+}
+#connexion_inscription_chapter a:hover{
+    color: #000;
+}
 /* ---------------------------------------- */
 /* ==      COMMENTAIRES    */
 /*---------------------------------------- */
