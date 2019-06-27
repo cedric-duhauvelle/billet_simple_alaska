@@ -52,9 +52,6 @@ class User extends Data {
         $this->checkName($pseudo);
         $this->checkEmail($email);
         $this->setPassword($password, $passwordCheck);
-        var_dump($this->_responsePseudo);
-        var_dump($this->_responseEmail);
-        var_dump($this->_responsePassword);
         if ($this->_responsePseudo === true) {
             $session = new Session();
             $session->addSession('errorName', 'Nom déjà utilisé');

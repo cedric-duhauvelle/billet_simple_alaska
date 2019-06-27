@@ -2,7 +2,7 @@
 $title = "Inscription";
 include("header.php");
 ?>
-<div id="form_inscription_content">
+<div id="content">
     <form method="POST" action="inscriptionProfil" id="form_inscription">
         <div id="inscription_content">
             <p class="error_message">

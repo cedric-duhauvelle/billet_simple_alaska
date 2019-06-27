@@ -3,7 +3,7 @@
 $title = "Connexion";
 include("header.php"); 
 ?>
-<div id="form_connexion_content">
+<div id="content">
     <form action="connexionValidation" method="POST" id="form_connexion">
         <div id="connexion_content">   
             <?php

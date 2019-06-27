@@ -80,6 +80,16 @@ class Chapters extends Data{
         }
     }
 
+    //Affiche le titre du chapitre
+    public function displayTitle($id) {
+        $this->callDisplay('chapters');
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
+                return $response['title'];
+            }
+        }
+    }
+
     //Affiche les liens des chapitres pour les modifier
     public function linkDisplayChapter() {
         $this->callDisplay('chapters');

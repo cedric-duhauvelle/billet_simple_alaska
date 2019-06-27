@@ -1,5 +1,6 @@
 <?php
 require_once 'CommentReports.php';
+require_once 'Chapters.php';
 require_once 'Session.php';
 require_once 'Data.php';
 require_once 'User.php';
@@ -17,12 +18,15 @@ class Comment extends Data{
 
     //Affiche les commentaires
     public function display() {
+        $report = new CommentReports($this->_db);
+        $chapter = new Chapters($this->_db);
         $this->callDisplay('comments');
         $name = new User($this->_db);
         foreach ($this->_responses as $response) {
             if ($response) {
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['published'] . '</p>';
+                echo $chapter->displayTitle($response['chapter']);
                 echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';
                 if (!empty($_SESSION['name'])) {
@@ -33,7 +37,6 @@ class Comment extends Data{
                     echo '<input type="submit" class="button_report_comment" value="Signalez" />';
                     echo '</form>';
                 }
-                $report = new CommentReports($this->_db);
                 echo $report->checkReport($response['id']);
                 echo '</div>';
             }
@@ -44,8 +47,9 @@ class Comment extends Data{
     public function displayCommentChapter() {
         $this->callDisplay('comments');
         $name = new User($this->_db);
+        $idChapter = explode('_', $_GET['url']);
         foreach ($this->_responses as $response) {
-            if ($response['chapter'] === $_GET['url']) {
+            if ($response['chapter'] === $idChapter[1]) {
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
                 echo '<div class="display_comment_content_chapter">';

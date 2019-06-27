@@ -4,11 +4,11 @@ require_once '../modele/Comment.php';
 require_once '../modele/private/adressDataBase.php';
 
 //Recupere la page precedente
-$chapter = explode('/',$_SERVER['HTTP_REFERER']);
-
+$chapter = explode('/', $_SERVER['HTTP_REFERER']);
+$idChapter = explode('_', $chapter[8]);
 //Ajout commentaire dans la base de données
 $comment = new Comment($db);
-$comment->add($_SESSION['id_user'], htmlspecialchars($_POST['comment']), $chapter[8]);
+$comment->add($_SESSION['id_user'], htmlspecialchars($_POST['comment']), $idChapter[1]);
 
 //Redirection
-header('location: ' . $chapter[8]);
+header('location: ' . $idChapter[1]);
