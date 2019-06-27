@@ -55,6 +55,15 @@ header{
     color: #ffffff;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
 }
+#author{
+    font-family: 'Aguafina Script', cursive, sans-serif;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    font-size: 3vw;
+    color: #ffffff;
+    text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;  
+}
 #image_header{
     margin-top: 7%;
     width: 100%;
@@ -578,6 +587,12 @@ textarea {
         font-size: 25px;
     }
     /* ---------------------------------------- */
+    /* ==      CONTENT    */
+    /*---------------------------------------- */
+    #content{
+        min-height: 600px;
+    }
+    /* ---------------------------------------- */
     /* ==      ADMINISTRATOR       */
     /*---------------------------------------- */
     #Content_button_chapter_admin{
@@ -612,7 +627,8 @@ textarea {
     }
     .header_connexion{
         font-size: 25px;
-    }/* ---------------------------------------- */
+    }
+    /* ---------------------------------------- */
     /* ==      ADMINISTRATOR    */
     /*---------------------------------------- */
     #save_chapter_admin, #delete_chapter_admin{

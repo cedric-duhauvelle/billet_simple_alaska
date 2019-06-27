@@ -7,6 +7,11 @@ function menuActive($page, $url) {
         echo 'class="nav_items"';
     }
 }
+if (array_key_exists('url', $_GET)) {
+    $getUrl = $_GET['url'];
+} else {
+    $getUrl = 'accueil';
+}
 $accueilHead = 'accueil';
 $chaptersHead = 'chapitres';
 $commentHead = 'commentaires';
@@ -27,6 +32,7 @@ $adminHead = 'administrateur';
     <body>
         <header>
             <h1 id="title">Billet simple pour l'Alaska</h1>
+            <p id="author">Jean Forteroche</p>
             <img src="images/image_header.jpg" id="image_header" alt="glacier" />
             <nav id="connexion">
                 <?php
@@ -43,14 +49,14 @@ $adminHead = 'administrateur';
             </nav>
             <div id="content_menu">
                 <nav id="menu">
-                    <a <?php menuActive($accueilHead, $_GET['url']); ?> href="accueil">Accueil</a>
-                    <a <?php menuActive($chaptersHead, $_GET['url']); ?> href="chapitres">Chapitres</a>
-                    <a <?php menuActive($commentHead, $_GET['url']); ?> href="commentaires">Commentaires</a>
-                    <a <?php menuActive($contactHead, $_GET['url']); ?> href="contact">Contact</a>
+                    <a <?php menuActive($accueilHead, $getUrl); ?> href="accueil">Accueil</a>
+                    <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres">Chapitres</a>
+                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires">Commentaires</a>
+                    <a <?php menuActive($contactHead, $getUrl); ?> href="contact">Contact</a>
                     <?php
                     if (array_key_exists('admin', $_SESSION)) {
                     ?>
-                    <a <?php menuActive($adminHead, $_GET['url']); ?> href="administrateur">Administrateur</a>
+                    <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur">Administrateur</a>
                     <?php
                     }
                     
