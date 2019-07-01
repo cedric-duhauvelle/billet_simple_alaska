@@ -38,9 +38,9 @@ class Chapters extends Data{
         foreach ($this->_responses as $response) {
             if ($response['id']) {
                 echo '<div class="chapter">';
-                echo '<h2><a class="title_chapter" href="chapter_' . $response['id'] . '">' . $response['title'] . '</a></h2>';
+                echo '<h2><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h2>';
                 echo '<p class="content_chapter">' . substr($response['content'], 0, 400) . '</p>';
-                echo '<a class="after_chapter" href="chapter_' . $response['id'] . '">Lire la suite...</a>';
+                echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
             }   
         }
@@ -56,36 +56,47 @@ class Chapters extends Data{
                 echo '<div class="chapter">';
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<h2><a class="title_chapter" href="chapter_' . $response['id'] . '">' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                echo '<h2><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
                 echo '<p class="content_chapter">' . substr($response['content'], 0, 200) . '</p>';
-                echo '<a class="after_chapter" href="chapter_' . $response['id'] . '">Lire la suite...</a>';
+                echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
             }   
         }
     }
 
     //Recherche et affiche un chapitre
-    public function recoverChapter($title) {
-        $ContentArray = explode('_', $title['url']);
+    public function recoverChapter($id) {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($ContentArray[1] === $response['id']) { 
-                echo '<div class="chapter">';
-                $date = explode(' ', $response['published']);
-                $dateFr = explode('-', $date[0]);
-                echo '<h2>' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-                echo '<p class="content_chapter">' . $response['content'] . '</p>';
-                echo '</div>'; 
+        if ($this->returnId($id) === true) {
+            foreach ($this->_responses as $response) {
+                if ($id === $response['id']) { 
+                    echo '<div class="chapter">';
+                    $date = explode(' ', $response['published']);
+                    $dateFr = explode('-', $date[0]);
+                    echo '<h2>' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                    echo '<p class="content_chapter">' . $response['content'] . '</p>';
+                    echo '</div>'; 
+                }  
             }
-        }
+        } 
     }
 
-    //Affiche le titre du chapitre
+    //Retourne le titre du chapitre
     public function displayTitle($id) {
         $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($id === $response['id']) {
                 return $response['title'];
+            }
+        }
+    }
+
+    //Retourne le contenu du chapitre
+    public function displayContent($id) {
+        $this->callDisplay('chapters');
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
+                return $response['content'];
             }
         }
     }
@@ -96,9 +107,21 @@ class Chapters extends Data{
         echo '<p><a href="administrateur">Nouveau chapitre</a></p>';
         foreach ($this->_responses as $response) {
             if ($response['id']) {
-                echo '<p><a href="chapterUpdateController?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
+                echo '<p><a href="administrateur?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
             }
         }
+    }
+
+    //Retourne id du chapitre
+    public function returnId($id) {
+        $d = false;
+        $this->callDisplay('chapters');
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
+                return $d = true;
+            } 
+        }
+        return $d;
     }
 
     //Retourne le chapitre

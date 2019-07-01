@@ -1,12 +1,11 @@
 <?php
-require '../controller/class/Router.php';
+require '../modele/Router.php';
 
-$url = '';
+$url = 'accueil';
 if(array_key_exists('url', $_GET)) {
-    $url = $_GET['url'];
+    $url = htmlspecialchars($_GET['url']);
 }
 
 //Appel du routeur
 $router = new Router();
-$router->recoveredUrl(htmlspecialchars($url));
-$router->checkUrl($url);
+$router->setUrl($url);

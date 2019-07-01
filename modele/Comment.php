@@ -44,12 +44,11 @@ class Comment extends Data{
     }
 
     //Affiche les commentaires associés au chapitre 
-    public function displayCommentChapter() {
+    public function displayCommentChapter($id) {
         $this->callDisplay('comments');
         $name = new User($this->_db);
-        $idChapter = explode('_', $_GET['url']);
         foreach ($this->_responses as $response) {
-            if ($response['chapter'] === $idChapter[1]) {
+            if ($response['chapter'] === $id) {
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
                 echo '<div class="display_comment_content_chapter">';

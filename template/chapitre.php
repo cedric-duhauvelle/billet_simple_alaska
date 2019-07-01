@@ -6,6 +6,8 @@ require_once '../modele/private/adressDataBase.php';
 
 $chapter = new Chapters($db);
 $comment = new Comment($db);
+if ($chapter->returnId(htmlspecialchars($_GET['id']))) {
+
 $title = "Chapitre";
 include("header.php");
 ?>
@@ -13,12 +15,12 @@ include("header.php");
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
     <div id="content_book">
         <?php 
-        $chapter->recoverChapter($_GET);
+        $chapter->recoverChapter(htmlspecialchars($_GET['id']));
         ?>
     </div>
     <div id="comment_content">
         <?php
-        $comment->displayCommentChapter();
+        $comment->displayCommentChapter(htmlspecialchars($_GET['id']));
         ?>
     </div>
     <?php
@@ -42,4 +44,10 @@ include("header.php");
     }
     ?>   
 </div>
-<?php include("footer.php"); ?>
+<?php 
+include("footer.php"); 
+} else {
+    throw new Exception("Page introuvable", 404);
+    
+}
+?>

@@ -1,7 +1,6 @@
 <?php
 require_once '../modele/User.php';
 require_once '../modele/private/adressDataBase.php';
-var_dump($_POST);
 $updateUser = new User($db);
 if (array_key_exists('updateName', $_POST)) {
 	$updateUser->checkUpdateName($_SESSION['id_user'], htmlspecialchars($_POST['updateName']));

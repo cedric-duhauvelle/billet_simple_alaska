@@ -4,7 +4,7 @@ $title = "Connexion";
 include("header.php"); 
 ?>
 <div id="content">
-    <form action="connexionValidation" method="POST" id="form_connexion">
+    <form action="connexionController" method="POST" id="form_connexion">
         <div id="connexion_content">   
             <?php
             if (array_key_exists('errorName', $_SESSION)) {

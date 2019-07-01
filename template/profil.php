@@ -19,7 +19,7 @@ $user_inscription = $user->displayDateInscription($_SESSION['id_user']);
         </div>
     </div>
     <div class="content_deconnexion">
-        <a class="button_deconnexion" href="deconnexion">Déconnexion</a>
+        <a class="button_deconnexion" href="deconnexionController">Déconnexion</a>
     </div>
 </div>
 <?php include("footer.php"); ?>
