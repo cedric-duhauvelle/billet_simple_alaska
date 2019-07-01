@@ -5,7 +5,7 @@ require_once '../modele/private/adressDataBase.php';
 
 //Ajout Signalement 
 $commentReport = new CommentReports($db);
-$commentReport->reportComment($_POST['id'], $_SESSION['id_user']);
+$commentReport->reportComment(htmlspecialchars($_POST['id']), $_SESSION['id_user']);
 
 //Redirection vers la page precedente
 $route = explode('/',$_SERVER['HTTP_REFERER']);

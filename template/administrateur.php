@@ -8,12 +8,10 @@ require_once '../modele/private/adressDataBase.php';
 if(!$_SESSION['admin']) {
     header('location: accueil');
 }
-
 $chapter = new Chapters($db);
 if (array_key_exists('id', $_GET)) {
     $id = htmlspecialchars($_GET['id']);
     if ($chapter->returnId($id)) {
-
         include("header.php");
 ?>
 <div id="content_admin">
@@ -27,7 +25,7 @@ if (array_key_exists('id', $_GET)) {
             <label class="chapter_admin" for="title">Titre chapitre</label>
             <input id="chapter_titre" type="text" name="title" <?= 'value="' . $chapter->displayTitle($id) . '"'; ?> placeholder="Titre" />
             <label class="chapter_admin" for="chapter">Contenu chapitre</label>
-            <textarea id="chapter_content" name="chapter" placeholder="Ecrivez ici ...">'<?= $chapter->displayContent($id); ?></textarea>
+            <textarea id="chapter_content" name="chapter" placeholder="Ecrivez ici ..."><?= $chapter->displayContent($id); ?></textarea>
     <?php
         } else {
             throw new Exception("Chapitre introuvable", 404);   

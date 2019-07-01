@@ -19,4 +19,4 @@ if (array_key_exists('buttonDelete', $_POST)) {
 	
 
 //Redirection de la page
-header('location: chapitres');
+header('location: administrateur');

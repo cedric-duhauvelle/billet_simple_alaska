@@ -8,7 +8,7 @@ function menuActive($page, $url) {
     }
 }
 if (array_key_exists('url', $_GET)) {
-    $getUrl = $_GET['url'];
+    $getUrl = htmlspecialchars($_GET['url']);
 } else {
     $getUrl = 'accueil';
 }
