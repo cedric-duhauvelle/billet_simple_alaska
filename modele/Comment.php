@@ -20,20 +20,20 @@ class Comment extends Data{
     public function display() {
         $report = new CommentReports($this->_db);
         $chapter = new Chapters($this->_db);
-        $this->callDisplay('comments');
         $name = new User($this->_db);
+        $this->callDisplay('comments');
+        
         foreach ($this->_responses as $response) {
             if ($response) {
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['published'] . '</p>';
-                echo $chapter->displayTitle($response['chapter']);
+                echo '<a href="chapitre?id=' . $response['chapter'] . '" class="comment_title_titre">' . $chapter->displayTitle($response['chapter']) . '</a>';
                 echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';
                 if (!empty($_SESSION['name'])) {
                     echo '<form action="commentReportsController" method="post">';
-                    echo '<label for="name">';
+                    echo '<label for="name"></label>';
                     echo '<input type="text" name="id" class="reports_comment" value="' . $response['id'] . '" />';
-                    echo '</label>';
                     echo '<input type="submit" class="button_report_comment" value="Signalez" />';
                     echo '</form>';
                 }

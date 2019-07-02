@@ -24,7 +24,7 @@ class CommentReports extends Data {
         $this->callDisplay('reporting');
         foreach ($this->_responses as $report) {
             if($report['id_comment'] === $id) {
-                return '<p class="error_message">Signalé <i class="fa fa-flag" aria-hidden="true"></i></p>';
+                return '<p class="comment_chapter_error error_message">Signalé <i class="fa fa-flag" aria-hidden="true"></i></p>';
             }
         }
     }
@@ -33,6 +33,7 @@ class CommentReports extends Data {
     public function displayReports($id, $user) {
         $this->callDisplay('comments');
         $name = new User($this->_db);
+        $chapter = new Chapters($this->_db);
         foreach ($this->_responses as $comment) {
             if ($comment['id'] == $id) {
                 $date = explode(' ', $comment['published']);
@@ -41,29 +42,23 @@ class CommentReports extends Data {
                 echo '<div class="content_admin_reports_details">';
                 echo '<p>Signalé le: ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '.</p>';
                 echo '<p>Ecrit par : ' . $name->displayName($comment['user']) . ' // Signalé par : ' . $name->displayName($user) . '.</p>';
-                echo '<p>Sur le ' . $comment['chapter'] . '</p>';
+                echo '<p>Sur le chapitre: ' . $chapter->displayTitle($comment['chapter']) . '</p>';
                 echo '<p class="content_admin_reports_comment_details">' . $comment['content'] . '</p>';
                 echo '</div>';
                 echo '<div class="content_admin_reports_comment_button">';
                 //formulaire pour effacer le signalement
                 echo '<form action="deleteController" method="post">';
-                echo '<label for="idReports">';
+                echo '<label for="idReports"></label>';
                 echo '<input type="text "" name="idReports" value="' . $id . '" class="Content_admin_reports_comment_input_delete" />';
-                echo '</label>';
-                echo '<label for="buttonDeleteReports">';
-                echo '<p>Effacer le signalement</p>';
+                echo '<label for="buttonDeleteReports">Effacer le signalement</label>';
                 echo '<input type="submit" name="buttonDeleteReports" class="button_delete_reports" value="Effacer" />';
-                echo '</label>';
                 echo '</form>';
                 //formulaire pour effacer formulaire
                 echo '<form action="deleteController" method="post">';
-                echo '<label for="idComment">';
+                echo '<label for="idComment"></label>';
                 echo '<input type="text " name="idComment" value="' . $id . '" class="Content_admin_reports_comment_input_delete" />';
-                echo '</label>';
-                echo '<label for="buttonDeleteComment">';
-                echo '<p>Effacer le commentaire</p>';
+                echo '<label for="buttonDeleteComment">Effacer le commentaire</label>';
                 echo '<input type="submit" name="buttonDeleteComment" class="button_delete_comment" value="Effacer" />';
-                echo '</label>';
                 echo '</form>';
                 echo '</div>';
                 echo '</div>';

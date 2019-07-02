@@ -52,7 +52,7 @@ if (array_key_exists('id', $_GET)) {
             <div id="Content_button_chapter_admin">
                 <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapter_admin" />
                 <?php 
-                if (array_key_exists('id_chapter', $_SESSION)) {
+                if (array_key_exists('id', $_GET)) {
                 ?>
                 <input type="submit" name="buttonDelete" value="Effacer" id="delete_chapter_admin" />
                 <?php           
