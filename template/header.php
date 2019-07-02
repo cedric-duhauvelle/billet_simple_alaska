@@ -49,14 +49,14 @@ $adminHead = 'administrateur';
             </nav>
             <div id="content_menu">
                 <nav id="menu">
-                    <a <?php menuActive($accueilHead, $getUrl); ?> href="accueil"><i class="fa fa-home" aria-hidden="true"></i><span class="nav_items_title">Accueil</span></a>
-                    <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres"><i class="fa fa-book" aria-hidden="true"></i><span class="nav_items_title">Chapitres</span></a>
-                    <a <?php menuActive($contactHead, $getUrl); ?> href="contact"><i class="fa fa-envelope" aria-hidden="true"></i><span class="nav_items_title">Contact</span></a>
-                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><i class="fa fa-comment" aria-hidden="true"></i><span class="nav_items_title">Commentaires</span></a>
+                    <a <?php menuActive($accueilHead, $getUrl); ?> href="accueil"><i class="fa fa-home" aria-hidden="true"></i><strong class="nav_items_title">Accueil</strong></a>
+                    <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres"><i class="fa fa-book" aria-hidden="true"></i><strong class="nav_items_title">Chapitres</strong></a>
+                    <a <?php menuActive($contactHead, $getUrl); ?> href="contact"><i class="fa fa-envelope" aria-hidden="true"></i><strong class="nav_items_title">Contact</strong></a>
+                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><i class="fa fa-comment" aria-hidden="true"></i><strong class="nav_items_title">Commentaires</strong></a>
                     <?php
                     if (array_key_exists('admin', $_SESSION)) {
                     ?>
-                    <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><i class="fa fa-cog" aria-hidden="true"></i><span class="nav_items_title">Administrateur</span></a>
+                    <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><i class="fa fa-cog" aria-hidden="true"></i><strong class="nav_items_title">Administrateur</strong></a>
                     <?php
                     }                    
                     ?>
