@@ -52,11 +52,8 @@ class DataRecover extends Data {
 
     //Verifie mot de passe 
     public function passwordCheck($password) {
-        
         $this->callDisplay('users');
-
         foreach ($this->_responses as $response) {
-            
             if ($this->_id === $response['id']) {
                 $this->_passwordHash = $response['password'];
             } 

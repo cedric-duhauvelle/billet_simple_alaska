@@ -5,15 +5,6 @@ class Router{
     
     //Recupere url
     public function setUrl($url) {
-        $this->checkUrl($url);
-    }
-
-    //verfie url
-    public function checkUrl($url) {
-        if (strpos($url, 'chapitre')) {
-            
-        }
-        
         $this->route($url);
     }
 

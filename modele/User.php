@@ -13,7 +13,6 @@ class User extends Data {
     private $_responseEmail;
     private $_responsePassword;
 
-
     public function setPseudo($pseudo) {
         if (is_string($pseudo)) {
             $this->_pseudo = $pseudo;

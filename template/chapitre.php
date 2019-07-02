@@ -47,7 +47,6 @@ include("header.php");
 <?php 
 include("footer.php"); 
 } else {
-    throw new Exception("Page introuvable", 404);
-    
+    throw new Exception("Page introuvable", 404);   
 }
 ?>

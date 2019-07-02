@@ -15,16 +15,25 @@
 /*L-   -12- Profil*/
 /*L-   -13- Contact*/
 /*L-   -14- UpdateProfil*/
+/*L-   -15- Reglages Tablette*/
+/*L-   -15.1- Body*/
+/*L-   -15.2- Header*/
+/*L-   -15.3- Administrateur*/
+/*L-   -16- Reglages grand ecran*/
+/*L-   -16.1- Body*/
+/*L-   -16.2- Header*/
+/*L-   -16.3- Footer*/
+/*L-   -16.4- Content*/
+/*L-   -16.5- Contact*/
 /* ---------------------------------------- */
 /* ==       COLORS CODE          */
 /*---------------------------------------- */
 /*  
--body: #22477e
--title_section/content-page: #3983cc
--buttton connexion/inscription: #08ad2c
+-body: #ebf7fb
+-menu_hover/active: #418096
+-text_header: #ffffff
 -error_message: #f30800
--button_delete_admin: #9c1200
--color_text_chapter: #c8d6f3
+-color_text: #000
 */
 /* ---------------------------------------- */
 /* ==       POLICE "AGUAFINA"        */
@@ -78,7 +87,11 @@ header{
     color: #ffffff;
     font-size: 5vw;
     cursor: pointer;
-    z-index: 250; 
+    z-index: 250;
+    text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px; 
+}
+.header_connexion:hover{
+    color: #418096;
 }
 #menu{
     height: 38%;
@@ -459,16 +472,10 @@ textarea {
         text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
     }
     /* ---------------------------------------- */
-    /* ==      ADMINISTRATOR       */
+    /* ==      ADMINISTRATEUR       */
     /*---------------------------------------- */
     #Content_button_chapter_admin{
         width: 95%;
-    }
-    /* ---------------------------------------- */
-    /* ==      PROFIL   */
-    /*---------------------------------------- */
-    .content_deconnexion{
-        
     }
 }
 /* ---------------------------------------- */

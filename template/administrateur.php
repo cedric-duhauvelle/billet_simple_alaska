@@ -45,10 +45,9 @@ if (array_key_exists('id', $_GET)) {
             <input id="chapter_titre" type="text" name="title" placeholder="Titre" />
             <label class="chapter_admin" for="chapter">Contenu chapitre</label>
             <textarea id="chapter_content" name="chapter" placeholder="Ecrivez ici ..."></textarea>
-<?php
-}
-?>
-
+    <?php
+    }
+    ?>
             <div id="Content_button_chapter_admin">
                 <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapter_admin" />
                 <?php 
