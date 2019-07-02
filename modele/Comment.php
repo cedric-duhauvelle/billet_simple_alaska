@@ -22,7 +22,6 @@ class Comment extends Data{
         $chapter = new Chapters($this->_db);
         $name = new User($this->_db);
         $this->callDisplay('comments');
-        
         foreach ($this->_responses as $response) {
             if ($response) {
                 echo '<div class="display_comment_content">';

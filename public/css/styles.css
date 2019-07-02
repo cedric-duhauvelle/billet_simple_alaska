@@ -65,6 +65,13 @@ header{
     text-align: center;
     font-size: 10vw;
 }
+#title a{
+    color: #ffffff;
+    text-decoration: none; 
+}
+#title a:hover{
+    color: #418096;
+}
 #author{
     position: absolute;
     bottom: 5%;
@@ -131,7 +138,7 @@ header{
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
 }
 .nav_items i{
-    font-size: 7vw;
+    font-size: 2.1em;
     margin-right: 1%;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
 }
@@ -512,7 +519,7 @@ textarea {
         font-size: 1vw;
     }
     .nav_items i{
-        font-size: 3vw;
+        font-size: 3em;
     }
     .nav_items_title{
         display: initial;

@@ -31,7 +31,7 @@ $adminHead = 'administrateur';
     </head>
     <body>
         <header>
-            <h1 id="title">Billet simple pour l'Alaska</h1>
+            <h1 id="title"><a href="accueil">Billet simple pour l'Alaska</a></h1>
             <p id="author">Jean Forteroche</p>
             <img src="images/glacier.jpg" id="image_header" alt="glacier" />
             <nav id="connexion">
@@ -52,7 +52,7 @@ $adminHead = 'administrateur';
                     <a <?php menuActive($accueilHead, $getUrl); ?> href="accueil"><i class="fa fa-home" aria-hidden="true"></i><span class="nav_items_title">Accueil</span></a>
                     <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres"><i class="fa fa-book" aria-hidden="true"></i><span class="nav_items_title">Chapitres</span></a>
                     <a <?php menuActive($contactHead, $getUrl); ?> href="contact"><i class="fa fa-envelope" aria-hidden="true"></i><span class="nav_items_title">Contact</span></a>
-                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><i class="fa fa-comment" aria-hidden="true"></i><span class="nav_items_title">Commentaires</a>
+                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><i class="fa fa-comment" aria-hidden="true"></i><span class="nav_items_title">Commentaires</span></a>
                     <?php
                     if (array_key_exists('admin', $_SESSION)) {
                     ?>
