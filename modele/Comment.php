@@ -26,7 +26,7 @@ class Comment extends Data{
             if ($response) {
                 echo '<div class="display_comment_content">';
                 echo '<p>Publié le ' . $response['published'] . '</p>';
-                echo '<a href="chapitre?id=' . $response['chapter'] . '" class="comment_title_titre">' . $chapter->displayTitle($response['chapter']) . '</a>';
+                echo '<a href="chapitre?id=' . $response['chapter'] . '" class="comment_title_link">' . $chapter->displayTitle($response['chapter']) . '</a>';
                 echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';
                 if (!empty($_SESSION['name'])) {

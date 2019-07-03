@@ -127,8 +127,7 @@ header{
     align-items: center;
 }
 .nav_items:hover{
-    width:70%;
-    transition:all .5s ease;
+    transition:all .4s ease;
 }
 .nav_items:hover .nav_items_title{
     display: initial;
@@ -322,7 +321,8 @@ textarea {
     background-color: #ebf7fb;
     width: 96%;
     padding: 2%;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 .chapter a{
     text-decoration: none;
@@ -343,7 +343,7 @@ textarea {
     color: #000;
 }
 #connexion_inscription_chapter a:hover{
-    color: #3983cc;
+    color: #418096;
 }
 /* ---------------------------------------- */
 /* ==      COMMENTAIRES    */
@@ -371,12 +371,19 @@ textarea {
     margin-left: 24%;
     margin-right: 24%;
 }
+.comment_title_link{
+    color: #000;
+}
+.comment_title_link:hover{
+    color: #418096;
+}
 .display_comment_content, .display_comment_content_chapter{
     position: relative;
     background-color: #ebf7fb;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     padding: 2%;
     z-index: 10;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 .display_comment_details{
    background-color: #fff;
@@ -423,8 +430,9 @@ textarea {
 #content_contact{
     background-color: #ebf7fb;
     padding: 2%;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     text-align: center;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 #contact_name{
     font-size: 7vw;
@@ -512,11 +520,17 @@ textarea {
         right: 12%;
     }
     #menu{
+        padding: 0;
         left: 10%;
-        width: 63%;
+        width: 64%;
     }
     .nav_items{
+        margin: 0 1%;
+        width: auto;
         font-size: 1vw;
+        margin: 0;
+        align-items: center;
+        justify-content: flex-start;
     }
     .nav_items i{
         font-size: 350%;
@@ -525,7 +539,7 @@ textarea {
         display: initial;
         opacity:1;
         transition:opacity .4s .3s ease;
-        color: #fff;
+        color: #418096;
         text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
         font-size: 2.5vw;
         background-image: linear-gradient(#ffffff00, #ffffff);
@@ -537,11 +551,10 @@ textarea {
         right: 12%;
     }
     .active .nav_items_title{
-        background-image: linear-gradient(#ffffff00, #418096); 
+        background-image: linear-gradient(#ffffff00, #418096);
     }
     .nav_items:hover .nav_items_title{
         background-image: linear-gradient(#ffffff00, #418096);
-        transition:all .5s ease;
     }
     /* ---------------------------------------- */
     /* ==      FOOTER       */
@@ -556,6 +569,9 @@ textarea {
     #content{
         width: 80%;
         margin: 0 10%;
+    }
+    .title_section{
+        margin: 2%;
     }
     /* ---------------------------------------- */
     /* ==       CONTACT    */
