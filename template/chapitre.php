@@ -13,16 +13,25 @@ include("header.php");
 ?>
 <div id="content">
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
-    <div id="content_book">
-        <?php 
-        $chapter->recoverChapter(htmlspecialchars($_GET['id']));
-        ?>
+    <div id="content_chapter">
+        <div id="content_book">
+            <?php 
+            $chapter->recoverChapter(htmlspecialchars($_GET['id']));
+            ?>
+        </div>
+        <div id="link_chapters">
+            <h5>Chapitres</h5>
+            <?php
+            $chapter->linkDisplayChapter();
+            ?>
+        </div>
     </div>
     <div id="comment_content">
         <?php
         $comment->displayCommentChapter(htmlspecialchars($_GET['id']));
         ?>
     </div>
+    
     <?php
     if (!empty($_SESSION['name'])) {
     ?>

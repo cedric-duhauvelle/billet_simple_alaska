@@ -102,12 +102,21 @@ class Chapters extends Data{
     }
 
     //Affiche les liens des chapitres pour les modifier
-    public function linkDisplayChapter() {
+    public function linkDisplayChapterAdmin() {
         $this->callDisplay('chapters');
         echo '<p><a href="administrateur">Nouveau chapitre</a></p>';
         foreach ($this->_responses as $response) {
             if ($response['id']) {
                 echo '<p><a href="administrateur?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
+            }
+        }
+    }
+
+    public function linkDisplayChapter() {
+        $this->callDisplay('chapters');
+        foreach ($this->_responses as $response) {
+            if ($response['id']) {
+                echo '<p><a href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
             }
         }
     }

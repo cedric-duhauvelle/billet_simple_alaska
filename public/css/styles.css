@@ -252,6 +252,7 @@ footer p{
     margin-right: 1%;
     margin-bottom: 1%;
     text-align: center;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 #content_chapter_admin a{
    text-decoration: none;
@@ -262,6 +263,7 @@ footer p{
     margin-right: 1%;
     margin-left: 1%;
     width: 78%;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 #content_form_admin form{
     padding: 2%;
@@ -298,6 +300,7 @@ textarea {
     background-color: #ebf7fb;
     padding: 2%;
     margin-bottom: 1%;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 .content_admin_reports_details{
 }
@@ -317,12 +320,44 @@ textarea {
 /* ---------------------------------------- */
 /* ==      CHAPITRES    */
 /*---------------------------------------- */
+#content_chapter{
+    display: flex;
+    justify-content: center;
+}
 .chapter{
     background-color: #ebf7fb;
     width: 96%;
     padding: 2%;
     margin-bottom: 2%;
     box-shadow: 10px 5px 5px #191a1b8a;
+}
+.chapter h2{
+    font-family: 'Aguafina Script', cursive, sans-serif;
+    text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
+    color: #418096;
+    font-size: 45px;
+}
+#link_chapters{
+    display: none;
+    background-color: #ebf7fb;
+    padding: 2%;
+    margin-bottom: 2%;
+    box-shadow: 10px 5px 5px #191a1b8a;
+}
+#link_chapters h5{
+    font-family: 'Aguafina Script', cursive, sans-serif;
+    text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
+    color: #418096;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 30px;
+}
+#link_chapters a{
+    color: #000;
+    text-decoration: none;
+}
+#link_chapters a:hover{
+    color: #418096;
 }
 .chapter a{
     text-decoration: none;
@@ -386,15 +421,15 @@ textarea {
     box-shadow: 10px 5px 5px #191a1b8a;
 }
 .display_comment_details{
-   background-color: #fff;
-   border: 1px solid #000;
-   padding: 2%; 
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 2%; 
 }
 #comment_content{
     width: 76%;  
 }
 .reports_comment{
-   display: none;
+    display: none;
 }
 .button_report_comment{
     width: 30%;
@@ -522,7 +557,7 @@ textarea {
     #menu{
         padding: 0;
         left: 10%;
-        width: 64%;
+        width: 80%;
     }
     .nav_items{
         margin: 0 1%;
@@ -541,8 +576,11 @@ textarea {
         transition:opacity .4s .3s ease;
         color: #418096;
         text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
-        font-size: 2.5vw;
+        font-size: 2.3vw;
         background-image: linear-gradient(#ffffff00, #ffffff);
+    }
+    #connexion{
+        top: 14%;
     }
     .header_connexion{
         font-size: 3vw;
@@ -572,6 +610,38 @@ textarea {
     }
     .title_section{
         margin: 2%;
+    }
+    /* ---------------------------------------- */
+    /* ==       ADMINISTRATEUR    */
+    /*---------------------------------------- */
+    #content_admin{
+        flex-direction: initial;
+        justify-content: center;
+        height: 100%;
+    }
+    #content_chapter_admin{
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    #content_form_admin{
+        width: 54%;
+    }
+    /* ---------------------------------------- */
+    /* ==       CHAPITRES    */
+    /*---------------------------------------- */
+    #content_chapter{
+        justify-content: center;
+        width: 76%;
+    }
+    .chapter{
+        width: 90%;
+    }
+    #link_chapters{
+        display: block;
+        width: 20%;
     }
     /* ---------------------------------------- */
     /* ==       CONTACT    */
