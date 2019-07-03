@@ -27,7 +27,7 @@ include("header.php");
     if (!empty($_SESSION['name'])) {
     ?>
     <div id="content_form_comment">
-        <form action="commentController" method="POST" id="form_comment">
+        <form action="comment-controller" method="POST" id="form_comment">
             <label class="comment_content" for="comment">Laisser un commentaire</label>
             <textarea id="comment_content_print" name="comment" placeholder="Commentaires..."></textarea>
             <input type="submit" name="buttonSave" value="Envoyez" id="save_comment" />

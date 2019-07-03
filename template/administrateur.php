@@ -21,7 +21,7 @@ if (array_key_exists('id', $_GET)) {
     ?>  
     </div>
     <div id="content_form_admin">
-        <form action="administrateurController" method="POST">
+        <form action="administrateur-controller" method="POST">
             <label class="chapter_admin" for="title">Titre chapitre</label>
             <input id="chapter_titre" type="text" name="title" <?= 'value="' . $chapter->displayTitle($id) . '"'; ?> placeholder="Titre" />
             <label class="chapter_admin" for="chapter">Contenu chapitre</label>
@@ -40,7 +40,7 @@ if (array_key_exists('id', $_GET)) {
     ?>  
     </div>
     <div id="content_form_admin">
-        <form action="administrateurController" method="POST">
+        <form action="administrateur-controller" method="POST">
             <label class="chapter_admin" for="title">Titre chapitre</label>
             <input id="chapter_titre" type="text" name="title" placeholder="Titre" />
             <label class="chapter_admin" for="chapter">Contenu chapitre</label>
