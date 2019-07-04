@@ -13,7 +13,7 @@ include("header.php");
         ?>
         <form method="POST" action="update-profil-controller" class="form_update">
             <label for="updateName">Nom : </label>
-            <input type="text" name="updateName" class="update_profil_input" />
+            <input type="text" name="updateName" class="update_profil_input" required/>
             <input type="submit" name="buttonUpdateName" value="Modifier" class="button_update_profil" />
         </form>
         <?php
@@ -24,7 +24,7 @@ include("header.php");
         ?>
         <form method="POST" action="update-profil-controller" class="form_update">
             <label for="updateName">Email : </label>
-            <input type="email" name="updateEmail" class="update_profil_input" />
+            <input type="email" name="updateEmail" class="update_profil_input" required/>
             <input type="submit" name="buttonUpdateEmail" value="Modifier" class="button_update_profil" />
         </form>
         <?php
@@ -35,8 +35,8 @@ include("header.php");
         ?>
         <form method="POST" action="update-profil-controller" class="form_update">
             <label for="updateName">Mot de passe : </label>
-            <input type="password" name="updatePassword" class="update_profil_input" />
-            <input type="password" name="updatePasswordCheck" class="update_profil_input" />
+            <input type="password" name="updatePassword" class="update_profil_input" required/>
+            <input type="password" name="updatePasswordCheck" class="update_profil_input" required/>
             <input type="submit" name="buttonUpdatePassword" value="Modifier" class="button_update_profil" />
         </form>
         <a href="profil">Retour au profil</a>

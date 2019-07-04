@@ -235,13 +235,26 @@ footer p{
     text-align: center;
     border-radius: 20%; 
 }
-#connexion_content input{
-    border: 1px solid #000; 
-}
 #button_connexion{
-    margin-right: 25%;
-    margin-left: 25%;
-    margin-bottom: 3%;
+    font-size: 15px;
+    width: 50%;
+    padding: 2% 0;
+    margin: 0 25% 3% 25%;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #50b1eceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+#pseudo, #password{
+    border: 1px solid #000;
+}
+#button_connexion:hover{
+    background-color: #1da1f2;
+    color: #fff;
+    box-shadow: 6px 4px 4px #191a1b8a;
+    transition: all 1s;
 }
 #lien_inscription_connexion{
     text-align: center;
@@ -257,9 +270,27 @@ footer p{
     box-shadow: 10px 5px 5px #191a1b8a;
     border-radius: 20%; 
 }
-#form_inscription input{
+#inscription_pseudo, #inscription_email, #inscription_password, #inscription_confirmation_password{
     border: 1px solid #000;
 }
+#button_inscription{
+    font-size: 15px;
+    width: 50%;
+    padding: 2% 0;
+    margin: 0 25% 3% 25%;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #50b1eceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+#button_inscription:hover{
+    background-color: #1da1f2;
+    color: #fff;
+    box-shadow: 6px 4px 4px #191a1b8a;
+    transition: all 1s;
+} 
 /* ---------------------------------------- */
 /* ==      ERROR_MESSAGE    */
 /*---------------------------------------- */
@@ -426,6 +457,7 @@ textarea {
     display: flex;
     flex-direction: column;
     padding: 2%;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 .comment_content{
     width: 76%;
@@ -436,9 +468,22 @@ textarea {
     margin-bottom: 1%; 
 }
 #save_comment{
-    width: 50%;
-    margin-left: 24%;
-    margin-right: 24%;
+    font-size: 15px;
+    width: 30%;
+    padding: 1% 0;
+    margin: 0 35%;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #50b1eceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+#save_comment:hover{
+    background-color: #1da1f2;
+    color: #fff;
+    box-shadow: 6px 4px 4px #191a1b8a;
+    transition: all 1s;
 }
 .comment_title_link{
     color: #000;
@@ -466,8 +511,22 @@ textarea {
     display: none;
 }
 .button_report_comment{
+    font-size: 15px;
     width: 30%;
+    padding: 1% 0;
     margin: 0 35%;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #ca3c3ceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+.button_report_comment:hover{
+    transition: all 1s;
+    color: #fff;
+    background-color: #e62222;
+    box-shadow: 6px 4px 4px #191a1b8a;
 }
 .comment_chapter_error{
     position: absolute;
@@ -516,18 +575,35 @@ textarea {
 .form_update{
     background-color: #ebf7fb;
     padding: 2%;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
     text-align: center;
     display: flex;
     flex-direction: column;
+    box-shadow: 10px 5px 5px #191a1b8a;
 }
 .update_profil_input{
     border: 1px solid #000;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
+    width: 50%;
+    margin: 1% 25%;
 }
 .button_update_profil{
-    width: 50%;
-    margin: 0 25%;
+    font-size: 15px;
+    width: 30%;
+    padding: 1% 0;
+    margin: 0 35%;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #50b1eceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+.button_update_profil:hover{
+    background-color: #1da1f2;
+    color: #fff;
+    box-shadow: 6px 4px 4px #191a1b8a;
+    transition: all 1s;
 }
 /* ---------------------------------------- */
 /* ==      REGLAGE TABLETTE       */

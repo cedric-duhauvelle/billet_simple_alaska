@@ -21,7 +21,7 @@ include("header.php");
             <p>
                 <label for="pseudo">
                     Pseudo : </br>
-                    <input type="text" name="pseudo" id="pseudo" />
+                    <input type="text" name="pseudo" id="pseudo" required/>
                 </label>
             </p>
             <?php
@@ -39,7 +39,7 @@ include("header.php");
             <p>
                 <label for="password">
                     Mot de passe : </br>
-                    <input type="password" name="password" id="password" minlength="5" />
+                    <input type="password" name="password" id="password" minlength="5" required/>
                 </label>
             </p>
             
