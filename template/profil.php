@@ -15,7 +15,7 @@ $user_inscription = $user->displayDateInscription($_SESSION['id_user']);
             <p class="user_name"><?= $user_name; ?></p>            
             <p><?= $user_email; ?></p>
             <?= $user_inscription; ?>
-            <a href="updateProfil">Modifier profil</a>
+            <a href="update-profil">Modifier profil</a>
         </div>
     </div>
     <div class="content_deconnexion">
