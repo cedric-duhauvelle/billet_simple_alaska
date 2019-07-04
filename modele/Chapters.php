@@ -116,7 +116,7 @@ class Chapters extends Data{
         $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($response['id']) {
-                echo '<p><a href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
+                echo '<p>- <a href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
             }
         }
     }
