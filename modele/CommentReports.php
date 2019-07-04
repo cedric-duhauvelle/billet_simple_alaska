@@ -47,14 +47,14 @@ class CommentReports extends Data {
                 echo '</div>';
                 echo '<div class="content_admin_reports_comment_button">';
                 //formulaire pour effacer le signalement
-                echo '<form action="deleteController" method="post">';
+                echo '<form action="delete-controller" method="post">';
                 echo '<label for="idReports"></label>';
                 echo '<input type="text "" name="idReports" value="' . $id . '" class="Content_admin_reports_comment_input_delete" />';
                 echo '<label for="buttonDeleteReports">Effacer le signalement</label>';
                 echo '<input type="submit" name="buttonDeleteReports" class="button_delete_reports" value="Effacer" />';
                 echo '</form>';
                 //formulaire pour effacer formulaire
-                echo '<form action="deleteController" method="post">';
+                echo '<form action="delete-controller" method="post">';
                 echo '<label for="idComment"></label>';
                 echo '<input type="text " name="idComment" value="' . $id . '" class="Content_admin_reports_comment_input_delete" />';
                 echo '<label for="buttonDeleteComment">Effacer le commentaire</label>';

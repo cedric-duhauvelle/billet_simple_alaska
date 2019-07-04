@@ -30,7 +30,7 @@ class Comment extends Data{
                 echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';
                 if (!empty($_SESSION['name'])) {
-                    echo '<form action="commentReportsController" method="post">';
+                    echo '<form action="comment-reports-controller" method="post">';
                     echo '<label for="name"></label>';
                     echo '<input type="text" name="id" class="reports_comment" value="' . $response['id'] . '" />';
                     echo '<input type="submit" class="button_report_comment" value="Signalez" />';
@@ -55,7 +55,7 @@ class Comment extends Data{
                 echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
                 echo '<p class="display_comment_details">' . $response['content'] . '</p>';
                 if (!empty($_SESSION['name'])) {
-                    echo '<form action="commentReportsController" method="post">';
+                    echo '<form action="comment-reports-controller" method="post">';
                     echo '<label for="name">';
                     echo '<input type="text" name="id" class="reports_comment" value="' . $response['id'] . '" />';
                     echo '</label>';
