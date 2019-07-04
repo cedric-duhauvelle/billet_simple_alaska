@@ -351,7 +351,22 @@ textarea {
     align-items: center;
 }
 #save_chapter_admin, #delete_chapter_admin{
-    width: 100%;
+    font-size: 15px;
+    width: 30%;
+    padding: 1% 0;
+    margin: 0 35%;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #50b1eceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+#save_chapter_admin:hover, #delete_chapter_admin:hover{
+    background-color: #1da1f2;
+    color: #fff;
+    box-shadow: 6px 4px 4px #191a1b8a;
+    transition: all 1s;
 }
 #content_admin_comment{
     display: flex;
@@ -367,20 +382,37 @@ textarea {
     margin-bottom: 1%;
     box-shadow: 10px 5px 5px #191a1b8a;
 }
-.content_admin_reports_details{
-}
 .content_admin_reports_comment_details{
     background-color: #fff;
     border: 1px solid #000;
     padding: 2%;
 }
-.content_admin_reports_comment_button{
+.content_admin_reports_comment_button form{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 2%;
+    justify-content: space-around;
 }
 .Content_admin_reports_comment_input_delete{
+    margin: 1%;
     display: none;
+}
+.button_delete_reports, .button_delete_comment{
+    font-size: 15px;
+    width: 30%;
+    padding: 1% 0;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #ca3c3ceb;
+    color: #000;
+    border: none;
+    transition: all 1s;
+}
+.button_delete_reports:hover, .button_delete_comment:hover{
+    transition: all 1s;
+    color: #fff;
+    background-color: #e62222;
+    box-shadow: 6px 4px 4px #191a1b8a;
+}
 }
 /* ---------------------------------------- */
 /* ==      CHAPITRES    */
@@ -727,7 +759,8 @@ textarea {
     #content_admin{
         flex-direction: initial;
         justify-content: center;
-        height: 100%;
+        height: 78%;
+        margin: 0 10%;
     }
     #content_chapter_admin{
         width: 20%;
@@ -739,10 +772,15 @@ textarea {
     #content_form_admin{
         width: 54%;
     }
+    #content_admin_comment{
+        height: 80%;
+        margin: 0 10%;
+    }
     /* ---------------------------------------- */
     /* ==       CHAPITRES    */
     /*---------------------------------------- */
     #content_chapter{
+        display: flex;
         justify-content: center;
         width: 76%;
     }
