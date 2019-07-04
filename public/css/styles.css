@@ -188,10 +188,41 @@ footer{
     background-color: #418096;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2%;
+}
+#social_network{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+}
+#social_network a{
+    margin: 6px;
+    text-decoration: none;
+}
+#social_network i{
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 5px 5px #191a1b8a;
+    color: #fff;
+}
+.fa-facebook-f{
+    background-color: #3b5998;
+}
+.fa-twitter{
+    background-color: #1da1f2;
 }
 footer p{
     padding-top: 2%;
     text-align: center;
+    color: #fff;
 }
 /* ---------------------------------------- */
 /* ==      CONNEXION      */
@@ -200,8 +231,9 @@ footer p{
     margin: 25%;
     padding: 5%;
     background-color: #ebf7fb;
-    border-radius: 20%;
-    text-align: center; 
+    box-shadow: 10px 5px 5px #191a1b8a;
+    text-align: center;
+    border-radius: 20%; 
 }
 #connexion_content input{
     border: 1px solid #000; 
@@ -209,6 +241,7 @@ footer p{
 #button_connexion{
     margin-right: 25%;
     margin-left: 25%;
+    margin-bottom: 3%;
 }
 #lien_inscription_connexion{
     text-align: center;
@@ -220,8 +253,9 @@ footer p{
     margin: 25%;
     padding: 5%;
     background-color: #ebf7fb;
-    border-radius: 20%;
-    text-align: center; 
+    text-align: center;
+    box-shadow: 10px 5px 5px #191a1b8a;
+    border-radius: 20%; 
 }
 #form_inscription input{
     border: 1px solid #000;
@@ -598,7 +632,7 @@ textarea {
     /* ==      FOOTER       */
     /*---------------------------------------- */
     footer{
-        width: 80%;
+        width: 76%;
         margin: 1% 10% 0 10%;
     }
     /* ---------------------------------------- */

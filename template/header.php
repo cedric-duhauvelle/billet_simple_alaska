@@ -26,7 +26,7 @@ $adminHead = 'administrateur';
         <meta property="og:title" content="Billet simple pour l'Alaska" />
         <meta property="og:description" content="Blog de Jean Forteroche sur son nouveau livre" />
         <title><?= $title; ?></title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+        <script src="https://kit.fontawesome.com/71336045e0.js"></script>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
     <body>
