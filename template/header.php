@@ -35,17 +35,17 @@ $adminHead = 'administrateur';
             <p id="author">Jean Forteroche</p>
             <img src="images/glacier.jpg" id="image_header" alt="glacier" />
             <nav id="connexion">
-                <?php
-                if (empty($_SESSION['name'])) {
-                ?>
-                <a class="header_connexion" href="connexion">Connexion</a>
-                <?php
-                } else {
-                ?>
-                <a class="header_connexion" href="profil"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= ucwords($_SESSION['name']); ?></a>
-                <?php
-                }
-                ?>    
+            <?php
+            if (empty($_SESSION['name'])) {
+            ?>
+            <a class="header_connexion" href="connexion">Connexion</a>
+            <?php
+            } else {
+            ?>
+            <a class="header_connexion" href="profil"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= ucwords($_SESSION['name']); ?></a>
+            <?php
+            }
+            ?>    
             </nav>
             <div id="content_menu">
                 <nav id="menu">
@@ -53,13 +53,13 @@ $adminHead = 'administrateur';
                     <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres"><i class="fa fa-book" aria-hidden="true"></i><strong class="nav_items_title">Chapitres</strong></a>
                     <a <?php menuActive($contactHead, $getUrl); ?> href="contact"><i class="fa fa-envelope" aria-hidden="true"></i><strong class="nav_items_title">Contact</strong></a>
                     <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><i class="fa fa-comment" aria-hidden="true"></i><strong class="nav_items_title">Commentaires</strong></a>
-                    <?php
-                    if (array_key_exists('admin', $_SESSION)) {
-                    ?>
-                    <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><i class="fa fa-cog" aria-hidden="true"></i><strong class="nav_items_title">Administrateur</strong></a>
-                    <?php
-                    }                    
-                    ?>
+                <?php
+                if (array_key_exists('admin', $_SESSION)) {
+                ?>
+                <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><i class="fa fa-cog" aria-hidden="true"></i><strong class="nav_items_title">Administrateur</strong></a>
+                <?php
+                }                    
+                ?>
                 </nav>
             </div>
         </header>

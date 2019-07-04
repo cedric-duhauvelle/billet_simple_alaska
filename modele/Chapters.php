@@ -73,7 +73,7 @@ class Chapters extends Data{
                     echo '<div class="chapter">';
                     $date = explode(' ', $response['published']);
                     $dateFr = explode('-', $date[0]);
-                    echo '<h2>' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                    echo '<h2>' . $response['title'] . '</h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
                     echo '<p class="content_chapter">' . $response['content'] . '</p>';
                     echo '</div>'; 
                 }  
