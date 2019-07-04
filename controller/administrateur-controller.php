@@ -1,7 +1,9 @@
 <?php
 require_once '../modele/private/adressDataBase.php';
 require_once '../modele/Chapters.php';
+
 $chapters = new Chapters($db);
+
 if (array_key_exists('buttonDelete', $_POST)) {
 	$chapters->deleteChapter($_SESSION['id_chapter']);
 	unset($_SESSION['id_chapter']);
@@ -17,6 +19,5 @@ if (array_key_exists('buttonDelete', $_POST)) {
 	}
 }
 	
-
 //Redirection de la page
 header('location: administrateur');

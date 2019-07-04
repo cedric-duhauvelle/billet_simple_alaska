@@ -36,7 +36,7 @@ if (array_key_exists('id', $_GET)) {
 <div id="content_admin">
     <div id="content_chapter_admin">
     <?php
-    $chapter->linkDisplayChapter();
+    $chapter->linkDisplayChapterAdmin();
     ?>  
     </div>
     <div id="content_form_admin">
