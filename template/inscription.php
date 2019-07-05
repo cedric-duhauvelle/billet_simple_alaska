@@ -22,28 +22,20 @@ include("header.php");
                 ?> 
             </p>
             <p>
-                <label for="pseudoInscription">
-                    Pseudo : </br>
-                    <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" required />    
-                </label>
+                <label for="pseudoInscription">Pseudo : </label>
+                <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" required />       
             </p>
             <p>
-                <label for="emailInscription">
-                    Email : </br>
-                    <input type="email" name="emailInscription" id="inscription_email" placeholder="Email" required />
-                </label>
+                <label for="emailInscription">Email : </label>
+                <input type="email" name="emailInscription" id="inscription_email" placeholder="Email" required />   
             </p>
             <p>
-                <label for="passwordInscription">
-                    Mot de passe : </br>
-                    <input type="password" name="passwordInscription" id="inscription_password" minlength="5" placeholder="Mot de passe" required />
-                </label>
+                <label for="passwordInscription">Mot de passe : </label>
+                <input type="password" name="passwordInscription" id="inscription_password" minlength="5" placeholder="Mot de passe" required />    
             </p>
             <p>
-                <label for="confirmationPasswordInscription">
-                    Retapez mot de passe : </br>
-                    <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" required/>
-                </label>
+                <label for="confirmationPasswordInscription">Retapez mot de passe : </label>
+                <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" required />   
             </p>
             <input type="submit" id="button_inscription" name="button_inscription" value="Inscription" />
         </div>

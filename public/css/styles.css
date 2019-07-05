@@ -235,6 +235,10 @@ footer p{
     text-align: center;
     border-radius: 20%; 
 }
+#form_connexion p{
+    display: flex;
+    flex-direction: column;
+}
 #button_connexion{
     font-size: 15px;
     width: 50%;
@@ -269,6 +273,10 @@ footer p{
     text-align: center;
     box-shadow: 10px 5px 5px #191a1b8a;
     border-radius: 20%; 
+}
+#form_inscription p{
+    display: flex;
+    flex-direction: column;
 }
 #inscription_pseudo, #inscription_email, #inscription_password, #inscription_confirmation_password{
     border: 1px solid #000;

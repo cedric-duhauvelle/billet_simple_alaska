@@ -19,10 +19,8 @@ include("header.php");
             }
             ?>
             <p>
-                <label for="pseudo">
-                    Pseudo : </br>
-                    <input type="text" name="pseudo" id="pseudo" required/>
-                </label>
+                <label for="pseudo">Pseudo : </label>
+                <input type="text" name="pseudo" id="pseudo" required />   
             </p>
             <?php
             if (array_key_exists('errorPassword', $_SESSION)) {
@@ -37,10 +35,9 @@ include("header.php");
             }
             ?>
             <p>
-                <label for="password">
-                    Mot de passe : </br>
-                    <input type="password" name="password" id="password" minlength="5" required/>
-                </label>
+                <label for="password">Mot de passe : </label>
+                <input type="password" name="password" id="password" minlength="5" required />
+                
             </p>
             
             <input type="submit" id="button_connexion" value="Connexion" />
