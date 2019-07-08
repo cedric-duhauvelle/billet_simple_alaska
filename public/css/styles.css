@@ -305,6 +305,16 @@ footer p{
 .error_message{
     color: #f30800;
 }
+#error_page_content{
+    display: flex;
+    justify-content: center;
+    margin: 10% 0;
+    width: 80%;
+    height: 80%;
+    padding: 3%;
+    border: 1px solid #f30800;
+    background-color: #ebf7fb;
+}
 /* ---------------------------------------- */
 /* ==      ADMINISTRATOR    */
 /*---------------------------------------- */
@@ -420,7 +430,6 @@ textarea {
     color: #fff;
     background-color: #e62222;
     box-shadow: 6px 4px 4px #191a1b8a;
-}
 }
 /* ---------------------------------------- */
 /* ==      CHAPITRES    */

@@ -2,11 +2,9 @@
 require_once '../modele/Session.php';
 require_once '../modele/Chapters.php';
 require_once '../modele/Comment.php';
-require_once '../modele/private/adressDataBase.php';
 
-$chapter = new Chapters($db);
-$comment = new Comment($db);
-if ($chapter->returnId(htmlspecialchars($_GET['id']))) {
+$chapter = new Chapters($this->_db);
+$comment = new Comment($this->_db);
 
 $title = "Chapitre";
 include("header.php");
@@ -36,7 +34,7 @@ include("header.php");
     if (!empty($_SESSION['name'])) {
     ?>
     <div id="content_form_comment">
-        <form action="comment-controller" method="POST" id="form_comment">
+        <form action="CommentController" method="POST" id="form_comment">
             <label class="comment_content" for="comment">Laisser un commentaire</label>
             <textarea id="comment_content_print" name="comment" placeholder="Commentaires..." required></textarea>
             <input type="submit" name="buttonSave" value="Envoyez" id="save_comment" />
@@ -55,7 +53,3 @@ include("header.php");
 </div>
 <?php 
 include("footer.php"); 
-} else {
-    throw new Exception("Page introuvable", 404);   
-}
-?>

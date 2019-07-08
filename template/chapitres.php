@@ -1,5 +1,4 @@
 <?php
-require_once '../modele/private/adressDataBase.php';
 require_once '../modele/Chapters.php';
 $title = "Chapitres";
 include("header.php");
@@ -8,7 +7,7 @@ include("header.php");
     <h2 class="title_section">Chapitres</h2>
     <div id="content_book">
         <?php 
-        $chapters = new Chapters($db);
+        $chapters = new Chapters($this->_db);
         $chapters->displayChapters();
         ?>
     </div>

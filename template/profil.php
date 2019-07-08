@@ -3,7 +3,7 @@ $title = "Profil";
 require_once '../modele/User.php';
 require_once '../modele/private/adressDataBase.php';
 include("header.php");
-$user = new User($db);
+$user = new User($this->_db);
 $user_name = $user->displayName($_SESSION['id_user']);
 $user_email = $user->displayEmail($_SESSION['id_user']);
 $user_inscription = $user->displayDateInscription($_SESSION['id_user']);
@@ -19,7 +19,7 @@ $user_inscription = $user->displayDateInscription($_SESSION['id_user']);
         </div>
     </div>
     <div class="content_deconnexion">
-        <a class="button_deconnexion" href="deconnexion-controller">Déconnexion</a>
+        <a class="button_deconnexion" href="DeconnexionController">Déconnexion</a>
     </div>
 </div>
 <?php include("footer.php"); ?>

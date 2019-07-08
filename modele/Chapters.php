@@ -123,14 +123,14 @@ class Chapters extends Data{
 
     //Retourne id du chapitre
     public function returnId($id) {
-        $d = false;
         $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($id === $response['id']) {
-                return $d = true;
+                return true;
             } 
         }
-        return $d;
+
+        return false;
     }
 
     //Retourne le chapitre

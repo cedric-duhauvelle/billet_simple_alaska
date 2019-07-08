@@ -1,10 +1,9 @@
 <?php
 require_once '../modele/Comment.php';
 require_once '../modele/CommentReports.php';
-require_once '../modele/private/adressDataBase.php';
 
-$deleteReports = new CommentReports($db);
-$deleteComment = new Comment($db);
+$deleteReports = new CommentReports($this->_db);
+$deleteComment = new Comment($this->_db);
 if (array_key_exists('idReports', $_POST)) {
 	//Efface le signalement
 	$deleteReports->deleteReports(htmlspecialchars($_POST['idReports']));

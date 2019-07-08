@@ -35,17 +35,11 @@ $adminHead = 'administrateur';
             <p id="author">Jean Forteroche</p>
             <img src="images/glacier.jpg" id="image_header" alt="glacier" />
             <nav id="connexion">
-            <?php
-            if (empty($_SESSION['name'])) {
-            ?>
+            <?php if (empty($_SESSION['name'])): ?>
             <a class="header_connexion" href="connexion">Connexion</a>
-            <?php
-            } else {
-            ?>
+            <?php else: ?>
             <a class="header_connexion" href="profil"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= ucwords($_SESSION['name']); ?></a>
-            <?php
-            }
-            ?>    
+            <?php endif; ?>   
             </nav>
             <div id="content_menu">
                 <nav id="menu">
