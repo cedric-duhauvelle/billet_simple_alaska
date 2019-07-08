@@ -1,5 +1,6 @@
 <?php
 require_once '../modele/Session.php';
+
 function menuActive($page, $url) {
     if (strtolower($page) === strtolower($url)) {
         echo 'class="nav_items active"';

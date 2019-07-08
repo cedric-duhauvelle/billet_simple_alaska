@@ -1,4 +1,5 @@
 <?php
+
 $title = "Inscription";
 include("header.php");
 ?>

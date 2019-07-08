@@ -1,8 +1,9 @@
 <?php 
-$title = "Administrateur";
 require_once '../modele/Chapters.php';
 require_once '../modele/DataRecover.php';
 require_once '../modele/CommentReports.php';
+
+$title = "Administrateur";
 if(!array_key_exists('admin', $_SESSION)) {
     header('location: accueil');
 }

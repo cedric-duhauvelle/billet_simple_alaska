@@ -1,7 +1,7 @@
 <?php 
-$title = "Profil";
 require_once '../modele/User.php';
-require_once '../modele/private/adressDataBase.php';
+
+$title = "Profil";
 include("header.php");
 $user = new User($this->_db);
 $user_name = $user->displayName($_SESSION['id_user']);

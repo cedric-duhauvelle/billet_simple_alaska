@@ -1,5 +1,5 @@
 <?php
-include_once '../modele/DataRecover.php';
+require_once '../modele/DataRecover.php';
 require_once '../modele/User.php';
 
 //Ajoute un utilisateur a la base de donnees
