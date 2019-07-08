@@ -93,7 +93,7 @@ class User extends Data {
         } else {
             $session = new Session();
             $session->addSession('errorName', 'Nom déjà utilisé');
-            header('Location: updateProfil');
+            header('Location: update-profil');
         }
     }
 
@@ -106,7 +106,7 @@ class User extends Data {
         } else {
             $session = new Session();
             $session->addSession('errorEmail', 'Email déjà utilisé');
-            header('Location: updateProfil');
+            header('Location: update-profil');
         }
     }
 
@@ -119,7 +119,7 @@ class User extends Data {
         } else {
             $session = new Session();
             $session->addSession('errorPassword', 'Mots de passe différents');
-            header('Location: updateProfil');
+            header('Location: update-profil');
         }
     }
 

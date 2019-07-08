@@ -11,7 +11,7 @@ include("header.php");
             unset($_SESSION['errorName']);
         }
         ?>
-        <form method="POST" action="update-profil-controller" class="form_update">
+        <form method="POST" action="UpdateProfilController" class="form_update">
             <label for="updateName">Nom : </label>
             <input type="text" name="updateName" class="update_profil_input" required/>
             <input type="submit" name="buttonUpdateName" value="Modifier" class="button_update_profil" />
@@ -22,7 +22,7 @@ include("header.php");
             unset($_SESSION['errorEmail']);
         }
         ?>
-        <form method="POST" action="update-profil-controller" class="form_update">
+        <form method="POST" action="uUpdateProfilControllerr" class="form_update">
             <label for="updateName">Email : </label>
             <input type="email" name="updateEmail" class="update_profil_input" required/>
             <input type="submit" name="buttonUpdateEmail" value="Modifier" class="button_update_profil" />
@@ -33,7 +33,7 @@ include("header.php");
             unset($_SESSION['errorPassword']);
         }
         ?>
-        <form method="POST" action="update-profil-controller" class="form_update">
+        <form method="POST" action="UpdateProfilController" class="form_update">
             <label for="updateName">Mot de passe : </label>
             <input type="password" name="updatePassword" class="update_profil_input" required/>
             <input type="password" name="updatePasswordCheck" class="update_profil_input" required/>

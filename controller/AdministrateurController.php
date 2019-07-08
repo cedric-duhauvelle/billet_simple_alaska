@@ -2,25 +2,21 @@
 require_once '../modele/Chapters.php';
 
 $chapters = new Chapters($this->_db);
+$urlChapter = explode('/', $_SERVER['HTTP_REFERER']);
+$idChapter = explode('=', $urlChapter[8]);
 
-$postClean = filter_var($_POST, FILTER_SANITIZE_STRING);
-if (array_key_exists('id_chapter', $_SESSION)) {
-	if (array_key_exists('buttonDelete', $postClean)) {
-		$chapters->deleteChapter($_SESSION['id_chapter']);
-		unset($_SESSION['id_chapter']);
-	} elseif (array_key_exists('buttonSave', $postClean)) {
+if (array_key_exists(1, $idChapter)) {
+	if (array_key_exists('buttonDelete', $_POST)) {
+		$chapters->deleteChapter($idChapter[1]);
+	} elseif (array_key_exists('buttonSave', $_POST)) {
 		//update chapitre (Admin)
-		$chapters->updateChapter($_SESSION['id_chapter'], $postClean['title'], $postClean['chapter']);
-		unset($_SESSION['id_chapter']);
+		$chapters->updateChapter($idChapter[1], filter_var($_POST['title'], FILTER_SANITIZE_STRING), filter_var($_POST['chapter'], FILTER_SANITIZE_STRING));
 	}
-} elseif (array_key_exists('buttonSave', $postClean)) {
+} elseif (array_key_exists('buttonSave', $_POST)) {
 	//Ajout de chapitre (Admin)
-	$chapters->addChapter($postClean['title'], $postClean['chapter']);
+	$chapters->addChapter(filter_var($_POST['title'], FILTER_SANITIZE_STRING), filter_var($_POST['chapter'], FILTER_SANITIZE_STRING));
 	$chapters->addChapterDb();
 }
 
-
-
-
-
-//Redirection de la page
+//redirection 
+header('Location: administrateur');

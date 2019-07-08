@@ -1,14 +1,13 @@
 <?php
 require_once '../modele/User.php';
-require_once '../modele/private/adressDataBase.php';
-$updateUser = new User($db);
+
+$updateUser = new User($this->_db);
 if (array_key_exists('updateName', $_POST)) {
-	$updateUser->checkUpdateName($_SESSION['id_user'], htmlspecialchars($_POST['updateName']));
+	$updateUser->checkUpdateName($_SESSION['id_user'], filter_var($_POST['updateName'], FILTER_SANITIZE_STRING));
 
 } elseif (array_key_exists('updateEmail', $_POST)) {
-	$updateUser->checkEmailUpdate($_SESSION['id_user'], htmlspecialchars($_POST['updateEmail']));
+	$updateUser->checkEmailUpdate($_SESSION['id_user'], filter_var($_POST['updateEmail'], FILTER_SANITIZE_STRING));
 
 } elseif (array_key_exists('updatePassword', $_POST)) {
-	$updateUser->checkPasswordUpdate($_SESSION['id_user'], htmlspecialchars($_POST['updatePassword']), htmlspecialchars($_POST['updatePasswordCheck']));
+	$updateUser->checkPasswordUpdate($_SESSION['id_user'], filter_var($_POST['updatePassword'], FILTER_SANITIZE_STRING), filter_var($_POST['updatePasswordCheck'], FILTER_SANITIZE_STRING));
 }
-
