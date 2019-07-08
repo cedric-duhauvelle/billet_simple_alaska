@@ -7,7 +7,6 @@ class CustomException extends \Exception
         parent::__construct($message, $code);
         
         //Appelle l'affichage
-        require_once('../Template/error-page.php');
         header('Location: error-page');
     }
 }

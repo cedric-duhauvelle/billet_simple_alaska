@@ -134,7 +134,7 @@ class Chapters extends Data{
     }
 
     //Retourne le chapitre
-    public function returnchapter($id) {
+    public function returnChapter($id) {
         $this->chapterTitle($id);
         $this->chapterContent($id);
         $session = new Session();
