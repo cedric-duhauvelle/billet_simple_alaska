@@ -18,7 +18,7 @@ include("header.php");
             ?>
         </div>
         <div id="link_chapters">
-            <h5>Chapitres</h5>
+            <h3>Chapitres</h3>
             <?php
             $chapter->linkDisplayChapter();
             ?>
