@@ -17,7 +17,7 @@ include("header.php");
             <?php ENDIF; ?>
             <p>
                 <label for="pseudo">Pseudo : </label>
-                <input type="text" name="pseudo" id="pseudo" alt="pseudo" required />   
+                <input type="text" name="pseudo" id="pseudo" required />   
             </p>
             <?php if (array_key_exists('errorPassword', $_SESSION)): ?>
             <p class="error_message">
@@ -29,9 +29,9 @@ include("header.php");
             <?php endif; ?>
             <p>
                 <label for="password">Mot de passe : </label>
-                <input type="password" name="password" id="password" minlength="5" alt="mot de passe" required />    
+                <input type="password" name="password" id="password" minlength="5" required />    
             </p>
-            <input type="submit" id="button_connexion" value="Connexion" alt="connexion" />
+            <input type="submit" id="button_connexion" value="Connexion" />
             <a href="inscription" id="lien_inscription_connexion">Inscrivez-vous</a>
         </div>
     </form>

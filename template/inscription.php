@@ -24,19 +24,19 @@ include("header.php");
             </p>
             <p>
                 <label for="inscription_pseudo">Pseudo : </label>
-                <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" alt="pseudo" required />       
+                <input type="text" name="pseudoInscription" id="inscription_pseudo" placeholder="Pseudo" required />       
             </p>
             <p>
                 <label for="inscription_email">Email : </label>
-                <input type="email" name="emailInscription" id="inscription_email" placeholder="Email" alt="email" required />   
+                <input type="email" name="emailInscription" id="inscription_email" placeholder="Email" required />   
             </p>
             <p>
                 <label for="inscription_password">Mot de passe : </label>
-                <input type="password" name="passwordInscription" id="inscription_password" minlength="5" placeholder="Mot de passe" alt="mot de passe" required />    
+                <input type="password" name="passwordInscription" id="inscription_password" minlength="5" placeholder="Mot de passe" required />    
             </p>
             <p>
                 <label for="inscription_confirmation_password">Retapez mot de passe : </label>
-                <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" alt="Retapez mot de passe" required />   
+                <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" required />   
             </p>
             <input type="submit" id="button_inscription" name="button_inscription" value="Inscription" alt="inscription" />
         </div>
