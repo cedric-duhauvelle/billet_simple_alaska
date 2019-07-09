@@ -13,24 +13,24 @@ class Router extends Data{
     //Redection vers la page souhaitee
     private function route($page){  
         //Redirection vers les controllers
-        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php')) {
-            require_once '../controller/' . $page . '.php';
+        if (strpos($page, 'Controller') && is_file('../Controller/' . $page . '.php')) {
+            require_once '../Controller/' . $page . '.php';
         //Redirection vers les templates
-        } elseif (is_file('../template/' . $page . '.php')) {            
+        } elseif (is_file('../Template/' . $page . '.php')) {            
             if ($page === 'chapitre' || $page === 'administrateur') {
                 if (array_key_exists('id', $_GET)) {
                     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
                     $chapter = new Chapters($this->_db);
                     if ($chapter->returnId($id) === true) {
-                        require_once '../template/' . $page . '.php';
+                        require_once '../Template/' . $page . '.php';
                     } else {
                         throw new CustomException("Page introuvable", 404); 
                     }
                 } elseif ($page === 'administrateur') {
-                    require_once '../template/' . $page . '.php';
+                    require_once '../Template/' . $page . '.php';
                 }
             } else {
-                require_once '../template/' . $page . '.php';
+                require_once '../Template/' . $page . '.php';
             }
         } else {
             throw new CustomException("Page introuvable", 404);  

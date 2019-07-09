@@ -1,5 +1,5 @@
 <?php 
-require_once '../modele/User.php';
+require_once '../Modele/User.php';
 
 $title = "Profil";
 include("header.php");

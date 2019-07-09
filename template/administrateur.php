@@ -1,7 +1,7 @@
 <?php 
-require_once '../modele/Chapters.php';
-require_once '../modele/DataRecover.php';
-require_once '../modele/CommentReports.php';
+require_once '../Modele/Chapters.php';
+require_once '../Modele/DataRecover.php';
+require_once '../Modele/CommentReports.php';
 
 $title = "Administrateur";
 if(!array_key_exists('admin', $_SESSION)) {

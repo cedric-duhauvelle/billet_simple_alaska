@@ -1,5 +1,5 @@
 <?php
-require_once '../modele/Chapters.php';
+require_once '../Modele/Chapters.php';
 
 $chapters = new Chapters($this->_db);
 $urlChapter = explode('/', $_SERVER['HTTP_REFERER']);

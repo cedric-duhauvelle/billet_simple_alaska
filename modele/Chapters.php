@@ -7,10 +7,6 @@ class Chapters extends Data{
     private $_title;
     private $_chapter;
 
-    public function setDb($db) {
-        return $this->_db = $db;
-    }
-
     public function setChapter($text) {
         return $this->_chapter = $text;
     }
@@ -131,37 +127,6 @@ class Chapters extends Data{
         }
 
         return false;
-    }
-
-    //Retourne le chapitre
-    public function returnChapter($id) {
-        $this->chapterTitle($id);
-        $this->chapterContent($id);
-        $session = new Session();
-        $session->addSession('id_chapter', $id);
-
-    }
-
-    //Ajoute le titre du chapitre dans la session
-    public function chapterTitle($id) {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($id == $response['id']) {
-                $title = new Session();
-                $title->addSession('title', $response['title']);
-            }
-        }
-    }
-
-    //Ajoute le contenu du chapitre dans la session
-    public function chapterContent($id) {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($id == $response['id']) {
-                $content = new Session();
-                $content->addSession('content', $response['content']);
-            }
-        }
     }
 
     //Change le chapitre selectionne

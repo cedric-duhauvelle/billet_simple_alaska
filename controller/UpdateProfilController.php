@@ -1,5 +1,5 @@
 <?php
-require_once '../modele/User.php';
+require_once '../Modele/User.php';
 
 $updateUser = new User($this->_db);
 if (array_key_exists('updateName', $_POST)) {

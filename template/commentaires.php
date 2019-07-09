@@ -1,5 +1,5 @@
 <?php 
-require_once '../modele/Comment.php';
+require_once '../Modele/Comment.php';
 
 $comment = new Comment($this->_db);
 $title = "Commentaires";
