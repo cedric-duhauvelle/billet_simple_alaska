@@ -136,7 +136,7 @@ header{
     color: #fff;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
 }
-.nav_items i{
+.nav_items span{
     font-size: 210%;
     margin-right: 1%;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
@@ -185,7 +185,7 @@ header{
 footer{
     margin-top: 1%;
     height: 130px;
-    background-color: #000;
+    background-color: #418096;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,7 +202,7 @@ footer{
     margin: 6px;
     text-decoration: none;
 }
-#social_network i{
+#social_network span{
     width: 50px;
     height: 50px;
     font-size: 35px;
@@ -222,7 +222,7 @@ footer{
 footer p{
     padding-top: 2%;
     text-align: center;
-    color: #fff;
+    color: #000;
 }
 /* ---------------------------------------- */
 /* ==      CONNEXION      */
@@ -728,7 +728,7 @@ textarea {
         align-items: center;
         justify-content: flex-start;
     }
-    .nav_items i{
+    .nav_items span{
         font-size: 350%;
     }
     .nav_items_title{
