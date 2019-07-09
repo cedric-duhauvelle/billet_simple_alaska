@@ -607,14 +607,20 @@ textarea {
 /* ==      CONTACT       */
 /*---------------------------------------- */
 #content_contact{
-    background-color: #ebf7fb;
+    background: no-repeat center url(../images/blank_book.jpg);
+    background-size: 100%;
     padding: 2%;
     margin-bottom: 2%;
     text-align: center;
     box-shadow: 10px 5px 5px #191a1b8a;
 }
 #contact_name{
+    font-family: 'Aguafina Script', cursive, sans-serif;
     font-size: 7vw;
+    text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
+}
+#contact_email{
+    text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
 }
 /* ---------------------------------------- */
 /* ==      UPDATEPROFIL       */
