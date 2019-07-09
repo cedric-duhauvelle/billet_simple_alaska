@@ -38,7 +38,7 @@ include("header.php");
                 <label for="inscription_confirmation_password">Retapez mot de passe : </label>
                 <input type="password" name="confirmationPasswordInscription" id="inscription_confirmation_password" minlength="5" placeholder="Retapez mot de passe" required />   
             </p>
-            <input type="submit" id="button_inscription" name="button_inscription" value="Inscription" alt="inscription" />
+            <input type="submit" id="button_inscription" name="button_inscription" value="Inscription" />
         </div>
     </form>
 </div>

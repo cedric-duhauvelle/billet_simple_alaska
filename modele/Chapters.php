@@ -34,7 +34,7 @@ class Chapters extends Data{
         foreach ($this->_responses as $response) {
             if ($response['id']) {
                 echo '<div class="chapter">';
-                echo '<h2><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h2>';
+                echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3>';
                 echo '<p class="content_chapter">' . substr($response['content'], 0, 400) . '</p>';
                 echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';

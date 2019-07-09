@@ -37,7 +37,7 @@ include("header.php");
         <form method="POST" action="UpdateProfilController" class="form_update">
             <label for="update_password">Mot de passe : </label>
             <input type="password" name="updatePassword" class="update_profil_input" id="update_password" required/>
-            <label for="update_check_password"></label>
+            <label for="update_check_password">Retapez mot de passe</label>
             <input type="password" name="updatePasswordCheck" class="update_profil_input" id="update_check_password" required/>
             <input type="submit" name="buttonUpdatePassword" value="Modifier" class="button_update_profil" />
         </form>
