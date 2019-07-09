@@ -52,7 +52,7 @@ class Chapters extends Data{
                 echo '<div class="chapter">';
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<h2><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
                 echo '<p class="content_chapter">' . substr($response['content'], 0, 200) . '</p>';
                 echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
@@ -69,7 +69,7 @@ class Chapters extends Data{
                     echo '<div class="chapter">';
                     $date = explode(' ', $response['published']);
                     $dateFr = explode('-', $date[0]);
-                    echo '<h2>' . $response['title'] . '</h2><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+                    echo '<h3>' . $response['title'] . '</h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
                     echo '<p class="content_chapter">' . $response['content'] . '</p>';
                     echo '</div>'; 
                 }  
