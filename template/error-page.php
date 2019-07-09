@@ -13,17 +13,16 @@ $title = 'Page erreur';
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
     <body>
-        <header>
-            <h1 id="title"><a href="accueil">Billet simple pour l'Alaska</a></h1>
-            <p id="author">Jean Forteroche</p>
-            <img src="images/glacier.jpg" id="image_header" alt="glacier" />
-            </div>
-        </header>
-		<div id="content">
-			<div id="error_page_content">
-				<h2 class="error_message">Page introuvable !!</h2>
-                <a href="accueil">Retour à l'accueil</a>
-			</div>
+    <header>
+        <h1 id="title"><a href="accueil">Billet simple pour l'Alaska</a></h1>
+        <p id="author">Jean Forteroche</p>
+        <img src="images/glacier.jpg" id="image_header" alt="glacier" />
+    </header>
+	<div id="content">
+		<div id="error_page_content">
+			<h2 class="error_message">Page introuvable !!</h2>
+            <a href="accueil">Retour à l'accueil</a>
 		</div>
+	</div>
 
 <?php include("footer.php"); ?>
