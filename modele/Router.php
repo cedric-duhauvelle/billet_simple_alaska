@@ -13,7 +13,7 @@ class Router extends Data{
     //Redection vers la page souhaitee
     private function route($page){  
         //Redirection vers les controllers
-        if (strpos($page, 'Controller') && is_file('../Controller/' . $page . '.php')) {
+        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php')) {
             require_once '../controller/' . $page . '.php';
         //Redirection vers les templates
         } elseif (is_file('../template/' . $page . '.php')) {            

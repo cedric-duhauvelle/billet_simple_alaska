@@ -35,7 +35,7 @@ class Comment extends Data{
                     echo '<form action="CommentReportsController" method="post">';
                     echo '<label for="name"></label>';
                     echo '<input type="text" name="id" class="reports_comment" value="' . $response['id'] . '" />';
-                    echo '<input type="submit" class="button_report_comment" value="Signalez" />';
+                    echo '<input type="submit" class="button_report_comment" value="Signalez" alt="signalez" />';
                     echo '</form>';
                 }
                 echo $report->checkReport($response['id']);

@@ -35,9 +35,9 @@ include("header.php");
     ?>
     <div id="content_form_comment">
         <form action="CommentController" method="POST" id="form_comment">
-            <label class="comment_content" for="comment">Laisser un commentaire</label>
-            <textarea id="comment_content_print" name="comment" placeholder="Commentaires..." required></textarea>
-            <input type="submit" name="buttonSave" value="Envoyez" id="save_comment" />
+            <label class="comment_content" for="comment_content_print">Laisser un commentaire</label>
+            <textarea id="comment_content_print" name="comment" placeholder="Commentaires..." alt="commentaires" required></textarea>
+            <input type="submit" name="buttonSave" value="Envoyez" id="save_comment" alt="enregistrer commentaires" />
         </form>
     </div> 
     <?php
