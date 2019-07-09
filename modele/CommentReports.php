@@ -24,7 +24,7 @@ class CommentReports extends Data {
         $this->callDisplay('reporting');
         foreach ($this->_responses as $report) {
             if($report['id_comment'] === $id) {
-                return '<p class="comment_chapter_error error_message">Signalé <i class="fa fa-flag" aria-hidden="true"></i></p>';
+                return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';
             }
         }
     }

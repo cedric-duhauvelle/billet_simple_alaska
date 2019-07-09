@@ -39,19 +39,19 @@ $adminHead = 'administrateur';
             <?php if (empty($_SESSION['name'])): ?>
             <a class="header_connexion" href="connexion">Connexion</a>
             <?php else: ?>
-            <a class="header_connexion" href="profil"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= ucwords($_SESSION['name']); ?></a>
+            <a class="header_connexion" href="profil"><span class="fa fa-user-circle" aria-hidden="true"></span> <?= ucwords($_SESSION['name']); ?></a>
             <?php endif; ?>   
             </nav>
             <div id="content_menu">
                 <nav id="menu">
-                    <a <?php menuActive($accueilHead, $getUrl); ?> href="accueil"><i class="fa fa-home" aria-hidden="true"></i><strong class="nav_items_title">Accueil</strong></a>
-                    <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres"><i class="fa fa-book" aria-hidden="true"></i><strong class="nav_items_title">Chapitres</strong></a>
-                    <a <?php menuActive($contactHead, $getUrl); ?> href="contact"><i class="fa fa-envelope" aria-hidden="true"></i><strong class="nav_items_title">Contact</strong></a>
-                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><i class="fa fa-comment" aria-hidden="true"></i><strong class="nav_items_title">Commentaires</strong></a>
+                    <a <?php menuActive($accueilHead, $getUrl); ?> href="accueil"><span class="fa fa-home" aria-hidden="true"></span><strong class="nav_items_title">Accueil</strong></a>
+                    <a <?php menuActive($chaptersHead, $getUrl); ?> href="chapitres"><span class="fa fa-book" aria-hidden="true"></span><strong class="nav_items_title">Chapitres</strong></a>
+                    <a <?php menuActive($contactHead, $getUrl); ?> href="contact"><span class="fa fa-envelope" aria-hidden="true"></span><strong class="nav_items_title">Contact</strong></a>
+                    <a <?php menuActive($commentHead, $getUrl); ?> href="commentaires"><span class="fa fa-comment" aria-hidden="true"></span><strong class="nav_items_title">Commentaires</strong></a>
                 <?php
                 if (array_key_exists('admin', $_SESSION)) {
                 ?>
-                <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><i class="fa fa-cog" aria-hidden="true"></i><strong class="nav_items_title">Administrateur</strong></a>
+                <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><span class="fa fa-cog" aria-hidden="true"></span><strong class="nav_items_title">Administrateur</strong></a>
                 <?php
                 }                    
                 ?>
