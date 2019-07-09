@@ -1,6 +1,6 @@
 <?php
-require_once '../Modele/DataRecover.php';
-require_once '../Modele/User.php';
+require_once '../modele/DataRecover.php';
+require_once '../modele/User.php';
 
 //Ajoute un utilisateur a la base de donnees
 $user = new User($this->_db);

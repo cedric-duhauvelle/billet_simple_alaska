@@ -1,5 +1,5 @@
 <?php 
-require_once '../Modele/Chapters.php';
+require_once '../modele/Chapters.php';
 
 $title = "Billet pour l'Alaska";
 include("header.php");

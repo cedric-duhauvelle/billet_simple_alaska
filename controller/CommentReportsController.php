@@ -1,6 +1,6 @@
 <?php
-require_once '../Modele/Session.php';
-require_once '../Modele/CommentReports.php';
+require_once '../modele/Session.php';
+require_once '../modele/CommentReports.php';
 
 //Ajout Signalement 
 $commentReport = new CommentReports($this->_db);

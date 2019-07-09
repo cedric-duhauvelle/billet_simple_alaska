@@ -1,6 +1,6 @@
 <?php
-require_once '../Modele/Session.php';
-require_once '../Modele/Comment.php';
+require_once '../modele/Session.php';
+require_once '../modele/Comment.php';
 
 //Recupere la page precedente
 $chapter = explode('/', $_SERVER['HTTP_REFERER']);

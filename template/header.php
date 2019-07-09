@@ -1,5 +1,5 @@
 <?php
-require_once '../Modele/Session.php';
+require_once '../modele/Session.php';
 
 function menuActive($page, $url) {
     if (strtolower($page) === strtolower($url)) {
