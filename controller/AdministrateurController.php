@@ -7,6 +7,7 @@ $idChapter = explode('=', $urlChapter[8]);
 
 if (array_key_exists(1, $idChapter)) {
 	if (array_key_exists('buttonDelete', $_POST)) {
+		//Supprime un chapitre (Admin)
 		$chapters->deleteChapter($idChapter[1]);
 	} elseif (array_key_exists('buttonSave', $_POST)) {
 		//update chapitre (Admin)

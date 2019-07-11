@@ -21,7 +21,7 @@ class Router extends Data{
                 if (array_key_exists('id', $_GET)) {
                     $id = filter_var($_GET['id'], FILTER_SANITIZE_STRING);
                     $chapter = new Chapters($this->_db);
-                    if ($chapter->returnId($id) === true) {
+                    if ($chapter->checkId($id) === true) {
                         require_once '../template/' . $page . '.php';
                     } else {
                         throw new CustomException("Chapitre introuvable", 404); 

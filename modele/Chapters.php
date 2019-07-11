@@ -35,7 +35,7 @@ class Chapters extends Data{
             if ($response['id']) {
                 echo '<div class="chapter">';
                 echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3>';
-                echo '<p class="content_chapter">' . substr($response['content'], 0, 400) . '</p>';
+                echo '<p class="content_text_chapter">' . substr($response['content'], 0, 400) . '...</p>';
                 echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
             }   
@@ -53,7 +53,7 @@ class Chapters extends Data{
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
                 echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-                echo '<p class="content_chapter">' . substr($response['content'], 0, 200) . '</p>';
+                echo '<p class="content_text_chapter">' . substr($response['content'], 0, 200) . '...</p>';
                 echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
                 echo '</div>';
             }   
@@ -63,14 +63,14 @@ class Chapters extends Data{
     //Recherche et affiche un chapitre
     public function recoverChapter($id) {
         $this->callDisplay('chapters');
-        if ($this->returnId($id) === true) {
+        if ($this->checkId($id) === true) {
             foreach ($this->_responses as $response) {
                 if ($id === $response['id']) { 
                     echo '<div class="chapter">';
                     $date = explode(' ', $response['published']);
                     $dateFr = explode('-', $date[0]);
                     echo '<h3>' . $response['title'] . '</h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-                    echo '<p class="content_chapter">' . $response['content'] . '</p>';
+                    echo '<p class="content_text_chapter">' . $response['content'] . '</p>';
                     echo '</div>'; 
                 }  
             }
@@ -118,7 +118,7 @@ class Chapters extends Data{
     }
 
     //Retourne id du chapitre
-    public function returnId($id) {
+    public function checkId($id) {
         $this->callDisplay('chapters');
         foreach ($this->_responses as $response) {
             if ($id === $response['id']) {

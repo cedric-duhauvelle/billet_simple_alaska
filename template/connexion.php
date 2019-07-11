@@ -14,7 +14,7 @@ include("header.php");
                 unset($_SESSION['errorName']);
             ?>
             </p>
-            <?php ENDIF; ?>
+            <?php endif; ?>
             <p>
                 <label for="pseudo">Pseudo : </label>
                 <input type="text" name="pseudo" id="pseudo" required />   
