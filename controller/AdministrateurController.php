@@ -1,9 +1,13 @@
 <?php
 require_once '../modele/Chapters.php';
+require_once '../modele/Router.php';
+
+$router = new Router($this->_db);
+$postClean = $router->cleanPost();
 
 $chapters = new Chapters($this->_db);
 $urlChapter = explode('/', $_SERVER['HTTP_REFERER']);
-$idChapter = explode('=', $urlChapter[8]);
+$idChapter = explode('=', $urlChapter[$router->checkServer()]);
 
 if (array_key_exists(1, $idChapter)) {
 	if (array_key_exists('buttonDelete', $_POST)) {
@@ -11,11 +15,11 @@ if (array_key_exists(1, $idChapter)) {
 		$chapters->deleteChapter($idChapter[1]);
 	} elseif (array_key_exists('buttonSave', $_POST)) {
 		//update chapitre (Admin)
-		$chapters->updateChapter($idChapter[1], filter_var($_POST['title'], FILTER_SANITIZE_STRING), filter_var($_POST['chapter'], FILTER_SANITIZE_STRING));
+		$chapters->updateChapter($idChapter[1], $postClean['title'], $postClean['chapter']);
 	}
 } elseif (array_key_exists('buttonSave', $_POST)) {
 	//Ajout de chapitre (Admin)
-	$chapters->addChapter(filter_var($_POST['title'], FILTER_SANITIZE_STRING), filter_var($_POST['chapter'], FILTER_SANITIZE_STRING));
+	$chapters->addChapter($postClean['title'], $postClean['chapter']);
 	$chapters->addChapterDb();
 }
 
