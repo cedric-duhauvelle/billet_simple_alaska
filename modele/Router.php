@@ -10,11 +10,7 @@ class Router extends Data{
         $this->route($url);
     }
 
-    /*
-    if isset$_POST
-        return clean$_POST
-    return null
-    */
+    //Nettoie $_POST
     public function cleanPost() {
         if (isset($_POST)) {
             $postClean = filter_var_array($_POST, FILTER_SANITIZE_STRING);
@@ -24,6 +20,7 @@ class Router extends Data{
         return $postClean =  null;
     }
 
+    //Nettoie $_GET
     public function cleanGet() {
         if (isset($_GET)) {
             $getClean = filter_var_array($_GET, FILTER_SANITIZE_STRING);
@@ -60,7 +57,7 @@ class Router extends Data{
         }
     }
 
-    //Verifie si le projet est en local en en ligne
+    //Verifie si le projet est en local ou en ligne
     public function checkServer() {
         if (strpos($_SERVER['HTTP_REFERER'], 'localhost')) {
             return 8;

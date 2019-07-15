@@ -5,6 +5,9 @@ require_once '../modele/Comment.php';
 
 $chapter = new Chapters($this->_db);
 $comment = new Comment($this->_db);
+$router = new Router($this->_db);
+
+$getClean = $router->cleanGet();
 
 $title = "Chapitre";
 include("header.php");
@@ -14,7 +17,7 @@ include("header.php");
     <div id="content_chapter">
         <div id="content_book">
             <?php 
-            $chapter->recoverChapter(htmlspecialchars($_GET['id']));
+            $chapter->recoverChapter($getClean['id']);
             ?>
         </div>
         <div id="link_chapters">
@@ -26,7 +29,7 @@ include("header.php");
     </div>
     <div id="comment_content">
         <?php
-        $comment->displayCommentChapter(htmlspecialchars($_GET['id']));
+        $comment->displayCommentChapter($getClean['id']);
         ?>
     </div>
     
