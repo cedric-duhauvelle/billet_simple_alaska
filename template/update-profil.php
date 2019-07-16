@@ -1,6 +1,7 @@
 <?php
 
 $title = "Modication de profil";
+
 include("header.php");
 ?>
 <div id="content">

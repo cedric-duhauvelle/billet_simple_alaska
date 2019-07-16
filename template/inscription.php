@@ -1,6 +1,7 @@
 <?php
 
 $title = "Inscription";
+
 include("header.php");
 ?>
 <div id="content">

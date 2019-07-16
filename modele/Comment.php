@@ -1,4 +1,5 @@
 <?php
+
 require_once 'CommentReports.php';
 require_once 'Chapters.php';
 require_once 'Session.php';

@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Session.php';
 
 class CustomException extends \Exception {

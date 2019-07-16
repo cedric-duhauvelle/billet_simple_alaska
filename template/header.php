@@ -1,5 +1,8 @@
 <?php
 require_once '../modele/Session.php';
+require_once '../modele/Router.php';
+$router = new Router($this->_db);
+$getClean = $router->cleanGet();
 
 function menuActive($page, $url) {
     if (strtolower($page) === strtolower($url)) {
@@ -9,7 +12,7 @@ function menuActive($page, $url) {
     }
 }
 if (array_key_exists('url', $_GET)) {
-    $getUrl = htmlspecialchars($_GET['url']);
+    $getUrl = $getClean['url'];
 } else {
     $getUrl = 'accueil';
 }

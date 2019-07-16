@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 require_once '../modele/Comment.php';
 
 $comment = new Comment($this->_db);

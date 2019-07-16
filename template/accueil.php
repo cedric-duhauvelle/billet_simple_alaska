@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 require_once '../modele/Chapters.php';
 
 $title = "Billet pour l'Alaska";
