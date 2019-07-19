@@ -6,7 +6,7 @@ require_once '../modele/CommentReports.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
-$getClean = $router->cleanGet();
+$getClean = $router->cleanArray($_GET);
 
 
 $title = "Administrateur";

@@ -11,24 +11,10 @@ class Router extends Data{
         $this->route($url);
     }
 
-    //Nettoie $_POST
-    public function cleanPost() {
-        if (isset($_POST)) {
-            $postClean = filter_var_array($_POST, FILTER_SANITIZE_STRING);
-            return $postClean;
-        }
+    //Nettoyeur de tableau
+    public function cleanArray($array) {
 
-        return $postClean =  null;
-    }
-
-    //Nettoie $_GET
-    public function cleanGet() {
-        if (isset($_GET)) {
-            $getClean = filter_var_array($_GET, FILTER_SANITIZE_STRING);
-            return $getClean;
-        }
-
-        return $getClean =  null;
+        return isset($array) ? filter_var_array($array, FILTER_SANITIZE_STRING) : null;
     }
 
     //Redection vers la page souhaitee
@@ -40,7 +26,7 @@ class Router extends Data{
         } elseif (is_file('../template/' . $page . '.php')) {    
             if ($page === 'chapitre' || $page === 'administrateur') {
                 if (array_key_exists('id', $_GET)) {
-                    $getClean = $this->cleanGet();
+                    $getClean = $this->cleanArray($_GET);
                     $chapter = new Chapters($this->_db);
                     if ($chapter->checkId($getClean['id']) === true) {
                         require_once '../template/' . $page . '.php';

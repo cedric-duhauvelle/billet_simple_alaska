@@ -4,7 +4,7 @@ require_once '../modele/User.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
-$postClean = $router->cleanPost();
+$postClean = $router->cleanArray($_POST);
 
 $updateUser = new User($this->_db);
 if (array_key_exists('updateName', $_POST)) {

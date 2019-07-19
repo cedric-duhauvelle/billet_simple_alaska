@@ -5,7 +5,7 @@ require_once '../modele/CommentReports.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
-$postClean = $router->cleanPost();
+$postClean = $router->cleanArray($_POST);
 
 $deleteReports = new CommentReports($this->_db);
 $deleteComment = new Comment($this->_db);

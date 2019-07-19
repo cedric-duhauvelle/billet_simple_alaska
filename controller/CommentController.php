@@ -5,7 +5,7 @@ require_once '../modele/Comment.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
-$postClean = $router->cleanPost();
+$postClean = $router->cleanArray($_POST);
 
 //Recupere la page precedente
 $chapter = explode('/', $_SERVER['HTTP_REFERER']);

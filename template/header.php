@@ -2,7 +2,7 @@
 require_once '../modele/Session.php';
 require_once '../modele/Router.php';
 $router = new Router($this->_db);
-$getClean = $router->cleanGet();
+$getClean = $router->cleanArray($_GET);
 
 function menuActive($page, $url) {
     if (strtolower($page) === strtolower($url)) {

@@ -8,7 +8,7 @@ $chapter = new Chapters($this->_db);
 $comment = new Comment($this->_db);
 $router = new Router($this->_db);
 
-$getClean = $router->cleanGet();
+$getClean = $router->cleanArray($_GET);
 
 $title = "Chapitre";
 include("header.php");

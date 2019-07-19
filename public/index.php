@@ -3,23 +3,20 @@
 require_once '../modele/private/adressDataBase.php';
 require_once '../modele/Router.php';
 
-//Appel du routeur
-$router = new Router($db);
-$getClean = $router->cleanGet();
-
-$url = 'accueil';
-if(array_key_exists('url', $_GET)) {    
-    $url = $getClean['url'];
-} else {
-	header('Location: accueil');
-}
-
 //Gestion des erreurs
 set_exception_handler('exception');
 
 function exception($e) {
-    $errorController = new CustomException($e);
+    new CustomException($e);
 }
 
-$router->setUrl($url);
-var_dump($router->checkServer());
+//Appel du routeur
+$router = new Router($db);
+$getClean = $router->cleanArray($_GET);
+
+if(is_array($getClean) && array_key_exists('url', $getClean)) {
+	$router->setUrl($getClean['url']);
+} else {
+	header('Location: accueil');
+}
+
