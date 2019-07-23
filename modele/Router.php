@@ -20,7 +20,7 @@ class Router extends Data{
     //Redection vers la page souhaitee
     private function route($page) {  
         //Redirection vers les controllers
-        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && !empty($_POST)) {
+        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             require_once '../controller/' . $page . '.php';
         //Redirection vers les templates
         } elseif (is_file('../template/' . $page . '.php')) {    

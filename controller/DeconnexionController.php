@@ -1,10 +1,10 @@
 <?php
 
 session_start();
-
+echo "hello";
 //Detruit la session en cours
 $_SESSION = array();
 session_destroy();
 
 //Redirection
-header('location: accueil');
+header('Location: accueil');
