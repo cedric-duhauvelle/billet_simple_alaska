@@ -6,8 +6,7 @@ require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
 $postClean = $router->cleanArray($_POST);
-var_dump($_POST);
-var_dump($postClean);
+
 $deleteReports = new CommentReports($this->_db);
 $deleteComment = new Comment($this->_db);
 if (array_key_exists('idReports', $_POST)) {

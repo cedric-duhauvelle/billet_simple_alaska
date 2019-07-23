@@ -6,7 +6,6 @@
                 <p class="content_admin_reports_comment_details"><?= $comment['content']; ?></p>
         </div>
         <div class="content_admin_reports_comment_button">
-
                 <form action="DeleteController" method="post">
                 <label for="idReports"></label>
                 <input type="text " name="idReports" value="<?= $id; ?>" class="Content_admin_reports_comment_input_delete" />

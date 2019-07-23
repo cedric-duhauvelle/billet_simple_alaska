@@ -39,7 +39,7 @@ class CommentReports extends Data {
             if ($comment['id'] == $id) {
                 $date = explode(' ', $comment['published']);
                 $dateFr = explode('-', $date[0]);
-                include("../View/template/report.php");
+                include("../View/Template/report.php");
             }  
         }
     }
