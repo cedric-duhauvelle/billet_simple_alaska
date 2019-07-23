@@ -2,7 +2,7 @@
 
 $title = "Modication de profil";
 
-include("header.php");
+include("Template/header.php");
 ?>
 <div id="content">
     <h2 class="title_section">Modification profil</h2>
@@ -45,4 +45,4 @@ include("header.php");
         <a href="profil">Retour au profil</a>
     </div>
 </div>
-<?php include("footer.php"); ?>
+<?php include("Template/footer.php"); ?>

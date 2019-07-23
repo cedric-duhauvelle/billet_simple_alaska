@@ -11,7 +11,7 @@ $router = new Router($this->_db);
 $getClean = $router->cleanArray($_GET);
 
 $title = "Chapitre";
-include("header.php");
+include("Template/header.php");
 ?>
 <div id="content">
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
@@ -56,4 +56,4 @@ include("header.php");
     ?>   
 </div>
 <?php 
-include("footer.php"); 
+include("Template/footer.php"); 

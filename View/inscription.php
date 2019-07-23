@@ -2,7 +2,7 @@
 
 $title = "Inscription";
 
-include("header.php");
+include("Template/header.php");
 ?>
 <div id="content">
     <form method="POST" action="InscriptionController" id="form_inscription">
@@ -43,4 +43,4 @@ include("header.php");
         </div>
     </form>
 </div>
-<?php include("footer.php"); ?>
+<?php include("Template/footer.php"); ?>

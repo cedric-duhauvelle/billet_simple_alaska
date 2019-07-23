@@ -3,7 +3,7 @@
 require_once '../modele/Chapters.php';
 
 $title = "Chapitres";
-include("header.php");
+include("Template/header.php");
 ?>
 <div id="content">
     <h2 class="title_section">Chapitres</h2>
@@ -14,4 +14,4 @@ include("header.php");
         ?>
     </div>
 </div>
-<?php include("footer.php"); ?>
+<?php include("Template/footer.php"); ?>

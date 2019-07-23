@@ -2,7 +2,7 @@
 
 $title = "Connexion";
 
-include("header.php"); 
+include("Template/header.php"); 
 ?>
 
 <div id="content">
@@ -38,4 +38,4 @@ include("header.php");
     </form>
 </div>
 
-<?php include("footer.php"); ?>
+<?php include("Template/footer.php"); ?>

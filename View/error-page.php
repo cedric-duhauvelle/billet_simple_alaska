@@ -38,4 +38,4 @@ if (array_key_exists('errorMessage', $_SESSION) && array_key_exists('errorCode',
             <a href="accueil">Retour à l'accueil</a>
 		</div>
 	</div>
-<?php include("footer.php"); ?>
+<?php include("Template/footer.php"); ?>

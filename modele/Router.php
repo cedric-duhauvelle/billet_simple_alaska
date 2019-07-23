@@ -23,21 +23,21 @@ class Router extends Data{
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             require_once '../controller/' . $page . '.php';
         //Redirection vers les templates
-        } elseif (is_file('../template/' . $page . '.php')) {    
+        } elseif (is_file('../View/' . $page . '.php')) {    
             if ($page === 'chapitre' || $page === 'administrateur') {
                 if (array_key_exists('id', $_GET)) {
                     $getClean = $this->cleanArray($_GET);
                     $chapter = new Chapters($this->_db);
                     if ($chapter->checkId($getClean['id']) === true) {
-                        require_once '../template/' . $page . '.php';
+                        require_once '../View/' . $page . '.php';
                     } else {
                         throw new CustomException("Chapitre introuvable", 404); 
                     }
                 } elseif ($page === 'administrateur') {
-                    require_once '../template/' . $page . '.php';
+                    require_once '../View/' . $page . '.php';
                 }
             } else {
-                require_once '../template/' . $page . '.php';
+                require_once '../View/' . $page . '.php';
             }
         } else {
             throw new CustomException("Page introuvable", 404);  

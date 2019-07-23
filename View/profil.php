@@ -4,7 +4,7 @@ require_once '../modele/User.php';
 
 $title = "Profil";
 
-include("header.php");
+include("template/header.php");
 $user = new User($this->_db);
 $user_name = $user->displayName($_SESSION['id_user']);
 $user_email = $user->displayEmail($_SESSION['id_user']);
@@ -24,4 +24,4 @@ $user_inscription = $user->displayDateInscription($_SESSION['id_user']);
         <a class="button_deconnexion" href="DeconnexionController">Déconnexion</a>
     </div>
 </div>
-<?php include("footer.php"); ?>
+<?php include("Template/footer.php"); ?>
