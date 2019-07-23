@@ -39,30 +39,7 @@ class CommentReports extends Data {
             if ($comment['id'] == $id) {
                 $date = explode(' ', $comment['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<div class="content_admin_reports_comment">';
-                echo '<div class="content_admin_reports_details">';
-                echo '<p>Signalé le: ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '.</p>';
-                echo '<p>Ecrit par : ' . $name->displayName($comment['user']) . ' // Signalé par : ' . $name->displayName($user) . '.</p>';
-                echo '<p>Sur le chapitre: ' . $chapter->displayTitle($comment['chapter']) . '</p>';
-                echo '<p class="content_admin_reports_comment_details">' . $comment['content'] . '</p>';
-                echo '</div>';
-                echo '<div class="content_admin_reports_comment_button">';
-                //formulaire pour effacer le signalement
-                echo '<form action="DeleteController" method="post">';
-                echo '<label for="idReports"></label>';
-                echo '<input type="text "" name="idReports" value="' . $id . '" class="Content_admin_reports_comment_input_delete" />';
-                echo '<label for="buttonDeleteReports">Effacer le signalement</label>';
-                echo '<input type="submit" name="buttonDeleteReports" class="button_delete_reports" value="Effacer" />';
-                echo '</form>';
-                //formulaire pour effacer formulaire
-                echo '<form action="DeleteController" method="post">';
-                echo '<label for="idComment"></label>';
-                echo '<input type="text " name="idComment" value="' . $id . '" class="Content_admin_reports_comment_input_delete" />';
-                echo '<label for="buttonDeleteComment">Effacer le commentaire</label>';
-                echo '<input type="submit" name="buttonDeleteComment" class="button_delete_comment" value="Effacer" />';
-                echo '</form>';
-                echo '</div>';
-                echo '</div>';
+                include("../View/template/report.php");
             }  
         }
     }
