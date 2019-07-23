@@ -4,7 +4,7 @@ require_once '../modele/User.php';
 
 $title = "Profil";
 
-include("template/header.php");
+include("Template/header.php");
 $user = new User($this->_db);
 $user_name = $user->displayName($_SESSION['id_user']);
 $user_email = $user->displayEmail($_SESSION['id_user']);
