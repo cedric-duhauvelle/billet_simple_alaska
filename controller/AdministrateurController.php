@@ -4,7 +4,6 @@ require_once '../modele/Chapters.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
-$postClean = $router->cleanArray($_POST);
 
 $chapters = new Chapters($this->_db);
 $urlChapter = explode('/', $_SERVER['HTTP_REFERER']);

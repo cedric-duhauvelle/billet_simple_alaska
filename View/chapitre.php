@@ -6,12 +6,9 @@ require_once '../modele/Comment.php';
 
 $chapter = new Chapters($this->_db);
 $comment = new Comment($this->_db);
-$router = new Router($this->_db);
 
-$getClean = $router->cleanArray($_GET);
 
 $title = "Chapitre";
-include("Template/header.php");
 ?>
 <div id="content">
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
@@ -56,4 +53,3 @@ include("Template/header.php");
     ?>   
 </div>
 <?php 
-include("Template/footer.php"); 

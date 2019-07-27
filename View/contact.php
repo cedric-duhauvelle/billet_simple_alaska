@@ -1,7 +1,6 @@
 <?php 
 
-$title = "Contact";
-include("Template/header.php"); 
+$title = "Contact"; 
 ?>
 <div id="content">
 	<h2 class="title_section">Contact</h2>
@@ -10,4 +9,3 @@ include("Template/header.php");
 		<p id="contact_email"><strong>Email:</strong> jean.forteroche@Youhou.net</p>
 	</div>
 </div>
-<?php include("Template/footer.php"); ?>

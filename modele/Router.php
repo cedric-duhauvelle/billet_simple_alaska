@@ -18,7 +18,8 @@ class Router extends Data{
     }
 
     //Redection vers la page souhaitee
-    private function route($page) {  
+    private function route($page) {
+  
         //Redirection vers les controllers
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             require_once '../controller/' . $page . '.php';

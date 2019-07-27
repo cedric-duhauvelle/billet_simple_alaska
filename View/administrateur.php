@@ -13,7 +13,6 @@ $title = "Administrateur";
 if(!array_key_exists('admin', $_SESSION)) {
     header('location: accueil');
 }
-include("Template/header.php");
 $chapter = new Chapters($this->_db);
 $reportComment = new CommentReports($this->_db);
 ?>
@@ -39,4 +38,3 @@ $reportComment = new CommentReports($this->_db);
 <div id="content_admin_comment">
     <?php $reportComment->checkReports(); ?>
 </div>
-<?php include("Template/footer.php"); ?>

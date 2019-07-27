@@ -4,7 +4,6 @@ require_once '../modele/Comment.php';
 
 $comment = new Comment($this->_db);
 $title = "Commentaires";
-include("Template/header.php"); 
 ?>
 <div id="content">
 	<h2 class="title_section">Commentaires</h2>
@@ -14,4 +13,3 @@ include("Template/header.php");
         ?>
     </div>
 </div>
-<?php include("Template/footer.php"); ?>

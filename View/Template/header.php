@@ -1,7 +1,7 @@
 <?php
 require_once '../modele/Session.php';
 require_once '../modele/Router.php';
-$router = new Router($this->_db);
+
 $getClean = $router->cleanArray($_GET);
 
 function menuActive($page, $url) {
@@ -29,7 +29,7 @@ $adminHead = 'administrateur';
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
         <meta property="og:title" content="Billet simple pour l'Alaska" />
         <meta property="og:description" content="Blog de Jean Forteroche sur son nouveau livre" />
-        <title><?= $title; ?></title>
+        <title><?= ucwords($getClean['url']); ?></title>
         <script src="https://kit.fontawesome.com/71336045e0.js"></script>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
