@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modele/Chapters.php';
+require_once '../Modele/Chapters.php';
 
 $title = "Chapitres";
 ?>

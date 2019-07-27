@@ -1,8 +1,8 @@
 <?php
 
-require_once '../modele/Session.php';
-require_once '../modele/Chapters.php';
-require_once '../modele/Comment.php';
+require_once '../Modele/Session.php';
+require_once '../Modele/Chapters.php';
+require_once '../Modele/Comment.php';
 
 $chapter = new Chapters($this->_db);
 $comment = new Comment($this->_db);
