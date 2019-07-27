@@ -6,11 +6,11 @@ if (isset($_GET)) {
 	require_once '../View/Template/header.php';
 
 	if(is_array($getClean) && array_key_exists('url', $getClean)) {
-	    $router->setUrl($getClean['url']);      
+	    $url = $getClean['url'];   
 	} else {
-		header('Location: accueil');
+		$url = 'accueil';
 	}
-
+	$router->setUrl($url);
 	require_once '../View/Template/footer.php';
 } 
 
