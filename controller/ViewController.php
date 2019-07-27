@@ -1,4 +1,5 @@
 <?php
+
 $getClean = $router->cleanArray($_GET);
 $postClean = $router->cleanArray($_POST);
 

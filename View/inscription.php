@@ -1,8 +1,3 @@
-<?php
-
-$title = "Inscription";
-
-?>
 <div id="content">
     <form method="POST" action="InscriptionController" id="form_inscription">
         <div id="inscription_content">

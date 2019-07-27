@@ -1,8 +1,3 @@
-<?php
-
-$title = "Modication de profil";
-
-?>
 <div id="content">
     <h2 class="title_section">Modification profil</h2>
     <div id="form_update_content">

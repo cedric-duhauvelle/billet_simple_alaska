@@ -1,9 +1,5 @@
-<?php
+<?php require_once '../modele/Chapters.php'; ?>
 
-require_once '../Modele/Chapters.php';
-
-$title = "Billet pour l'Alaska";
-?>
 <div id="content">
     <h2 class="title_section">Nouveauté</h2>
     <div id="content_book">

@@ -1,6 +1,6 @@
 <?php
-require_once '../Modele/Session.php';
-require_once '../Modele/Router.php';
+require_once '../modele/Session.php';
+require_once '../modele/Router.php';
 
 $getClean = $router->cleanArray($_GET);
 

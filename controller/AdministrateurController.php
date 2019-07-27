@@ -1,7 +1,7 @@
 <?php
 
-require_once '../Modele/Chapters.php';
-require_once '../Modele/Router.php';
+require_once '../modele/Chapters.php';
+require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
 

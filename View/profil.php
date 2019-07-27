@@ -1,8 +1,6 @@
 <?php 
 
-require_once '../Modele/User.php';
-
-$title = "Profil";
+require_once '../modele/User.php';
 
 $user = new User($this->_db);
 $user_name = $user->displayName($_SESSION['id_user']);

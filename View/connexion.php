@@ -1,9 +1,3 @@
-<?php
-
-$title = "Connexion";
- 
-?>
-
 <div id="content">
     <form action="ConnexionController" method="POST" id="form_connexion">
         <div id="connexion_content">   

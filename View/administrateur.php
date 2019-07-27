@@ -1,15 +1,13 @@
 <?php 
 
-require_once '../Modele/Chapters.php';
-require_once '../Modele/DataRecover.php';
-require_once '../Modele/CommentReports.php';
-require_once '../Modele/Router.php';
+require_once '../modele/Chapters.php';
+require_once '../modele/DataRecover.php';
+require_once '../modele/CommentReports.php';
+require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
 $getClean = $router->cleanArray($_GET);
 
-
-$title = "Administrateur";
 if(!array_key_exists('admin', $_SESSION)) {
     header('location: accueil');
 }

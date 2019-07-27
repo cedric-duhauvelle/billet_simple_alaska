@@ -1,7 +1,3 @@
-<?php 
-
-$title = "Contact"; 
-?>
 <div id="content">
 	<h2 class="title_section">Contact</h2>
 	<div id="content_contact">
