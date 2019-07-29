@@ -3,7 +3,7 @@
 require_once '../modele/Chapters.php';
 
 
-$chapters = new Chapters($db);
+$chapters = new Chapters($this->_db);
 $urlChapter = explode('/', $_SERVER['HTTP_REFERER']);
 $idChapter = explode('=', $urlChapter[$router->checkServer()]);
 

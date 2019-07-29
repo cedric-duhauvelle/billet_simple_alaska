@@ -1,8 +1,12 @@
 <?php
 
 require_once '../modele/User.php';
+require_once '../modele/Router.php';
 
-$updateUser = new User($db);
+$router = new Router($this->_db);
+$postClean = $router->cleanArray($_POST);
+
+$updateUser = new User($this->_db);
 if (array_key_exists('updateName', $_POST)) {
 	//Modifie le nom utilisateur
 	$updateUser->checkUpdateName($_SESSION['id_user'], $postClean['updateName']);

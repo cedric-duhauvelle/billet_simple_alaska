@@ -4,7 +4,7 @@
     <h2 class="title_section">Nouveauté</h2>
     <div id="content_book">
     <?php 
-    $chapter = new Chapters($db);
+    $chapter = new Chapters($this->_db);
     $chapter->displayChaptersLast();
     ?>  
     </div>

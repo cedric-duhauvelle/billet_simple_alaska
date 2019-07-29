@@ -2,9 +2,13 @@
 
 require_once '../modele/Comment.php';
 require_once '../modele/CommentReports.php';
+require_once '../modele/Router.php';
 
-$deleteReports = new CommentReports($db);
-$deleteComment = new Comment($db);
+$router = new Router($this->_db);
+$postClean = $router->cleanArray($_POST);
+
+$deleteReports = new CommentReports($this->_db);
+$deleteComment = new Comment($this->_db);
 if (array_key_exists('idReports', $_POST)) {
 	//Efface le signalement
 	$deleteReports->deleteReports($postClean['idReports']);
@@ -15,4 +19,4 @@ if (array_key_exists('idReports', $_POST)) {
 }
 
 //Redirection page
-require_once '../View/administrateur.php';
+header('Location: administrateur');

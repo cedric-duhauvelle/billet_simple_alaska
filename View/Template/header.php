@@ -1,5 +1,11 @@
 <?php
 
+require_once '../modele/Router.php';
+
+$router = new Router($this->_db);
+$getClean = $router->cleanArray($_GET);
+$postClean = $router->cleanArray($_POST);
+
 function menuActive($page, $url) {
     if (strtolower($page) === strtolower($url)) {
         echo 'class="nav_items active"';
@@ -7,7 +13,7 @@ function menuActive($page, $url) {
         echo 'class="nav_items"';
     }
 }
-if (array_key_exists('url', $_GET)) {
+if (array_key_exists('url', $getClean)) {
     $getUrl = $getClean['url'];
 } else {
     $getUrl = 'accueil';

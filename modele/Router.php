@@ -22,24 +22,19 @@ class Router extends Data{
   
         //Redirection vers les controllers
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
-            return '../controller/' . $page . '.php';
+            require_once '../controller/' . $page . '.php';
         //Redirection vers les templates
-        } elseif (is_file('../View/' . $page . '.php')) {    
+        } elseif (is_file('../View/' . $page . '.php')) {
             if ($page === 'chapitre' || $page === 'administrateur') {
                 if (array_key_exists('id', $_GET)) {
                     $getClean = $this->cleanArray($_GET);
                     $chapter = new Chapters($this->_db);
-                    if ($chapter->checkId($getClean['id']) === true) {
-                        return '../View/' . $page . '.php';
-                    } else {
+                    if (!$chapter->checkId($getClean['id'])) {
                         throw new CustomException("Chapitre introuvable", 404); 
                     }
-                } elseif ($page === 'administrateur') {
-                    return '../View/' . $page . '.php';
                 }
-            } else {
-                return '../View/' . $page . '.php';
             }
+            require_once '../controller/PageController.php';
         } else {
             throw new CustomException("Page introuvable", 404);  
         }
@@ -51,6 +46,6 @@ class Router extends Data{
             return 8;
         }
 
-        return 2;
+        return 3;
     }
 }
