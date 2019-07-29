@@ -8,7 +8,7 @@ class Router extends Data{
     
     //Recupere url
     public function setUrl($url) {
-        $this->route($url);
+        return $this->route($url);
     }
 
     //Nettoyeur de tableau
@@ -17,12 +17,12 @@ class Router extends Data{
         return isset($array) ? filter_var_array($array, FILTER_SANITIZE_STRING) : null;
     }
 
-    //Redection vers la page souhaitee
+    //Retourne le chemin de la page souhaitee
     private function route($page) {
   
         //Redirection vers les controllers
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
-            require_once '../controller/' . $page . '.php';
+            return '../controller/' . $page . '.php';
         //Redirection vers les templates
         } elseif (is_file('../View/' . $page . '.php')) {    
             if ($page === 'chapitre' || $page === 'administrateur') {
@@ -30,15 +30,15 @@ class Router extends Data{
                     $getClean = $this->cleanArray($_GET);
                     $chapter = new Chapters($this->_db);
                     if ($chapter->checkId($getClean['id']) === true) {
-                        require_once '../View/' . $page . '.php';
+                        return '../View/' . $page . '.php';
                     } else {
                         throw new CustomException("Chapitre introuvable", 404); 
                     }
                 } elseif ($page === 'administrateur') {
-                    require_once '../View/' . $page . '.php';
+                    return '../View/' . $page . '.php';
                 }
             } else {
-                require_once '../View/' . $page . '.php';
+                return '../View/' . $page . '.php';
             }
         } else {
             throw new CustomException("Page introuvable", 404);  

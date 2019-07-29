@@ -1,11 +1,10 @@
 <?php
 
-require_once '../modele/Session.php';
 require_once '../modele/Chapters.php';
 require_once '../modele/Comment.php';
 
-$chapter = new Chapters($this->_db);
-$comment = new Comment($this->_db);
+$chapter = new Chapters($db);
+$comment = new Comment($db);
 ?>
 <div id="content">
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>

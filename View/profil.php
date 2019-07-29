@@ -2,7 +2,7 @@
 
 require_once '../modele/User.php';
 
-$user = new User($this->_db);
+$user = new User($db);
 $user_name = $user->displayName($_SESSION['id_user']);
 $user_email = $user->displayEmail($_SESSION['id_user']);
 $user_inscription = $user->displayDateInscription($_SESSION['id_user']);

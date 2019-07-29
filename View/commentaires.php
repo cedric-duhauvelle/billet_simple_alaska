@@ -2,7 +2,7 @@
 
 require_once '../modele/Comment.php';
 
-$comment = new Comment($this->_db);
+$comment = new Comment($db);
 $title = "Commentaires";
 ?>
 <div id="content">

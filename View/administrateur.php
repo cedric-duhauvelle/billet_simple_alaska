@@ -5,14 +5,14 @@ require_once '../modele/DataRecover.php';
 require_once '../modele/CommentReports.php';
 require_once '../modele/Router.php';
 
-$router = new Router($this->_db);
+$router = new Router($db);
 $getClean = $router->cleanArray($_GET);
 
 if(!array_key_exists('admin', $_SESSION)) {
     header('location: accueil');
 }
-$chapter = new Chapters($this->_db);
-$reportComment = new CommentReports($this->_db);
+$chapter = new Chapters($db);
+$reportComment = new CommentReports($db);
 ?>
 <div id="content_admin">
     <div id="content_chapter_admin">
