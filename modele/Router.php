@@ -51,6 +51,6 @@ class Router extends Data{
             return 8;
         }
 
-        return 3;
+        return 2;
     }
 }
