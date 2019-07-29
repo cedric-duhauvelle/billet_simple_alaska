@@ -17,4 +17,4 @@ if (array_key_exists('updateName', $_POST)) {
 }
 
 //Redirection page
-require_once '../view/update-profil.php';
+require_once '../View/update-profil.php';

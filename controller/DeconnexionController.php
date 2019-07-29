@@ -5,4 +5,4 @@ $_SESSION = array();
 session_destroy();
 
 //Redirection page
-require_once '../view/accueil.php';
+require_once '../View/accueil.php';

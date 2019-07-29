@@ -11,4 +11,4 @@ $user = new User($db);
 $user->addUser($postClean['pseudoInscription'], $postClean['emailInscription'], $postClean['passwordInscription'], $postClean['confirmationPasswordInscription']); 
 
 //Redirection page
-require_once '../view/profil.php';
+require_once '../View/profil.php';
