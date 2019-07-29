@@ -11,4 +11,4 @@ $dataCall = new DataRecover($this->_db);
 $dataCall->connectUser($postClean['pseudo'], $postClean['password']);
 
 //Redirection page
-require_once '../View/profil.php';
+header('Location: profil');

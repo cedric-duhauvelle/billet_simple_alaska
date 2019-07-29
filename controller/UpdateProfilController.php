@@ -21,4 +21,4 @@ if (array_key_exists('updateName', $_POST)) {
 }
 
 //Redirection page
-require_once '../View/update-profil.php';
+header('Location: profil');

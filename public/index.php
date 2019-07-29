@@ -7,8 +7,8 @@ require_once '../modele/Session.php';
 //Gestion des erreurs
 set_exception_handler('exception');
 
-function exception($m, $c) {
-    new CustomException($m, $c);
+function exception($e) {
+    new CustomException($e);
 }
 
 $session = new Session();

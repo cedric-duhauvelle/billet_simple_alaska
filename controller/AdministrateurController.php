@@ -22,4 +22,4 @@ if (array_key_exists(1, $idChapter)) {
 }
 
 //Redirection page
-require_once '../View/administrateur.php';
+header('Location: administrateur');
