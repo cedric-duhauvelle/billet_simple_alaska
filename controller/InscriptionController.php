@@ -2,6 +2,7 @@
 
 require_once '../modele/DataRecover.php';
 require_once '../modele/User.php';
+require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
 $postClean = $router->cleanArray($_POST);
@@ -11,4 +12,4 @@ $user = new User($db);
 $user->addUser($postClean['pseudoInscription'], $postClean['emailInscription'], $postClean['passwordInscription'], $postClean['confirmationPasswordInscription']); 
 
 //Redirection page
-require_once '../View/profil.php';
+header('Location: profil');
