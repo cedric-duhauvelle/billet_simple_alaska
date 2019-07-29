@@ -4,5 +4,5 @@
 $_SESSION = array();
 session_destroy();
 
-//Redirection
-header('Location: accueil');
+//Redirection page
+require_once '../view/accueil.php';

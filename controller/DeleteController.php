@@ -14,5 +14,5 @@ if (array_key_exists('idReports', $_POST)) {
 	$deleteReports->deleteReports($postClean['idComment']);
 }
 
-//Redirection
-header('location: administrateur');
+//Redirection page
+require_once '../view/administrateur.php';

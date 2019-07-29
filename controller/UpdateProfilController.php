@@ -15,3 +15,6 @@ if (array_key_exists('updateName', $_POST)) {
 	//Modifie password utilisateur
 	$updateUser->checkPasswordUpdate($_SESSION['id_user'], $postClean['updatePassword'], $postClean['updatePasswordCheck']);
 }
+
+//Redirection page
+require_once '../view/update-profil.php';

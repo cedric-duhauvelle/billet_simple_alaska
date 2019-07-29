@@ -9,3 +9,6 @@ $postClean = $router->cleanArray($_POST);
 //Ajoute un utilisateur a la base de donnees
 $user = new User($db);
 $user->addUser($postClean['pseudoInscription'], $postClean['emailInscription'], $postClean['passwordInscription'], $postClean['confirmationPasswordInscription']); 
+
+//Redirection page
+require_once '../view/profil.php';

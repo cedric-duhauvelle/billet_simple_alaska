@@ -21,5 +21,5 @@ if (array_key_exists(1, $idChapter)) {
 	$chapters->addChapterDb();
 }
 
-//redirection 
-header('Location: administrateur');
+//Redirection page
+require_once '../view/administrateur.php';
