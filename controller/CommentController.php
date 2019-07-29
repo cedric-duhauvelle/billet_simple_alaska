@@ -2,6 +2,7 @@
 
 require_once '../modele/Comment.php';
 require_once '../modele/Router.php';
+
 $router =  new Router($this->_db);
 $postClean = $router->cleanArray($_POST);
 
