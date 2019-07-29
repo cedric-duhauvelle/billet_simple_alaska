@@ -2,13 +2,9 @@
 
 require_once '../modele/Comment.php';
 require_once '../modele/CommentReports.php';
-require_once '../modele/Router.php';
 
-$router = new Router($this->_db);
-$postClean = $router->cleanArray($_POST);
-
-$deleteReports = new CommentReports($this->_db);
-$deleteComment = new Comment($this->_db);
+$deleteReports = new CommentReports($db);
+$deleteComment = new Comment($db);
 if (array_key_exists('idReports', $_POST)) {
 	//Efface le signalement
 	$deleteReports->deleteReports($postClean['idReports']);

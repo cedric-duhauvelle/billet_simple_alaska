@@ -1,8 +1,4 @@
 <?php
-require_once '../modele/Session.php';
-require_once '../modele/Router.php';
-
-$getClean = $router->cleanArray($_GET);
 
 function menuActive($page, $url) {
     if (strtolower($page) === strtolower($url)) {

@@ -1,17 +1,13 @@
 <?php
 
-require_once '../modele/Session.php';
 require_once '../modele/Comment.php';
-require_once '../modele/Router.php';
 
-$router = new Router($this->_db);
-$postClean = $router->cleanArray($_POST);
 
 //Recupere la page precedente
 $chapter = explode('/', $_SERVER['HTTP_REFERER']);
 $idChapter = explode('=', $chapter[$router->checkServer()]);
 //Ajout commentaire dans la base de données
-$comment = new Comment($this->_db);
+$comment = new Comment($db);
 $comment->add($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
 
 //Redirection

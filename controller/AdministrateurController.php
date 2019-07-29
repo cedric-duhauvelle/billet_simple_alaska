@@ -1,11 +1,9 @@
 <?php
 
 require_once '../modele/Chapters.php';
-require_once '../modele/Router.php';
 
-$router = new Router($this->_db);
 
-$chapters = new Chapters($this->_db);
+$chapters = new Chapters($db);
 $urlChapter = explode('/', $_SERVER['HTTP_REFERER']);
 $idChapter = explode('=', $urlChapter[$router->checkServer()]);
 
