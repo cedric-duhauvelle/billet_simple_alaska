@@ -1,6 +1,7 @@
 <?php
 
-if (array_key_exists('errorMessage', $_SESSION) && array_key_exists('errorCode', $_SESSION)) {
+if (array_key_exists('errorMessage', $_SESSION) && array_key_exists('errorCode', $_SESSION))
+{
     $message = $_SESSION['errorMessage'];
     $code = $_SESSION['errorCode'];
     unset($_SESSION['errorMessage']);

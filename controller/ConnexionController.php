@@ -10,8 +10,6 @@ $session = new Session();
 
 $postClean = $routeur->cleanArray($_POST);
 
-var_dump($postClean);
-
 if ($check->recover('users', 'name', $postClean['pseudo'], 'id') === null)
 {
     $session->addSession('errorName', 'Nom incorrect!!');

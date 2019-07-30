@@ -5,7 +5,8 @@ require_once '../modele/DataRecover.php';
 require_once '../modele/CommentReports.php';
 require_once '../modele/Router.php';
 
-if(!array_key_exists('admin', $_SESSION)) {
+if(!array_key_exists('admin', $_SESSION))
+{
     header('location: accueil');
 }
 $chapter = new Chapters($this->_db);
