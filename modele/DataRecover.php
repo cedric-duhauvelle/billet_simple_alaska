@@ -6,6 +6,11 @@ require_once 'Session.php';
 class DataRecover extends Data
 {
     
+    public function __construct(PDO $db)
+    {
+        return $this->_db = $db;
+    }
+
     public function recover($tab, $champ, $search, $value)
     {
 
