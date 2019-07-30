@@ -21,5 +21,3 @@ if(is_array($getClean) && array_key_exists('url', $getClean))  {
 } else {
 	header('Location: accueil');
 }
-
-//require_once '../controller/ViewController.php';
