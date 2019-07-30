@@ -1,15 +1,18 @@
 <?php
 
-class Data {
+class Data
+{
 
     protected $_db;
     protected $_responses;
 
-    public function __construct(PDO $db) {
+    public function __construct(PDO $db)
+    {
         $this->setDb($db);
     }
     
-    public function setDb(PDO $db) {
+    public function setDb(PDO $db)
+    {
         $this->_db = $db;
     } 
 }

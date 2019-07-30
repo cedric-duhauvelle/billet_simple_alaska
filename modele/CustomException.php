@@ -2,8 +2,10 @@
 
 require_once 'Session.php';
 
-class CustomException extends \Exception {
-    public function __construct($message, $code) {
+class CustomException extends \Exception
+{
+    public function __construct($message, $code)
+    {
 
         parent::__construct($message, $code);
 

@@ -39,5 +39,3 @@ else
         header('Location: connexion');
     }
 }
-
-var_dump($_SESSION);

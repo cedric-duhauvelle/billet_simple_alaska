@@ -6,16 +6,23 @@ $router = new Router($this->_db);
 $getClean = $router->cleanArray($_GET);
 $postClean = $router->cleanArray($_POST);
 
-function menuActive($page, $url) {
-    if (strtolower($page) === strtolower($url)) {
+function menuActive($page, $url)
+{
+    if (strtolower($page) === strtolower($url))
+    {
         echo 'class="nav_items active"';
-    } else {
+    }
+    else
+    {
         echo 'class="nav_items"';
     }
 }
-if (array_key_exists('url', $getClean)) {
+if (array_key_exists('url', $getClean))
+{
     $getUrl = $getClean['url'];
-} else {
+}
+else
+{
     $getUrl = 'accueil';
 }
 $accueilHead = 'accueil';

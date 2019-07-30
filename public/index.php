@@ -7,9 +7,10 @@ require_once '../modele/Session.php';
 
 session_start();
 //Gestion des erreurs
-//set_exception_handler('exception');
+set_exception_handler('exception');
 
-function exception($e, $c) {
+function exception($e, $c)
+{
     new CustomException($e, $c);
 }
 
@@ -18,8 +19,11 @@ $router = new Router($db);
 
 $getClean = $router->cleanArray($_GET);
 
-if(is_array($getClean) && array_key_exists('url', $getClean))  {
+if(is_array($getClean) && array_key_exists('url', $getClean))
+{
 	$router->setUrl($getClean['url']);
-} else {
+}
+else
+{
 	header('Location: accueil');
 }
