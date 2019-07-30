@@ -12,12 +12,4 @@ class Data {
     public function setDb(PDO $db) {
         $this->_db = $db;
     } 
-
-    //Appel a la base de donnees
-    public function callDisplay($table) {
-        $resp = $this->_db->prepare('SELECT * FROM ' . $table);
-        $resp->execute();
-        $this->_responses = $resp->fetchAll();
-        return $this->_responses;
-    }  
 }

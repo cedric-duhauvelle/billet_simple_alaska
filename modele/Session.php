@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 class Session{
 	//Cree une variable session 
     public function addSession($name, $value) {

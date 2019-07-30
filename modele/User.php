@@ -5,7 +5,7 @@ require_once 'Session.php';
 require_once 'DataInsert.php';
 require_once 'Data.php';
 
-class User extends Data {
+class User extends DataRecover {
     private $_id;
     private $_pseudo;
     private $_email;
@@ -30,13 +30,12 @@ class User extends Data {
 
     //Verifie les mots de passes
     public function setPassword($password, $passwordCheck) {
-        $this->_responsePassword = true;
+        $this->_responsePassword = false;
         if ($password === $passwordCheck) {
-            $this->_password = htmlspecialchars(password_hash($password, PASSWORD_DEFAULT));
-            return $this->_password;
-        } else {
-            $this->_responsePassword = false;
-        }
+            $this->_responsePassword = true;
+            $this->_password = $password;
+        } 
+
         return $this->_responsePassword;
     } 
 
@@ -45,33 +44,6 @@ class User extends Data {
         $dataInsert = new DataInsert($this->_db);
         $dataInsert->add($this->_pseudo, $this->_email, $this->_password);
         $this->searchId($this->_pseudo);
-    }
-
-    //Verifie les information utilsateur
-    public function addUser($pseudo, $email, $password, $passwordCheck) {
-        $this->checkName($pseudo);
-        $this->checkEmail($email);
-        $this->setPassword($password, $passwordCheck);
-        if ($this->_responsePseudo === true) {
-            $session = new Session();
-            $session->addSession('errorName', 'Nom déjà utilisé');
-            header('location: inscription');
-        } elseif ($this->_responseEmail === true) {
-            $session = new Session();
-            $session->addSession('errorEmail', 'Email déjà utilisé');
-            header('Location: inscription');
-        } elseif ($this->_responsePassword === false) {
-            $session = new Session();
-            $session->addSession('errorPassword', 'Les mots de passes ne sont pas identiques');
-            header('Location: inscription');
-        } elseif ($this->_responsePseudo ===  false && $this->_responseEmail === false && $this->_responsePassword === true) {
-            $this->setPseudo($pseudo);
-            $this->setEmail($email);
-            $this->setPassword($password, $passwordCheck);
-            $this->addDb();
-            $this->searchId($this->_pseudo);
-            header('Location: profil');
-        }
     }
 
     //Recherche id
@@ -142,9 +114,11 @@ class User extends Data {
         $this->callDisplay('users');
         foreach ($this->_responses as $response) {
             if ($email === $response['email']) {
-                return $this->_responseEmail = true;
+                $this->_responseEmail = true;
             } 
         }
+
+        return $this->_responseEmail;
     }
 
     //Affiche le nom utilisateur

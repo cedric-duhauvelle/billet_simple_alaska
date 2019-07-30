@@ -1,6 +1,7 @@
 <?php
 
 require_once '../modele/Router.php';
+require_once '../modele/CustomException.php';
 
 $router = new Router($this->_db);
 $getClean = $router->cleanArray($_GET);

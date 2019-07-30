@@ -4,8 +4,10 @@ require_once '../modele/private/adressDataBase.php';
 require_once '../modele/Router.php';
 require_once '../modele/Session.php';
 
+
+session_start();
 //Gestion des erreurs
-set_exception_handler('exception');
+//set_exception_handler('exception');
 
 function exception($e, $c) {
     new CustomException($e, $c);

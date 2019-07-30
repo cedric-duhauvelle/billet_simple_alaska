@@ -4,34 +4,40 @@ require_once '../modele/DataRecover.php';
 require_once '../modele/Router.php';
 require_once '../modele/Session.php';
 
-$router = new Router($this->_db);
+$routeur = new Router($this->_db);
+$check = new DataRecover($this->_db);
 $session = new Session();
-$dataCall = new DataRecover($this->_db);
 
-$postClean = $router->cleanArray($_POST);
+$postClean = $routeur->cleanArray($_POST);
 
-//Verifie et recupere un utilisateur dans la base de donnees
+var_dump($postClean);
 
-if ($dataCall->namecheck($postClean['pseudo']) === 0)
+if ($check->recover('users', 'name', $postClean['pseudo'], 'id') === null)
 {
-    $session->addSession('errorName', 'Nom incorrect');
+    $session->addSession('errorName', 'Nom incorrect!!');
     header('Location: connexion');
 }
-elseif ($dataCall->namecheck($postClean['pseudo']) === 1 && $dataCall->passwordCheck($postClean['pseudo'], $postClean['password']) === true)
+else
 {
-	$session->addSession('name', $postClean['pseudo']);
-    $session->addSession('id_user', $dataCall->returnID());
-    header('Location: profil');
+    if (password_verify($postClean['password'], $check->recover('users', 'name', $postClean['pseudo'], 'password')))
+    {
+        $session->addSession('id-user', $check->recover('users', 'name', $postClean['pseudo'], 'id'));
+        $session->addSession('name', $postClean['pseudo']);
+        if (array_key_exists('admin', $_SESSION))
+        {
+            session_destroy();
+        }
+        if ('admin' === $postClean['pseudo'])
+        {
+            $session->addSession('admin', 'admistrateur');
+        }
+        header('Location: profil');
+    }
+    else
+    {
+        $session->addSession('errorPassword', 'Mot de passe incorrect!!');
+        header('Location: connexion');
+    }
 }
-elseif ($dataCall->namecheck($postClean['pseudo']) === 2 && $dataCall->passwordCheck($postClean['pseudo'], $postClean['password']) === true)
-{	
-	$session->addSession('name', $postClean['pseudo']);
-    $session->addSession('id_user', $dataCall->returnID());
-    $session->addSession('admin', $dataCall->returnID());
-    header('Location: administrateur');
-}
-elseif (($dataCall->namecheck($postClean['pseudo']) === 1 || $dataCall->namecheck($postClean['pseudo']) === 2) && $dataCall->passwordCheck($postClean['pseudo'], $postClean['password']) === false)
-{
-	$session->addSession('errorPassword', 'Mot de pase incorrect');
-	header('Location: connexion');
-}
+
+var_dump($_SESSION);
