@@ -10,30 +10,8 @@ class DataRecover extends Data {
     private $_responseName;
     private $_responsePassword;
 
-    //Recherche si utilissateur est enregistrer a la base de donnees
-    public function connectUser($pseudo, $password) {
-        $this->namecheck($pseudo);
-        $this->passwordCheck($password);
-        if ($this->_responseName === 0) {
-            $session = new Session();
-            $session->addSession('errorName', 'Nom incorrect');
-            header('Location: connexion');
-        } elseif ($this->_responseName === 1 && $this->_responsePassword === true) {
-            $session = new Session();
-            $session->addSession('name', $pseudo);
-            $session->addSession('id_user', $this->_id);
-            header('Location: profil');
-        } elseif ($this->_responseName === 2 && $this->_responsePassword === true) {
-            $session = new Session();
-            $session->addSession('name', $pseudo);
-            $session->addSession('id_user', $this->_id);
-            $session->addSession('admin', $this->_responseName);
-            header('Location: administrateur');
-        } elseif (($this->_responseName === 1 || $this->_responseName === 2) && $this->_responsePassword === false) {
-            $session = new Session();
-            $session->addSession('errorPassword', 'Mot de pase incorrect');
-            header('Location: connexion');
-        } 
+    public function returnID(){
+        return $this->_id;
     }
 
     //Verifie nom  
@@ -52,7 +30,8 @@ class DataRecover extends Data {
     }
 
     //Verifie mot de passe 
-    public function passwordCheck($password) {
+    public function passwordCheck($pseudo, $password) {
+        $this->nameCheck($pseudo);
         $this->callDisplay('users');
         foreach ($this->_responses as $response) {
             if ($this->_id === $response['id']) {
@@ -64,5 +43,7 @@ class DataRecover extends Data {
                 $this->_responsePassword = false;
             }
         }
+
+        return $this->_responsePassword;
     }
 }
