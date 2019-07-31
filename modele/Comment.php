@@ -30,23 +30,9 @@ class Comment extends DataRecover
         {
             if ($response)
             {
-                echo '<div class="display_comment_content">';
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<p>Publié le ' .  $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']  . '</p>';
-                echo '<a href="chapitre?id=' . $response['chapter'] . '" class="comment_title_link">' . $chapter->displayTitle($response['chapter']) . '</a>';
-                echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
-                echo '<p class="display_comment_details">' . $response['content'] . '</p>';
-                if (!empty($_SESSION['name']))
-                {
-                    echo '<form action="CommentReportsController" method="post">';
-                    echo '<label for="name"></label>';
-                    echo '<input type="text" name="id" class="reports_comment" value="' . $response['id'] . '" />';
-                    echo '<input type="submit" class="button_report_comment" value="Signalez" alt="signalez" />';
-                    echo '</form>';
-                }
-                echo $report->checkReport($response['id']);
-                echo '</div>';
+                require '../View/Template/comment.php';
             }
         }
     }
@@ -55,27 +41,14 @@ class Comment extends DataRecover
     public function displayCommentChapter($id) {
         $this->callDisplay('comments');
         $name = new User($this->_db);
+        $report = new CommentReports($this->_db);
         foreach ($this->_responses as $response)
         {
             if ($response['chapter'] === $id)
             {
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
-                echo '<div class="display_comment_content_chapter">';
-                echo '<p>Publié le ' .  $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']  . '</p>';
-                echo '<p>Par ' . $name->displayName($response['user']) . '</p>';
-                echo '<p class="display_comment_details">' . $response['content'] . '</p>';
-                if (!empty($_SESSION['name'])) {
-                    echo '<form action="CommentReportsController" method="post">';
-                    echo '<label for="name">';
-                    echo '<input type="text" name="id" class="reports_comment" value="' . $response['id'] . '" />';
-                    echo '</label>';
-                    echo '<input type="submit" class="button_report_comment" value="Signalez" />';
-                    echo '</form>';
-                }
-                $report = new CommentReports($this->_db);
-                echo $report->checkReport($response['id']);
-                echo '</div>';
+                require '../View/Template/commentChapter.php';               
             }
         }
     }
