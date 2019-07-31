@@ -12,12 +12,6 @@ $session = new Session();
 
 $postClean = $router->cleanArray($_POST);
 
-var_dump($check->recover('users', 'name', $postClean['pseudoInscription'], 'id'));
-
-var_dump($check->recover('users', 'name', $postClean['pseudoInscription'], 'email'));
-
-var_dump($_POST);
-
 if ($check->recover('users', 'name', $postClean['pseudoInscription'], 'id') === null)
 {
     if ($check->recover('users', 'email', $postClean['emailInscription'], 'email') === null)
