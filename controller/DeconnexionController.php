@@ -1,5 +1,7 @@
 <?php
 
+namespace controller;
+
 //Detruit la session en cours
 $_SESSION = array();
 session_destroy();

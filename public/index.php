@@ -1,27 +1,34 @@
 <?php
 
 require_once '../modele/private/adressDataBase.php';
-require_once '../modele/Router.php';
-require_once '../modele/Session.php';
-
+use modele\Router;
 
 session_start();
+
+spl_autoload_register(function ($class) {
+    $class = '../' . str_replace("\\", '/', $class) . '.php';
+    if (is_file($class)) {
+        require_once($class);
+    } else {
+        new Exception('Erreur interne de chargement');
+    }
+});
+
 //Gestion des erreurs
-//set_exception_handler('exception');
+set_exception_handler('exception');
 
 function exception($e, $c)
 {
     new CustomException($e, $c);
 }
 
-$session = new Session();
 $router = new Router($db);
 
 $getClean = $router->cleanArray($_GET);
 
 if(is_array($getClean) && array_key_exists('url', $getClean))
 {
-	$router->setUrl($getClean['url']);
+	$router->route($getClean['url']);
 }
 else
 {

@@ -1,8 +1,9 @@
 <?php
 
+namespace modele;
+
 class Data
 {
-
     protected $_db;
     protected $_responses;
 

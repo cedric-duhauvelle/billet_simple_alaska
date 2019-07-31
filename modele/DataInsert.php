@@ -1,18 +1,16 @@
 <?php
 
-require_once 'Data.php';
-require_once 'Session.php';
+namespace modele;
+
+use modele\Data;
 
 class DataInsert extends Data
 {
-
-    //Ajoute le nom a la session
-    private function addSession($data)
+    public function __construct($db)
     {
-        $session = new Session();
-        $session->addSession('name', $data);
+        return $this->_db = $db;
     }
-
+    
     //Ajoute utilisateur a la base de donnees
     public function user($pseudo, $email, $password)
     {
@@ -21,7 +19,6 @@ class DataInsert extends Data
         $req->bindValue(':email', $email);
         $req->bindValue(':password', $password);
         $req->execute();
-        $this->addSession($pseudo);
     }
 
     //Ajoute un commentaire a la base de donnees

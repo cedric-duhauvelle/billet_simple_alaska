@@ -1,10 +1,12 @@
 <?php
 
-require_once '../modele/Chapters.php';
-require_once '../modele/Router.php';
-require_once '../modele/DataInsert.php';
-require_once '../modele/DataUpdate.php';
-require_once '../modele/DataDelete.php';
+namespace controller;
+
+use modele\Chapters;
+use modele\Router;
+use modele\DataInsert;
+use modele\DataUpdate;
+use modele\DataDelete;
 
 $router =  new Router($this->_db);
 $insert = new DataInsert($this->_db);

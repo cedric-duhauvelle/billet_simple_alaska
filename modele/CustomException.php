@@ -1,6 +1,9 @@
 <?php
 
-require_once 'Session.php';
+namespace modele;
+
+use \Exception;
+use modele\Session;
 
 class CustomException extends \Exception
 {

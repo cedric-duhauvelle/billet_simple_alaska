@@ -1,4 +1,4 @@
-<?php require_once '../modele/Chapters.php'; ?>
+<?php use modele\Chapters; ?>
 
 <div id="content">
     <h2 class="title_section">Nouveauté</h2>

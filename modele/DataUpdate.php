@@ -1,9 +1,15 @@
 <?php
 
-require_once 'Data.php';
+namespace modele;
+
+use model\Data;
 
 class DataUpdate extends Data
 {
+	public function __construct($db)
+    {
+        return $this->_db = $db;
+    }
 	public function name($id, $name)
 	{
 		$update = $this->_db->prepare('UPDATE users SET name=:name WHERE id=:id');

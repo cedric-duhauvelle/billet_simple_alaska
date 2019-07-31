@@ -1,5 +1,7 @@
 <?php
 
+namespace modele;
+
 class Session
 {
 	//Cree une variable session 

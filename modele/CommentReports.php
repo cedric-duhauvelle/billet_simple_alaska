@@ -1,7 +1,8 @@
 <?php
+namespace modele;
 
-require_once 'User.php';
-require_once 'DataRecover.php';
+use modele\User;
+use modele\DataRecover;
 
 class CommentReports extends DataRecover
 {
@@ -9,6 +10,11 @@ class CommentReports extends DataRecover
     private $_id;
     private $_user;
     private $_responseReport;
+
+    public function __construct($db)
+    {
+        return $this->_db = $db;
+    }
 
     //Recherche dans la base de donnees et retourne $id $user
     public function checkReports()

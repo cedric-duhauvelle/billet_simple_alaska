@@ -1,7 +1,7 @@
 <?php
 
-require_once '../modele/Chapters.php';
-require_once '../modele/Comment.php';
+use modele\Chapters;
+use modele\Comment;
 
 $chapter = new Chapters($this->_db);
 $comment = new Comment($this->_db);

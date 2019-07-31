@@ -1,7 +1,9 @@
 <?php
 
-require_once '../modele/DataDelete.php';
-require_once '../modele/Router.php';
+namespace controller;
+
+use modele\DataDelete;
+use modele\Router;
 
 $router = new Router($this->_db);
 $postClean = $router->cleanArray($_POST);

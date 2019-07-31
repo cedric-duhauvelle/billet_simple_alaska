@@ -1,9 +1,11 @@
 <?php
 
-require_once '../modele/DataUpdate.php';
-require_once '../modele/DataRecover.php';
-require_once '../modele/Router.php';
-require_once '../modele/Session.php';
+namespace controller;
+
+use modele\DataRecover;
+use modele\DataUpdate;
+use modele\Router;
+use modele\Session;
 
 $router = new Router($this->_db);
 $update = new DataUpdate($this->_db);

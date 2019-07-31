@@ -1,12 +1,12 @@
 <?php
 
-require_once 'Data.php';
-require_once 'Session.php';
+namespace modele;
+
+use modele\Data;
 
 class DataRecover extends Data
 {
-    
-    public function __construct(PDO $db)
+    public function __construct($db)
     {
         return $this->_db = $db;
     }

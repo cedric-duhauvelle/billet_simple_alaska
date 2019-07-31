@@ -1,16 +1,16 @@
 <?php
 
-require_once 'Data.php';
-require_once 'Chapters.php';
-require_once 'CustomException.php';
+namespace modele;
+
+use modele\Data;
+use modele\Chapters;
+use modele\CustomException;
 
 class Router extends Data
 { 
-    
-    //Recupere url
-    public function setUrl($url)
+    public function __construct($db)
     {
-        return $this->route($url);
+        return $this->_db = $db;
     }
 
     //Nettoyeur de tableau
@@ -21,7 +21,7 @@ class Router extends Data
     }
 
     //Retourne le chemin de la page souhaitee
-    private function route($page)
+    public function route($page)
     {
         //Redirection vers les controllers
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController"))

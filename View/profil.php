@@ -1,6 +1,6 @@
 <?php 
 
-require_once '../modele/User.php';
+use modele\User;
 
 $user = new User($this->_db);
 

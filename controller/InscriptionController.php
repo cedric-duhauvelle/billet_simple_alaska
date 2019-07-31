@@ -1,9 +1,11 @@
 <?php
 
-require_once '../modele/Router.php';
-require_once '../modele/DataRecover.php';
-require_once '../modele/DataInsert.php';
-require_once '../modele/Session.php';
+namespace controller;
+
+use modele\Router;
+use modele\DataRecover;
+use modele\DataInsert;
+use modele\Session;
 
 $router = new Router($this->_db);
 $check = new DataRecover($this->_db);
@@ -20,6 +22,7 @@ if ($check->recover('users', 'name', $postClean['pseudoInscription'], 'id') === 
         {   
             $insert->user($postClean['pseudoInscription'], $postClean['emailInscription'], password_hash($postClean['passwordInscription'], PASSWORD_DEFAULT));
             $session->addSession('id_user', $check->recover('users', 'name', $postClean['pseudoInscription'], 'id'));
+            $session->addSession('name', $postClean['pseudoInscription']);
             header('Location: profil');
         }
         else

@@ -1,10 +1,15 @@
 <?php
 
-require_once 'Session.php';
-require_once 'DataRecover.php';
+namespace modele;
+
+use modele\DataRecover;
 
 class Chapters extends DataRecover
 {
+    public function __construct($db)
+    {
+        return $this->_db = $db;
+    }
 
     //Affiche les chapitres
     public function displayChapters()

@@ -1,8 +1,10 @@
 <?php
 
-require_once '../modele/DataRecover.php';
-require_once '../modele/Router.php';
-require_once '../modele/Session.php';
+namespace controller;
+
+use modele\DataRecover;
+use modele\Router;
+use modele\Session;
 
 $routeur = new Router($this->_db);
 $check = new DataRecover($this->_db);

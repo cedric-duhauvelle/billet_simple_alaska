@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modele/Router.php';
+use modele\Router;
 
 $router = new Router($this->_db);
 $getClean = $router->cleanArray($_GET);

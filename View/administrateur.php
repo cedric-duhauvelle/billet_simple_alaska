@@ -1,9 +1,9 @@
-<?php 
+<?php
 
-require_once '../modele/Chapters.php';
-require_once '../modele/DataRecover.php';
-require_once '../modele/CommentReports.php';
-require_once '../modele/Router.php';
+use modele\Chapters;
+use modele\DataRecover;
+use modele\CommentReports;
+use modele\Router;
 
 if(!array_key_exists('admin', $_SESSION))
 {

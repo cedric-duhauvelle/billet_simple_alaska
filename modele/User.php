@@ -1,11 +1,15 @@
 <?php
 
-require_once 'DataRecover.php';
-require_once 'Session.php';
-require_once 'DataInsert.php';
+namespace modele;
+
+use modele\DataRecover;
 
 class User extends DataRecover
 {
+    public function __construct($db)
+    {
+        return $this->_db = $db;
+    }
     public function displayName($id)
     {
         return $this->recover('users', 'id', $id, 'name');

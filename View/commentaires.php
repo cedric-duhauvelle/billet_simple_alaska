@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modele/Comment.php';
+use modele\Comment;
 
 $comment = new Comment($this->_db);
 $title = "Commentaires";

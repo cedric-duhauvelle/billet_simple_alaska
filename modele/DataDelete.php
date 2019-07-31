@@ -1,9 +1,16 @@
 <?php
 
-require_once 'Data.php';
+namespace modele;
+
+use modele\Data;
 
 class DataDelete extends Data
 {
+	public function __construct($db)
+    {
+        return $this->_db = $db;
+    }
+    
 	public function chapter($id)
 	{
 		$req = $this->_db->prepare('DELETE FROM chapters WHERE id=:id LIMIT 1');

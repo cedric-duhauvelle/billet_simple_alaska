@@ -1,7 +1,9 @@
 <?php
 
-require_once '../modele/DataInsert.php';
-require_once '../modele/Router.php';
+namespace controller;
+
+use modele\DataInsert;
+use modele\Router;
 
 $router =  new Router($this->_db);
 $postClean = $router->cleanArray($_POST);

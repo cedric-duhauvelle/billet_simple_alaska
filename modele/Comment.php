@@ -1,14 +1,19 @@
 <?php
 
-require_once 'CommentReports.php';
-require_once 'Chapters.php';
-require_once 'Session.php';
-require_once 'DataRecover.php';
-require_once 'User.php';
+namespace modele;
+
+use modele\CommentReports;
+use modele\Chapters;
+use modele\DataRecover;
+use modele\User;
 
 class Comment extends DataRecover
 {
-
+    public function __construct($db)
+    {
+        return $this->_db = $db;
+    }
+    
     //Affiche les commentaires
     public function display()
     {
