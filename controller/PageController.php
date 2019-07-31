@@ -8,18 +8,27 @@ $getClean = $router->cleanArray($_GET);
 
 require_once '../View/Template/header.php';
 
-if ($page === 'chapitre' || $page === 'administrateur') {
-    if (array_key_exists('id', $getClean)) {
+if ($page === 'chapitre' || $page === 'administrateur')
+{
+    if (array_key_exists('id', $getClean))
+    {
         $chapter = new Chapters($this->_db);
-        if ($chapter->checkId($getClean['id'])) {
+        if ($chapter->checkId($getClean['id']))
+        {
             require_once '../View/' . $page . '.php';
-        } else {
+        }
+        else
+        {
             throw new CustomException("Chapitre introuvable", 404); 
         }
-    } elseif ($page === 'administrateur') {
+    }
+    elseif ($page === 'administrateur')
+    {
         require_once '../View/' . $page . '.php';
     }
-} else {
+}
+else
+{
     require_once '../View/' . $page . '.php';
 }
 

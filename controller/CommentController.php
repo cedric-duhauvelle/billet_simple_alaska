@@ -9,6 +9,7 @@ $postClean = $router->cleanArray($_POST);
 //Recupere la page precedente
 $chapter = explode('/', $_SERVER['HTTP_REFERER']);
 $idChapter = explode('=', $chapter[$router->checkServer()]);
+
 //Ajout commentaire dans la base de données
 $insert = new DataInsert($this->_db);
 $insert->comment($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
