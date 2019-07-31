@@ -2,7 +2,7 @@
 
 namespace modele;
 
-use model\Data;
+use modele\Data;
 
 class DataUpdate extends Data
 {
