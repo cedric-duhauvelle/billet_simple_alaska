@@ -7,7 +7,7 @@ require_once '../modele/Session.php';
 
 session_start();
 //Gestion des erreurs
-//set_exception_handler('exception');
+set_exception_handler('exception');
 
 function exception($e, $c)
 {

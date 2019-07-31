@@ -6,40 +6,14 @@ require_once 'DataRecover.php';
 class Chapters extends DataRecover
 {
 
-    private $_title;
-    private $_chapter;
-
-    public function setChapter($text)
-    {
-        return $this->_chapter = $text;
-    }
-
-    public function setTitle ($text)
-    {
-        return $this->_title = $text;
-    }
-
-    public function addChapter($title, $chapter)
-    {
-        $this->setTitle($title);
-        $this->setChapter($chapter);
-    }
-
-    //Ajoute chapitre dans la base de donnees
-    public function addChapterDb()
-    {
-        $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');
-        $req->bindValue(':title', $this->_title);
-        $req->bindValue(':chapter', $this->_chapter);
-        $req->execute();
-    }
-
     //Affiche les chapitres
     public function displayChapters()
     {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($response['id']) {
+        foreach ($this->_responses as $response)
+        {
+            if ($response['id'])
+            {
                 echo '<div class="chapter">';
                 echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3>';
                 echo '<p class="content_text_chapter">' . substr($response['content'], 0, 400) . '...</p>';
@@ -49,7 +23,7 @@ class Chapters extends DataRecover
         }
     }
 
-    //Affiche les 3 derniers chapitres paru
+    //Affiche les trois derniers chapitres parus
     public function displayChaptersLast()
     {
         $resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id DESC LIMIT 0,3');
@@ -143,7 +117,7 @@ class Chapters extends DataRecover
         }
     }
 
-    //Retourne id du chapitre
+    //Retourne 'true' si id du chapitre existe
     public function checkId($id)
     {
         $this->callDisplay('chapters');
@@ -155,22 +129,5 @@ class Chapters extends DataRecover
             } 
         }
         return false;
-    }
-
-    //Change le chapitre selectionne
-    public function updateChapter($id, $title, $content)
-    {
-        $update = $this->_db->prepare('UPDATE chapters SET title=:title, content=:content WHERE id=:id');
-        $update->bindValue(':title', $title);
-        $update->bindValue(':content', $content);
-        $update->bindValue(':id', $id);
-        $update->execute();
-    }
-
-    public function deleteChapter($id)
-    {
-        $delete = $this->_db->prepare('DELETE FROM chapters WHERE id=:id LIMIT 1');
-        $delete->bindValue(':id', $id);
-        $delete->execute();
     }
 }

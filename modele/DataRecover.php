@@ -13,9 +13,7 @@ class DataRecover extends Data
 
     public function recover($tab, $champ, $search, $value)
     {
-
         $this->callDisplay($tab);
-
         foreach ($this->_responses as $response)
         {
             if ($response[$champ] === $search)

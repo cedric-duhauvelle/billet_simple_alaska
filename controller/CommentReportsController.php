@@ -1,14 +1,14 @@
 <?php
 
-require_once '../modele/CommentReports.php';
+require_once '../modele/DataInsert.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
 $postClean = $router->cleanArray($_POST);
 
 //Ajout Signalement 
-$commentReport = new CommentReports($this->_db);
-$commentReport->reportComment($postClean['id'], $_SESSION['id_user']);
+$insert = new DataInsert($this->_db);
+$insert->report($postClean['id'], $_SESSION['id_user']);
 
 //Redirection vers la page precedente
 $route = explode('/',$_SERVER['HTTP_REFERER']);

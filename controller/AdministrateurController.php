@@ -2,26 +2,33 @@
 
 require_once '../modele/Chapters.php';
 require_once '../modele/Router.php';
+require_once '../modele/DataInsert.php';
+require_once '../modele/DataUpdate.php';
+require_once '../modele/DataDelete.php';
 
 $router =  new Router($this->_db);
+$chapters = new Chapters($this->_db);
+$insert = new DataInsert($this->_db);
+$update = new DataUpdate($this->_db);
+$delete = new DataDelete($this->_db);
+
 $postClean = $router->cleanArray($_POST);
 
-$chapters = new Chapters($this->_db);
+
 $urlChapter = explode('/', $_SERVER['HTTP_REFERER']);
 $idChapter = explode('=', $urlChapter[$router->checkServer()]);
 
 if (array_key_exists(1, $idChapter)) {
 	if (array_key_exists('buttonDelete', $_POST)) {
 		//Supprime un chapitre (Admin)
-		$chapters->deleteChapter($idChapter[1]);
+		$delete->chapter($idChapter[1]);
 	} elseif (array_key_exists('buttonSave', $_POST)) {
 		//update chapitre (Admin)
-		$chapters->updateChapter($idChapter[1], $postClean['title'], $postClean['chapter']);
+		$update->chapter($idChapter[1], $postClean['title'], $postClean['chapter']);
 	}
 } elseif (array_key_exists('buttonSave', $_POST)) {
 	//Ajout de chapitre (Admin)
-	$chapters->addChapter($postClean['title'], $postClean['chapter']);
-	$chapters->addChapterDb();
+	$insert->chapter($postClean['title'], $postClean['chapter']);
 }
 
 //Redirection page

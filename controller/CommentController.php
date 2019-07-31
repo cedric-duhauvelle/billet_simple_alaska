@@ -10,8 +10,8 @@ $postClean = $router->cleanArray($_POST);
 $chapter = explode('/', $_SERVER['HTTP_REFERER']);
 $idChapter = explode('=', $chapter[$router->checkServer()]);
 //Ajout commentaire dans la base de données
-$comment = new DataInsert($this->_db);
-$comment->comment($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
+$insert = new DataInsert($this->_db);
+$insert->comment($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
 
 //Redirection
 header('location: chapitre?id=' . $idChapter[1]);

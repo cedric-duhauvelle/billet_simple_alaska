@@ -53,21 +53,4 @@ class CommentReports extends DataRecover
             }  
         }
     }
-
-    //Ajoute un report a la base de donnes
-    public function reportComment($id, $name)
-    {        
-        $req = $this->_db->prepare('INSERT INTO reporting(id_comment, id_user) VALUES (:id, :user)');
-        $req->bindValue(':id', $id);
-        $req->bindValue(':user', $name);
-        $req->execute();   
-    }
-
-    //Efface un signalement
-    public function deleteReports($id)
-    {
-        $del = $this->_db->prepare('DELETE FROM reporting WHERE id_comment=:id LIMIT 1');
-        $del->bindValue(':id', $id);
-        $delSucces = $del->execute();
-    }
 }

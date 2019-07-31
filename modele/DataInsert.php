@@ -23,6 +23,8 @@ class DataInsert extends Data
         $req->execute();
         $this->addSession($pseudo);
     }
+
+    //Ajoute un commentaire a la base de donnees
     public function comment($id, $comment, $idChapter)
     {
         $req = $this->_db->prepare('INSERT INTO comments(user, content, chapter) VALUES (:user, :comment, :chapter)');
@@ -30,6 +32,24 @@ class DataInsert extends Data
         $req->bindValue(':comment', $comment);
         $req->bindValue(':chapter', $idChapter);
         $req->execute();
+    }
+
+    //Ajoute un signalement a la base de donnees
+    public function report($idChapter, $idUser)
+    {
+        $req = $this->_db->prepare('INSERT INTO reporting(id_comment, id_user) VALUES (:id, :user)');
+        $req->bindValue(':id', $idChapter);
+        $req->bindValue(':user', $idUser);
+        $req->execute();   
+    }
+
+    //Ajoute un chapitre a la base de donnees
+    public function chapter($title, $content)
+    {
+        $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');
+        $req->bindValue(':title', $title);
+        $req->bindValue(':chapter', $content);
+        $req->execute(); 
     }
 }
 

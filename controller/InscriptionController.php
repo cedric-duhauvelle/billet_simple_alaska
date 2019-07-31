@@ -20,8 +20,6 @@ if ($check->recover('users', 'name', $postClean['pseudoInscription'], 'id') === 
         {   
             $insert->user($postClean['pseudoInscription'], $postClean['emailInscription'], password_hash($postClean['passwordInscription'], PASSWORD_DEFAULT));
             $session->addSession('id_user', $check->recover('users', 'name', $postClean['pseudoInscription'], 'id'));
-            var_dump($check->recover('users', 'name', $postClean['pseudoInscription'], 'id'));
-            var_dump($_SESSION);
             header('Location: profil');
         }
         else

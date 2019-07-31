@@ -7,15 +7,18 @@ require_once '../modele/Router.php';
 $router = new Router($this->_db);
 $postClean = $router->cleanArray($_POST);
 
-$deleteReports = new CommentReports($this->_db);
-$deleteComment = new Comment($this->_db);
-if (array_key_exists('idReports', $_POST)) {
+$delete = new DataDelete($this->_db);
+
+if (array_key_exists('idReports', $postClean))
+{
 	//Efface le signalement
-	$deleteReports->deleteReports($postClean['idReports']);
-} elseif (array_key_exists('idComment', $_POST)) {
+	$delete->report($postClean['idReports']);
+}
+elseif (array_key_exists('idComment', $postClean))
+{
 	//Efface le signalement et le commentaire
-	$deleteComment->deleteComment($postClean['idComment']);
-	$deleteReports->deleteReports($postClean['idComment']);
+	$delete->comment($postClean['idComment']);
+	$delete->report($postClean['idComment']);
 }
 
 //Redirection page
