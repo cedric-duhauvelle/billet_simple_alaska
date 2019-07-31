@@ -1,7 +1,6 @@
 <?php
 
-require_once '../modele/Comment.php';
-require_once '../modele/CommentReports.php';
+require_once '../modele/DataDelete.php';
 require_once '../modele/Router.php';
 
 $router = new Router($this->_db);
