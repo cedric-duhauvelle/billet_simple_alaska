@@ -9,16 +9,6 @@ require_once 'User.php';
 class Comment extends DataRecover
 {
 
-    //Ajoute commentaire a la base de donnes
-    public function add($name, $comment, $chapter)
-    {
-        $req = $this->_db->prepare('INSERT INTO comments(user, content, chapter) VALUES (:user, :comment, :chapter)');
-        $req->bindValue(':user', $name);
-        $req->bindValue(':comment', $comment);
-        $req->bindValue(':chapter', $chapter);
-        $req->execute();
-    }
-
     //Affiche les commentaires
     public function display()
     {

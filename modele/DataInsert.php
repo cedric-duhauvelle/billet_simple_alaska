@@ -23,5 +23,13 @@ class DataInsert extends Data
         $req->execute();
         $this->addSession($pseudo);
     }
+    public function comment($id, $comment, $idChapter)
+    {
+        $req = $this->_db->prepare('INSERT INTO comments(user, content, chapter) VALUES (:user, :comment, :chapter)');
+        $req->bindValue(':user', $id);
+        $req->bindValue(':comment', $comment);
+        $req->bindValue(':chapter', $idChapter);
+        $req->execute();
+    }
 }
 

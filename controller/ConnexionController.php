@@ -19,12 +19,12 @@ else
 {
     if (password_verify($postClean['password'], $check->recover('users', 'name', $postClean['pseudo'], 'password')))
     {
-        $session->addSession('id_user', $check->recover('users', 'name', $postClean['pseudo'], 'id'));
-        $session->addSession('name', $postClean['pseudo']);
         if (array_key_exists('admin', $_SESSION))
         {
             session_destroy();
         }
+        $session->addSession('id_user', $check->recover('users', 'name', $postClean['pseudo'], 'id'));
+        $session->addSession('name', $postClean['pseudo']);
         if ('admin' === $postClean['pseudo'])
         {
             $session->addSession('admin', 'admistrateur');
