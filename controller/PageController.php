@@ -4,6 +4,7 @@ namespace controller;
 
 use modele\Router;
 use modele\CustomException;
+use modele\Chapters;
 
 $router = new Router($this->_db);
 $getClean = $router->cleanArray($_GET);
