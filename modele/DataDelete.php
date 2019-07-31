@@ -2,7 +2,7 @@
 
 require_once 'Data.php';
 
-class DataDelete extends DataDelete
+class DataDelete extends Data
 {
 	public function chapter($id)
 	{
