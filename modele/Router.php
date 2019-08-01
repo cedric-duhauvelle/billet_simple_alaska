@@ -5,6 +5,8 @@ namespace modele;
 use modele\Data;
 use modele\Chapters;
 use modele\CustomException;
+use controller\Controller;
+use controller\pageController;
 
 class Router extends Data
 { 
@@ -26,7 +28,7 @@ class Router extends Data
         //Redirection vers les controllers
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController"))
         {
-            require_once '../controller/' . $page . '.php';
+            new Controller($page, $this->_db);
         //Redirection vers les templates
         }
         elseif (is_file('../View/' . $page . '.php'))
@@ -43,7 +45,7 @@ class Router extends Data
                     }
                 }
             }
-            require_once '../controller/PageController.php';
+            new PageController($this->_db, $page);
         }
         else
         {

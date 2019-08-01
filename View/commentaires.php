@@ -1,15 +1,6 @@
-<?php
-
-use modele\Comment;
-
-$comment = new Comment($this->_db);
-$title = "Commentaires";
-?>
 <div id="content">
 	<h2 class="title_section">Commentaires</h2>
     <div id="content_book">
-        <?php
-        $comment->display();
-        ?>
+        <?php $comment->display(); ?>
     </div>
 </div>

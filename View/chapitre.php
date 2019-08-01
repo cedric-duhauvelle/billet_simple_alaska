@@ -1,32 +1,17 @@
-<?php
-
-use modele\Chapters;
-use modele\Comment;
-
-$chapter = new Chapters($this->_db);
-$comment = new Comment($this->_db);
-?>
 <div id="content">
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
     <div id="content_chapter">
         <div id="content_book">
-            <?php 
-            $chapter->recoverChapter($getClean['id']);
-            ?>
+            <?php $chapter->recoverChapter($_GET['id']); ?>
         </div>
         <div id="link_chapters">
             <h3>Chapitres</h3>
-            <?php
-            $chapter->linkDisplayChapter();
-            ?>
+            <?php $chapter->linkDisplayChapter(); ?>
         </div>
     </div>
     <div id="comment_content">
-        <?php
-        $comment->displayCommentChapter($getClean['id']);
-        ?>
+        <?php $comment->displayCommentChapter($_GET['id']); ?>
     </div>
-    
     <?php
     if (!empty($_SESSION['name'])) {
     ?>

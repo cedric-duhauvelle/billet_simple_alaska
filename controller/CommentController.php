@@ -5,16 +5,27 @@ namespace controller;
 use modele\DataInsert;
 use modele\Router;
 
-$router =  new Router($this->_db);
-$postClean = $router->cleanArray($_POST);
+class CommentController
+{
+	public function __construct($db)
+	{
+		$this->comment($db);
+	}
 
-//Recupere la page precedente
-$chapter = explode('/', $_SERVER['HTTP_REFERER']);
-$idChapter = explode('=', $chapter[$router->checkServer()]);
+	public function comment($db)
+	{
+		$router =  new Router($db);
+		$postClean = $router->cleanArray($_POST);
 
-//Ajout commentaire dans la base de données
-$insert = new DataInsert($this->_db);
-$insert->comment($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
+		//Recupere la page precedente
+		$chapter = explode('/', $_SERVER['HTTP_REFERER']);
+		$idChapter = explode('=', $chapter[$router->checkServer()]);
 
-//Redirection
-header('location: chapitre?id=' . $idChapter[1]);
+		//Ajout commentaire dans la base de données
+		$insert = new DataInsert($db);
+		$insert->comment($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
+
+		//Redirection
+		header('location: chapitre?id=' . $idChapter[1]);
+	}
+}

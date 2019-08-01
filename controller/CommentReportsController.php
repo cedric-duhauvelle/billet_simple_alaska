@@ -5,13 +5,24 @@ namespace controller;
 use modele\DataInsert;
 use modele\Router;
 
-$router = new Router($this->_db);
-$postClean = $router->cleanArray($_POST);
+class CommentReportsController
+{
+	public function __construct($db)
+	{
+		$this->report($db);
+	}
 
-//Ajout Signalement 
-$insert = new DataInsert($this->_db);
-$insert->report($postClean['id'], $_SESSION['id_user']);
+	public function report($db)
+	{
+		$router = new Router($db);
+		$postClean = $router->cleanArray($_POST);
 
-//Redirection vers la page precedente
-$route = explode('/',$_SERVER['HTTP_REFERER']);
-header('Location: ' . $route[$router->checkServer()]);
+		//Ajout Signalement 
+		$insert = new DataInsert($db);
+		$insert->report($postClean['id'], $_SESSION['id_user']);
+
+		//Redirection vers la page precedente
+		$route = explode('/',$_SERVER['HTTP_REFERER']);
+		header('Location: ' . $route[$router->checkServer()]);
+	}
+}
