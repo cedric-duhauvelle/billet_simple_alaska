@@ -6,7 +6,7 @@ use modele\Data;
 use modele\Chapters;
 use modele\CustomException;
 use controller\Controller;
-use controller\pageController;
+use controller\PageController;
 
 class Router extends Data
 { 
