@@ -29,8 +29,7 @@ class PageController extends Data
 
     public function callClass($db, $page)
     {
-        switch ($page)
-        {
+        switch ($page) {
             case 'accueil':
                 $chapter = new Chapters($db);
                 break;
@@ -45,8 +44,7 @@ class PageController extends Data
                 $comment = new Comment($db);
                 break;
             case 'administrateur':
-                if(!array_key_exists('admin', $_SESSION))
-                {
+                if(!array_key_exists('admin', $_SESSION)) {
                     header('location: accueil');
                     break;
                 }

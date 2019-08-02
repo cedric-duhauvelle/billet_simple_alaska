@@ -19,13 +19,10 @@ class DeleteController
 
 		$delete = new DataDelete($db);
 
-		if (array_key_exists('idReports', $postClean))
-		{
+		if (array_key_exists('idReports', $postClean)) {
 			//Efface le signalement
 			$delete->report($postClean['idReports']);
-		}
-		elseif (array_key_exists('idComment', $postClean))
-		{
+		} elseif (array_key_exists('idComment', $postClean)) {
 			//Efface le signalement et le commentaire
 			$delete->comment($postClean['idComment']);
 			$delete->report($postClean['idComment']);

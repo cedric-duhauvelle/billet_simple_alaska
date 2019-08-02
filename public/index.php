@@ -5,6 +5,7 @@ use modele\Router;
 
 session_start();
 
+//Charge les classe
 spl_autoload_register(function ($class) {
     $class = '../' . str_replace("\\", '/', $class) . '.php';
     if (is_file($class)) {
@@ -15,22 +16,20 @@ spl_autoload_register(function ($class) {
 });
 
 //Gestion des erreurs
-//set_exception_handler('exception');
+set_exception_handler('exception');
 
 function exception($e, $c)
 {
     new CustomException($e, $c);
 }
 
+//Appelle du Router
 $router = new Router($db);
-
+//Nettoye la variable '$_GET'
 $getClean = $router->cleanArray($_GET);
-
-if(is_array($getClean) && array_key_exists('url', $getClean))
-{
+//Recherche la page
+if(is_array($getClean) && array_key_exists('url', $getClean)) {
 	$router->route($getClean['url']);
-}
-else
-{
+} else {
 	header('Location: accueil');
 }

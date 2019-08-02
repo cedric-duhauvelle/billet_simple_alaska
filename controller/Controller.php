@@ -14,8 +14,7 @@ class Controller
 
 	public function callController($page, $db)
 	{
-		switch ($page)
-		{
+		switch ($page) {
 		    case 'AdministrateurController':
 		        new AdministrateurController($db);
 		        break;

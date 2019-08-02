@@ -26,29 +26,21 @@ class Router extends Data
     public function route($page)
     {
         //Redirection vers les controllers
-        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController"))
-        {
+        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             new Controller($page, $this->_db);
         //Redirection vers les templates
-        }
-        elseif (is_file('../View/' . $page . '.php'))
-        {
-            if ($page === 'chapitre' || $page === 'administrateur')
-            {
-                if (array_key_exists('id', $_GET))
-                {
+        } elseif (is_file('../View/' . $page . '.php')) {
+            if ($page === 'chapitre' || $page === 'administrateur') {
+                if (array_key_exists('id', $_GET)) {
                     $getClean = $this->cleanArray($_GET);
                     $chapter = new Chapters($this->_db);
-                    if (!$chapter->checkId($getClean['id']))
-                    {
+                    if (!$chapter->checkId($getClean['id'])) {
                         throw new CustomException("Chapitre introuvable", 404); 
                     }
                 }
             }
             new PageController($this->_db, $page);
-        }
-        else
-        {
+        } else {
             throw new CustomException("Page introuvable", 404);  
         }
     }
@@ -56,8 +48,7 @@ class Router extends Data
     //Verifie si le projet est en local ou en ligne
     public function checkServer()
     {
-        if (strpos($_SERVER['HTTP_REFERER'], 'localhost'))
-        {
+        if (strpos($_SERVER['HTTP_REFERER'], 'localhost')) {
             return 8;
         }
 

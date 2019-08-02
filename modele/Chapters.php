@@ -15,10 +15,8 @@ class Chapters extends DataRecover
     public function displayChapters()
     {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response)
-        {
-            if ($response['id'])
-            {
+        foreach ($this->_responses as $response) {
+            if ($response['id']) {
                 echo '<div class="chapter">';
                 echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3>';
                 echo '<p class="content_text_chapter">' . substr($response['content'], 0, 400) . '...</p>';
@@ -34,10 +32,8 @@ class Chapters extends DataRecover
         $resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id DESC LIMIT 0,3');
         $resp->execute();
         $responses = $resp->fetchAll();
-        foreach ($responses as $response)
-        {
-            if ($response['id'])
-            {
+        foreach ($responses as $response) {
+            if ($response['id']) {
                 echo '<div class="chapter">';
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
@@ -53,12 +49,9 @@ class Chapters extends DataRecover
     public function recoverChapter($id)
     {
         $this->callDisplay('chapters');
-        if ($this->checkId($id) === true)
-        {
-            foreach ($this->_responses as $response)
-            {
-                if ($id === $response['id'])
-                { 
+        if ($this->checkId($id) === true) {
+            foreach ($this->_responses as $response) {
+                if ($id === $response['id']) { 
                     echo '<div class="chapter">';
                     $date = explode(' ', $response['published']);
                     $dateFr = explode('-', $date[0]);
@@ -74,10 +67,8 @@ class Chapters extends DataRecover
     public function displayTitle($id)
     {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response)
-        {
-            if ($id === $response['id'])
-            {
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
                 return $response['title'];
             }
         }
@@ -87,10 +78,8 @@ class Chapters extends DataRecover
     public function displayContent($id)
     {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response)
-        {
-            if ($id === $response['id'])
-            {
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
                 return $response['content'];
             }
         }
@@ -101,10 +90,8 @@ class Chapters extends DataRecover
     {
         $this->callDisplay('chapters');
         echo '<p><a href="administrateur">Nouveau chapitre</a></p>';
-        foreach ($this->_responses as $response)
-        {
-            if ($response['id'])
-            {
+        foreach ($this->_responses as $response) {
+            if ($response['id']) {
                 echo '<p><a href="administrateur?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
             }
         }
@@ -113,10 +100,8 @@ class Chapters extends DataRecover
     public function linkDisplayChapter()
     {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response)
-        {
-            if ($response['id'])
-            {
+        foreach ($this->_responses as $response) {
+            if ($response['id']) {
                 echo '<p>- <a href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
             }
         }
@@ -126,10 +111,8 @@ class Chapters extends DataRecover
     public function checkId($id)
     {
         $this->callDisplay('chapters');
-        foreach ($this->_responses as $response)
-        {
-            if ($id === $response['id'])
-            {
+        foreach ($this->_responses as $response) {
+            if ($id === $response['id']) {
                 return true;
             } 
         }

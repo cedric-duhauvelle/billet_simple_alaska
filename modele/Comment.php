@@ -21,10 +21,8 @@ class Comment extends DataRecover
         $chapter = new Chapters($this->_db);
         $name = new User($this->_db);
         $this->callDisplay('comments');
-        foreach ($this->_responses as $response)
-        {
-            if ($response)
-            {
+        foreach ($this->_responses as $response) {
+            if ($response) {
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
                 require '../View/Template/comment.php';
@@ -38,10 +36,8 @@ class Comment extends DataRecover
         $this->callDisplay('comments');
         $name = new User($this->_db);
         $report = new CommentReports($this->_db);
-        foreach ($this->_responses as $response)
-        {
-            if ($response['chapter'] === $id)
-            {
+        foreach ($this->_responses as $response) {
+            if ($response['chapter'] === $id) {
                 $date = explode(' ', $response['published']);
                 $dateFr = explode('-', $date[0]);
                 require '../View/Template/commentChapter.php';               
