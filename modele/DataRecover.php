@@ -11,6 +11,7 @@ class DataRecover extends Data
         return $this->_db = $db;
     }
 
+    //Recherche une Donnee dans la base de donnees
     public function recover($tab, $champ, $search, $value)
     {
         $this->callDisplay($tab);

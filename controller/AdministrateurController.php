@@ -15,6 +15,7 @@ class AdministrateurController
 		$this->chapter($db);
 	}
 	
+	//Gere ajout modification supression chapitre (Admin)
 	public function chapter($db)
 	{
 		$router =  new Router($db);
@@ -22,9 +23,10 @@ class AdministrateurController
 		$update = new DataUpdate($db);
 		$delete = new DataDelete($db);
 
+		//Nettoye la variable '$_POST'
 		$postClean = $router->cleanArray($_POST);
 
-
+		//Recherche l'id dans l'url
 		$urlChapter = explode('/', $_SERVER['HTTP_REFERER']);
 		$idChapter = explode('=', $urlChapter[$router->checkServer()]);
 

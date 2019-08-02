@@ -10,17 +10,20 @@ class User extends DataRecover
     {
         return $this->_db = $db;
     }
+
+    //Retourne nom 
     public function displayName($id)
     {
         return $this->recover('users', 'id', $id, 'name');
     }
 
+    //retourne Email
     public function displayEmail($id)
     {
         return $this->recover('users', 'id', $id, 'email');
     }
 
-    //Affiche la date inscription
+    //Retourne date inscription
     public function displayDateInscription($id)
     {
         $date = $this->recover('users', 'id', $id, 'inscription');

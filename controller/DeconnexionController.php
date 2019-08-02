@@ -9,6 +9,7 @@ class DeconnexionController
 		$this->deconnexion();
 	}
 
+	//Deconnect utilisateur
 	public function deconnexion()
 	{
 		//Detruit la session en cours

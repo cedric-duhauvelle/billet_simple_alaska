@@ -12,9 +12,11 @@ class CommentController
 		$this->comment($db);
 	}
 
+	//Ajoute un commentaire a la base de donnees
 	public function comment($db)
 	{
 		$router =  new Router($db);
+		//Nettoye la variable '$_POST'
 		$postClean = $router->cleanArray($_POST);
 
 		//Recupere la page precedente

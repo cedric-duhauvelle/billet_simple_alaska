@@ -12,6 +12,7 @@ class Controller
 		$this->callController($page, $db);
 	}
 
+	//Appel controller
 	public function callController($page, $db)
 	{
 		switch ($page) {

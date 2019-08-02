@@ -18,6 +18,7 @@ class PageController extends Data
         return $this->_db = $db;
     }
 
+    //Affiche la page
     public function page($db, $page)
     {
         require_once '../View/Template/header.php';
@@ -27,6 +28,7 @@ class PageController extends Data
         require_once '../View/Template/footer.php';
     }
 
+    //Appel Class par page
     public function callClass($db, $page)
     {
         switch ($page) {

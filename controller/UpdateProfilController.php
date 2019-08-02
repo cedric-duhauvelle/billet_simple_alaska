@@ -14,6 +14,7 @@ class UpdateProfilController
 		$this->update($db);
 	}
 
+	//Modifie les informations utilisateur
 	public function update($db)
 	{
 		$router = new Router($this->_db);
@@ -21,6 +22,7 @@ class UpdateProfilController
 		$check = new DataRecover($this->_db);
 		$session = new Session();
 
+		//Nettoye la variable '$_POST'
 		$postClean = $router->cleanArray($_POST);
 
 

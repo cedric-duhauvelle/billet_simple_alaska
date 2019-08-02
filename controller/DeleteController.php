@@ -12,6 +12,7 @@ class DeleteController
 		$this->delete($db);
 	}
 
+	//Supprime un signalement ou un commentaire (Admin)
 	public function delete($db)
 	{
 		$router = new Router($db);
