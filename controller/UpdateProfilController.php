@@ -17,9 +17,9 @@ class UpdateProfilController
 	//Modifie les informations utilisateur
 	public function update($db)
 	{
-		$router = new Router($this->_db);
-		$update = new DataUpdate($this->_db);
-		$check = new DataRecover($this->_db);
+		$router = new Router($db);
+		$update = new DataUpdate($db);
+		$check = new DataRecover($db);
 		$session = new Session();
 
 		//Nettoye la variable '$_POST'
@@ -30,6 +30,7 @@ class UpdateProfilController
 			//Modifie le nom utilisateur
 			if ($check->recover('users', 'name', $postClean['updateName'], 'name') === null) {
 				$update->name($_SESSION['id_user'], $postClean['updateName']);
+				$session->addSession('name', $postClean['updateName']);
 				header('Location: profil');
 			} else {
 				$session->addSession('errorName', 'Nom déjà utilisé!!');

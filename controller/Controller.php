@@ -4,6 +4,12 @@ namespace controller;
 
 use controller\AdministrateurController;
 use controller\ConnexionController;
+use controller\CommentController;
+use controller\CommentReportsController;
+use controller\DeconnexionController;
+use controller\DeleteController;
+use controller\InscriptionController;
+use controller\UpdateProfilController;
 
 class Controller
 {
@@ -28,9 +34,6 @@ class Controller
 		    case 'CommentReportsController':
 		        new CommentReportsController($db);
 		        break;
-		    case 'DeconnexionController':
-		    	new DeconnexionController();
-		    	break;
 		    case 'DeconnexionController':
 		    	new DeconnexionController();
 		    	break;
