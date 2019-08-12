@@ -65,6 +65,7 @@ class PageController extends Data
                 }
 
                 $reportComment = new CommentReports($db);
+                
                 break;
 
             case 'profil':

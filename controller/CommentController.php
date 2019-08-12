@@ -2,7 +2,7 @@
 
 namespace controller;
 
-use modele\DataInsert;
+use modele\CommentManager;
 use modele\Router;
 
 class CommentController
@@ -24,8 +24,8 @@ class CommentController
 		$idChapter = explode('=', $chapter[$router->checkServer()]);
 
 		//Ajout commentaire dans la base de données
-		$insert = new DataInsert($db);
-		$insert->comment($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
+		$comment = new CommentManager($db);
+		$comment->add($_SESSION['id_user'], $postClean['comment'], $idChapter[1]);
 
 		//Redirection
 		header('location: chapitre?id=' . $idChapter[1]);

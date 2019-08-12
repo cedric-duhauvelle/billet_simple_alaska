@@ -24,11 +24,4 @@ class DataDelete extends Data
         $req->bindValue(':id', $id);
         $req->execute();
 	}
-
-	public function comment($id)
-	{
-		$req = $this->_db->prepare('DELETE FROM comments WHERE id=:id LIMIT 1');
-        $req->bindValue(':id', $id);
-        $req->execute();
-	}
 }
