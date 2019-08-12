@@ -10,10 +10,9 @@
         </div>
     </div>
     <div id="comment_content">
-        <?php $comment->displayCommentChapter($_GET['id']); ?>
+        <?php $comment->getCommentChapter($getClean['id']); ?>
     </div>
     <?php
-    var_dump($getClean);
     if (!empty($_SESSION['name'])) {
     ?>
     <div id="content_form_comment">

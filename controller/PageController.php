@@ -7,7 +7,7 @@ use modele\Router;
 use modele\CustomException;
 use modele\Chapters;
 use modele\ChapterManager;
-use modele\Comment;
+use modele\CommentManager;
 use modele\CommentReports;
 use modele\User;
 
@@ -44,11 +44,11 @@ class PageController extends Data
             case 'chapitre':
                 $chapter = new ChapterManager($db);
                 
-                $comment = new Comment($db);
+                $comment = new CommentManager($db);
                 break;
 
             case 'commentaires':
-                $comment = new Comment($db);
+                $comment = new CommentManager($db);
                 break;
 
             case 'administrateur':

@@ -341,8 +341,9 @@ footer p{
     text-align: center;
     box-shadow: 10px 5px 5px #191a1b8a;
 }
-.tox-editor-container{
-    width: 80% !important;
+.tox-tinymce{
+    width: 96% !important;
+    margin-bottom: 2%;
 }
 #content_chapter_admin a{
    text-decoration: none;
