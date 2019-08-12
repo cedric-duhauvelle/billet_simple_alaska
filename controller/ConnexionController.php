@@ -26,7 +26,6 @@ class ConnexionController
         //Verifie le nom 
         if ($check->recover('users', 'name', $postClean['pseudo'], 'id') === null) {
             $session->addSession('errorName', 'Nom incorrect!!');
-            header('Location: connexion');
         } else {
             //verifie le password
             if (password_verify($postClean['password'], $check->recover('users', 'name', $postClean['pseudo'], 'password'))) {
@@ -40,9 +39,9 @@ class ConnexionController
                 }
                 header('Location: profil');
             } else {
-                $session->addSession('errorPassword', 'Mot de passe incorrect!!');
-                header('Location: connexion');
+                $session->addSession('errorPassword', 'Mot de passe incorrect!!');   
             }
-        } 
+        }
+        header('Location: connexion');  
     }
 }

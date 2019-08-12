@@ -2,17 +2,18 @@
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
     <div id="content_chapter">
         <div id="content_book">
-            <?php $chapter->recoverChapter($_GET['id']); ?>
+            <?php $chapter->getChapter($getClean['id']); ?>
         </div>
         <div id="link_chapters">
             <h3>Chapitres</h3>
-            <?php $chapter->linkDisplayChapter(); ?>
+            <?php $chapter->getLinkChapters(); ?>
         </div>
     </div>
     <div id="comment_content">
         <?php $comment->displayCommentChapter($_GET['id']); ?>
     </div>
     <?php
+    var_dump($getClean);
     if (!empty($_SESSION['name'])) {
     ?>
     <div id="content_form_comment">

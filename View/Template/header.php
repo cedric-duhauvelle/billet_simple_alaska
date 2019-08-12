@@ -40,6 +40,8 @@ $adminHead = 'administrateur';
         <meta property="og:description" content="Blog de Jean Forteroche sur son nouveau livre" />
         <title><?= ucwords($getClean['url']); ?></title>
         <script src="https://kit.fontawesome.com/71336045e0.js"></script>
+        <script src="https://cdn.tiny.cloud/1/cdl5yejcddutvpia84eb19urvhaz2da2k91f5wqn3t1ezwgw/tinymce/5/tinymce.min.js"></script>
+        <script>tinymce.init({mode:'specific_textareas', editor_selector: 'wysiwyg'});</script>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
     <body>

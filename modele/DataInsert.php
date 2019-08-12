@@ -40,13 +40,6 @@ class DataInsert extends Data
         $req->execute();   
     }
 
-    //Ajoute un chapitre a la base de donnees
-    public function chapter($title, $content)
-    {
-        $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');
-        $req->bindValue(':title', $title);
-        $req->bindValue(':chapter', $content);
-        $req->execute(); 
-    }
+    
 }
 

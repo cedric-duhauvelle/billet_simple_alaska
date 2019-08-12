@@ -29,16 +29,7 @@ class Router extends Data
         if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             new Controller($page, $this->_db);
         //Redirection vers les templates
-        } elseif (is_file('../View/' . $page . '.php')) {
-            if ($page === 'chapitre' || $page === 'administrateur') {
-                if (array_key_exists('id', $_GET)) {
-                    $getClean = $this->cleanArray($_GET);
-                    $chapter = new Chapters($this->_db);
-                    if (!$chapter->checkId($getClean['id'])) {
-                        throw new CustomException("Chapitre introuvable", 404); 
-                    }
-                }
-            }
+        } elseif (is_file('../View/' . $page . '.php')) {                
             new PageController($this->_db, $page);
         } else {
             throw new CustomException("Page introuvable", 404);  

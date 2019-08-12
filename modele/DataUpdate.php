@@ -34,12 +34,5 @@ class DataUpdate extends Data
         $update->execute();
 	}
 
-	public function chapter($id, $title, $content)
-	{
-		$update = $this->_db->prepare('UPDATE chapters SET title=:title, content=:content WHERE id=:id');
-        $update->bindValue(':title', $title);
-        $update->bindValue(':content', $content);
-        $update->bindValue(':id', $id);
-        $update->execute();
-	}
+	
 }

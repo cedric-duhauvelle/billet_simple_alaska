@@ -4,107 +4,110 @@ namespace modele;
 
 use modele\DataRecover;
 
-class Chapters extends DataRecover
+class Chapters
 {
-    public function __construct($db)
+    private $_id;
+    private $_title;
+    private $_content;
+    private $_published;
+
+    public function __construct(array $data)
     {
-        return $this->_db = $db;
+        $this->hydrate($data);
     }
 
-    //Affiche les chapitres
+    public function setId($id)
+    {
+        $id = (int) $id;
+        if ($id > 0) {
+            $this->_id = $id;
+        }
+    }
+
+    public function setTitle($title)
+    {
+        if (is_string($title)) {
+            $this->_title = $title;
+        }
+    }
+
+    public function setContent($content)
+    {
+        if (is_string($content)) {
+            $this->_content = $content;
+        }
+    }
+
+    public function setPublished($date)
+    {
+        $this->_published = $date;
+    }
+
+    public function hydrate(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function getTitle()
+    {
+        return $this->_title;
+    }
+
+    public function getContent()
+    {
+        return $this->_content;
+    }
+
+    public function getPublished()
+    {
+        return $this->_published;
+    }
+
+    //Affiche le resume d'un chapitre
     public function displayChapters()
-    {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($response['id']) {
-                echo '<div class="chapter">';
-                echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3>';
-                echo '<p class="content_text_chapter">' . substr($response['content'], 0, 400) . '...</p>';
-                echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
-                echo '</div>';
-            }   
-        }
+    { 
+        $date = explode(' ', $this->_published);
+        $dateFr = explode('-', $date[0]);
+        echo '<div class="chapter">';
+        echo '<h3><a class="title_chapter" href="chapitre?id=' . $this->getId() . '">' . $this->getTitle() . '</a></h3>';
+        echo '<p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+        echo '<p class="content_text_chapter">' . substr($this->getContent(), 0, 400) . '...</p>';
+        echo '<a class="after_chapter" href="chapitre?id=' . $this->getId() . '">Lire la suite...</a>';
+        echo '</div>';   
     }
 
-    //Affiche les trois derniers chapitres parus
-    public function displayChaptersLast()
+    //Affiche un chapitre
+    public function recoverChapter()
     {
-        $resp = $this->_db->prepare('SELECT * FROM chapters ORDER BY id DESC LIMIT 0,3');
-        $resp->execute();
-        $responses = $resp->fetchAll();
-        foreach ($responses as $response) {
-            if ($response['id']) {
-                echo '<div class="chapter">';
-                $date = explode(' ', $response['published']);
-                $dateFr = explode('-', $date[0]);
-                echo '<h3><a class="title_chapter" href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-                echo '<p class="content_text_chapter">' . substr($response['content'], 0, 200) . '...</p>';
-                echo '<a class="after_chapter" href="chapitre?id=' . $response['id'] . '">Lire la suite...</a>';
-                echo '</div>';
-            }   
-        }
+        echo '<div class="chapter">';
+        $date = explode(' ', $this->getPublished());
+        $dateFr = explode('-', $date[0]);
+        echo '<h3>' . $this->getTitle() . '</h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
+        echo '<p class="content_text_chapter">' . $this->getContent() . '</p>';
+        echo '</div>';        
     }
 
-    //Recherche et affiche un chapitre
-    public function recoverChapter($id)
-    {
-        $this->callDisplay('chapters');
-        if ($this->checkId($id) === true) {
-            foreach ($this->_responses as $response) {
-                if ($id === $response['id']) { 
-                    echo '<div class="chapter">';
-                    $date = explode(' ', $response['published']);
-                    $dateFr = explode('-', $date[0]);
-                    echo '<h3>' . $response['title'] . '</h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-                    echo '<p class="content_text_chapter">' . $response['content'] . '</p>';
-                    echo '</div>'; 
-                }  
-            }
-        } 
-    }
-
-    //Retourne le titre du chapitre
-    public function displayTitle($id)
-    {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($id === $response['id']) {
-                return $response['title'];
-            }
-        }
-    }
-
-    //Retourne le contenu du chapitre
-    public function displayContent($id)
-    {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($id === $response['id']) {
-                return $response['content'];
-            }
-        }
-    }
-
-    //Affiche les liens des chapitres pour les modifier
+    //Affiche les liens des chapitres (admin)
     public function linkDisplayChapterAdmin()
     {
-        $this->callDisplay('chapters');
-        echo '<p><a href="administrateur">Nouveau chapitre</a></p>';
-        foreach ($this->_responses as $response) {
-            if ($response['id']) {
-                echo '<p><a href="administrateur?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
-            }
-        }
+        echo '<p><a href="administrateur?id=' . $this->getId() . '">' . $this->getTitle() . '</a></p>';
     }
 
+    //Affiche les liens des chapitres
     public function linkDisplayChapter()
     {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($response['id']) {
-                echo '<p>- <a href="chapitre?id=' . $response['id'] . '">' . $response['title'] . '</a></p>';
-            }
-        }
+        echo '<p>- <a href="chapitre?id=' . $this->getId() . '">' . $this->getTitle() . '</a></p>';
     }
 
     //Retourne 'true' si id du chapitre existe

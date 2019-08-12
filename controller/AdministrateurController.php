@@ -2,11 +2,8 @@
 
 namespace controller;
 
-use modele\Chapters;
+use modele\ChapterManager;
 use modele\Router;
-use modele\DataInsert;
-use modele\DataUpdate;
-use modele\DataDelete;
 
 class AdministrateurController
 {
@@ -18,10 +15,8 @@ class AdministrateurController
 	//Gere ajout modification supression chapitre (Admin)
 	public function chapter($db)
 	{
-		$router =  new Router($db);
-		$insert = new DataInsert($db);
-		$update = new DataUpdate($db);
-		$delete = new DataDelete($db);
+		$router = new Router($db);
+		$chapter = new ChapterManager($db);
 
 		//Nettoye la variable '$_POST'
 		$postClean = $router->cleanArray($_POST);
@@ -33,14 +28,14 @@ class AdministrateurController
 		if (array_key_exists(1, $idChapter)) {
 			if (array_key_exists('buttonDelete', $postClean)) {
 				//Supprime un chapitre (Admin)
-				$delete->chapter($idChapter[1]);
+				$chapter->delete($idChapter[1]);
 			} elseif (array_key_exists('buttonSave', $postClean)) {
 				//update chapitre (Admin)
-				$update->chapter($idChapter[1], $postClean['title'], $postClean['chapter']);
+				$chapter->update($idChapter[1], $postClean['title'], $postClean['chapter']);
 			}
 		} elseif (array_key_exists('buttonSave', $postClean)) {
 			//Ajout de chapitre (Admin)
-			$insert->chapter($postClean['title'], $postClean['chapter']);
+			$chapter->add($postClean['title'], $postClean['chapter']);
 		}
 		//Redirection page
 		header('Location: administrateur');
