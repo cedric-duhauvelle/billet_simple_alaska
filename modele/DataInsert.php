@@ -21,15 +21,7 @@ class DataInsert extends Data
         $req->execute();
     }
     
-    //Ajoute un signalement a la base de donnees
-    public function report($idChapter, $idUser)
-    {
-        $req = $this->_db->prepare('INSERT INTO reporting(id_comment, id_user) VALUES (:id, :user)');
-        $req->bindValue(':id', $idChapter);
-        $req->bindValue(':user', $idUser);
-        $req->execute();   
-    }
-
+    
     
 }
 

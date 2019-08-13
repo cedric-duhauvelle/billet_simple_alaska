@@ -8,7 +8,7 @@ use modele\CustomException;
 use modele\Chapters;
 use modele\ChapterManager;
 use modele\CommentManager;
-use modele\CommentReports;
+use modele\CommentReportsManager;
 use modele\User;
 
 class PageController extends Data
@@ -64,8 +64,8 @@ class PageController extends Data
                     $content = $chapter->displayContentAdmin($getClean['id']);
                 }
 
-                $reportComment = new CommentReports($db);
-                
+                $report = new CommentReportsManager($db);
+
                 break;
 
             case 'profil':

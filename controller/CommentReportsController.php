@@ -2,7 +2,7 @@
 
 namespace controller;
 
-use modele\DataInsert;
+use modele\CommentReportsManager;
 use modele\Router;
 
 class CommentReportsController
@@ -20,8 +20,8 @@ class CommentReportsController
 		$postClean = $router->cleanArray($_POST);
 
 		//Ajout Signalement 
-		$insert = new DataInsert($db);
-		$insert->report($postClean['id'], $_SESSION['id_user']);
+		$report = new CommentReportsManager($db);
+		$report->add($postClean['id'], $_SESSION['id_user']);
 
 		//Redirection vers la page precedente
 		$route = explode('/',$_SERVER['HTTP_REFERER']);

@@ -25,7 +25,7 @@ class CommentManager
         $q = $this->_db->query('SELECT * FROM comments');
         while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Comment($data);
-            $comments[] = $comment->display();
+            $comments[] = $comment->display($this->_db);
         }
 
         return $comments;
@@ -40,10 +40,20 @@ class CommentManager
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
             $comment = new Comment($data);
-            $comments[] = $comment->display();
+            $comments[] = $comment->display($this->_db);
         }
-
+        var_dump($comments);
         return $comments;
+    }
+
+    public function getData($id)
+    {
+        $id = (int) $id;
+        $datas = [];
+        $q = $this->_db->query('SELECT * FROM comments WHERE chapter = '. $id);
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $datas[] = $data;
+        return $datas;
     }
 
     //Efface un commentaire

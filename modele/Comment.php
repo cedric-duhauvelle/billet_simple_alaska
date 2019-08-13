@@ -82,8 +82,9 @@ class Comment
     }
     
     //Affiche les commentaires
-    public function display()
+    public function display($db)
     {
+        $chapter = new ChapterManager($db);
         $date = explode(' ', $this->_published);
         $dateFr = explode('-', $date[0]);
         require '../View/Template/comment.php';

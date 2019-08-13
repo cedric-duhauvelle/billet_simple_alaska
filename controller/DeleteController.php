@@ -2,7 +2,8 @@
 
 namespace controller;
 
-use modele\DataDelete;
+use modele\CommentReportsManager;
+use modele\CommentManager;
 use modele\Router;
 
 class DeleteController
@@ -18,15 +19,17 @@ class DeleteController
 		$router = new Router($db);
 		$postClean = $router->cleanArray($_POST);
 
-		$delete = new DataDelete($db);
+		$report = new CommentReportsManager($db);
+		$comment = new CommentManager($db);
+
 
 		if (array_key_exists('idReports', $postClean)) {
 			//Efface le signalement
-			$delete->report($postClean['idReports']);
+			$report->delete($postClean['idReports']);
 		} elseif (array_key_exists('idComment', $postClean)) {
 			//Efface le signalement et le commentaire
-			$delete->comment($postClean['idComment']);
-			$delete->report($postClean['idComment']);
+			$comment->delete($postClean['idComment']);
+			$report->delete($postClean['idComment']);
 		}
 
 		//Redirection page

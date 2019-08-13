@@ -1,56 +1,89 @@
 <?php
 namespace modele;
 
-use modele\User;
-use modele\DataRecover;
+use modele\ChapterManager;
 
-class CommentReports extends DataRecover
+class CommentReports
 {
 
     private $_id;
     private $_user;
-    private $_responseReport;
+    private $_reporter;
+    private $_reports;
 
-    public function __construct($db)
+    public function __construct(array $array)
     {
-        return $this->_db = $db;
+        $this->hydrate($array);
     }
 
-    //Recherche dans la base de donnees et retourne $id $user
-    public function checkReports()
+    public function setId($id)
     {
-        $this->callDisplay('reporting');
-        foreach ($this->_responses as $report) {
-            if ($report['id_comment']) {
-               $this->_id = $report['id_comment'];
-               $this->_user = $report['id_user'];
-               $this->displayReports($this->_id, $this->_user);
-            }
+        $id = (int) $id;
+        if ($id > 0) {
+            $this->_id = $id;
         }
     }
 
-    public function checkReport($id)
+    public function setUser($id)
     {
-        $this->callDisplay('reporting');
-        foreach ($this->_responses as $report) {
-            if($report['id_comment'] === $id) {
-                return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';
-            }
+        $id = (int) $id;
+        if ($id > 0) {
+            $this->_user = $id;
         }
+    }
+
+    public function setUReporter($id)
+    {
+        $id = (int) $id;
+        if ($id > 0) {
+            $this->_user = $id;
+        }
+    }
+
+    public function setReports($report)
+    {
+        $this->_report = $report;
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function getUser()
+    {
+        return $this->_user;
+    }
+
+    public function getReports()
+    {
+        return $this->_report;
+    }
+
+
+    public function displayReport($id)
+    {
+        return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';
     }
 
     //Affiche les signalements et les boutons de gestion
-    public function displayReports($id, $user)
+    public function display($db)
     {
-        $this->callDisplay('comments');
-        $name = new User($this->_db);
-        $chapter = new Chapters($this->_db);
-        foreach ($this->_responses as $comment) {
-            if ($comment['id'] == $id) {
-                $date = explode(' ', $comment['published']);
-                $dateFr = explode('-', $date[0]);
-                include("../View/Template/report.php");
-            }  
+        $chapter = new ChapterManager($db);
+        $title = $chapter->displayTitleAdmin($this->getId());
+        $date = explode(' ', $this->getReports());
+        $dateFr = explode('-', $date[0]);
+        require'../View/Template/report.php';
+    }
+
+    public function hydrate(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
         }
     }
 }

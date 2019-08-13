@@ -25,5 +25,5 @@
     </div>    
 </div>
 <div id="content_admin_comment">
-    <?php $reportComment->checkReports(); ?>
+    <?php $report->getReports(); ?>
 </div>
