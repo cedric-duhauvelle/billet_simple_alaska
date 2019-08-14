@@ -4,8 +4,8 @@ namespace Model;
 
 use Manager\ChapterManager;
 use Model\CustomException;
-use controller\Controller;
-use controller\PageController;
+use Controller\Controller;
+use Controller\PageController;
 
 class Router
 { 
