@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\Router;
 use Model\Session;
+use Manager\UserManager;
 
 class InscriptionController
 {
@@ -16,34 +17,31 @@ class InscriptionController
     public function inscription($db)
     {
         $router = new Router($db);
-        $check = new DataRecover($db);
-        $insert = new DataInsert($db);
+        $user = new UserManager($db);
         $session = new Session();
 
         //Nettoye la variable '$_POST'
         $postClean = $router->cleanArray($_POST);
 
         //Verifie si le nom est deja utilise
-        if ($check->recover('users', 'name', $postClean['pseudoInscription'], 'id') === null)  {
+        if ($user->checkUserData('name', $postClean['pseudoInscription'], 'id') === null)  {
             //verifie si l'email est deja utilise
-            if ($check->recover('users', 'email', $postClean['emailInscription'], 'email') === null) {
+            if ($user->checkUserData('email', $postClean['emailInscription'], 'email') === null) {
                 if ($postClean['passwordInscription'] === $postClean['confirmationPasswordInscription']) {
                     //Ajoute utilisateur a la base de donnees  
-                    $insert->user($postClean['pseudoInscription'], $postClean['emailInscription'], password_hash($postClean['passwordInscription'], PASSWORD_DEFAULT));
-                    $session->addSession('id_user', $check->recover('users', 'name', $postClean['pseudoInscription'], 'id'));
+                    $user->add($postClean['pseudoInscription'], $postClean['emailInscription'], password_hash($postClean['passwordInscription'], PASSWORD_DEFAULT));
+                    $session->addSession('id_user', $user->checkUserData('name', $postClean['pseudoInscription'], 'id'));
                     $session->addSession('name', $postClean['pseudoInscription']);
-                    header('Location: profil');
+                    return header('Location: profil');
                 } else {
                     $session->addSession('errorPassword', 'Les mots de passe ne sont pas identiques');
-                    header('Location: inscription');
                 }
             } else {
                 $session->addSession('errorEmail', 'Email déjà utilisée!!');
-                header('Location: inscription');
             }
         } else {
             $session->addSession('errorName', 'Nom déjà utilisé!!');
-            header('Location: inscription');
         }
+        header('Location: inscription');
     }
 }

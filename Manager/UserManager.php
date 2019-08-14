@@ -62,6 +62,19 @@ class UserManager
         return $user->getPassword(); 
     }
 
+    public function checkUserData($champ, $search, $value)
+    {
+        $resp = $this->_db->prepare('SELECT * FROM users');
+        $resp->execute();
+        $responses = $resp->fetchAll();
+
+        foreach ($responses as $response) {
+            if ($response[$champ] === $search) {
+                return $response[$value];
+            } 
+        }
+    }
+
     //Ajoute utilisateur a la base de donnees
     public function add($pseudo, $email, $password)
     {
