@@ -33,7 +33,7 @@ class Router
     public function route($page)
     {
         //Redirection vers les controllers
-        if (strpos($page, 'Controller') && is_file('../controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
+        if (strpos($page, 'Controller') && is_file('../Controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             new Controller($page, $this->_db);
         //Redirection vers les templates
         } elseif (is_file('../View/' . $page . '.php')) {                
