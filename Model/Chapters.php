@@ -77,23 +77,15 @@ class Chapters
     { 
         $date = explode(' ', $this->_published);
         $dateFr = explode('-', $date[0]);
-        echo '<div class="chapter">';
-        echo '<h3><a class="title_chapter" href="chapitre?id=' . $this->getId() . '">' . $this->getTitle() . '</a></h3>';
-        echo '<p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-        echo '<p class="content_text_chapter">' . substr($this->getContent(), 0, 400) . '...</p>';
-        echo '<a class="after_chapter" href="chapitre?id=' . $this->getId() . '">Lire la suite...</a>';
-        echo '</div>';   
+        require '../View/Template/chapterAbstract.php';
     }
 
     //Affiche un chapitre
     public function recoverChapter()
     {
-        echo '<div class="chapter">';
         $date = explode(' ', $this->getPublished());
         $dateFr = explode('-', $date[0]);
-        echo '<h3>' . $this->getTitle() . '</h3><p>' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] . '</p>';
-        echo '<p class="content_text_chapter">' . $this->getContent() . '</p>';
-        echo '</div>';        
+         require_once '../View/Template/chapter.php';      
     }
 
     //Affiche les liens des chapitres (admin)
