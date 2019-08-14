@@ -26,33 +26,31 @@ class UpdateProfilController
 
 		if (array_key_exists('updateName', $_POST)) {
 			//Modifie le nom utilisateur
-			if ($check->recover('users', 'name', $postClean['updateName'], 'name') === null) {
-				$update->name($_SESSION['id_user'], $postClean['updateName']);
+			if ($user->checkUserData('name', $postClean['updateName'], 'name') === null) {
+				$user->nameUpdate($_SESSION['id_user'], $postClean['updateName']);
 				$session->addSession('name', $postClean['updateName']);
-				header('Location: profil');
+				return header('Location: profil');
 			} else {
 				$session->addSession('errorName', 'Nom déjà utilisé!!');
-				header('Location: update-profil');
 			}
 		} elseif (array_key_exists('updateEmail', $_POST)) {
 			//Modifie email utilisateur
-			if ($check->recover('users', 'email', $postClean['updateEmail'], 'email') === null) {
-				$update->email($_SESSION['id_user'], $postClean['updateEmail']);
-				header('Location: profil');
+			if ($user->checkUserData('email', $postClean['updateEmail'], 'email') === null) {
+				$user->emailUpdate($_SESSION['id_user'], $postClean['updateEmail']);
+				return header('Location: profil');
 			} else {
-				$session->addSession('errorEmail', 'Email déjà utilisé!!');
-				header('Location: update-profil');
+				$session->addSession('errorEmail', 'Email déjà utilisé!!');	
 			}	
 		} elseif (array_key_exists('updatePassword', $_POST)) {
 			//Modifie password utilisateur
 			if ($postClean['updatePassword'] === $postClean['updatePasswordCheck']) {
 				$password = password_hash($postClean['updatePassword'], PASSWORD_DEFAULT);
-				$update->password($_SESSION['id_user'], $password);
-				header('Location: profil');
+				$user->passwordUpdate($_SESSION['id_user'], $password);
+				return header('Location: profil');
 			} else {
 				$session->addSession('errorPassword', 'Les mots de passe ne sont pas identiques!!');
-				header('Location: update-profil');
 			}	
 		}
+		header('Location: update-profil');
 	}
 }
