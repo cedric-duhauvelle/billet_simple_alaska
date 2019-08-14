@@ -1,18 +1,25 @@
 <?php
 
-namespace modele;
+namespace Model;
 
-use modele\Data;
-use modele\Chapters;
-use modele\CustomException;
+use Manager\ChapterManager;
+use Model\CustomException;
 use controller\Controller;
 use controller\PageController;
 
-class Router extends Data
+class Router
 { 
+    private $_db;
+
     public function __construct($db)
     {
-        return $this->_db = $db;
+        $this->setDb($db);
+        return $this->_db;
+    }
+
+    public function setDb($db)
+    {
+        $this->_db = $db;
     }
 
     //Nettoyeur de tableau

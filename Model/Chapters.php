@@ -1,8 +1,6 @@
 <?php
 
-namespace modele;
-
-use modele\DataRecover;
+namespace Model;
 
 class Chapters
 {

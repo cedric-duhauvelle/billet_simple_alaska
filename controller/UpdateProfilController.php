@@ -1,11 +1,10 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\DataRecover;
-use modele\DataUpdate;
-use modele\Router;
-use modele\Session;
+use Manager\UserManager;
+use Model\Router;
+use Model\Session;
 
 class UpdateProfilController
 {
@@ -18,8 +17,7 @@ class UpdateProfilController
 	public function update($db)
 	{
 		$router = new Router($db);
-		$update = new DataUpdate($db);
-		$check = new DataRecover($db);
+		$user = new UserManager($db);
 		$session = new Session();
 
 		//Nettoye la variable '$_POST'

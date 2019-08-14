@@ -1,7 +1,7 @@
 <?php
 
-require_once '../modele/private/adressDataBase.php';
-use modele\Router;
+require_once '../Model/private/adressDataBase.php';
+use Model\Router;
 
 session_start();
 

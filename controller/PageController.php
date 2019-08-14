@@ -1,17 +1,16 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\Data;
-use modele\Router;
-use modele\CustomException;
-use modele\Chapters;
-use modele\ChapterManager;
-use modele\CommentManager;
-use modele\CommentReportsManager;
-use modele\UserManager;
+use Model\Router;
+use Model\CustomException;
+use Model\Chapters;
+use Model\ChapterManager;
+use Manager\CommentManager;
+use Manager\CommentReportsManager;
+use Manager\UserManager;
 
-class PageController extends Data
+class PageController
 {
     public function __construct($db, $page)
     {

@@ -1,11 +1,9 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\Router;
-use modele\DataRecover;
-use modele\DataInsert;
-use modele\Session;
+use Model\Router;
+use Model\Session;
 
 class InscriptionController
 {

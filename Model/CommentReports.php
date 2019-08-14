@@ -1,9 +1,9 @@
 <?php
-namespace modele;
+namespace Model;
 
-use modele\ChapterManager;
-use modele\CommentManager;
-use modele\UserManager;
+use Manager\ChapterManager;
+use Manager\CommentManager;
+use Manager\UserManager;
 
 class CommentReports
 {

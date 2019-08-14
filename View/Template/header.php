@@ -1,8 +1,8 @@
 <?php
 
-use modele\Router;
+use Model\Router;
 
-$router = new Router($this->_db);
+$router = new Router($db);
 $getClean = $router->cleanArray($_GET);
 $postClean = $router->cleanArray($_POST);
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace modele;
+namespace Manager;
 
-use modele\User;
+use Model\User;
 
 class UserManager
 {

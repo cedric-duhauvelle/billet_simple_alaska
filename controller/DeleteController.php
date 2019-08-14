@@ -1,10 +1,10 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\CommentReportsManager;
-use modele\CommentManager;
-use modele\Router;
+use Manager\CommentReportsManager;
+use Manager\CommentManager;
+use Model\Router;
 
 class DeleteController
 {

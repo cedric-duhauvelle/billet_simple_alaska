@@ -1,11 +1,10 @@
 <?php
 
-namespace modele;
+namespace Model;
 
-use modele\CommentReports;
-use modele\ChapterManager;
-use modele\DataRecover;
-use modele\UserManager;
+use Manager\CommentReports;
+use Manager\ChapterManager;
+use Manager\UserManager;
 
 class Comment
 {

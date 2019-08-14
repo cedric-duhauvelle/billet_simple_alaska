@@ -1,8 +1,8 @@
 <?php
 
-namespace modele;
+namespace Manager;
 
-use modele\Comment;
+use Model\Comment;
 
 class CommentManager
 {

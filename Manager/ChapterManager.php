@@ -1,8 +1,8 @@
 <?php
 
-namespace modele;
+namespace Manager;
 
-use modele\Chapters;
+use Model\Chapters;
 
 class ChapterManager 
 {

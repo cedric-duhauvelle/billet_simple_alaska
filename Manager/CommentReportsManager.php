@@ -1,8 +1,8 @@
 <?php
 
-namespace modele;
+namespace Manager;
 
-use modele\CommentReports;
+use Model\CommentReports;
 
 class CommentReportsManager
 {

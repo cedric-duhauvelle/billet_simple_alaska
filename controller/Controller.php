@@ -1,15 +1,15 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use controller\AdministrateurController;
-use controller\ConnexionController;
-use controller\CommentController;
-use controller\CommentReportsController;
-use controller\DeconnexionController;
-use controller\DeleteController;
-use controller\InscriptionController;
-use controller\UpdateProfilController;
+use Controller\AdministrateurController;
+use Controller\ConnexionController;
+use Controller\CommentController;
+use Controller\CommentReportsController;
+use Controller\DeconnexionController;
+use Controller\DeleteController;
+use Controller\InscriptionController;
+use Controller\UpdateProfilController;
 
 class Controller
 {

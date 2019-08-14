@@ -1,9 +1,9 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\ChapterManager;
-use modele\Router;
+use Manager\ChapterManager;
+use Model\Router;
 
 class AdministrateurController
 {

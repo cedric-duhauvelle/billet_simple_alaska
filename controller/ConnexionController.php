@@ -1,10 +1,9 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\DataRecover;
-use modele\Router;
-use modele\Session;
+use Model\Router;
+use Model\Session;
 
 class ConnexionController
 {

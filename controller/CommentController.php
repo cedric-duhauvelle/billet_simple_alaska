@@ -1,9 +1,9 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use modele\CommentManager;
-use modele\Router;
+use Manager\CommentManager;
+use Model\Router;
 
 class CommentController
 {
