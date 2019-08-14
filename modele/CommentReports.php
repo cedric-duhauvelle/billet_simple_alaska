@@ -2,14 +2,15 @@
 namespace modele;
 
 use modele\ChapterManager;
+use modele\CommentManager;
+use modele\UserManager;
 
 class CommentReports
 {
 
     private $_id;
     private $_user;
-    private $_reporter;
-    private $_reports;
+    private $_report;
 
     public function __construct(array $array)
     {
@@ -25,14 +26,6 @@ class CommentReports
     }
 
     public function setUser($id)
-    {
-        $id = (int) $id;
-        if ($id > 0) {
-            $this->_user = $id;
-        }
-    }
-
-    public function setUReporter($id)
     {
         $id = (int) $id;
         if ($id > 0) {
@@ -61,7 +54,7 @@ class CommentReports
     }
 
 
-    public function displayReport($id)
+    public function displayReport()
     {
         return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';
     }
@@ -70,7 +63,13 @@ class CommentReports
     public function display($db)
     {
         $chapter = new ChapterManager($db);
-        $title = $chapter->displayTitleAdmin($this->getId());
+        $user = new UserManager($db);
+        $comment = new CommentManager($db);
+
+        $title = $chapter->displayTitleAdmin(1);
+        $name = $user->getName($this->getUser());
+        $content = $comment->getComment($this->getId());
+
         $date = explode(' ', $this->getReports());
         $dateFr = explode('-', $date[0]);
         require'../View/Template/report.php';

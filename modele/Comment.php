@@ -5,7 +5,7 @@ namespace modele;
 use modele\CommentReports;
 use modele\ChapterManager;
 use modele\DataRecover;
-use modele\User;
+use modele\UserManager;
 
 class Comment
 {
@@ -85,6 +85,17 @@ class Comment
     public function display($db)
     {
         $chapter = new ChapterManager($db);
+        $user = new UserManager($db);
+        $report = new CommentReportsManager($db);
+
+        $title = $chapter->displayTitleAdmin($this->getChapter());
+        $name = $user->getName($this->getUser());
+        $contentReport = '';
+
+        if ($report->getIdReport($this->getId())) {
+            $contentReport = $report->getReport($this->_id)[0];
+        }
+
         $date = explode(' ', $this->_published);
         $dateFr = explode('-', $date[0]);
         require '../View/Template/comment.php';

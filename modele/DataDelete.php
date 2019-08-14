@@ -10,11 +10,4 @@ class DataDelete extends Data
     {
         return $this->_db = $db;
     }
-    
-	public function chapter($id)
-	{
-		$req = $this->_db->prepare('DELETE FROM chapters WHERE id=:id LIMIT 1');
-        $req->bindValue(':id', $id);
-        $req->execute();
-	}
 }

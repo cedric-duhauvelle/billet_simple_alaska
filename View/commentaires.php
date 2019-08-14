@@ -2,7 +2,7 @@
 	<h2 class="title_section">Commentaires</h2>
     <div id="content_book">
         <?php 
-        $comment->getComment(); 
+        $comment->getComments(); 
         ?>
     </div>
 </div>

@@ -9,7 +9,7 @@ use modele\Chapters;
 use modele\ChapterManager;
 use modele\CommentManager;
 use modele\CommentReportsManager;
-use modele\User;
+use modele\UserManager;
 
 class PageController extends Data
 {
@@ -69,7 +69,7 @@ class PageController extends Data
                 break;
 
             case 'profil':
-                $user = new User($db);
+                $user = new UserManager($db);
                 break;
                 
         }

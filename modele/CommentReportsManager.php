@@ -2,6 +2,8 @@
 
 namespace modele;
 
+use modele\CommentReports;
+
 class CommentReportsManager
 {
 
@@ -38,6 +40,42 @@ class CommentReportsManager
 
         return $reports;
     }
+
+    public function getIdReport($id)
+    {
+        $resp = $this->_db->prepare('SELECT * FROM reporting');
+        $resp->execute();
+        $responses = $resp->fetchAll();
+
+        foreach ($responses as $response) {
+            if ($response['id'] == $id) {
+                return true;
+            }  
+        }
+        return false;   
+    }
+
+    //Recherche une Donnee dans la base de donnees
+    public function recover($tab, $champ, $search, $value)
+    {
+        $this->callDisplay($tab);
+        
+    }
+
+    public function getReport($id)
+    {
+        $id = (int) $id;
+        $reports = [];
+        $q = $this->_db->query('SELECT * FROM comments WHERE id = '. $id);
+        while ($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $report = new CommentReports($data);
+            $reports[] = $report->displayReport();
+        }
+
+        return $reports;
+    }
+
 
     public function delete($id)
 	{

@@ -1,9 +1,9 @@
 <div class="content_admin_reports_comment">
     <div class="content_admin_reports_details">
         <p>Signalé le: <?= $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']; ?>.</p>
-        <p>Ecrit par : <?= $this->getUser() . ' // Signalé par : ' . $this->getUser(); ?>.</p>
-        <p>Sur le chapitre: <?= $title; ?></p>
-        <p class="content_admin_reports_comment_details"><?php ?></p>
+        <p>Signalé par : <?= $name; ?></p>
+        <p>Sur le chapitre : <?= $title; ?></p>
+        <p class="content_admin_reports_comment_details"><?= $content[0]; ?></p>
     </div>
     <div class="content_admin_reports_comment_button">
         <form action="DeleteController" method="post">

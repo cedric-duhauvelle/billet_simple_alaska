@@ -4,32 +4,95 @@ namespace modele;
 
 use modele\DataRecover;
 
-class User extends DataRecover
+class User
 {
-    public function __construct($db)
+    private $_id;
+    private $_name;
+    private $_email;
+    private $_password;
+    private $_inscription;
+
+    public function __construct(array $data)
     {
-        return $this->_db = $db;
+        $this->hydrate($data);
     }
 
-    //Retourne nom 
-    public function displayName($id)
+    public function setId($id)
     {
-        return $this->recover('users', 'id', $id, 'name');
+        $id = (int) $id;
+        if ($id > 0) {
+            $this->_id = $id;
+        }
     }
 
-    //retourne Email
-    public function displayEmail($id)
+    public function setName($name)
     {
-        return $this->recover('users', 'id', $id, 'email');
+        if (is_string($name)) {
+            $this->_name = $name;
+        }
+    }
+
+    public function setEmail($email)
+    {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->_email = $email;
+        }
+    }
+
+    public function setPassword($password)
+    {
+        if (is_string($password)) {
+            $this->_password = $password;
+        }
+    }
+
+    public function setInscription($inscription)
+    {
+        $this->_inscription = $inscription;
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function getName()
+    {
+        return $this->_name;
+    }
+    
+    public function getEmail()
+    {
+        return $this->_email;
+    }
+
+    public function getPassword()
+    {
+        return $this->_password;
+    }
+
+    public function getInscription()
+    {
+        return $this->_inscription;
     }
 
     //Retourne date inscription
-    public function displayDateInscription($id)
+    public function displayInscription()
     {
-        $date = $this->recover('users', 'id', $id, 'inscription');
-        $dateArray = explode(' ', $date);
+        $dateArray = explode(' ', $this->getInscription());
         $dateFr = explode('-', $dateArray[0]);
 
         return '<p>Inscrit depuis le ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $dateArray[1] . '</p>';
+    }
+
+    public function hydrate(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 }
