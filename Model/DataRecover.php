@@ -1,8 +1,8 @@
 <?php
 
-namespace modele;
+namespace Model;
 
-use modele\Data;
+use Model\Data;
 
 class DataRecover extends Data
 {

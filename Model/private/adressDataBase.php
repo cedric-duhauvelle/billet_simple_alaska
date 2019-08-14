@@ -1,6 +1,6 @@
 <?php
 
-namespace modele;
+namespace Model;
 
 use PDO;
 use modele\CustomException;

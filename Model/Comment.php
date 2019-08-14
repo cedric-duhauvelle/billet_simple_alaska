@@ -85,7 +85,7 @@ class Comment
     {
         $chapter = new ChapterManager($db);
         $user = new UserManager($db);
-        $report = new CommentReportsManager($db);
+        $report = new \Manager\CommentReportsManager($db);
 
         $title = $chapter->displayTitleAdmin($this->getChapter());
         $name = $user->getName($this->getUser());

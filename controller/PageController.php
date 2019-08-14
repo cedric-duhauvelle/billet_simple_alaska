@@ -5,7 +5,7 @@ namespace Controller;
 use Model\Router;
 use Model\CustomException;
 use Model\Chapters;
-use Model\ChapterManager;
+use Manager\ChapterManager;
 use Manager\CommentManager;
 use Manager\CommentReportsManager;
 use Manager\UserManager;
