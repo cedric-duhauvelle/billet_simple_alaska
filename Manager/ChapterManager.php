@@ -81,6 +81,19 @@ class ChapterManager
         return $chapters; 
     }
 
+    public function checkChapterData($champ, $search, $value)
+    {
+        $resp = $this->_db->prepare('SELECT * FROM chapters');
+        $resp->execute();
+        $responses = $resp->fetchAll();
+
+        foreach ($responses as $response) {
+            if ($response[$champ] === $search) {
+                return $response[$value];
+            } 
+        }
+    }
+
     public function add($title, $content)
     {
         $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');

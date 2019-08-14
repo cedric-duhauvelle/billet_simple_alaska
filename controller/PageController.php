@@ -44,6 +44,10 @@ class PageController
                 $chapter = new ChapterManager($db);
                 
                 $comment = new CommentManager($db);
+
+                if (!$chapter->checkChapterData('id', $getClean['id'], 'id')) {
+                    throw new CustomException('Chapitre introuvable', 404);    
+                }
                 break;
 
             case 'commentaires':
