@@ -16,11 +16,11 @@ spl_autoload_register(function ($class) {
 });
 
 //Gestion des erreurs
-//set_exception_handler('exception');
+set_exception_handler('exception');
 
-function exception($e, $c)
+function exception($e)
 {
-    new CustomException($e, $c);
+    new CustomException($e);
 }
 
 //Appelle du Router
