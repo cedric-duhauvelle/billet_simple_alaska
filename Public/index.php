@@ -1,6 +1,7 @@
 <?php
 
 require_once '../Model/private/adressDataBase.php';
+require_once '../Model/CustomException.php';
 
 use Model\Router;
 
