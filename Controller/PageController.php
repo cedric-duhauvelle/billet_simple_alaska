@@ -33,48 +33,32 @@ class PageController
     {
         $router = new Router($db);
         $getClean = $router->cleanArray($_GET);
-        switch ($page) {
-            case 'accueil':
-            case 'chapitres':
-
-                $chapterManager = new ChapterManager($db);
-                break;
-
-            case 'chapitre':
-                $chapter = new ChapterManager($db);
-                
+        var_dump($page);
+        if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
+            $chapter = new ChapterManager($db);
+            if ($page === 'chapitre') {
                 $comment = new CommentManager($db);
-
                 if (!$chapter->checkChapterData('id', $getClean['id'], 'id')) {
                     throw new CustomException('Chapitre introuvable', 404);    
                 }
-                break;
-
-            case 'commentaires':
-                $comment = new CommentManager($db);
-                break;
-
-            case 'administrateur':
+            } elseif ($page === 'administrateur') {
                 if(!array_key_exists('admin', $_SESSION)) {
-                    header('location: accueil');
-                    break;
+                    return header('location: accueil');
                 }
-                $chapter = new ChapterManager($db);
                 $title = '';
                 $content = '';
                 if (array_key_exists('id', $getClean)) {
                     $title = $chapter->displayTitleAdmin($getClean['id']);
                     $content = $chapter->displayContentAdmin($getClean['id']);
                 }
-
                 $report = new CommentReportsManager($db);
-
-                break;
-
-            case 'profil':
-                $user = new UserManager($db);
-                break;
-                
+            }
+        }
+        if ($page === 'commentaires') {
+            $comment = new CommentManager($db);
+        }
+        if ($page === 'profil') {
+            $user = new UserManager($db);
         }
         require_once '../View/' . $page . '.php';
     }
