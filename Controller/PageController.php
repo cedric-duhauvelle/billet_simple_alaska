@@ -33,7 +33,6 @@ class PageController
     {
         $router = new Router($db);
         $getClean = $router->cleanArray($_GET);
-        var_dump($page);
         if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
             $chapter = new ChapterManager($db);
             if ($page === 'chapitre') {
