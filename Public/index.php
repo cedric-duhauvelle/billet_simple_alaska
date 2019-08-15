@@ -22,7 +22,7 @@ set_exception_handler('exception');
 
 function exception($e)
 {
-    new CustomException($e);
+    new Exception($e);
 }
 
 //Appelle du Router

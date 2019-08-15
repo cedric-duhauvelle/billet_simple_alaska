@@ -2,10 +2,10 @@
 
 namespace Model;
 
-use \Exception;
+use Exception;
 use Model\Session;
 
-class CustomException extends \Exception
+class CustomException extends Exception
 {
 	public function __construct($message = null, $code = 0)
     {
