@@ -14,12 +14,13 @@ class CommentReportsManager
 		$this->setdb($db);
 	}
 
+    //SETTEUR
 	public function setDb($db)
 	{
 		$this->_db = $db;
 	}
 
-	//Ajoute un signalement a la base de donnees
+	//Ajoute un report a la base de donnees
     public function add($idComment, $idUser)
     {
         $req = $this->_db->prepare('INSERT INTO reporting(id, user) VALUES (:id, :user)');
@@ -28,6 +29,7 @@ class CommentReportsManager
         $req->execute();   
     }
 
+    //Retourne les reports (Admin)
     public function getReports()
     {
         $reports = [];
@@ -41,6 +43,7 @@ class CommentReportsManager
         return $reports;
     }
 
+    //Retourne 'true' si le commentaire a ete signaler
     public function getIdReport($id)
     {
         $resp = $this->_db->prepare('SELECT * FROM reporting');
@@ -55,13 +58,7 @@ class CommentReportsManager
         return false;   
     }
 
-    //Recherche une Donnee dans la base de donnees
-    public function recover($tab, $champ, $search, $value)
-    {
-        $this->callDisplay($tab);
-        
-    }
-
+    //Retourne les reports 
     public function getReport($id)
     {
         $id = (int) $id;
@@ -76,7 +73,7 @@ class CommentReportsManager
         return $reports;
     }
 
-
+    //Efface un report
     public function delete($id)
 	{
 		$req = $this->_db->prepare('DELETE FROM reporting WHERE id=:id LIMIT 1');

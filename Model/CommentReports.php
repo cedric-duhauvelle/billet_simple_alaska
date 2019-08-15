@@ -17,6 +17,7 @@ class CommentReports
         $this->hydrate($array);
     }
 
+    //SETTEUR
     public function setId($id)
     {
         $id = (int) $id;
@@ -38,6 +39,7 @@ class CommentReports
         $this->_report = $report;
     }
 
+    //GETTEUR
     public function getId()
     {
         return $this->_id;
@@ -53,7 +55,7 @@ class CommentReports
         return $this->_report;
     }
 
-
+    //Affiche un report sur un commentaire
     public function displayReport()
     {
         return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';

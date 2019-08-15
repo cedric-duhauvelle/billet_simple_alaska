@@ -14,6 +14,7 @@ class Chapters
         $this->hydrate($data);
     }
 
+    //SETTEUR
     public function setId($id)
     {
         $id = (int) $id;
@@ -52,6 +53,7 @@ class Chapters
         }
     }
 
+    //GETTEUR
     public function getId()
     {
         return $this->_id;

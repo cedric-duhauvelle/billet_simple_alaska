@@ -15,6 +15,7 @@ class User
         $this->hydrate($data);
     }
 
+    //SETTEUR
     public function setId($id)
     {
         $id = (int) $id;
@@ -49,6 +50,7 @@ class User
         $this->_inscription = $inscription;
     }
 
+    //GETTEUR
     public function getId()
     {
         return $this->_id;

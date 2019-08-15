@@ -13,12 +13,13 @@ class CommentManager
         $this->setDb($db);
     }
 
+    //SETTEUR
     public function setDb($db)
     {
         return $this->_db = $db;
     }
 
-    //recheche les commentaires
+    //Retourne les commentaires
     public function getComments()
     {
         $comments = [];
@@ -30,7 +31,7 @@ class CommentManager
         return $comments;
     }
 
-    //Recherche les commentaires lies a un chapitre
+    //Retourne les commentaires lies a un chapitre
     public function getCommentChapter($id)
     {
         $id = (int) $id;
@@ -45,6 +46,7 @@ class CommentManager
         return $comments;
     }
 
+    //Retourne le contenu d'un commentaire
     public function getComment($id)
     {
         $id = (int) $id;

@@ -19,6 +19,7 @@ class Comment
         $this->hydrate($array);
     }
 
+    //SETTEUR
     public function setId($id)
     {
         $id = (int) $id;
@@ -55,6 +56,7 @@ class Comment
         $this->_published = $date;
     }
 
+    //GETTEUR
     public function getId()
     {
         return $this->_id;

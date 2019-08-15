@@ -16,7 +16,7 @@ spl_autoload_register(function ($class) {
 });
 
 //Gestion des erreurs
-//set_exception_handler('exception');
+set_exception_handler('exception');
 
 function exception($e)
 {

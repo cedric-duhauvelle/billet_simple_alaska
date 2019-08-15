@@ -13,12 +13,13 @@ class ChapterManager
         return $this->setDb($db);
     }
 
+    //SETTEUR
     public function setDb($db)
     {
         $this->_db = $db;
     }
 
-    //retourne un chapitre
+    //Retourne un chapitre
     public function getChapter($id)
     {
         $id = (int) $id;
@@ -28,7 +29,7 @@ class ChapterManager
         return $chapter->recoverChapter();      
     }
 
-    //retourne les chapitres
+    //Retourne les chapitres
     public function getChapters()
     {
         $chapters = [];
@@ -42,7 +43,7 @@ class ChapterManager
         return $chapters;
     }
 
-    //retourne les 3 dernier chapitre paru
+    //Retourne les 3 dernier chapitre paru
     public function getLastChapters()
     {
         $chapters = [];
@@ -55,6 +56,7 @@ class ChapterManager
         return $chapters;
     }
 
+    //Retourne liens chapitres
     public function getLinkChapters()
     {
         $chapters = [];
@@ -68,6 +70,7 @@ class ChapterManager
         return $chapters;
     }
 
+    //Retourne liens chapitres (Admin)
     public function getLinkChaptersAdmin()
     {
         $chapters = [];
@@ -81,6 +84,7 @@ class ChapterManager
         return $chapters; 
     }
 
+    //Retourne une valeur de la base de donnees
     public function checkChapterData($champ, $search, $value)
     {
         $resp = $this->_db->prepare('SELECT * FROM chapters');
@@ -94,6 +98,7 @@ class ChapterManager
         }
     }
 
+    //Ajoute un chapitre
     public function add($title, $content)
     {
         $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');
@@ -102,6 +107,7 @@ class ChapterManager
         $req->execute(); 
     }
 
+    //Modifie un chapitre
     public function update($id, $title, $content)
     {
         $update = $this->_db->prepare('UPDATE chapters SET title=:title, content=:content WHERE id=:id');
@@ -111,6 +117,7 @@ class ChapterManager
         $update->execute();
     }
 
+    //Efface un chapitre
     public function delete($id)
     {
         $req = $this->_db->prepare('DELETE FROM chapters WHERE id=:id LIMIT 1');
@@ -118,6 +125,7 @@ class ChapterManager
         $req->execute();
     }
 
+    //Retourne le titre d'un chapitre
     public function displayTitleAdmin($id)
     {
         $id = (int) $id;
@@ -127,6 +135,7 @@ class ChapterManager
         return $chapter->getTitle();
     }
 
+    //Retourne le contenu d'un chapitre
     public function displayContentAdmin($id)
     {
         $id = (int) $id;

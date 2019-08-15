@@ -13,6 +13,7 @@ class UserManager
 		$this->setDb($db);
 	}
 
+    //SETTEUR
 	public function setDb($db)
 	{
 		$this->_db = $db;
@@ -29,7 +30,7 @@ class UserManager
         return $user->displayInscription();      
     }
 
-    //Recherche le nom
+    //Retourne le nom
     public function getName($id)
     {
         $id = (int) $id;        
@@ -41,7 +42,7 @@ class UserManager
         } 
     }  
 
-    //Recherche Email
+    //Retourne Email
     public function getEmail($id)
     {
         $id = (int) $id;
@@ -52,6 +53,7 @@ class UserManager
         return $user->getEmail();      
     }
 
+    //Retourne le mot de passe
     public function getPassword($id)
     {
     	$id = (int) $id;
@@ -62,6 +64,7 @@ class UserManager
         return $user->getPassword(); 
     }
 
+    //Retourne une donnee 
     public function checkUserData($champ, $search, $value)
     {
         $resp = $this->_db->prepare('SELECT * FROM users');
@@ -85,6 +88,7 @@ class UserManager
         $req->execute();
     }
 
+    //Modifie le nom
     public function nameUpdate($id, $name)
 	{
 		$update = $this->_db->prepare('UPDATE users SET name=:name WHERE id=:id');
@@ -93,6 +97,7 @@ class UserManager
         $update->execute();
 	}
 
+    //Modifie l'email
 	public function emailUpdate($id, $email)
 	{
 		$update = $this->_db->prepare('UPDATE users SET email=:email WHERE id=:id');
@@ -101,6 +106,7 @@ class UserManager
         $update->execute();
 	}
 
+    //Modifie le mot de passe
 	public function passwordUpdate($id, $password)
 	{
 		$update = $this->_db->prepare('UPDATE users SET password=:password WHERE id=:id');
