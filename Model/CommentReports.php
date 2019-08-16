@@ -1,10 +1,6 @@
 <?php
 namespace Model;
 
-use Manager\ChapterManager;
-use Manager\CommentManager;
-use Manager\UserManager;
-
 class CommentReports
 {
 
@@ -53,28 +49,6 @@ class CommentReports
     public function getReports()
     {
         return $this->_report;
-    }
-
-    //Affiche un report sur un commentaire
-    public function displayReport()
-    {
-        return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';
-    }
-
-    //Affiche les signalements et les boutons de gestion
-    public function display($db)
-    {
-        $chapter = new ChapterManager($db);
-        $user = new UserManager($db);
-        $comment = new CommentManager($db);
-
-        $title = $chapter->displayTitleAdmin(1);
-        $name = $user->getName($this->getUser());
-        $content = $comment->getComment($this->getId());
-
-        $date = explode(' ', $this->getReports());
-        $dateFr = explode('-', $date[0]);
-        require'../View/Template/report.php';
     }
 
     public function hydrate(array $data)

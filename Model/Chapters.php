@@ -14,7 +14,7 @@ class Chapters
         $this->hydrate($data);
     }
 
-    //SETTEUR
+    //SETTER
     public function setId($id)
     {
         $id = (int) $id;
@@ -53,7 +53,7 @@ class Chapters
         }
     }
 
-    //GETTEUR
+    //GETTER
     public function getId()
     {
         return $this->_id;
@@ -72,45 +72,5 @@ class Chapters
     public function getPublished()
     {
         return $this->_published;
-    }
-
-    //Affiche le resume d'un chapitre
-    public function displayChapters()
-    { 
-        $date = explode(' ', $this->_published);
-        $dateFr = explode('-', $date[0]);
-        require '../View/Template/chapterAbstract.php';
-    }
-
-    //Affiche un chapitre
-    public function recoverChapter()
-    {
-        $date = explode(' ', $this->getPublished());
-        $dateFr = explode('-', $date[0]);
-         require_once '../View/Template/chapter.php';      
-    }
-
-    //Affiche les liens des chapitres (admin)
-    public function linkDisplayChapterAdmin()
-    {
-        echo '<p><a href="administrateur?id=' . $this->getId() . '">' . $this->getTitle() . '</a></p>';
-    }
-
-    //Affiche les liens des chapitres
-    public function linkDisplayChapter()
-    {
-        echo '<p>- <a href="chapitre?id=' . $this->getId() . '">' . $this->getTitle() . '</a></p>';
-    }
-
-    //Retourne 'true' si id du chapitre existe
-    public function checkId($id)
-    {
-        $this->callDisplay('chapters');
-        foreach ($this->_responses as $response) {
-            if ($id === $response['id']) {
-                return true;
-            } 
-        }
-        return false;
     }
 }

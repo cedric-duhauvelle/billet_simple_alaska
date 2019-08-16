@@ -24,7 +24,7 @@ class Controller
 		$class = 'Controller\\' . $page;
 		new $class($db);
 
-		if ($page === 'DeconnexionController') {
+		if ('DeconnexionController' === $page) {
 			return new $class();
 		}
 	}

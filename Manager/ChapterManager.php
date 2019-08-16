@@ -2,6 +2,7 @@
 
 namespace Manager;
 
+use PDO;
 use Model\Chapters;
 
 class ChapterManager 
@@ -13,20 +14,25 @@ class ChapterManager
         return $this->setDb($db);
     }
 
-    //SETTEUR
+    //SETTER
     public function setDb($db)
     {
         $this->_db = $db;
     }
 
-    //Retourne un chapitre
+    /**
+     * Retourne un chapitre
+     * @return Chapters
+     */
     public function getChapter($id)
     {
         $id = (int) $id;
         $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id); 
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $chapter = new Chapters($data);
-        return $chapter->recoverChapter();      
+        $date = explode(' ', $chapter->getPublished());
+        $dateFr = explode('-', $date[0]);
+        require_once '../View/Template/chapter.php';      
     }
 
     //Retourne les chapitres
@@ -34,12 +40,10 @@ class ChapterManager
     {
         $chapters = [];
         $q = $this->_db->query('SELECT * FROM chapters');
-        while ($data = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $chapter = new Chapters($data);
-            $chapters[] = $chapter->displayChapters();
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $chapters[] = $this->chapterAbstract($data);
         }
-
+        
         return $chapters;
     }
 
@@ -49,8 +53,7 @@ class ChapterManager
         $chapters = [];
         $q = $this->_db->query('SELECT * FROM chapters ORDER BY id DESC LIMIT 0,3');
         while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
-            $chapter = new Chapters($data);
-            $chapters[] = $chapter->displayChapters();
+            $chapters[] = $this->chapterAbstract($data);
         }
 
         return $chapters;
@@ -61,13 +64,10 @@ class ChapterManager
     {
         $chapters = [];
         $q = $this->_db->query('SELECT * FROM chapters');
-        while ($data = $q->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $chapter = new Chapters($data);
-            $chapters[] = $chapter->linkDisplayChapter();
+            echo '<p>- <a href="chapitre?id=' . $chapter->getId() . '">' . $chapter->getTitle() . '</a></p>';
         }
-
-        return $chapters;
     }
 
     //Retourne liens chapitres (Admin)
@@ -75,13 +75,10 @@ class ChapterManager
     {
         $chapters = [];
         $q = $this->_db->query('SELECT * FROM chapters');
-        while ($data = $q->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $chapter = new Chapters($data);
-            $chapters[] = $chapter->linkDisplayChapterAdmin();
-        }
-
-        return $chapters; 
+            echo '<p>- <a href="administrateur?id=' . $chapter->getId() . '">' . $chapter->getTitle() . '</a></p>';   
+        } 
     }
 
     //Retourne une valeur de la base de donnees
@@ -143,5 +140,14 @@ class ChapterManager
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $chapter = new Chapters($data);
         return $content = $chapter->getContent(); 
+    }
+
+    public function chapterAbstract($data)
+    {
+        $chapter = new Chapters($data);
+        $date = explode(' ', $chapter->getPublished());
+        $dateFr = explode('-', $date[0]);
+        require '../View/Template/chapterAbstract.php';
+        
     }
 }

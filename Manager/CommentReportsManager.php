@@ -2,7 +2,11 @@
 
 namespace Manager;
 
+use PDO;
 use Model\CommentReports;
+use Manager\ChapterManager;
+use Manager\CommentManager;
+use Manager\UserManager;
 
 class CommentReportsManager
 {
@@ -36,8 +40,7 @@ class CommentReportsManager
         $q = $this->_db->query('SELECT * FROM reporting');
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $report = new CommentReports($data);
-            $reports[] = $report->display($this->_db);
+            $reports[] = $this->display($data);
         }
 
         return $reports;
@@ -67,7 +70,7 @@ class CommentReportsManager
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
             $report = new CommentReports($data);
-            $reports[] = $report->displayReport();
+            $reports[] = $this->displayReport();
         }
 
         return $reports;
@@ -80,4 +83,28 @@ class CommentReportsManager
         $req->bindValue(':id', $id);
         $req->execute();
 	}
+
+    //Affiche un report sur un commentaire
+    public function displayReport()
+    {
+        return '<p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>';
+    }
+
+    //Affiche les signalements et les boutons de gestion
+    public function display($data)
+    {
+        $report = new CommentReports($data);
+        $chapter = new ChapterManager($this->_db);
+        $user = new UserManager($this->_db);
+        $comment = new CommentManager($this->_db);
+        
+        $idComment = $report->getId();
+        $title = $chapter->displayTitleAdmin($comment->checkCommentData($idComment));
+        $name = $user->getName($report->getUser());
+        $content = $comment->getComment($report->getId());
+
+        $date = explode(' ', $report->getReports());
+        $dateFr = explode('-', $date[0]);
+        require'../View/Template/report.php';
+    }
 }

@@ -2,10 +2,6 @@
 
 namespace Model;
 
-use Manager\CommentReports;
-use Manager\ChapterManager;
-use Manager\UserManager;
-
 class Comment
 {
     private $_id;
@@ -80,26 +76,6 @@ class Comment
     public function getPublished()
     {
         return $this->_published;
-    }
-    
-    //Affiche les commentaires
-    public function display($db)
-    {
-        $chapter = new ChapterManager($db);
-        $user = new UserManager($db);
-        $report = new \Manager\CommentReportsManager($db);
-
-        $title = $chapter->displayTitleAdmin($this->getChapter());
-        $name = $user->getName($this->getUser());
-        $contentReport = '';
-
-        if ($report->getIdReport($this->getId())) {
-            $contentReport = $report->getReport($this->_id)[0];
-        }
-
-        $date = explode(' ', $this->_published);
-        $dateFr = explode('-', $date[0]);
-        require '../View/Template/comment.php';
     }
 
     public function hydrate(array $data)

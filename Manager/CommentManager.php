@@ -2,7 +2,11 @@
 
 namespace Manager;
 
+use PDO;
 use Model\Comment;
+use Manager\CommentReports;
+use Manager\ChapterManager;
+use Manager\UserManager;
 
 class CommentManager
 {
@@ -16,7 +20,7 @@ class CommentManager
     //SETTEUR
     public function setDb($db)
     {
-        return $this->_db = $db;
+        $this->_db = $db;
     }
 
     //Retourne les commentaires
@@ -25,8 +29,7 @@ class CommentManager
         $comments = [];
         $q = $this->_db->query('SELECT * FROM comments');
         while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
-            $comment = new Comment($data);
-            $comments[] = $comment->display($this->_db);
+            $comments[] = $this->display($data);
         }
         return $comments;
     }
@@ -39,8 +42,7 @@ class CommentManager
         $q = $this->_db->query('SELECT * FROM comments WHERE chapter = '. $id);
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $comment = new Comment($data);
-            $comments[] = $comment->display($this->_db);
+            $comments[] = $this->display($data);
         }
 
         return $comments;
@@ -79,4 +81,38 @@ class CommentManager
         $req->execute();
     }
 
+    //Affiche les commentaires
+    public function display($data)
+    {
+        $comment = new Comment($data);
+        $chapter = new ChapterManager($this->_db);
+        $user = new UserManager($this->_db);
+        $report = new \Manager\CommentReportsManager($this->_db);
+
+
+        $title = $chapter->displayTitleAdmin($comment->getChapter());
+        $name = $user->getName($comment->getUser());
+        $contentReport = '';
+
+        if ($report->getIdReport($comment->getId())) {
+            $contentReport = $report->getReport($comment->getId())[0];
+        }
+
+        $date = explode(' ', $comment->getPublished());
+        $dateFr = explode('-', $date[0]);
+        require '../View/Template/comment.php';
+    }
+
+    //Retourne une valeur de la base de donnees
+    public function checkCommentData($id)
+    {
+        $id = (int) $id;
+        $comments = [];
+        $q = $this->_db->query('SELECT * FROM comments WHERE id = '. $id);
+        while ($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $comment = new Comment($data);
+            return $comment->getChapter();
+        }
+    }
 }

@@ -1,10 +1,9 @@
 <?php
 
 require_once '../Model/private/adressDataBase.php';
-require_once '../Model/CustomException.php';
 
 use Model\Router;
-
+use Model\CustomException;
 session_start();
 
 //Charge les classe
@@ -22,7 +21,11 @@ set_exception_handler('exception');
 
 function exception($e)
 {
-    new Exception($e);
+	
+//var_dump($e);
+//die(__LINE__);
+
+    new CustomException($e);
 }
 
 //Appelle du Router

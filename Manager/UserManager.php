@@ -2,6 +2,7 @@
 
 namespace Manager;
 
+use PDO;
 use Model\User;
 
 class UserManager

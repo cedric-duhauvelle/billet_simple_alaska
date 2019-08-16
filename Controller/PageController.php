@@ -38,7 +38,7 @@ class PageController
             if ($page === 'chapitre') {
                 $comment = new CommentManager($db);
                 if (!$chapter->checkChapterData('id', $getClean['id'], 'id')) {
-                    throw new CustomException('Chapitre introuvable', 404);    
+                    throw new CustomException("Chapitre introuvable", 404);    
                 }
             } elseif ($page === 'administrateur') {
                 if(!array_key_exists('admin', $_SESSION)) {
