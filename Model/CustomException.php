@@ -17,7 +17,6 @@ class CustomException extends Exception
         
         //Appelle l'affichage
         require_once '../View/error-page.php';
-        //header('Location: error-page');
     }
 
     public function __toString()

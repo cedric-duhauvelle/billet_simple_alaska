@@ -20,10 +20,7 @@ class ChapterManager
         $this->_db = $db;
     }
 
-    /**
-     * Retourne un chapitre
-     * @return Chapters
-     */
+    //Retourne un chapitre
     public function getChapter($id)
     {
         $id = (int) $id;
@@ -142,6 +139,7 @@ class ChapterManager
         return $content = $chapter->getContent(); 
     }
 
+    //Affiche un extrait
     public function chapterAbstract($data)
     {
         $chapter = new Chapters($data);
