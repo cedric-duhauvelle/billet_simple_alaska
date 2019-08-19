@@ -36,10 +36,8 @@ class Router
         if (strpos($page, 'Controller') && is_file('../Controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             new Controller($page, $this->_db);
         //Redirection vers les templates
-        } elseif (is_file('../View/' . $page . '.php')) {                
+        } else {                
             new PageController($this->_db, $page);
-        } else {
-            throw new CustomException("Page introuvable", 404);  
         }
     }
 

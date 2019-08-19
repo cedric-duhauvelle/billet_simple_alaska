@@ -7,17 +7,17 @@ use Model\Session;
 
 class CustomException extends Exception
 {
-	public function __construct($message = null, $code = 5)
+	public function __construct($message = null, $code = 0)
     {
 
         parent::__construct($message, $code);
         $session = new Session();
-        var_dump($code);
         $session->addSession('errorMessage', $this->getMessage());        
         $session->addSession('errorCode', $this->getCode());       
         
         //Appelle l'affichage
-        header('Location: error-page');
+        require_once '../View/error-page.php';
+        //header('Location: error-page');
     }
 
     public function __toString()

@@ -33,32 +33,46 @@ class PageController
     {
         $router = new Router($db);
         $getClean = $router->cleanArray($_GET);
-        if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
-            $chapter = new ChapterManager($db);
-            if ($page === 'chapitre') {
-                $comment = new CommentManager($db);
-                if (!$chapter->checkChapterData('id', $getClean['id'], 'id')) {
-                    throw new CustomException("Chapitre introuvable", 404);    
+
+        if (is_file('../View/' . $page . '.php')) {
+
+            if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
+
+                $chapter = new ChapterManager($db);
+                if ($page === 'chapitre') {
+
+                    $comment = new CommentManager($db);
+                    if (!$chapter->checkChapterData('id', $getClean['id'], 'id')) {
+
+                        throw new CustomException("Chapitre introuvable", 404);    
+                    }
+                } elseif ($page === 'administrateur') {
+                    if(!array_key_exists('admin', $_SESSION)) {
+
+                        return header('location: accueil');
+                    }
+                    $title = '';
+                    $content = '';
+                    if (array_key_exists('id', $getClean)) {
+
+                        $title = $chapter->displayTitleAdmin($getClean['id']);
+                        $content = $chapter->displayContentAdmin($getClean['id']);
+                    }
+                    $report = new CommentReportsManager($db);
                 }
-            } elseif ($page === 'administrateur') {
-                if(!array_key_exists('admin', $_SESSION)) {
-                    return header('location: accueil');
-                }
-                $title = '';
-                $content = '';
-                if (array_key_exists('id', $getClean)) {
-                    $title = $chapter->displayTitleAdmin($getClean['id']);
-                    $content = $chapter->displayContentAdmin($getClean['id']);
-                }
-                $report = new CommentReportsManager($db);
             }
+            if ($page === 'commentaires') {
+
+                $comment = new CommentManager($db);
+            }
+            if ($page === 'profil') {
+
+                $user = new UserManager($db);
+            }
+            require_once '../View/' . $page . '.php';
+             
+        } else {
+            throw new CustomException("Page introuvable", 404);
         }
-        if ($page === 'commentaires') {
-            $comment = new CommentManager($db);
-        }
-        if ($page === 'profil') {
-            $user = new UserManager($db);
-        }
-        require_once '../View/' . $page . '.php';
     }
 }
