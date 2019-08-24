@@ -49,7 +49,7 @@ class ChapterManager
         $chapters = [];
         $q = $this->_db->query('SELECT * FROM chapters ORDER BY id DESC LIMIT 0,3');
         while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
-            $chapters[] = $this->chapterAbstract($data);
+            $chapters[] = new Chapters($data);
         }
 
         return $chapters;

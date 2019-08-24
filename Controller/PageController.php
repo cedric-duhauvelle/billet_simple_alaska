@@ -39,7 +39,10 @@ class PageController
             if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
 
                 $chapterManager = new ChapterManager($db);
-                if ($page === 'chapitre') {
+                
+                if ('accueil' === $page) {
+                    $chapters = $chapterManager->getLastChapters();
+                } elseif ($page === 'chapitre') {
                     $commentManager = new CommentManager($db);
                     $commentReportsManager =  new CommentReportsManager($db);
                     $userManager = new UserManager($db);
@@ -61,15 +64,18 @@ class PageController
                     $content = '';
                     if (array_key_exists('id', $getClean)) {
 
-                        $title = $chapter->displayTitleAdmin($getClean['id']);
-                        $content = $chapter->displayContentAdmin($getClean['id']);
+                        $title = $chapterManager->displayTitleAdmin($getClean['id']);
+                        $content = $chapterManager->displayContentAdmin($getClean['id']);
                     }
                     $report = new CommentReportsManager($db);
                 }
             }
             if ($page === 'commentaires') {
 
-                $comment = new CommentManager($db);
+                $commentManager = new CommentManager($db);
+                $chapter = $chapterManager->getChapter($getClean['id']);
+                $reports = $commentReportsManager->getReports();
+                $comments = $commentManager->getComments();
             }
             if ($page === 'profil') {
 

@@ -1,7 +1,7 @@
 <div id="content_admin">
     <div id="content_chapter_admin">
         <a href="administrateur">Nouveau Chapitre</a>
-        <?php $chapter->getLinkChaptersAdmin(); ?>  
+        <?php $chapterManager->getLinkChaptersAdmin(); ?>  
     </div>
     <div id="content_form_admin">
         <form action="AdministrateurController" method="POST">
@@ -17,7 +17,7 @@
             </div>
             <div id="Content_button_chapter_admin">
                 <input type="submit" name="buttonSave" value="Enregistrer" id="save_chapter_admin" />
-                <?php if (array_key_exists('id', $_GET)): ?>
+                <?php if (array_key_exists('id', $getClean)): ?>
                 <input type="submit" name="buttonDelete" value="Effacer" id="delete_chapter_admin" />
                 <?php endif; ?>
             </div>
