@@ -21,14 +21,12 @@ class UserManager
 	}
 
     //Retourne les utilisateurs
-    public function getUsers()
+    public function getUser($id)
     {
-        $users = [];
-        $q = $this->_db->query('SELECT * FROM users');
+        $q = $this->_db->query('SELECT * FROM users WHERE id = '. $id);
         while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
-            $users[] = new User($data);
+           return $user = new User($data);
         }
-        return $users;
     }
 
 	//retourne un chapitre

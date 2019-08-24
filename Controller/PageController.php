@@ -74,7 +74,6 @@ class PageController
                 } elseif ('commentaires' === $page) {
                     $commentManager = new CommentManager($db);
 
-                    $users = $userManager->getUsers();
                     $chapter = $chapterManager->getChapters();
                     $comments = $commentManager->getComments();
                     $reports = $commentReportsManager->getReports();
@@ -83,7 +82,8 @@ class PageController
             
             if ($page === 'profil') {
 
-                $user = new UserManager($db);
+                $userManager = new UserManager($db);
+                $user = $userManager->getUser($_SESSION['id_user']);
             }
             require_once '../View/' . $page . '.php';
              

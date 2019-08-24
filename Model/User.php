@@ -76,15 +76,6 @@ class User
         return $this->_inscription;
     }
 
-    //Retourne date inscription
-    public function displayInscription()
-    {
-        $dateArray = explode(' ', $this->getInscription());
-        $dateFr = explode('-', $dateArray[0]);
-
-        return '<p>Inscrit depuis le ' . $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $dateArray[1] . '</p>';
-    }
-
     public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {
