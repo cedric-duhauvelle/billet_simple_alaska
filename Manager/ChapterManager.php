@@ -37,7 +37,7 @@ class ChapterManager
         $chapters = [];
         $q = $this->_db->query('SELECT * FROM chapters');
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
-            $chapters[] = $this->chapterAbstract($data);
+            $chapters[] = new Chapters($data);
         }
         
         return $chapters;

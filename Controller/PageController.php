@@ -42,6 +42,8 @@ class PageController
                 
                 if ('accueil' === $page) {
                     $chapters = $chapterManager->getLastChapters();
+                } elseif ('chapitres' === $page) {
+                    $chapters = $chapterManager->getChapters();
                 } elseif ($page === 'chapitre') {
                     $commentManager = new CommentManager($db);
                     $commentReportsManager =  new CommentReportsManager($db);
