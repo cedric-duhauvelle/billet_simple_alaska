@@ -38,11 +38,17 @@ class PageController
 
             if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
 
-                $chapter = new ChapterManager($db);
+                $chapterManager = new ChapterManager($db);
                 if ($page === 'chapitre') {
+                    $commentManager = new CommentManager($db);
+                    $commentReportsManager =  new CommentReportsManager($db);
+                    $userManager = new UserManager($db);
 
-                    $comment = new CommentManager($db);
-                    if (!$chapter->checkChapterData('id', $getClean['id'], 'id')) {
+                    $comments = $commentManager->getCommentChapter($getClean['id']);
+                    $chapter = $chapterManager->getChapter($getClean['id']);
+                    $reports = $commentReportsManager->getReports();
+
+                    if (!$chapterManager->checkChapterData('id', $getClean['id'], 'id')) {
 
                         throw new CustomException("Chapitre introuvable", 404);    
                     }

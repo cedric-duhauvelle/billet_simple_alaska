@@ -2,15 +2,19 @@
     <h2 id="title_Chapters" class="title_section">Chapitre</h2>
     <div id="content_chapter">
         <div id="content_book">
-            <?php $chapter->getChapter($getClean['id']); ?>
+            <?php include 'Template/chapter.php'; ?>
         </div>
         <div id="link_chapters">
             <h3>Chapitres</h3>
-            <?php $chapter->getLinkChapters(); ?>
+            <?php $chapterManager->getLinkChapters(); ?>
         </div>
     </div>
     <div id="comment_content">
-        <?php $comment->getCommentChapter($getClean['id']); ?>
+    <?php 
+    foreach ($comments as $comment) {
+        require 'Template/comment.php';
+    }
+    ?>
     </div>
     <?php
     if (!empty($_SESSION['name'])) {
@@ -33,4 +37,3 @@
     }
     ?>   
 </div>
-<?php 

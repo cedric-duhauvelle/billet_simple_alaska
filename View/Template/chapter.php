@@ -1,4 +1,8 @@
+<?php 
+$date = date_create($chapter->getPublished());
+?>
+
 <div class="chapter">
-	<h3><?= $chapter->getTitle() ?></h3><p><?= $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1'] ?></p>
+	<h3><?= $chapter->getTitle() ?></h3><p><?= date_format($date, 'd/m/Y à H:i:s'); ?></p>
     <p class="content_text_chapter"><?= $chapter->getContent() ?></p>
 </div> 

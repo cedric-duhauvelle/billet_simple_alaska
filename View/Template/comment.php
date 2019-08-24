@@ -1,7 +1,7 @@
 <div class="display_comment_content">
-    <p>Publié le <?=  $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']  ?></p>
-    <a href="chapitre?id=<?= $comment->getChapter(); ?>" class="comment_title_link"><?= $title; ?></a>
-    <p>Par <?= $name; ?></p>
+    <p>Publié le <?=  date_format(date_create($comment->getPublished()), 'd/m/Y à H:i:s');  ?></p>
+    <a href="chapitre?id=<?= $comment->getChapter(); ?>" class="comment_title_link"><?= $chapter->getTitle($comment->getChapter()); ?></a>
+    <p>Par <?= $userManager->getName($comment->getUser()); ?></p>
     <p class="display_comment_details"><?= $comment->getContent(); ?></p>
     <?php if (!empty($_SESSION['name']))
     {
@@ -13,6 +13,12 @@
         </form>
     <?php
     }
-    echo $contentReport;
+    foreach ($reports as $report) {
+        if ($report->getId() === $comment->getId()) {
+    ?>
+            <p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>
+    <?php
+        }
+    }
     ?>
 </div>

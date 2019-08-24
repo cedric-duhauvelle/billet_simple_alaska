@@ -3,7 +3,6 @@ namespace Model;
 
 class CommentReports
 {
-
     private $_id;
     private $_user;
     private $_report;

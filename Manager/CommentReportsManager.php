@@ -40,7 +40,7 @@ class CommentReportsManager
         $q = $this->_db->query('SELECT * FROM reporting');
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $reports[] = $this->display($data);
+            $reports[] = new CommentReports($data);
         }
 
         return $reports;
@@ -69,8 +69,7 @@ class CommentReportsManager
         $q = $this->_db->query('SELECT * FROM comments WHERE id = '. $id);
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $report = new CommentReports($data);
-            $reports[] = $this->displayReport();
+            $reports[] = new CommentReports($data);
         }
 
         return $reports;

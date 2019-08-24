@@ -27,9 +27,8 @@ class ChapterManager
         $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id); 
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $chapter = new Chapters($data);
-        $date = explode(' ', $chapter->getPublished());
-        $dateFr = explode('-', $date[0]);
-        require_once '../View/Template/chapter.php';      
+
+        return $chapter;  
     }
 
     //Retourne les chapitres
