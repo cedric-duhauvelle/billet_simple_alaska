@@ -1,6 +1,6 @@
 <div class="display_comment_content">
-    <p>Publié le <?=  date_format(date_create($comment->getPublished()), 'd/m/Y à H:i:s');  ?></p>
-    <a href="chapitre?id=<?= $comment->getChapter(); ?>" class="comment_title_link"><?= $chapter->getTitle($comment->getChapter()); ?></a>
+    <p>Publié le <?=  date_format(date_create($comment->getPublished()), 'd/m/Y à H:i:s'); ?></p>
+    <a href="chapitre?id=<?= $comment->getChapter(); ?>" class="comment_title_link"><?php //$chapter->getTitle($comment->getChapter()); ?></a>
     <p>Par <?= $userManager->getName($comment->getUser()); ?></p>
     <p class="display_comment_details"><?= $comment->getContent(); ?></p>
     <?php if (!empty($_SESSION['name']))

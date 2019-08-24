@@ -29,7 +29,7 @@ class CommentManager
         $comments = [];
         $q = $this->_db->query('SELECT * FROM comments');
         while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
-            $comments[] = $this->display($data);
+            $comments[] = new Comment($data);
         }
         return $comments;
     }

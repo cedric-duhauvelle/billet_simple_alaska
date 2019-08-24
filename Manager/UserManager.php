@@ -20,6 +20,17 @@ class UserManager
 		$this->_db = $db;
 	}
 
+    //Retourne les utilisateurs
+    public function getUsers()
+    {
+        $users = [];
+        $q = $this->_db->query('SELECT * FROM users');
+        while ($data =  $q->fetch(PDO::FETCH_ASSOC)) {
+            $users[] = new User($data);
+        }
+        return $users;
+    }
+
 	//retourne un chapitre
     public function getInscription($id)
     {

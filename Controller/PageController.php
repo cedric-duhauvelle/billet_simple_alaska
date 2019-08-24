@@ -36,19 +36,20 @@ class PageController
 
         if (is_file('../View/' . $page . '.php')) {
 
-            if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur') {
+            if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur' || 'commentaires') {
 
                 $chapterManager = new ChapterManager($db);
-                
+                $userManager = new UserManager($db);
+                $commentReportsManager =  new CommentReportsManager($db);
                 if ('accueil' === $page) {
                     $chapters = $chapterManager->getLastChapters();
                 } elseif ('chapitres' === $page) {
                     $chapters = $chapterManager->getChapters();
-                } elseif ($page === 'chapitre') {
+                } elseif ('chapitre' === $page) {
                     $commentManager = new CommentManager($db);
-                    $commentReportsManager =  new CommentReportsManager($db);
-                    $userManager = new UserManager($db);
+                    
 
+                    $chapters = $chapterManager->getChapters();
                     $comments = $commentManager->getCommentChapter($getClean['id']);
                     $chapter = $chapterManager->getChapter($getClean['id']);
                     $reports = $commentReportsManager->getReports();
@@ -57,7 +58,7 @@ class PageController
 
                         throw new CustomException("Chapitre introuvable", 404);    
                     }
-                } elseif ($page === 'administrateur') {
+                } elseif ('administrateur' === $page) {
                     if(!array_key_exists('admin', $_SESSION)) {
 
                         return header('location: accueil');
@@ -70,15 +71,16 @@ class PageController
                         $content = $chapterManager->displayContentAdmin($getClean['id']);
                     }
                     $report = new CommentReportsManager($db);
+                } elseif ('commentaires' === $page) {
+                    $commentManager = new CommentManager($db);
+
+                    $users = $userManager->getUsers();
+                    $chapter = $chapterManager->getChapters();
+                    $comments = $commentManager->getComments();
+                    $reports = $commentReportsManager->getReports();
                 }
             }
-            if ($page === 'commentaires') {
-
-                $commentManager = new CommentManager($db);
-                $chapter = $chapterManager->getChapter($getClean['id']);
-                $reports = $commentReportsManager->getReports();
-                $comments = $commentManager->getComments();
-            }
+            
             if ($page === 'profil') {
 
                 $user = new UserManager($db);

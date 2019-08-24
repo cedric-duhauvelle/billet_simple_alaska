@@ -6,7 +6,13 @@
         </div>
         <div id="link_chapters">
             <h3>Chapitres</h3>
-            <?php $chapterManager->getLinkChapters(); ?>
+            <?php 
+            foreach ($chapters as $chapter) {
+            ?>
+                <p>- <a href="chapitre?id=<?= $chapter->getId() ?>"><?= $chapter->getTitle(); ?></a></p>
+            <?php
+            }
+            ?>
         </div>
     </div>
     <div id="comment_content">
