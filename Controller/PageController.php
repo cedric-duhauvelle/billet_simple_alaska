@@ -34,64 +34,44 @@ class PageController
     {
         $router = new Router($db);
         $getClean = $router->cleanArray($_GET);
-
         if (is_file('../View/' . $page . '.php')) {
-
-            if ($page === 'accueil' || 'chapitres' || 'chapitre' || 'administrateur' || 'commentaires') {
-
-                $chapterManager = new ChapterManager($db);
-                $userManager = new UserManager($db);
-                $commentManager = new CommentManager($db);
-                $commentReportsManager =  new CommentReportsManager($db);
-                if ('accueil' === $page) {
-                    $chapters = $chapterManager->getLastChapters();
-                } elseif ('chapitres' === $page) {
-                    $chapters = $chapterManager->getChapters();
-                } elseif ('chapitre' === $page) {
-                    
-                    
-
-                    $chapters = $chapterManager->getChapters();
-                    $comments = $commentManager->getCommentChapter($getClean['id']);
-                    $chapter = $chapterManager->getChapter($getClean['id']);
-                    $reports = $commentReportsManager->getReports();
-
-                    if (!$chapterManager->checkChapterData('id', $getClean['id'], 'id')) {
-
-                        throw new CustomException("Chapitre introuvable", 404);    
-                    }
-                } elseif ('administrateur' === $page) {
-                    if(!array_key_exists('admin', $_SESSION)) {
-
-                        return header('location: accueil');
-                    }
-
-                    $chapters = $chapterManager->getChapters();
-                    $reports = $commentReportsManager->getReports();
-
-                    $title = '';
-                    $content = '';
-                    if (array_key_exists('id', $getClean)) {
-                        $chapter = $chapterManager->getChapter($getClean['id']);
-                        $title = $chapter->getTitle();
-                        $content = $chapter->getContent();
-                    }
-                } elseif ('commentaires' === $page) {
-                    $commentManager = new CommentManager($db);
-
-                    $chapter = $chapterManager->getChapters();
-                    $comments = $commentManager->getComments();
-                    $reports = $commentReportsManager->getReports();
+            $chapterManager = new ChapterManager($db);
+            $userManager = new UserManager($db);
+            $commentManager = new CommentManager($db);
+            $commentReportsManager =  new CommentReportsManager($db);
+            if ('accueil' === $page) {
+                $chapters = $chapterManager->getLastChapters();
+            } elseif ('chapitres' === $page) {
+                $chapters = $chapterManager->getChapters();
+            } elseif ('chapitre' === $page) {
+                $chapters = $chapterManager->getChapters();
+                $comments = $commentManager->getCommentChapter($getClean['id']);
+                $chapter = $chapterManager->getChapter($getClean['id']);
+                $reports = $commentReportsManager->getReports();
+                if (!$chapterManager->checkChapterData('id', $getClean['id'], 'id')) {
+                    throw new CustomException("Chapitre introuvable", 404);    
                 }
-            }
-            
-            if ($page === 'profil') {
-
-                $userManager = new UserManager($db);
+            } elseif ('administrateur' === $page) {
+                if(!array_key_exists('admin', $_SESSION)) {
+                    return header('location: accueil');
+                }
+                $chapters = $chapterManager->getChapters();
+                $reports = $commentReportsManager->getReports();
+                $title = '';
+                $content = '';
+                if (array_key_exists('id', $getClean)) {
+                    $chapter = $chapterManager->getChapter($getClean['id']);
+                    $title = $chapter->getTitle();
+                    $content = $chapter->getContent();
+                }
+            } elseif ('commentaires' === $page) {
+                $chapter = $chapterManager->getChapters();
+                $comments = $commentManager->getComments();
+                $reports = $commentReportsManager->getReports();
+            } elseif ('profil' === $page) {
                 $user = $userManager->getUser($_SESSION['id_user']);
             }
             require_once '../View/' . $page . '.php';
-             
         } else {
             throw new CustomException("Page introuvable", 404);
         }

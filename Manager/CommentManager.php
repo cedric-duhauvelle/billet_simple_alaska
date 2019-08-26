@@ -52,14 +52,11 @@ class CommentManager
     public function getComment($id)
     {
         $id = (int) $id;
-        $comments = [];
         $q = $this->_db->query('SELECT * FROM comments WHERE id = '. $id);
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $comments[] = new Comment($data);
+           return $comments = new Comment($data);
         }
-
-        return $comments;
     }
 
     //Efface un commentaire

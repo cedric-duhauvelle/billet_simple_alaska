@@ -32,13 +32,14 @@
 </div>
 <div id="content_admin_comment">
     <?php
-    foreach ($reports as $report) {
-        if ($report) {
-            $comment = $commentManager->getComment($report->getId());
-            $chapter = $chapterManager->getChapter($comment[0]->getChapter());
-            $user = $userManager->getUser($report->getUser());
-            
-            include 'Template/report.php';
+    if ($reports) {
+        foreach ($reports as $report) {
+            if ($report) {
+                $comment = $commentManager->getComment($report->getId());
+                $chapter = $chapterManager->getChapter($comment->getChapter());
+                $user = $userManager->getUser($report->getUser());
+                include 'Template/report.php';
+            }
         }
     }
     ?>
