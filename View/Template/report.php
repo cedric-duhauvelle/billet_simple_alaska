@@ -1,9 +1,11 @@
+
+
 <div class="content_admin_reports_comment">
     <div class="content_admin_reports_details">
-        <p>Signalé le: <?= $dateFr[2] . '/' . $dateFr[1] . '/' . $dateFr[0] . ' à ' . $date['1']; ?>.</p>
-        <p>Signalé par : <?= $name; ?></p>
-        <p>Sur le chapitre : <?= $title; ?></p>
-        <p class="content_admin_reports_comment_details"><?= $content[0]; ?></p>
+        <p>Signalé le: <?= date_format(date_create($report->getReports()), 'd/m/Y à H:i:s'); ?>.</p>
+        <p>Signalé par : <?= $user->getName(); ?></p>
+        <p>Sur le chapitre : <?= $chapter->getTitle(); ?></p>
+        <p class="content_admin_reports_comment_details"><?= $comment[0]->getContent(); ?></p>
     </div>
     <div class="content_admin_reports_comment_button">
         <form action="DeleteController" method="post">

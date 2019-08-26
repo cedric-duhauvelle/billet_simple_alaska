@@ -5,6 +5,7 @@ namespace Controller;
 use Model\Router;
 use Model\CustomException;
 use Model\Chapters;
+use Model\Comment;
 use Manager\ChapterManager;
 use Manager\CommentManager;
 use Manager\CommentReportsManager;
@@ -40,13 +41,14 @@ class PageController
 
                 $chapterManager = new ChapterManager($db);
                 $userManager = new UserManager($db);
+                $commentManager = new CommentManager($db);
                 $commentReportsManager =  new CommentReportsManager($db);
                 if ('accueil' === $page) {
                     $chapters = $chapterManager->getLastChapters();
                 } elseif ('chapitres' === $page) {
                     $chapters = $chapterManager->getChapters();
                 } elseif ('chapitre' === $page) {
-                    $commentManager = new CommentManager($db);
+                    
                     
 
                     $chapters = $chapterManager->getChapters();
@@ -63,14 +65,17 @@ class PageController
 
                         return header('location: accueil');
                     }
+
+                    $chapters = $chapterManager->getChapters();
+                    $reports = $commentReportsManager->getReports();
+
                     $title = '';
                     $content = '';
                     if (array_key_exists('id', $getClean)) {
-
-                        $title = $chapterManager->displayTitleAdmin($getClean['id']);
-                        $content = $chapterManager->displayContentAdmin($getClean['id']);
+                        $chapter = $chapterManager->getChapter($getClean['id']);
+                        $title = $chapter->getTitle();
+                        $content = $chapter->getContent();
                     }
-                    $report = new CommentReportsManager($db);
                 } elseif ('commentaires' === $page) {
                     $commentManager = new CommentManager($db);
 

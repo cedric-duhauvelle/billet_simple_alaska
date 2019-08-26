@@ -56,8 +56,7 @@ class CommentManager
         $q = $this->_db->query('SELECT * FROM comments WHERE id = '. $id);
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $comment = new Comment($data);
-            $comments[] = $comment->getContent();
+            $comments[] = new Comment($data);
         }
 
         return $comments;

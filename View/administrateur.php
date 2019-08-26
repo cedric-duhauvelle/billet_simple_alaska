@@ -1,7 +1,13 @@
 <div id="content_admin">
     <div id="content_chapter_admin">
-        <a href="administrateur">Nouveau Chapitre</a>
-        <?php $chapterManager->getLinkChaptersAdmin(); ?>  
+        <a href="administrateur">- Nouveau Chapitre</a>
+        <?php 
+        foreach ($chapters as $chapter) {
+        ?>
+            <p>- <a href="administrateur?id=<?= $chapter->getId(); ?>"><?= $chapter->getTitle(); ?></a></p>
+        <?php
+        }
+        ?>  
     </div>
     <div id="content_form_admin">
         <form action="AdministrateurController" method="POST">
@@ -25,5 +31,15 @@
     </div>    
 </div>
 <div id="content_admin_comment">
-    <?php $report->getReports(); ?>
+    <?php
+    foreach ($reports as $report) {
+        if ($report) {
+            $comment = $commentManager->getComment($report->getId());
+            $chapter = $chapterManager->getChapter($comment[0]->getChapter());
+            $user = $userManager->getUser($report->getUser());
+            
+            include 'Template/report.php';
+        }
+    }
+    ?>
 </div>
