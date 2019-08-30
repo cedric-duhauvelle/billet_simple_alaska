@@ -29,52 +29,19 @@ class UserManager
         }
     }
 
-	//retourne un chapitre
-    public function getInscription($id)
-    {
-        $id = (int) $id;
-        $q = $this->_db->query('SELECT * FROM users WHERE id = '.$id); 
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $user = new User($data);
-
-        return $user->displayInscription();      
-    }
-
     //Retourne le nom
     public function getName($id)
     {
-        $id = (int) $id;        
+        $id = (int) $id;
         $q = $this->_db->query('SELECT * FROM users WHERE id = '. $id);
         while ($data = $q->fetch(PDO::FETCH_ASSOC))
         {
             $user = new User($data);
             return $user->getName();
-        } 
-    }  
-
-    //Retourne Email
-    public function getEmail($id)
-    {
-        $id = (int) $id;
-        $q = $this->_db->query('SELECT * FROM users WHERE id = '.$id); 
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $user = new User($data);
-
-        return $user->getEmail();      
+        }
     }
 
-    //Retourne le mot de passe
-    public function getPassword($id)
-    {
-    	$id = (int) $id;
-        $q = $this->_db->query('SELECT * FROM users WHERE id = '.$id); 
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $user = new User($data);
-
-        return $user->getPassword(); 
-    }
-
-    //Retourne une donnee 
+    //Retourne une donnee
     public function checkUserData($champ, $search, $value)
     {
         $resp = $this->_db->prepare('SELECT * FROM users');
@@ -84,7 +51,7 @@ class UserManager
         foreach ($responses as $response) {
             if ($response[$champ] === $search) {
                 return $response[$value];
-            } 
+            }
         }
     }
 

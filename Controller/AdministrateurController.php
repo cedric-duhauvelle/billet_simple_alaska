@@ -11,7 +11,7 @@ class AdministrateurController
 	{
 		$this->chapter($db);
 	}
-	
+
 	//Gere ajout modification supression chapitre (Admin)
 	public function chapter($db)
 	{

@@ -6,7 +6,7 @@
         </div>
         <div id="link_chapters">
             <h3>Chapitres</h3>
-            <?php 
+            <?php
             foreach ($chapters as $chapter) {
             ?>
                 <p>- <a href="chapitre?id=<?= $chapter->getId() ?>"><?= $chapter->getTitle(); ?></a></p>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div id="comment_content">
-    <?php 
+    <?php
     foreach ($comments as $comment) {
         require 'Template/comment.php';
     }
@@ -31,7 +31,7 @@
             <textarea id="comment_content_print" name="comment" placeholder="Commentaires..." alt="commentaires" required></textarea>
             <input type="submit" name="buttonSave" value="Envoyez" id="save_comment" alt="enregistrer commentaires" />
         </form>
-    </div> 
+    </div>
     <?php
     } else {
     ?>
@@ -41,5 +41,5 @@
     </div>
     <?php
     }
-    ?>   
+    ?>
 </div>

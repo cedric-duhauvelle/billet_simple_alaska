@@ -28,7 +28,7 @@ class InscriptionController
             //verifie si l'email est deja utilise
             if ($user->checkUserData('email', $postClean['emailInscription'], 'email') === null) {
                 if ($postClean['passwordInscription'] === $postClean['confirmationPasswordInscription']) {
-                    //Ajoute utilisateur a la base de donnees  
+                    //Ajoute utilisateur a la base de donnees
                     $user->add($postClean['pseudoInscription'], $postClean['emailInscription'], password_hash($postClean['passwordInscription'], PASSWORD_DEFAULT));
                     $session->addSession('id_user', $user->checkUserData('name', $postClean['pseudoInscription'], 'id'));
                     $session->addSession('name', $postClean['pseudoInscription']);

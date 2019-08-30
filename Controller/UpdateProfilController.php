@@ -23,7 +23,6 @@ class UpdateProfilController
 		//Nettoye la variable '$_POST'
 		$postClean = $router->cleanArray($_POST);
 
-
 		if (array_key_exists('updateName', $_POST)) {
 			//Modifie le nom utilisateur
 			if ($user->checkUserData('name', $postClean['updateName'], 'name') === null) {
@@ -39,8 +38,8 @@ class UpdateProfilController
 				$user->emailUpdate($_SESSION['id_user'], $postClean['updateEmail']);
 				return header('Location: profil');
 			} else {
-				$session->addSession('errorEmail', 'Email déjà utilisé!!');	
-			}	
+				$session->addSession('errorEmail', 'Email déjà utilisé!!');
+			}
 		} elseif (array_key_exists('updatePassword', $_POST)) {
 			//Modifie password utilisateur
 			if ($postClean['updatePassword'] === $postClean['updatePasswordCheck']) {
@@ -49,7 +48,7 @@ class UpdateProfilController
 				return header('Location: profil');
 			} else {
 				$session->addSession('errorPassword', 'Les mots de passe ne sont pas identiques!!');
-			}	
+			}
 		}
 		header('Location: update-profil');
 	}

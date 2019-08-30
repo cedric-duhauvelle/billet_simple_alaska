@@ -19,7 +19,7 @@ class CommentReportsController
 		//Nettoye la variable '$_POST'
 		$postClean = $router->cleanArray($_POST);
 
-		//Ajout Signalement 
+		//Ajout Signalement
 		$report = new CommentReportsManager($db);
 		$report->add($postClean['id'], $_SESSION['id_user']);
 

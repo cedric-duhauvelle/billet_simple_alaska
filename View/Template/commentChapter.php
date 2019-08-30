@@ -3,7 +3,7 @@
     <p>Par <?= $name->displayName($response['user']) ?></p>
     <p class="display_comment_details"><?= $response['content'] ?></p>
     <?php
-    if (!empty($_SESSION['name'])) 
+    if (!empty($_SESSION['name']))
     {
     ?>
     <form action="CommentReportsController" method="post">

@@ -54,7 +54,7 @@ $adminHead = 'administrateur';
             <a class="header_connexion" href="connexion">Connexion</a>
             <?php else: ?>
             <a class="header_connexion" href="profil"><span class="fa fa-user-circle" aria-hidden="true"></span> <?= ucwords($_SESSION['name']); ?></a>
-            <?php endif; ?>   
+            <?php endif; ?>
             </nav>
             <div id="content_menu">
                 <nav id="menu">
@@ -67,7 +67,7 @@ $adminHead = 'administrateur';
                 ?>
                 <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><span class="fa fa-cog" aria-hidden="true"></span><strong class="nav_items_title">Administrateur</strong></a>
                 <?php
-                }                    
+                }
                 ?>
                 </nav>
             </div>

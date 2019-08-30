@@ -23,7 +23,7 @@ class ConnexionController
         //Nettoye la variable '$_POST'
         $postClean = $routeur->cleanArray($_POST);
 
-        //Verifie le nom 
+        //Verifie le nom
         if ($user->checkUserData('name', $postClean['pseudo'], 'id') === null) {
             $session->addSession('errorName', 'Nom incorrect!!');
         } else {
@@ -39,9 +39,9 @@ class ConnexionController
                 }
                 return header('Location: profil');
             } else {
-                $session->addSession('errorPassword', 'Mot de passe incorrect!!');   
+                $session->addSession('errorPassword', 'Mot de passe incorrect!!');
             }
         }
-        header('Location: connexion');  
+        header('Location: connexion');
     }
 }

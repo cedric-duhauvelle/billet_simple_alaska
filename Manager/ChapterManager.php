@@ -5,10 +5,10 @@ namespace Manager;
 use PDO;
 use Model\Chapters;
 
-class ChapterManager 
+class ChapterManager
 {
     private $_db;
-    
+
     public function __construct($db)
     {
         return $this->setDb($db);
@@ -24,11 +24,11 @@ class ChapterManager
     public function getChapter($id)
     {
         $id = (int) $id;
-        $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id); 
+        $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id);
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $chapter = new Chapters($data);
 
-        return $chapter;  
+        return $chapter;
     }
 
     //Retourne les chapitres
@@ -39,7 +39,7 @@ class ChapterManager
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $chapters[] = new Chapters($data);
         }
-        
+
         return $chapters;
     }
 
@@ -55,28 +55,6 @@ class ChapterManager
         return $chapters;
     }
 
-    //Retourne liens chapitres
-    public function getLinkChapters()
-    {
-        $chapters = [];
-        $q = $this->_db->query('SELECT * FROM chapters');
-        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
-            $chapter = new Chapters($data);
-            echo '<p>- <a href="chapitre?id=' . $chapter->getId() . '">' . $chapter->getTitle() . '</a></p>';
-        }
-    }
-
-    //Retourne liens chapitres (Admin)
-    public function getLinkChaptersAdmin()
-    {
-        $chapters = [];
-        $q = $this->_db->query('SELECT * FROM chapters');
-        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
-            $chapter = new Chapters($data);
-            echo '<p>- <a href="administrateur?id=' . $chapter->getId() . '">' . $chapter->getTitle() . '</a></p>';   
-        } 
-    }
-
     //Retourne une valeur de la base de donnees
     public function checkChapterData($champ, $search, $value)
     {
@@ -87,7 +65,7 @@ class ChapterManager
         foreach ($responses as $response) {
             if ($response[$champ] === $search) {
                 return $response[$value];
-            } 
+            }
         }
     }
 
@@ -97,7 +75,7 @@ class ChapterManager
         $req = $this->_db->prepare('INSERT INTO chapters(title, content) VALUES (:title, :chapter)');
         $req->bindValue(':title', $title);
         $req->bindValue(':chapter', $content);
-        $req->execute(); 
+        $req->execute();
     }
 
     //Modifie un chapitre
@@ -122,7 +100,7 @@ class ChapterManager
     public function displayTitleAdmin($id)
     {
         $id = (int) $id;
-        $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id); 
+        $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id);
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $chapter = new Chapters($data);
         return $chapter->getTitle();
@@ -132,19 +110,9 @@ class ChapterManager
     public function displayContentAdmin($id)
     {
         $id = (int) $id;
-        $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id); 
+        $q = $this->_db->query('SELECT * FROM chapters WHERE id = '.$id);
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $chapter = new Chapters($data);
-        return $content = $chapter->getContent(); 
-    }
-
-    //Affiche un extrait
-    public function chapterAbstract($data)
-    {
-        $chapter = new Chapters($data);
-        $date = explode(' ', $chapter->getPublished());
-        $dateFr = explode('-', $date[0]);
-        require '../View/Template/chapterAbstract.php';
-        
+        return $content = $chapter->getContent();
     }
 }

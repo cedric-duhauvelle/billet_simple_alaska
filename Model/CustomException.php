@@ -12,9 +12,9 @@ class CustomException extends Exception
 
         parent::__construct($message, $code);
         $session = new Session();
-        $session->addSession('errorMessage', $this->getMessage());        
-        $session->addSession('errorCode', $this->getCode());       
-        
+        $session->addSession('errorMessage', $this->getMessage());
+        $session->addSession('errorCode', $this->getCode());
+
         //Appelle l'affichage
         require_once '../View/error-page.php';
     }

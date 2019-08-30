@@ -8,7 +8,7 @@ use Controller\Controller;
 use Controller\PageController;
 
 class Router
-{ 
+{
     private $_db;
 
     public function __construct($db)
@@ -36,7 +36,7 @@ class Router
         if (strpos($page, 'Controller') && is_file('../Controller/' . $page . '.php') && (!empty($_POST) || $page === "DeconnexionController")) {
             new Controller($page, $this->_db);
         //Redirection vers les templates
-        } else {                
+        } else {
             new PageController($this->_db, $page);
         }
     }

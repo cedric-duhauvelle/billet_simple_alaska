@@ -77,28 +77,6 @@ class CommentManager
         $req->execute();
     }
 
-    //Affiche les commentaires
-    public function display($data)
-    {
-        $comment = new Comment($data);
-        $chapter = new ChapterManager($this->_db);
-        $user = new UserManager($this->_db);
-        $report = new \Manager\CommentReportsManager($this->_db);
-
-
-        $title = $chapter->displayTitleAdmin($comment->getChapter());
-        $name = $user->getName($comment->getUser());
-        $contentReport = '';
-
-        if ($report->getIdReport($comment->getId())) {
-            $contentReport = $report->getReport($comment->getId())[0];
-        }
-
-        $date = explode(' ', $comment->getPublished());
-        $dateFr = explode('-', $date[0]);
-        require '../View/Template/comment.php';
-    }
-
     //Retourne une valeur de la base de donnees
     public function checkCommentData($id)
     {

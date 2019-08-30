@@ -24,8 +24,8 @@ class PageController
     {
         require_once '../View/Template/header.php';
 
-        $this->callClass($db,$page);      
-        
+        $this->callClass($db,$page);
+
         require_once '../View/Template/footer.php';
     }
 
@@ -49,7 +49,7 @@ class PageController
                 $chapter = $chapterManager->getChapter($getClean['id']);
                 $reports = $commentReportsManager->getReports();
                 if (!$chapterManager->checkChapterData('id', $getClean['id'], 'id')) {
-                    throw new CustomException("Chapitre introuvable", 404);    
+                    throw new CustomException("Chapitre introuvable", 404);
                 }
             } elseif ('administrateur' === $page) {
                 if(!array_key_exists('admin', $_SESSION)) {

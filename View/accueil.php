@@ -7,6 +7,6 @@
     		include 'Template/chapterAbstract.php';
     	}
     }
-    ?>  
+    ?>
     </div>
 </div>
