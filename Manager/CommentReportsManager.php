@@ -42,6 +42,9 @@ class CommentReportsManager
         {
             $reports[] = new CommentReports($data);
         }
+        $commentManager = new CommentManager($this->_db);
+        $chapterManager = new ChapterManager($this->_db);
+        $userManager = new UserManager($this->_db);
 
         return $reports;
     }
@@ -58,6 +61,7 @@ class CommentReportsManager
                 return true;
             }
         }
+
         return false;
     }
 

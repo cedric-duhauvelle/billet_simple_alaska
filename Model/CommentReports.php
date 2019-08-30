@@ -34,6 +34,13 @@ class CommentReports
         $this->_report = $report;
     }
 
+    public function setChapter($chapter)
+    {
+        $this->chapter = $chapter;
+    }
+
+
+
     //GETTEUR
     public function getId()
     {
@@ -49,7 +56,6 @@ class CommentReports
     {
         return $this->_report;
     }
-
     public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {
