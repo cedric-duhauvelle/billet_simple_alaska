@@ -10,7 +10,6 @@ use Manager\UserManager;
 
 class CommentReportsManager
 {
-
 	private $_db;
 
 	public function __construct($db)
