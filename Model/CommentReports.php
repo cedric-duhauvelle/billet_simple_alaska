@@ -39,8 +39,6 @@ class CommentReports
         $this->chapter = $chapter;
     }
 
-
-
     //GETTEUR
     public function getId()
     {
