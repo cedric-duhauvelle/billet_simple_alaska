@@ -65,7 +65,7 @@ $adminHead = 'administrateur';
                 <?php
                 if (array_key_exists('admin', $_SESSION)) {
                 ?>
-                <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><span class="fa fa-cog" aria-hidden="true"></span><strong class="nav_items_title">Administrateur</strong></a>
+                    <a <?php menuActive($adminHead, $getUrl); ?> href="administrateur"><span class="fa fa-cog" aria-hidden="true"></span><strong class="nav_items_title">Administrateur</strong></a>
                 <?php
                 }
                 ?>

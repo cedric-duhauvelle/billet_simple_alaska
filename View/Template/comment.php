@@ -6,11 +6,11 @@
     <?php if (!empty($_SESSION['name']))
     {
     ?>
-        <form action="CommentReportsController" method="post">
+    <form action="CommentReportsController" method="post">
         <label for="name"></label>
         <input type="text" name="id" class="reports_comment" value="<?= $comment->getId(); ?>" />
         <input type="submit" class="button_report_comment" value="Signalez" alt="signalez" />
-        </form>
+    </form>
     <?php
     }
     foreach ($reports as $report) {
