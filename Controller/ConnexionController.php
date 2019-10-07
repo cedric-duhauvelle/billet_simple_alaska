@@ -42,6 +42,7 @@ class ConnexionController
                 $session->addSession('errorPassword', 'Mot de passe incorrect!!');
             }
         }
+        //Redirection page
         header('Location: connexion');
     }
 }
