@@ -18,7 +18,6 @@
                 <label class="chapter_admin" for="chapter_content">Contenu chapitre</label>
                 <textarea id="chapter_content" class="wysiwyg" name="chapter" placeholder="Ecrivez ici ..." alt="contenu chapitre" cols="">
                     <?= $content; ?>
-
                 </textarea>
             </div>
             <div id="Content_button_chapter_admin">
