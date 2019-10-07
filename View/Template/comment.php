@@ -16,7 +16,7 @@
     foreach ($reports as $report) {
         if ($report->getId() === $comment->getId()) {
     ?>
-            <p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>
+    <p class="comment_chapter_error error_message">Signalé <span class="fa fa-flag" aria-hidden="true"></span></p>
     <?php
         }
     }
